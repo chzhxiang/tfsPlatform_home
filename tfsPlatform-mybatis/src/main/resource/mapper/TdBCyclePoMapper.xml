@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdBCyclePoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdBCyclePo" >
+    <id column="CYCLE_ID" property="cycleId" jdbcType="DECIMAL" />
+    <result column="CYC_START_TIME" property="cycStartTime" jdbcType="DATE" />
+    <result column="CYC_END_TIME" property="cycEndTime" jdbcType="DATE" />
+    <result column="RECV_START_TIME" property="recvStartTime" jdbcType="DATE" />
+    <result column="RECV_END_TIME" property="recvEndTime" jdbcType="DATE" />
+    <result column="DISCNT_JUDGE_TIME" property="discntJudgeTime" jdbcType="DATE" />
+    <result column="RLATE_FEE_TIME" property="rlateFeeTime" jdbcType="DATE" />
+    <result column="NLATE_FEE_TIME1" property="nlateFeeTime1" jdbcType="DATE" />
+    <result column="NLATE_FEE_TIME2" property="nlateFeeTime2" jdbcType="DATE" />
+    <result column="MONTH_ACCT_STATUS" property="monthAcctStatus" jdbcType="VARCHAR" />
+    <result column="LATE_FEE_ACT_MODE" property="lateFeeActMode" jdbcType="CHAR" />
+    <result column="LATE_FEE_RATIO1" property="lateFeeRatio1" jdbcType="DECIMAL" />
+    <result column="LATE_FEE_RATIO2" property="lateFeeRatio2" jdbcType="DECIMAL" />
+    <result column="USE_TAG" property="useTag" jdbcType="CHAR" />
+    <result column="ADD_TAG" property="addTag" jdbcType="CHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="UPDATE_PERSON" property="updatePerson" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME2" property="updateTime2" jdbcType="CHAR" />
+    <result column="CHECK_PERSON" property="checkPerson" jdbcType="VARCHAR" />
+    <result column="CHECK_TIME" property="checkTime" jdbcType="CHAR" />
+    <result column="CYC_HALF_TIME" property="cycHalfTime" jdbcType="DATE" />
+    <result column="OPEN_ACCT_DATE" property="openAcctDate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CYCLE_ID, CYC_START_TIME, CYC_END_TIME, RECV_START_TIME, RECV_END_TIME, DISCNT_JUDGE_TIME, 
+    RLATE_FEE_TIME, NLATE_FEE_TIME1, NLATE_FEE_TIME2, MONTH_ACCT_STATUS, LATE_FEE_ACT_MODE, 
+    LATE_FEE_RATIO1, LATE_FEE_RATIO2, USE_TAG, ADD_TAG, REMARK, UPDATE_PERSON, UPDATE_TIME2, 
+    CHECK_PERSON, CHECK_TIME, CYC_HALF_TIME, OPEN_ACCT_DATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_CYCLE
+    where CYCLE_ID = #{cycleId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from TD_B_CYCLE
+    where CYCLE_ID = #{cycleId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdBCyclePo" >
+    insert into TD_B_CYCLE (CYCLE_ID, CYC_START_TIME, CYC_END_TIME, 
+      RECV_START_TIME, RECV_END_TIME, DISCNT_JUDGE_TIME, 
+      RLATE_FEE_TIME, NLATE_FEE_TIME1, NLATE_FEE_TIME2, 
+      MONTH_ACCT_STATUS, LATE_FEE_ACT_MODE, LATE_FEE_RATIO1, 
+      LATE_FEE_RATIO2, USE_TAG, ADD_TAG, 
+      REMARK, UPDATE_PERSON, UPDATE_TIME2, 
+      CHECK_PERSON, CHECK_TIME, CYC_HALF_TIME, 
+      OPEN_ACCT_DATE)
+    values (#{cycleId,jdbcType=DECIMAL}, #{cycStartTime,jdbcType=DATE}, #{cycEndTime,jdbcType=DATE}, 
+      #{recvStartTime,jdbcType=DATE}, #{recvEndTime,jdbcType=DATE}, #{discntJudgeTime,jdbcType=DATE}, 
+      #{rlateFeeTime,jdbcType=DATE}, #{nlateFeeTime1,jdbcType=DATE}, #{nlateFeeTime2,jdbcType=DATE}, 
+      #{monthAcctStatus,jdbcType=VARCHAR}, #{lateFeeActMode,jdbcType=CHAR}, #{lateFeeRatio1,jdbcType=DECIMAL}, 
+      #{lateFeeRatio2,jdbcType=DECIMAL}, #{useTag,jdbcType=CHAR}, #{addTag,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{updatePerson,jdbcType=VARCHAR}, #{updateTime2,jdbcType=CHAR}, 
+      #{checkPerson,jdbcType=VARCHAR}, #{checkTime,jdbcType=CHAR}, #{cycHalfTime,jdbcType=DATE}, 
+      #{openAcctDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdBCyclePo" >
+    insert into TD_B_CYCLE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cycleId != null" >
+        CYCLE_ID,
+      </if>
+      <if test="cycStartTime != null" >
+        CYC_START_TIME,
+      </if>
+      <if test="cycEndTime != null" >
+        CYC_END_TIME,
+      </if>
+      <if test="recvStartTime != null" >
+        RECV_START_TIME,
+      </if>
+      <if test="recvEndTime != null" >
+        RECV_END_TIME,
+      </if>
+      <if test="discntJudgeTime != null" >
+        DISCNT_JUDGE_TIME,
+      </if>
+      <if test="rlateFeeTime != null" >
+        RLATE_FEE_TIME,
+      </if>
+      <if test="nlateFeeTime1 != null" >
+        NLATE_FEE_TIME1,
+      </if>
+      <if test="nlateFeeTime2 != null" >
+        NLATE_FEE_TIME2,
+      </if>
+      <if test="monthAcctStatus != null" >
+        MONTH_ACCT_STATUS,
+      </if>
+      <if test="lateFeeActMode != null" >
+        LATE_FEE_ACT_MODE,
+      </if>
+      <if test="lateFeeRatio1 != null" >
+        LATE_FEE_RATIO1,
+      </if>
+      <if test="lateFeeRatio2 != null" >
+        LATE_FEE_RATIO2,
+      </if>
+      <if test="useTag != null" >
+        USE_TAG,
+      </if>
+      <if test="addTag != null" >
+        ADD_TAG,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="updatePerson != null" >
+        UPDATE_PERSON,
+      </if>
+      <if test="updateTime2 != null" >
+        UPDATE_TIME2,
+      </if>
+      <if test="checkPerson != null" >
+        CHECK_PERSON,
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME,
+      </if>
+      <if test="cycHalfTime != null" >
+        CYC_HALF_TIME,
+      </if>
+      <if test="openAcctDate != null" >
+        OPEN_ACCT_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cycleId != null" >
+        #{cycleId,jdbcType=DECIMAL},
+      </if>
+      <if test="cycStartTime != null" >
+        #{cycStartTime,jdbcType=DATE},
+      </if>
+      <if test="cycEndTime != null" >
+        #{cycEndTime,jdbcType=DATE},
+      </if>
+      <if test="recvStartTime != null" >
+        #{recvStartTime,jdbcType=DATE},
+      </if>
+      <if test="recvEndTime != null" >
+        #{recvEndTime,jdbcType=DATE},
+      </if>
+      <if test="discntJudgeTime != null" >
+        #{discntJudgeTime,jdbcType=DATE},
+      </if>
+      <if test="rlateFeeTime != null" >
+        #{rlateFeeTime,jdbcType=DATE},
+      </if>
+      <if test="nlateFeeTime1 != null" >
+        #{nlateFeeTime1,jdbcType=DATE},
+      </if>
+      <if test="nlateFeeTime2 != null" >
+        #{nlateFeeTime2,jdbcType=DATE},
+      </if>
+      <if test="monthAcctStatus != null" >
+        #{monthAcctStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lateFeeActMode != null" >
+        #{lateFeeActMode,jdbcType=CHAR},
+      </if>
+      <if test="lateFeeRatio1 != null" >
+        #{lateFeeRatio1,jdbcType=DECIMAL},
+      </if>
+      <if test="lateFeeRatio2 != null" >
+        #{lateFeeRatio2,jdbcType=DECIMAL},
+      </if>
+      <if test="useTag != null" >
+        #{useTag,jdbcType=CHAR},
+      </if>
+      <if test="addTag != null" >
+        #{addTag,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePerson != null" >
+        #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime2 != null" >
+        #{updateTime2,jdbcType=CHAR},
+      </if>
+      <if test="checkPerson != null" >
+        #{checkPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=CHAR},
+      </if>
+      <if test="cycHalfTime != null" >
+        #{cycHalfTime,jdbcType=DATE},
+      </if>
+      <if test="openAcctDate != null" >
+        #{openAcctDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdBCyclePo" >
+    update TD_B_CYCLE
+    <set >
+      <if test="cycStartTime != null" >
+        CYC_START_TIME = #{cycStartTime,jdbcType=DATE},
+      </if>
+      <if test="cycEndTime != null" >
+        CYC_END_TIME = #{cycEndTime,jdbcType=DATE},
+      </if>
+      <if test="recvStartTime != null" >
+        RECV_START_TIME = #{recvStartTime,jdbcType=DATE},
+      </if>
+      <if test="recvEndTime != null" >
+        RECV_END_TIME = #{recvEndTime,jdbcType=DATE},
+      </if>
+      <if test="discntJudgeTime != null" >
+        DISCNT_JUDGE_TIME = #{discntJudgeTime,jdbcType=DATE},
+      </if>
+      <if test="rlateFeeTime != null" >
+        RLATE_FEE_TIME = #{rlateFeeTime,jdbcType=DATE},
+      </if>
+      <if test="nlateFeeTime1 != null" >
+        NLATE_FEE_TIME1 = #{nlateFeeTime1,jdbcType=DATE},
+      </if>
+      <if test="nlateFeeTime2 != null" >
+        NLATE_FEE_TIME2 = #{nlateFeeTime2,jdbcType=DATE},
+      </if>
+      <if test="monthAcctStatus != null" >
+        MONTH_ACCT_STATUS = #{monthAcctStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lateFeeActMode != null" >
+        LATE_FEE_ACT_MODE = #{lateFeeActMode,jdbcType=CHAR},
+      </if>
+      <if test="lateFeeRatio1 != null" >
+        LATE_FEE_RATIO1 = #{lateFeeRatio1,jdbcType=DECIMAL},
+      </if>
+      <if test="lateFeeRatio2 != null" >
+        LATE_FEE_RATIO2 = #{lateFeeRatio2,jdbcType=DECIMAL},
+      </if>
+      <if test="useTag != null" >
+        USE_TAG = #{useTag,jdbcType=CHAR},
+      </if>
+      <if test="addTag != null" >
+        ADD_TAG = #{addTag,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePerson != null" >
+        UPDATE_PERSON = #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime2 != null" >
+        UPDATE_TIME2 = #{updateTime2,jdbcType=CHAR},
+      </if>
+      <if test="checkPerson != null" >
+        CHECK_PERSON = #{checkPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME = #{checkTime,jdbcType=CHAR},
+      </if>
+      <if test="cycHalfTime != null" >
+        CYC_HALF_TIME = #{cycHalfTime,jdbcType=DATE},
+      </if>
+      <if test="openAcctDate != null" >
+        OPEN_ACCT_DATE = #{openAcctDate,jdbcType=DATE},
+      </if>
+    </set>
+    where CYCLE_ID = #{cycleId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdBCyclePo" >
+    update TD_B_CYCLE
+    set CYC_START_TIME = #{cycStartTime,jdbcType=DATE},
+      CYC_END_TIME = #{cycEndTime,jdbcType=DATE},
+      RECV_START_TIME = #{recvStartTime,jdbcType=DATE},
+      RECV_END_TIME = #{recvEndTime,jdbcType=DATE},
+      DISCNT_JUDGE_TIME = #{discntJudgeTime,jdbcType=DATE},
+      RLATE_FEE_TIME = #{rlateFeeTime,jdbcType=DATE},
+      NLATE_FEE_TIME1 = #{nlateFeeTime1,jdbcType=DATE},
+      NLATE_FEE_TIME2 = #{nlateFeeTime2,jdbcType=DATE},
+      MONTH_ACCT_STATUS = #{monthAcctStatus,jdbcType=VARCHAR},
+      LATE_FEE_ACT_MODE = #{lateFeeActMode,jdbcType=CHAR},
+      LATE_FEE_RATIO1 = #{lateFeeRatio1,jdbcType=DECIMAL},
+      LATE_FEE_RATIO2 = #{lateFeeRatio2,jdbcType=DECIMAL},
+      USE_TAG = #{useTag,jdbcType=CHAR},
+      ADD_TAG = #{addTag,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      UPDATE_PERSON = #{updatePerson,jdbcType=VARCHAR},
+      UPDATE_TIME2 = #{updateTime2,jdbcType=CHAR},
+      CHECK_PERSON = #{checkPerson,jdbcType=VARCHAR},
+      CHECK_TIME = #{checkTime,jdbcType=CHAR},
+      CYC_HALF_TIME = #{cycHalfTime,jdbcType=DATE},
+      OPEN_ACCT_DATE = #{openAcctDate,jdbcType=DATE}
+    where CYCLE_ID = #{cycleId,jdbcType=DECIMAL}
+  </update>
+  <select id="selectCycleId" parameterType="com.asiainfo.tfsPlatform.po.TdBCyclePo" resultMap="BaseResultMap">
+  	select CYCLE_ID from TD_B_CYCLE where USE_TAG='2';
+  </select>
+  <update id="updataCycle_code">
+  	update TD_B_CYCLE set ADD_TAG=0;
+  </update>
+</mapper>

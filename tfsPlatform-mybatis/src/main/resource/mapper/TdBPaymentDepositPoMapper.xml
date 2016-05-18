@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdBPaymentDepositPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdBPaymentDepositPo" >
+    <id column="PAYMENT_ID" property="paymentId" jdbcType="DECIMAL" />
+    <id column="PAY_FEE_MODE_CODE" property="payFeeModeCode" jdbcType="DECIMAL" />
+    <id column="RULE_ID" property="ruleId" jdbcType="DECIMAL" />
+    <result column="DEPOSIT_CODE" property="depositCode" jdbcType="DECIMAL" />
+    <result column="PRIVATE_TAG" property="privateTag" jdbcType="CHAR" />
+    <result column="INVOICE_TAG" property="invoiceTag" jdbcType="CHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PAYMENT_ID, PAY_FEE_MODE_CODE, RULE_ID, DEPOSIT_CODE, PRIVATE_TAG, INVOICE_TAG, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_PAYMENT_DEPOSIT
+    where PAYMENT_ID = #{paymentId,jdbcType=DECIMAL}
+      and PAY_FEE_MODE_CODE = #{payFeeModeCode,jdbcType=DECIMAL}
+      and RULE_ID = #{ruleId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TD_B_PAYMENT_DEPOSIT
+    where PAYMENT_ID = #{paymentId,jdbcType=DECIMAL}
+      and PAY_FEE_MODE_CODE = #{payFeeModeCode,jdbcType=DECIMAL}
+      and RULE_ID = #{ruleId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdBPaymentDepositPo" >
+    insert into TD_B_PAYMENT_DEPOSIT (PAYMENT_ID, PAY_FEE_MODE_CODE, RULE_ID, 
+      DEPOSIT_CODE, PRIVATE_TAG, INVOICE_TAG, 
+      REMARK)
+    values (#{paymentId,jdbcType=DECIMAL}, #{payFeeModeCode,jdbcType=DECIMAL}, #{ruleId,jdbcType=DECIMAL}, 
+      #{depositCode,jdbcType=DECIMAL}, #{privateTag,jdbcType=CHAR}, #{invoiceTag,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdBPaymentDepositPo" >
+    insert into TD_B_PAYMENT_DEPOSIT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paymentId != null" >
+        PAYMENT_ID,
+      </if>
+      <if test="payFeeModeCode != null" >
+        PAY_FEE_MODE_CODE,
+      </if>
+      <if test="ruleId != null" >
+        RULE_ID,
+      </if>
+      <if test="depositCode != null" >
+        DEPOSIT_CODE,
+      </if>
+      <if test="privateTag != null" >
+        PRIVATE_TAG,
+      </if>
+      <if test="invoiceTag != null" >
+        INVOICE_TAG,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paymentId != null" >
+        #{paymentId,jdbcType=DECIMAL},
+      </if>
+      <if test="payFeeModeCode != null" >
+        #{payFeeModeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="ruleId != null" >
+        #{ruleId,jdbcType=DECIMAL},
+      </if>
+      <if test="depositCode != null" >
+        #{depositCode,jdbcType=DECIMAL},
+      </if>
+      <if test="privateTag != null" >
+        #{privateTag,jdbcType=CHAR},
+      </if>
+      <if test="invoiceTag != null" >
+        #{invoiceTag,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdBPaymentDepositPo" >
+    update TD_B_PAYMENT_DEPOSIT
+    <set >
+      <if test="depositCode != null" >
+        DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL},
+      </if>
+      <if test="privateTag != null" >
+        PRIVATE_TAG = #{privateTag,jdbcType=CHAR},
+      </if>
+      <if test="invoiceTag != null" >
+        INVOICE_TAG = #{invoiceTag,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PAYMENT_ID = #{paymentId,jdbcType=DECIMAL}
+      and PAY_FEE_MODE_CODE = #{payFeeModeCode,jdbcType=DECIMAL}
+      and RULE_ID = #{ruleId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdBPaymentDepositPo" >
+    update TD_B_PAYMENT_DEPOSIT
+    set DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL},
+      PRIVATE_TAG = #{privateTag,jdbcType=CHAR},
+      INVOICE_TAG = #{invoiceTag,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where PAYMENT_ID = #{paymentId,jdbcType=DECIMAL}
+      and PAY_FEE_MODE_CODE = #{payFeeModeCode,jdbcType=DECIMAL}
+      and RULE_ID = #{ruleId,jdbcType=DECIMAL}
+  </update>
+</mapper>

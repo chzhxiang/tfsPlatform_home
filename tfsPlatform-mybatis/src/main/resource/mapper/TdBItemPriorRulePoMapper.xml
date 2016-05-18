@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdBItemPriorRulePoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdBItemPriorRulePo" >
+    <id column="ITEM_PRIOR_RULE_ID" property="itemPriorRuleId" jdbcType="DECIMAL" />
+    <id column="ITEM_CODE" property="itemCode" jdbcType="DECIMAL" />
+    <result column="ITEM_PRIORITY" property="itemPriority" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ITEM_PRIOR_RULE_ID, ITEM_CODE, ITEM_PRIORITY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_ITEMPRIORRULE
+    where ITEM_PRIOR_RULE_ID = #{itemPriorRuleId,jdbcType=DECIMAL}
+      and ITEM_CODE = #{itemCode,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TD_B_ITEMPRIORRULE
+    where ITEM_PRIOR_RULE_ID = #{itemPriorRuleId,jdbcType=DECIMAL}
+      and ITEM_CODE = #{itemCode,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdBItemPriorRulePo" >
+    insert into TD_B_ITEMPRIORRULE (ITEM_PRIOR_RULE_ID, ITEM_CODE, ITEM_PRIORITY
+      )
+    values (#{itemPriorRuleId,jdbcType=DECIMAL}, #{itemCode,jdbcType=DECIMAL}, #{itemPriority,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdBItemPriorRulePo" >
+    insert into TD_B_ITEMPRIORRULE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="itemPriorRuleId != null" >
+        ITEM_PRIOR_RULE_ID,
+      </if>
+      <if test="itemCode != null" >
+        ITEM_CODE,
+      </if>
+      <if test="itemPriority != null" >
+        ITEM_PRIORITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="itemPriorRuleId != null" >
+        #{itemPriorRuleId,jdbcType=DECIMAL},
+      </if>
+      <if test="itemCode != null" >
+        #{itemCode,jdbcType=DECIMAL},
+      </if>
+      <if test="itemPriority != null" >
+        #{itemPriority,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdBItemPriorRulePo" >
+    update TD_B_ITEMPRIORRULE
+    <set >
+      <if test="itemPriority != null" >
+        ITEM_PRIORITY = #{itemPriority,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ITEM_PRIOR_RULE_ID = #{itemPriorRuleId,jdbcType=DECIMAL}
+      and ITEM_CODE = #{itemCode,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdBItemPriorRulePo" >
+    update TD_B_ITEMPRIORRULE
+    set ITEM_PRIORITY = #{itemPriority,jdbcType=DECIMAL}
+    where ITEM_PRIOR_RULE_ID = #{itemPriorRuleId,jdbcType=DECIMAL}
+      and ITEM_CODE = #{itemCode,jdbcType=DECIMAL}
+  </update>
+</mapper>

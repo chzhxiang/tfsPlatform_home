@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TaskDao">
+		<!--
+	-->
+	<select id="get" parameterType="long" resultType="Task">
+		select id, title, description,
+		user_id  as "user.id"
+		from ss_task
+		where id=#{id}
+	</select>
+
+	<!-- 查询用户,演示: 1.输入用map传入多个参数 2.<where>语句, 智能添加where和and关键字 3.输出直接映射对象 -->
+	<select id="search" parameterType="map" resultType="Task">
+		select id, title, description,
+		user_id as "user.id"
+		from ss_task
+		<where>
+			<if test="title != null">
+				title=#{title}
+			</if>
+			<if test="description != null">
+				and description=#{description}
+			</if>
+		</where>
+	</select>
+
+	<!-- 插入用户： 1.由数据库生成id并赋值到user对象 2.输入用对象, 嵌套属性表达式#{team.id} -->
+	<insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+		insert into ss_task (
+		title, description, user_id)
+		values (
+		#{title}, #{description}, #{user.id})
+	</insert>
+	
+	<!-- 删除用户 -->
+	<delete id="delete" parameterType="long">
+	     delete from ss_task where id=#{id}
+	</delete>
+</mapper> 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TfFCustContactPoExtMapper" >
+  <resultMap id="BaseResultMap1" type="com.asiainfo.tfsPlatform.po.TfFCustContactPo" >
+    <id column="CONTACT_ID" property="contactId" jdbcType="DECIMAL" />
+    <result column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="MYSELF_FLAG" property="myselfFlag" jdbcType="CHAR" />
+    <result column="ORG_ID" property="orgId" jdbcType="DECIMAL" />
+    <result column="STAFF_ID" property="staffId" jdbcType="DECIMAL" />
+    <result column="CONTACT_NAME" property="contactName" jdbcType="VARCHAR" />
+    <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR" />
+    <result column="CONTACT_FAX" property="contactFax" jdbcType="VARCHAR" />
+    <result column="CONTACT_EMAIL" property="contactEmail" jdbcType="VARCHAR" />
+    <result column="CONTACT_POST_CODE" property="contactPostCode" jdbcType="CHAR" />
+    <result column="CONTACT_POST_ADDR" property="contactPostAddr" jdbcType="VARCHAR" />
+    <result column="CONTACT_HOME_ADDR" property="contactHomeAddr" jdbcType="VARCHAR" />
+    <result column="CONTACT_PSPT_TYPE_CODE" property="contactPsptTypeCode" jdbcType="CHAR" />
+    <result column="CONTACT_PSPT_ID" property="contactPsptId" jdbcType="VARCHAR" />
+    <result column="CONTACT_WORK_NAME" property="contactWorkName" jdbcType="VARCHAR" />
+    <result column="CONTACT_WORK_ADDR" property="contactWorkAddr" jdbcType="VARCHAR" />
+    <result column="CONTACT_DEPART" property="contactDepart" jdbcType="VARCHAR" />
+    <result column="CONTACT_DUTY" property="contactDuty" jdbcType="VARCHAR" />
+    <result column="BEST_CONTACT_TIME" property="bestContactTime" jdbcType="TIMESTAMP" />
+    <result column="FIRST_CONTACT_MODE" property="firstContactMode" jdbcType="CHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="VARCHAR" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RSRV_NUM1" property="rsrvNum1" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM2" property="rsrvNum2" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM3" property="rsrvNum3" jdbcType="DECIMAL" />
+    <result column="RSRV_STR1" property="rsrvStr1" jdbcType="VARCHAR" />
+    <result column="RSRV_STR2" property="rsrvStr2" jdbcType="VARCHAR" />
+    <result column="RSRV_STR3" property="rsrvStr3" jdbcType="VARCHAR" />
+    <result column="RSRV_STR4" property="rsrvStr4" jdbcType="VARCHAR" />
+    <result column="RSRV_STR5" property="rsrvStr5" jdbcType="VARCHAR" />
+    <result column="RSRV_STR6" property="rsrvStr6" jdbcType="VARCHAR" />
+    <result column="RSRV_DATE1" property="rsrvDate1" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE2" property="rsrvDate2" jdbcType="TIMESTAMP" />
+    <result column="RSRV_TAG1" property="rsrvTag1" jdbcType="CHAR" />
+    <result column="RSRV_TAG2" property="rsrvTag2" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List1" >
+    CONTACT_ID, CUST_ID, MYSELF_FLAG, ORG_ID, STAFF_ID, CONTACT_NAME, CONTACT_PHONE, 
+    CONTACT_FAX, CONTACT_EMAIL, CONTACT_POST_CODE, CONTACT_POST_ADDR, CONTACT_HOME_ADDR, 
+    CONTACT_PSPT_TYPE_CODE, CONTACT_PSPT_ID, CONTACT_WORK_NAME, CONTACT_WORK_ADDR, CONTACT_DEPART, 
+    CONTACT_DUTY, BEST_CONTACT_TIME, FIRST_CONTACT_MODE, UPDATE_TIME, UPDATE_STAFF_ID, 
+    UPDATE_DEPART_ID, REMARK, RSRV_NUM1, RSRV_NUM2, RSRV_NUM3, RSRV_STR1, RSRV_STR2, 
+    RSRV_STR3, RSRV_STR4, RSRV_STR5, RSRV_STR6, RSRV_DATE1, RSRV_DATE2, RSRV_TAG1, RSRV_TAG2
+  </sql>
+  <select id="selectByMultiCondtions" parameterType="com.asiainfo.tfsPlatform.po.TfFCustContactPo" resultMap="BaseResultMap1">
+  	select 
+    <include refid="Base_Column_List1" />
+    from TF_F_CUST_CONTACT
+    where 1=1
+    <if test="contactId != null" >
+      and  CONTACT_ID = #{contactId,jdbcType=DECIMAL}
+    </if>
+    <if test="orgId != null" >
+      and  ORG_ID = #{orgId,jdbcType=DECIMAL}
+    </if>
+    <if test="updateTime != null" >
+      and  UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="contactName != null" >
+      and  CONTACT_NAME like CONCAT('%',#{contactName,jdbcType=VARCHAR},'%' )
+    </if>
+    <if test="contactEmail != null" >
+      and  CONTACT_EMAIL like CONCAT('%',#{contactEmail,jdbcType=VARCHAR},'%' )
+    </if>
+  </select>
+</mapper>

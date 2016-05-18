@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.SpSettleRuleMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.SpSettleRule" >
+    <id column="SVC_CODE" property="svcCode" jdbcType="VARCHAR" />
+    <id column="USER_TYPE" property="userType" jdbcType="VARCHAR" />
+    <id column="CDR_TYPE" property="cdrType" jdbcType="VARCHAR" />
+    <id column="BILLING_TYPE" property="billingType" jdbcType="VARCHAR" />
+    <id column="EFFDATE" property="effdate" jdbcType="VARCHAR" />
+    <result column="COUNT_RATE" property="countRate" jdbcType="DECIMAL" />
+    <result column="INFO_RATE" property="infoRate" jdbcType="DECIMAL" />
+    <result column="EXPDATE" property="expdate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SVC_CODE, USER_TYPE, CDR_TYPE, BILLING_TYPE, EFFDATE, COUNT_RATE, INFO_RATE, EXPDATE
+  </sql>
+  <select id="getDataBySvcCode" resultType="map">
+  SELECT  
+  	<include refid="Base_Column_List"></include>
+  	  FROM SP_SETTLE_RULE WHERE SVC_CODE=#{svcCode} limit 1
+  </select>  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from SP_SETTLE_RULE
+    where SVC_CODE = #{svcCode,jdbcType=VARCHAR}
+      and USER_TYPE = #{userType,jdbcType=VARCHAR}
+      and CDR_TYPE = #{cdrType,jdbcType=VARCHAR}
+      and BILLING_TYPE = #{billingType,jdbcType=VARCHAR}
+      and EFFDATE = #{effdate,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from SP_SETTLE_RULE
+    where SVC_CODE = #{svcCode,jdbcType=VARCHAR}
+      and USER_TYPE = #{userType,jdbcType=VARCHAR}
+      and CDR_TYPE = #{cdrType,jdbcType=VARCHAR}
+      and BILLING_TYPE = #{billingType,jdbcType=VARCHAR}
+      and EFFDATE = #{effdate,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.SpSettleRule" >
+    insert into SP_SETTLE_RULE (SVC_CODE, USER_TYPE, CDR_TYPE, 
+      BILLING_TYPE, EFFDATE, COUNT_RATE, 
+      INFO_RATE, EXPDATE)
+    values (#{svcCode,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR}, #{cdrType,jdbcType=VARCHAR}, 
+      #{billingType,jdbcType=VARCHAR}, #{effdate,jdbcType=VARCHAR}, #{countRate,jdbcType=DECIMAL}, 
+      #{infoRate,jdbcType=DECIMAL}, #{expdate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.SpSettleRule" >
+    insert into SP_SETTLE_RULE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="svcCode != null" >
+        SVC_CODE,
+      </if>
+      <if test="userType != null" >
+        USER_TYPE,
+      </if>
+      <if test="cdrType != null" >
+        CDR_TYPE,
+      </if>
+      <if test="billingType != null" >
+        BILLING_TYPE,
+      </if>
+      <if test="effdate != null" >
+        EFFDATE,
+      </if>
+      <if test="countRate != null" >
+        COUNT_RATE,
+      </if>
+      <if test="infoRate != null" >
+        INFO_RATE,
+      </if>
+      <if test="expdate != null" >
+        EXPDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="svcCode != null" >
+        #{svcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="cdrType != null" >
+        #{cdrType,jdbcType=VARCHAR},
+      </if>
+      <if test="billingType != null" >
+        #{billingType,jdbcType=VARCHAR},
+      </if>
+      <if test="effdate != null" >
+        #{effdate,jdbcType=VARCHAR},
+      </if>
+      <if test="countRate != null" >
+        #{countRate,jdbcType=DECIMAL},
+      </if>
+      <if test="infoRate != null" >
+        #{infoRate,jdbcType=DECIMAL},
+      </if>
+      <if test="expdate != null" >
+        #{expdate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.SpSettleRule" >
+    update SP_SETTLE_RULE
+    <set >
+      <if test="countRate != null" >
+        COUNT_RATE = #{countRate,jdbcType=DECIMAL},
+      </if>
+      <if test="infoRate != null" >
+        INFO_RATE = #{infoRate,jdbcType=DECIMAL},
+      </if>
+      <if test="expdate != null" >
+        EXPDATE = #{expdate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SVC_CODE = #{svcCode,jdbcType=VARCHAR}
+      and USER_TYPE = #{userType,jdbcType=VARCHAR}
+      and CDR_TYPE = #{cdrType,jdbcType=VARCHAR}
+      and BILLING_TYPE = #{billingType,jdbcType=VARCHAR}
+      and EFFDATE = #{effdate,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.SpSettleRule" >
+    update SP_SETTLE_RULE
+    set COUNT_RATE = #{countRate,jdbcType=DECIMAL},
+      INFO_RATE = #{infoRate,jdbcType=DECIMAL},
+      EXPDATE = #{expdate,jdbcType=VARCHAR}
+    where SVC_CODE = #{svcCode,jdbcType=VARCHAR}
+      and USER_TYPE = #{userType,jdbcType=VARCHAR}
+      and CDR_TYPE = #{cdrType,jdbcType=VARCHAR}
+      and BILLING_TYPE = #{billingType,jdbcType=VARCHAR}
+      and EFFDATE = #{effdate,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfBTradeDiscntPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBTradeDiscntPo" >
+    <id column="TRADE_ID" property="tradeId" jdbcType="DECIMAL" />
+    <id column="ACCEPT_MONTH" property="acceptMonth" jdbcType="DECIMAL" />
+    <id column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <id column="DISCNT_CODE" property="discntCode" jdbcType="DECIMAL" />
+    <id column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="USER_ID_A" property="userIdA" jdbcType="DECIMAL" />
+    <result column="PRODUCT_ID" property="productId" jdbcType="DECIMAL" />
+    <result column="PACKAGE_ID" property="packageId" jdbcType="DECIMAL" />
+    <result column="SPEC_TAG" property="specTag" jdbcType="CHAR" />
+    <result column="RELATION_TYPE_CODE" property="relationTypeCode" jdbcType="VARCHAR" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="ITEM_ID" property="itemId" jdbcType="DECIMAL" />
+    <result column="MODIFY_TAG" property="modifyTag" jdbcType="CHAR" />
+    <result column="DISCNT_INSTANCE" property="discntInstance" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADE_ID, ACCEPT_MONTH, USER_ID, DISCNT_CODE, START_DATE, PARTITION_ID, USER_ID_A, 
+    PRODUCT_ID, PACKAGE_ID, SPEC_TAG, RELATION_TYPE_CODE, END_DATE, ITEM_ID, MODIFY_TAG, 
+    DISCNT_INSTANCE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_B_TRADE_DISCNT
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and USER_ID = #{userId,jdbcType=DECIMAL}
+      and DISCNT_CODE = #{discntCode,jdbcType=DECIMAL}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TF_B_TRADE_DISCNT
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and USER_ID = #{userId,jdbcType=DECIMAL}
+      and DISCNT_CODE = #{discntCode,jdbcType=DECIMAL}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeDiscntPo" >
+    insert into TF_B_TRADE_DISCNT (TRADE_ID, ACCEPT_MONTH, USER_ID, 
+      DISCNT_CODE, START_DATE, PARTITION_ID, 
+      USER_ID_A, PRODUCT_ID, PACKAGE_ID, 
+      SPEC_TAG, RELATION_TYPE_CODE, END_DATE, 
+      ITEM_ID, MODIFY_TAG, DISCNT_INSTANCE
+      )
+    values (#{tradeId,jdbcType=DECIMAL}, #{acceptMonth,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, 
+      #{discntCode,jdbcType=DECIMAL}, #{startDate,jdbcType=TIMESTAMP}, #{partitionId,jdbcType=DECIMAL}, 
+      #{userIdA,jdbcType=DECIMAL}, #{productId,jdbcType=DECIMAL}, #{packageId,jdbcType=DECIMAL}, 
+      #{specTag,jdbcType=CHAR}, #{relationTypeCode,jdbcType=VARCHAR}, #{endDate,jdbcType=TIMESTAMP}, 
+      #{itemId,jdbcType=DECIMAL}, #{modifyTag,jdbcType=CHAR}, #{discntInstance,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeDiscntPo" >
+    insert into TF_B_TRADE_DISCNT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tradeId != null" >
+        TRADE_ID,
+      </if>
+      <if test="acceptMonth != null" >
+        ACCEPT_MONTH,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="discntCode != null" >
+        DISCNT_CODE,
+      </if>
+      <if test="startDate != null" >
+        START_DATE,
+      </if>
+      <if test="partitionId != null" >
+        PARTITION_ID,
+      </if>
+      <if test="userIdA != null" >
+        USER_ID_A,
+      </if>
+      <if test="productId != null" >
+        PRODUCT_ID,
+      </if>
+      <if test="packageId != null" >
+        PACKAGE_ID,
+      </if>
+      <if test="specTag != null" >
+        SPEC_TAG,
+      </if>
+      <if test="relationTypeCode != null" >
+        RELATION_TYPE_CODE,
+      </if>
+      <if test="endDate != null" >
+        END_DATE,
+      </if>
+      <if test="itemId != null" >
+        ITEM_ID,
+      </if>
+      <if test="modifyTag != null" >
+        MODIFY_TAG,
+      </if>
+      <if test="discntInstance != null" >
+        DISCNT_INSTANCE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tradeId != null" >
+        #{tradeId,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptMonth != null" >
+        #{acceptMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="discntCode != null" >
+        #{discntCode,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="partitionId != null" >
+        #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="userIdA != null" >
+        #{userIdA,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=DECIMAL},
+      </if>
+      <if test="packageId != null" >
+        #{packageId,jdbcType=DECIMAL},
+      </if>
+      <if test="specTag != null" >
+        #{specTag,jdbcType=CHAR},
+      </if>
+      <if test="relationTypeCode != null" >
+        #{relationTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemId != null" >
+        #{itemId,jdbcType=DECIMAL},
+      </if>
+      <if test="modifyTag != null" >
+        #{modifyTag,jdbcType=CHAR},
+      </if>
+      <if test="discntInstance != null" >
+        #{discntInstance,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeDiscntPo" >
+    update TF_B_TRADE_DISCNT
+    <set >
+      <if test="partitionId != null" >
+        PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="userIdA != null" >
+        USER_ID_A = #{userIdA,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        PRODUCT_ID = #{productId,jdbcType=DECIMAL},
+      </if>
+      <if test="packageId != null" >
+        PACKAGE_ID = #{packageId,jdbcType=DECIMAL},
+      </if>
+      <if test="specTag != null" >
+        SPEC_TAG = #{specTag,jdbcType=CHAR},
+      </if>
+      <if test="relationTypeCode != null" >
+        RELATION_TYPE_CODE = #{relationTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null" >
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemId != null" >
+        ITEM_ID = #{itemId,jdbcType=DECIMAL},
+      </if>
+      <if test="modifyTag != null" >
+        MODIFY_TAG = #{modifyTag,jdbcType=CHAR},
+      </if>
+      <if test="discntInstance != null" >
+        DISCNT_INSTANCE = #{discntInstance,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and USER_ID = #{userId,jdbcType=DECIMAL}
+      and DISCNT_CODE = #{discntCode,jdbcType=DECIMAL}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeDiscntPo" >
+    update TF_B_TRADE_DISCNT
+    set PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      USER_ID_A = #{userIdA,jdbcType=DECIMAL},
+      PRODUCT_ID = #{productId,jdbcType=DECIMAL},
+      PACKAGE_ID = #{packageId,jdbcType=DECIMAL},
+      SPEC_TAG = #{specTag,jdbcType=CHAR},
+      RELATION_TYPE_CODE = #{relationTypeCode,jdbcType=VARCHAR},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      ITEM_ID = #{itemId,jdbcType=DECIMAL},
+      MODIFY_TAG = #{modifyTag,jdbcType=CHAR},
+      DISCNT_INSTANCE = #{discntInstance,jdbcType=DECIMAL}
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and USER_ID = #{userId,jdbcType=DECIMAL}
+      and DISCNT_CODE = #{discntCode,jdbcType=DECIMAL}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+  </update>
+</mapper>

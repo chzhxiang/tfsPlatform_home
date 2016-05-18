@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdBDepositPriorRulePoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdBDepositPriorRulePo" >
+    <id column="DEPOSIT_PRIOR_RULE_ID" property="depositPriorRuleId" jdbcType="DECIMAL" />
+    <id column="DEPOSIT_CODE" property="depositCode" jdbcType="DECIMAL" />
+    <result column="DEPOSIT_PRIORITY" property="depositPriority" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DEPOSIT_PRIOR_RULE_ID, DEPOSIT_CODE, DEPOSIT_PRIORITY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_DEPOSITPRIORRULE
+    where DEPOSIT_PRIOR_RULE_ID = #{depositPriorRuleId,jdbcType=DECIMAL}
+      and DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TD_B_DEPOSITPRIORRULE
+    where DEPOSIT_PRIOR_RULE_ID = #{depositPriorRuleId,jdbcType=DECIMAL}
+      and DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositPriorRulePo" >
+    insert into TD_B_DEPOSITPRIORRULE (DEPOSIT_PRIOR_RULE_ID, DEPOSIT_CODE, 
+      DEPOSIT_PRIORITY)
+    values (#{depositPriorRuleId,jdbcType=DECIMAL}, #{depositCode,jdbcType=DECIMAL}, 
+      #{depositPriority,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositPriorRulePo" >
+    insert into TD_B_DEPOSITPRIORRULE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="depositPriorRuleId != null" >
+        DEPOSIT_PRIOR_RULE_ID,
+      </if>
+      <if test="depositCode != null" >
+        DEPOSIT_CODE,
+      </if>
+      <if test="depositPriority != null" >
+        DEPOSIT_PRIORITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="depositPriorRuleId != null" >
+        #{depositPriorRuleId,jdbcType=DECIMAL},
+      </if>
+      <if test="depositCode != null" >
+        #{depositCode,jdbcType=DECIMAL},
+      </if>
+      <if test="depositPriority != null" >
+        #{depositPriority,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositPriorRulePo" >
+    update TD_B_DEPOSITPRIORRULE
+    <set >
+      <if test="depositPriority != null" >
+        DEPOSIT_PRIORITY = #{depositPriority,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where DEPOSIT_PRIOR_RULE_ID = #{depositPriorRuleId,jdbcType=DECIMAL}
+      and DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositPriorRulePo" >
+    update TD_B_DEPOSITPRIORRULE
+    set DEPOSIT_PRIORITY = #{depositPriority,jdbcType=DECIMAL}
+    where DEPOSIT_PRIOR_RULE_ID = #{depositPriorRuleId,jdbcType=DECIMAL}
+      and DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+  </update>
+</mapper>

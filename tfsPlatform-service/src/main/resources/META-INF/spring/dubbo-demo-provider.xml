@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ - Copyright 1999-2011 Alibaba Group.
+ -  
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -  
+ -      http://www.apache.org/licenses/LICENSE-2.0
+ -  
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd ">
+	
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.account.AccountService" ref="accountService" />
+	
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.task.TaskService" ref="taskService" />
+	
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.information.OrgService" ref="orgService" />
+	
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.information.CustContactService" ref="custContactService" />
+	
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.information.CarCustomerService" ref="carCustomerService"></dubbo:service>
+	
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.accountingMgmt.AccountDepositService" ref="amAccountDepositService" />
+	
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.accountingMgmt.ArrearsService" ref="amArrearsService" />
+	
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.accountingMgmt.BillService" ref="amBillService" />
+	
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.accountingMgmt.CustomerService" ref="amCustomerService" />
+	
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.information.CustomerService" ref="customerService"></dubbo:service>
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.business_settle.DetailedSettleService" ref="detailedSettleService"></dubbo:service>
+	<dubbo:service interface="com.asiainfo.tfsPlatform.interfaces.business_settle.DetailedSettleTdPartService" ref="detailedSettleTdPartService"></dubbo:service>
+	
+	<dubbo:registry protocol="${dubbo.monitor.protocol}" address="${dubbo.registry.address}" />
+	
+	
+</beans>

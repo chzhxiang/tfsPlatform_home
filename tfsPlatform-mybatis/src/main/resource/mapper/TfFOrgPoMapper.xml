@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfFOrgPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfFOrgPo" >
+    <id column="ORG_ID" property="orgId" jdbcType="DECIMAL" />
+    <result column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="ORG_NAME" property="orgName" jdbcType="VARCHAR" />
+    <result column="PARENT_ORG_ID" property="parentOrgId" jdbcType="DECIMAL" />
+    <result column="ORG_TYPE" property="orgType" jdbcType="CHAR" />
+    <result column="ORG_TYPE_CODE" property="orgTypeCode" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ORG_ID, CUST_ID, ORG_NAME, PARENT_ORG_ID, ORG_TYPE, ORG_TYPE_CODE, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_F_ORG
+    where ORG_ID = #{orgId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from TF_F_ORG
+    where ORG_ID = #{orgId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfFOrgPo" >
+    insert into TF_F_ORG (ORG_ID, CUST_ID, ORG_NAME, 
+      PARENT_ORG_ID, ORG_TYPE, ORG_TYPE_CODE, 
+      REMARK)
+    values (#{orgId,jdbcType=DECIMAL}, #{custId,jdbcType=DECIMAL}, #{orgName,jdbcType=VARCHAR}, 
+      #{parentOrgId,jdbcType=DECIMAL}, #{orgType,jdbcType=CHAR}, #{orgTypeCode,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfFOrgPo" >
+    insert into TF_F_ORG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orgId != null" >
+        ORG_ID,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="orgName != null" >
+        ORG_NAME,
+      </if>
+      <if test="parentOrgId != null" >
+        PARENT_ORG_ID,
+      </if>
+      <if test="orgType != null" >
+        ORG_TYPE,
+      </if>
+      <if test="orgTypeCode != null" >
+        ORG_TYPE_CODE,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orgId != null" >
+        #{orgId,jdbcType=DECIMAL},
+      </if>
+      <if test="custId != null" >
+        #{custId,jdbcType=DECIMAL},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrgId != null" >
+        #{parentOrgId,jdbcType=DECIMAL},
+      </if>
+      <if test="orgType != null" >
+        #{orgType,jdbcType=CHAR},
+      </if>
+      <if test="orgTypeCode != null" >
+        #{orgTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfFOrgPo" >
+    update TF_F_ORG
+    <set >
+      <if test="custId != null" >
+        CUST_ID = #{custId,jdbcType=DECIMAL},
+      </if>
+      <if test="orgName != null" >
+        ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrgId != null" >
+        PARENT_ORG_ID = #{parentOrgId,jdbcType=DECIMAL},
+      </if>
+      <if test="orgType != null" >
+        ORG_TYPE = #{orgType,jdbcType=CHAR},
+      </if>
+      <if test="orgTypeCode != null" >
+        ORG_TYPE_CODE = #{orgTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORG_ID = #{orgId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfFOrgPo" >
+    update TF_F_ORG
+    set CUST_ID = #{custId,jdbcType=DECIMAL},
+      ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      PARENT_ORG_ID = #{parentOrgId,jdbcType=DECIMAL},
+      ORG_TYPE = #{orgType,jdbcType=CHAR},
+      ORG_TYPE_CODE = #{orgTypeCode,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where ORG_ID = #{orgId,jdbcType=DECIMAL}
+  </update>
+  
+</mapper>

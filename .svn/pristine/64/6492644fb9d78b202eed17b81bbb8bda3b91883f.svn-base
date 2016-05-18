@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfBTradeProductPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBTradeProductPo" >
+    <id column="TRADE_ID" property="tradeId" jdbcType="DECIMAL" />
+    <id column="ACCEPT_MONTH" property="acceptMonth" jdbcType="DECIMAL" />
+    <id column="PRODUCT_ID" property="productId" jdbcType="DECIMAL" />
+    <id column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <id column="USER_ID_A" property="userIdA" jdbcType="DECIMAL" />
+    <result column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <result column="PRODUCT_MODE" property="productMode" jdbcType="CHAR" />
+    <result column="BRAND_CODE" property="brandCode" jdbcType="CHAR" />
+    <result column="ITEM_ID" property="itemId" jdbcType="DECIMAL" />
+    <result column="MODIFY_TAG" property="modifyTag" jdbcType="CHAR" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADE_ID, ACCEPT_MONTH, PRODUCT_ID, START_DATE, USER_ID_A, USER_ID, PRODUCT_MODE, 
+    BRAND_CODE, ITEM_ID, MODIFY_TAG, END_DATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_B_TRADE_PRODUCT
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=DECIMAL}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+      and USER_ID_A = #{userIdA,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TF_B_TRADE_PRODUCT
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=DECIMAL}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+      and USER_ID_A = #{userIdA,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeProductPo" >
+    insert into TF_B_TRADE_PRODUCT (TRADE_ID, ACCEPT_MONTH, PRODUCT_ID, 
+      START_DATE, USER_ID_A, USER_ID, 
+      PRODUCT_MODE, BRAND_CODE, ITEM_ID, 
+      MODIFY_TAG, END_DATE)
+    values (#{tradeId,jdbcType=DECIMAL}, #{acceptMonth,jdbcType=DECIMAL}, #{productId,jdbcType=DECIMAL}, 
+      #{startDate,jdbcType=TIMESTAMP}, #{userIdA,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, 
+      #{productMode,jdbcType=CHAR}, #{brandCode,jdbcType=CHAR}, #{itemId,jdbcType=DECIMAL}, 
+      #{modifyTag,jdbcType=CHAR}, #{endDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeProductPo" >
+    insert into TF_B_TRADE_PRODUCT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tradeId != null" >
+        TRADE_ID,
+      </if>
+      <if test="acceptMonth != null" >
+        ACCEPT_MONTH,
+      </if>
+      <if test="productId != null" >
+        PRODUCT_ID,
+      </if>
+      <if test="startDate != null" >
+        START_DATE,
+      </if>
+      <if test="userIdA != null" >
+        USER_ID_A,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="productMode != null" >
+        PRODUCT_MODE,
+      </if>
+      <if test="brandCode != null" >
+        BRAND_CODE,
+      </if>
+      <if test="itemId != null" >
+        ITEM_ID,
+      </if>
+      <if test="modifyTag != null" >
+        MODIFY_TAG,
+      </if>
+      <if test="endDate != null" >
+        END_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tradeId != null" >
+        #{tradeId,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptMonth != null" >
+        #{acceptMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userIdA != null" >
+        #{userIdA,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="productMode != null" >
+        #{productMode,jdbcType=CHAR},
+      </if>
+      <if test="brandCode != null" >
+        #{brandCode,jdbcType=CHAR},
+      </if>
+      <if test="itemId != null" >
+        #{itemId,jdbcType=DECIMAL},
+      </if>
+      <if test="modifyTag != null" >
+        #{modifyTag,jdbcType=CHAR},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeProductPo" >
+    update TF_B_TRADE_PRODUCT
+    <set >
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="productMode != null" >
+        PRODUCT_MODE = #{productMode,jdbcType=CHAR},
+      </if>
+      <if test="brandCode != null" >
+        BRAND_CODE = #{brandCode,jdbcType=CHAR},
+      </if>
+      <if test="itemId != null" >
+        ITEM_ID = #{itemId,jdbcType=DECIMAL},
+      </if>
+      <if test="modifyTag != null" >
+        MODIFY_TAG = #{modifyTag,jdbcType=CHAR},
+      </if>
+      <if test="endDate != null" >
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=DECIMAL}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+      and USER_ID_A = #{userIdA,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeProductPo" >
+    update TF_B_TRADE_PRODUCT
+    set USER_ID = #{userId,jdbcType=DECIMAL},
+      PRODUCT_MODE = #{productMode,jdbcType=CHAR},
+      BRAND_CODE = #{brandCode,jdbcType=CHAR},
+      ITEM_ID = #{itemId,jdbcType=DECIMAL},
+      MODIFY_TAG = #{modifyTag,jdbcType=CHAR},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP}
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and PRODUCT_ID = #{productId,jdbcType=DECIMAL}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+      and USER_ID_A = #{userIdA,jdbcType=DECIMAL}
+  </update>
+</mapper>

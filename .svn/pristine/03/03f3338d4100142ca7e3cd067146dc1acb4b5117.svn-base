@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.SpStatOtherResultMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.SpStatOtherResult" >
+    <result column="MONTH" property="month" jdbcType="VARCHAR" />
+    <result column="SVC_CODE" property="svcCode" jdbcType="VARCHAR" />
+    <result column="USER_INFO" property="userInfo" jdbcType="VARCHAR" />
+    <result column="USER_TYPE" property="userType" jdbcType="VARCHAR" />
+    <result column="CDR_TYPE" property="cdrType" jdbcType="VARCHAR" />
+    <result column="BILLING_TYPE" property="billingType" jdbcType="VARCHAR" />
+    <result column="PARTY_ID" property="partyId" jdbcType="VARCHAR" />
+    <result column="SP_SERVICE_ID" property="spServiceId" jdbcType="BIGINT" />
+    <result column="CALL_NUM" property="callNum" jdbcType="BIGINT" />
+    <result column="MONTH_FEE" property="monthFee" jdbcType="DECIMAL" />
+    <result column="INFO_FEE" property="infoFee" jdbcType="DECIMAL" />
+    <result column="COUNT_SETTLE" property="countSettle" jdbcType="DECIMAL" />
+    <result column="MONTH_SETTLE" property="monthSettle" jdbcType="DECIMAL" />
+    <result column="INFO_SETTLE" property="infoSettle" jdbcType="DECIMAL" />
+    <result column="DEAL_DATE" property="dealDate" jdbcType="DATE" />
+    <result column="FEE" property="fee" jdbcType="DECIMAL" />
+  </resultMap>
+  
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.SpStatOtherResult" >
+    insert into SP_STAT_OTHER_RESULT (MONTH, SVC_CODE, USER_INFO, 
+      USER_TYPE, CDR_TYPE, BILLING_TYPE, 
+      PARTY_ID, SP_SERVICE_ID, CALL_NUM, 
+      MONTH_FEE, INFO_FEE, COUNT_SETTLE, 
+      MONTH_SETTLE, INFO_SETTLE, DEAL_DATE, 
+      FEE)
+    values (#{month,jdbcType=VARCHAR}, #{svcCode,jdbcType=VARCHAR}, #{userInfo,jdbcType=VARCHAR}, 
+      #{userType,jdbcType=VARCHAR}, #{cdrType,jdbcType=VARCHAR}, #{billingType,jdbcType=VARCHAR}, 
+      #{partyId,jdbcType=VARCHAR}, #{spServiceId,jdbcType=BIGINT}, #{callNum,jdbcType=BIGINT}, 
+      #{monthFee,jdbcType=DECIMAL}, #{infoFee,jdbcType=DECIMAL}, #{countSettle,jdbcType=DECIMAL}, 
+      #{monthSettle,jdbcType=DECIMAL}, #{infoSettle,jdbcType=DECIMAL}, #{dealDate,jdbcType=DATE}, 
+      #{fee,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.SpStatOtherResult" >
+    insert into SP_STAT_OTHER_RESULT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="month != null" >
+        MONTH,
+      </if>
+      <if test="svcCode != null" >
+        SVC_CODE,
+      </if>
+      <if test="userInfo != null" >
+        USER_INFO,
+      </if>
+      <if test="userType != null" >
+        USER_TYPE,
+      </if>
+      <if test="cdrType != null" >
+        CDR_TYPE,
+      </if>
+      <if test="billingType != null" >
+        BILLING_TYPE,
+      </if>
+      <if test="partyId != null" >
+        PARTY_ID,
+      </if>
+      <if test="spServiceId != null" >
+        SP_SERVICE_ID,
+      </if>
+      <if test="callNum != null" >
+        CALL_NUM,
+      </if>
+      <if test="monthFee != null" >
+        MONTH_FEE,
+      </if>
+      <if test="infoFee != null" >
+        INFO_FEE,
+      </if>
+      <if test="countSettle != null" >
+        COUNT_SETTLE,
+      </if>
+      <if test="monthSettle != null" >
+        MONTH_SETTLE,
+      </if>
+      <if test="infoSettle != null" >
+        INFO_SETTLE,
+      </if>
+      <if test="dealDate != null" >
+        DEAL_DATE,
+      </if>
+      <if test="fee != null" >
+        FEE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="month != null" >
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="svcCode != null" >
+        #{svcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfo != null" >
+        #{userInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="cdrType != null" >
+        #{cdrType,jdbcType=VARCHAR},
+      </if>
+      <if test="billingType != null" >
+        #{billingType,jdbcType=VARCHAR},
+      </if>
+      <if test="partyId != null" >
+        #{partyId,jdbcType=VARCHAR},
+      </if>
+      <if test="spServiceId != null" >
+        #{spServiceId,jdbcType=BIGINT},
+      </if>
+      <if test="callNum != null" >
+        #{callNum,jdbcType=BIGINT},
+      </if>
+      <if test="monthFee != null" >
+        #{monthFee,jdbcType=DECIMAL},
+      </if>
+      <if test="infoFee != null" >
+        #{infoFee,jdbcType=DECIMAL},
+      </if>
+      <if test="countSettle != null" >
+        #{countSettle,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSettle != null" >
+        #{monthSettle,jdbcType=DECIMAL},
+      </if>
+      <if test="infoSettle != null" >
+        #{infoSettle,jdbcType=DECIMAL},
+      </if>
+      <if test="dealDate != null" >
+        #{dealDate,jdbcType=DATE},
+      </if>
+      <if test="fee != null" >
+        #{fee,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <!-- 根据条件查询汇总表数据 -->
+  <select id="queryListSettleInfo" resultType="map">
+  	SELECT * from SP_STAT_OTHER_RESULT WHERE 1=1 
+  	<if test="partyId!=null and partyId!=''">
+  		AND PARTY_ID =#{partyId}
+  	</if>
+  	<if test="spServiceId!=null and spServiceId!=''">
+  		AND SP_SERVICE_ID =#{spServiceId}
+  	</if>
+	<choose>
+		<when   test="endDate!=null and endDate!='' and startDate!=null and startDate!=''">
+			AND MONTH BETWEEN #{startDate} AND #{endDate}
+		</when>
+		<when test="startDate!=null and startDate!=''">
+			AND MONTH >=#{startDate}
+		</when>
+		<when test="endDate!=null and endDate!=''">
+			AND MONTH<![CDATA[<=]]> #{endDate}
+		</when>
+	</choose>
+  </select>
+</mapper>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdBSpDiscntPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdBSpDiscntPo" >
+    <id column="SP_PRODUCT_ID" property="spProductId" jdbcType="VARCHAR" />
+    <result column="PRODUCT_CODE" property="productCode" jdbcType="CHAR" />
+    <result column="PRODUCT_NAME" property="productName" jdbcType="CHAR" />
+    <result column="SERVICE_TYPE" property="serviceType" jdbcType="CHAR" />
+    <result column="SERCIE_TYPE_NAME" property="sercieTypeName" jdbcType="CHAR" />
+    <result column="PARTY_CORP_CODE" property="partyCorpCode" jdbcType="CHAR" />
+    <result column="PARTY_NAME" property="partyName" jdbcType="CHAR" />
+    <result column="ACCESS_NO" property="accessNo" jdbcType="CHAR" />
+    <result column="STATE" property="state" jdbcType="CHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="CHAR" />
+    <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="BILLING_MODE" property="billingMode" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SP_PRODUCT_ID, PRODUCT_CODE, PRODUCT_NAME, SERVICE_TYPE, SERCIE_TYPE_NAME, PARTY_CORP_CODE, 
+    PARTY_NAME, ACCESS_NO, STATE, AREA_CODE, START_DATE, END_DATE, BILLING_MODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_SP_DISCNT
+    where SP_PRODUCT_ID = #{spProductId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from TD_B_SP_DISCNT
+    where SP_PRODUCT_ID = #{spProductId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdBSpDiscntPo" >
+    insert into TD_B_SP_DISCNT (SP_PRODUCT_ID, PRODUCT_CODE, PRODUCT_NAME, 
+      SERVICE_TYPE, SERCIE_TYPE_NAME, PARTY_CORP_CODE, 
+      PARTY_NAME, ACCESS_NO, STATE, 
+      AREA_CODE, START_DATE, END_DATE, 
+      BILLING_MODE)
+    values (#{spProductId,jdbcType=VARCHAR}, #{productCode,jdbcType=CHAR}, #{productName,jdbcType=CHAR}, 
+      #{serviceType,jdbcType=CHAR}, #{sercieTypeName,jdbcType=CHAR}, #{partyCorpCode,jdbcType=CHAR}, 
+      #{partyName,jdbcType=CHAR}, #{accessNo,jdbcType=CHAR}, #{state,jdbcType=CHAR}, 
+      #{areaCode,jdbcType=CHAR}, #{startDate,jdbcType=CHAR}, #{endDate,jdbcType=CHAR}, 
+      #{billingMode,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdBSpDiscntPo" >
+    insert into TD_B_SP_DISCNT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="spProductId != null" >
+        SP_PRODUCT_ID,
+      </if>
+      <if test="productCode != null" >
+        PRODUCT_CODE,
+      </if>
+      <if test="productName != null" >
+        PRODUCT_NAME,
+      </if>
+      <if test="serviceType != null" >
+        SERVICE_TYPE,
+      </if>
+      <if test="sercieTypeName != null" >
+        SERCIE_TYPE_NAME,
+      </if>
+      <if test="partyCorpCode != null" >
+        PARTY_CORP_CODE,
+      </if>
+      <if test="partyName != null" >
+        PARTY_NAME,
+      </if>
+      <if test="accessNo != null" >
+        ACCESS_NO,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="startDate != null" >
+        START_DATE,
+      </if>
+      <if test="endDate != null" >
+        END_DATE,
+      </if>
+      <if test="billingMode != null" >
+        BILLING_MODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="spProductId != null" >
+        #{spProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null" >
+        #{productCode,jdbcType=CHAR},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=CHAR},
+      </if>
+      <if test="serviceType != null" >
+        #{serviceType,jdbcType=CHAR},
+      </if>
+      <if test="sercieTypeName != null" >
+        #{sercieTypeName,jdbcType=CHAR},
+      </if>
+      <if test="partyCorpCode != null" >
+        #{partyCorpCode,jdbcType=CHAR},
+      </if>
+      <if test="partyName != null" >
+        #{partyName,jdbcType=CHAR},
+      </if>
+      <if test="accessNo != null" >
+        #{accessNo,jdbcType=CHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=CHAR},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=CHAR},
+      </if>
+      <if test="billingMode != null" >
+        #{billingMode,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdBSpDiscntPo" >
+    update TD_B_SP_DISCNT
+    <set >
+      <if test="productCode != null" >
+        PRODUCT_CODE = #{productCode,jdbcType=CHAR},
+      </if>
+      <if test="productName != null" >
+        PRODUCT_NAME = #{productName,jdbcType=CHAR},
+      </if>
+      <if test="serviceType != null" >
+        SERVICE_TYPE = #{serviceType,jdbcType=CHAR},
+      </if>
+      <if test="sercieTypeName != null" >
+        SERCIE_TYPE_NAME = #{sercieTypeName,jdbcType=CHAR},
+      </if>
+      <if test="partyCorpCode != null" >
+        PARTY_CORP_CODE = #{partyCorpCode,jdbcType=CHAR},
+      </if>
+      <if test="partyName != null" >
+        PARTY_NAME = #{partyName,jdbcType=CHAR},
+      </if>
+      <if test="accessNo != null" >
+        ACCESS_NO = #{accessNo,jdbcType=CHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=CHAR},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        START_DATE = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billingMode != null" >
+        BILLING_MODE = #{billingMode,jdbcType=CHAR},
+      </if>
+    </set>
+    where SP_PRODUCT_ID = #{spProductId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdBSpDiscntPo" >
+    update TD_B_SP_DISCNT
+    set PRODUCT_CODE = #{productCode,jdbcType=CHAR},
+      PRODUCT_NAME = #{productName,jdbcType=CHAR},
+      SERVICE_TYPE = #{serviceType,jdbcType=CHAR},
+      SERCIE_TYPE_NAME = #{sercieTypeName,jdbcType=CHAR},
+      PARTY_CORP_CODE = #{partyCorpCode,jdbcType=CHAR},
+      PARTY_NAME = #{partyName,jdbcType=CHAR},
+      ACCESS_NO = #{accessNo,jdbcType=CHAR},
+      STATE = #{state,jdbcType=CHAR},
+      AREA_CODE = #{areaCode,jdbcType=CHAR},
+      START_DATE = #{startDate,jdbcType=TIMESTAMP},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      BILLING_MODE = #{billingMode,jdbcType=CHAR}
+    where SP_PRODUCT_ID = #{spProductId,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="selectBillingModeById" parameterType="int" resultType="com.asiainfo.tfsPlatform.po.TdBSpDiscntPo">
+  		select * from TD_B_SP_DISCNT where SP_PRODUCT_ID=#{id};
+  </select>
+  
+</mapper>

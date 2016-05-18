@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.BillUser1PoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.BillUser1Po" >
+    <id column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <id column="BILL_ID" property="billId" jdbcType="DECIMAL" />
+    <result column="VALUE" property="value" jdbcType="DECIMAL" />
+    <result column="DISCNTVALUE" property="discntvalue" jdbcType="DECIMAL" />
+    <result column="ADJUSTBEFORE" property="adjustbefore" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, BILL_ID, VALUE, DISCNTVALUE, ADJUSTBEFORE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from BILL_USER_1
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+      and BILL_ID = #{billId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from BILL_USER_1
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+      and BILL_ID = #{billId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.BillUser1Po" >
+    insert into BILL_USER_1 (USER_ID, BILL_ID, VALUE, 
+      DISCNTVALUE, ADJUSTBEFORE)
+    values (#{userId,jdbcType=DECIMAL}, #{billId,jdbcType=DECIMAL}, #{value,jdbcType=DECIMAL}, 
+      #{discntvalue,jdbcType=DECIMAL}, #{adjustbefore,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.BillUser1Po" >
+    insert into BILL_USER_1
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="billId != null" >
+        BILL_ID,
+      </if>
+      <if test="value != null" >
+        VALUE,
+      </if>
+      <if test="discntvalue != null" >
+        DISCNTVALUE,
+      </if>
+      <if test="adjustbefore != null" >
+        ADJUSTBEFORE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="billId != null" >
+        #{billId,jdbcType=DECIMAL},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=DECIMAL},
+      </if>
+      <if test="discntvalue != null" >
+        #{discntvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustbefore != null" >
+        #{adjustbefore,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.BillUser1Po" >
+    update BILL_USER_1
+    <set >
+      <if test="value != null" >
+        VALUE = #{value,jdbcType=DECIMAL},
+      </if>
+      <if test="discntvalue != null" >
+        DISCNTVALUE = #{discntvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustbefore != null" >
+        ADJUSTBEFORE = #{adjustbefore,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+      and BILL_ID = #{billId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.BillUser1Po" >
+    update BILL_USER_1
+    set VALUE = #{value,jdbcType=DECIMAL},
+      DISCNTVALUE = #{discntvalue,jdbcType=DECIMAL},
+      ADJUSTBEFORE = #{adjustbefore,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+      and BILL_ID = #{billId,jdbcType=DECIMAL}
+  </update>
+  <insert id="insertBill1" parameterType="com.asiainfo.tfsPlatform.po.BillUser1Po" >
+  		 insert into BILL_USER_1 (USER_ID, BILL_ID ,DISCNTVALUE) values(#{userId}, #{billId},#{discntvalue});
+  </insert>
+</mapper>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdBPaymentPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdBPaymentPo" >
+    <id column="PAYMENT_ID" property="paymentId" jdbcType="DECIMAL" />
+    <result column="PAYMENT" property="payment" jdbcType="VARCHAR" />
+    <result column="PAYMENT_CLASS" property="paymentClass" jdbcType="VARCHAR" />
+    <result column="PAYMENT_TYPE" property="paymentType" jdbcType="VARCHAR" />
+    <result column="SUB_PAYMENT_TYPE" property="subPaymentType" jdbcType="VARCHAR" />
+    <result column="CAN_DIS_TAG" property="canDisTag" jdbcType="CHAR" />
+    <result column="PRE_PAYMENT_ID" property="prePaymentId" jdbcType="DECIMAL" />
+    <result column="PRE_PAYMENT" property="prePayment" jdbcType="VARCHAR" />
+    <result column="CANCEL_PAYMENT_ID" property="cancelPaymentId" jdbcType="DECIMAL" />
+    <result column="CANCEL_PAYMENT" property="cancelPayment" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_EPARCHY_CODE" property="updateEparchyCode" jdbcType="CHAR" />
+    <result column="UPDATE_CITY_CODE" property="updateCityCode" jdbcType="CHAR" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="CHAR" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PAYMENT_ID, PAYMENT, PAYMENT_CLASS, PAYMENT_TYPE, SUB_PAYMENT_TYPE, CAN_DIS_TAG, 
+    PRE_PAYMENT_ID, PRE_PAYMENT, CANCEL_PAYMENT_ID, CANCEL_PAYMENT, REMARK, UPDATE_TIME, 
+    UPDATE_EPARCHY_CODE, UPDATE_CITY_CODE, UPDATE_DEPART_ID, UPDATE_STAFF_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_PAYMENT
+    where PAYMENT_ID = #{paymentId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from TD_B_PAYMENT
+    where PAYMENT_ID = #{paymentId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdBPaymentPo" >
+    insert into TD_B_PAYMENT (PAYMENT_ID, PAYMENT, PAYMENT_CLASS, 
+      PAYMENT_TYPE, SUB_PAYMENT_TYPE, CAN_DIS_TAG, 
+      PRE_PAYMENT_ID, PRE_PAYMENT, CANCEL_PAYMENT_ID, 
+      CANCEL_PAYMENT, REMARK, UPDATE_TIME, 
+      UPDATE_EPARCHY_CODE, UPDATE_CITY_CODE, UPDATE_DEPART_ID, 
+      UPDATE_STAFF_ID)
+    values (#{paymentId,jdbcType=DECIMAL}, #{payment,jdbcType=VARCHAR}, #{paymentClass,jdbcType=VARCHAR}, 
+      #{paymentType,jdbcType=VARCHAR}, #{subPaymentType,jdbcType=VARCHAR}, #{canDisTag,jdbcType=CHAR}, 
+      #{prePaymentId,jdbcType=DECIMAL}, #{prePayment,jdbcType=VARCHAR}, #{cancelPaymentId,jdbcType=DECIMAL}, 
+      #{cancelPayment,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateEparchyCode,jdbcType=CHAR}, #{updateCityCode,jdbcType=CHAR}, #{updateDepartId,jdbcType=CHAR}, 
+      #{updateStaffId,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdBPaymentPo" >
+    insert into TD_B_PAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paymentId != null" >
+        PAYMENT_ID,
+      </if>
+      <if test="payment != null" >
+        PAYMENT,
+      </if>
+      <if test="paymentClass != null" >
+        PAYMENT_CLASS,
+      </if>
+      <if test="paymentType != null" >
+        PAYMENT_TYPE,
+      </if>
+      <if test="subPaymentType != null" >
+        SUB_PAYMENT_TYPE,
+      </if>
+      <if test="canDisTag != null" >
+        CAN_DIS_TAG,
+      </if>
+      <if test="prePaymentId != null" >
+        PRE_PAYMENT_ID,
+      </if>
+      <if test="prePayment != null" >
+        PRE_PAYMENT,
+      </if>
+      <if test="cancelPaymentId != null" >
+        CANCEL_PAYMENT_ID,
+      </if>
+      <if test="cancelPayment != null" >
+        CANCEL_PAYMENT,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateEparchyCode != null" >
+        UPDATE_EPARCHY_CODE,
+      </if>
+      <if test="updateCityCode != null" >
+        UPDATE_CITY_CODE,
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID,
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paymentId != null" >
+        #{paymentId,jdbcType=DECIMAL},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentClass != null" >
+        #{paymentClass,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentType != null" >
+        #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="subPaymentType != null" >
+        #{subPaymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="canDisTag != null" >
+        #{canDisTag,jdbcType=CHAR},
+      </if>
+      <if test="prePaymentId != null" >
+        #{prePaymentId,jdbcType=DECIMAL},
+      </if>
+      <if test="prePayment != null" >
+        #{prePayment,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelPaymentId != null" >
+        #{cancelPaymentId,jdbcType=DECIMAL},
+      </if>
+      <if test="cancelPayment != null" >
+        #{cancelPayment,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateEparchyCode != null" >
+        #{updateEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="updateCityCode != null" >
+        #{updateCityCode,jdbcType=CHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        #{updateDepartId,jdbcType=CHAR},
+      </if>
+      <if test="updateStaffId != null" >
+        #{updateStaffId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdBPaymentPo" >
+    update TD_B_PAYMENT
+    <set >
+      <if test="payment != null" >
+        PAYMENT = #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentClass != null" >
+        PAYMENT_CLASS = #{paymentClass,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentType != null" >
+        PAYMENT_TYPE = #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="subPaymentType != null" >
+        SUB_PAYMENT_TYPE = #{subPaymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="canDisTag != null" >
+        CAN_DIS_TAG = #{canDisTag,jdbcType=CHAR},
+      </if>
+      <if test="prePaymentId != null" >
+        PRE_PAYMENT_ID = #{prePaymentId,jdbcType=DECIMAL},
+      </if>
+      <if test="prePayment != null" >
+        PRE_PAYMENT = #{prePayment,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelPaymentId != null" >
+        CANCEL_PAYMENT_ID = #{cancelPaymentId,jdbcType=DECIMAL},
+      </if>
+      <if test="cancelPayment != null" >
+        CANCEL_PAYMENT = #{cancelPayment,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateEparchyCode != null" >
+        UPDATE_EPARCHY_CODE = #{updateEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="updateCityCode != null" >
+        UPDATE_CITY_CODE = #{updateCityCode,jdbcType=CHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID = #{updateDepartId,jdbcType=CHAR},
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID = #{updateStaffId,jdbcType=CHAR},
+      </if>
+    </set>
+    where PAYMENT_ID = #{paymentId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdBPaymentPo" >
+    update TD_B_PAYMENT
+    set PAYMENT = #{payment,jdbcType=VARCHAR},
+      PAYMENT_CLASS = #{paymentClass,jdbcType=VARCHAR},
+      PAYMENT_TYPE = #{paymentType,jdbcType=VARCHAR},
+      SUB_PAYMENT_TYPE = #{subPaymentType,jdbcType=VARCHAR},
+      CAN_DIS_TAG = #{canDisTag,jdbcType=CHAR},
+      PRE_PAYMENT_ID = #{prePaymentId,jdbcType=DECIMAL},
+      PRE_PAYMENT = #{prePayment,jdbcType=VARCHAR},
+      CANCEL_PAYMENT_ID = #{cancelPaymentId,jdbcType=DECIMAL},
+      CANCEL_PAYMENT = #{cancelPayment,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_EPARCHY_CODE = #{updateEparchyCode,jdbcType=CHAR},
+      UPDATE_CITY_CODE = #{updateCityCode,jdbcType=CHAR},
+      UPDATE_DEPART_ID = #{updateDepartId,jdbcType=CHAR},
+      UPDATE_STAFF_ID = #{updateStaffId,jdbcType=CHAR}
+    where PAYMENT_ID = #{paymentId,jdbcType=DECIMAL}
+  </update>
+</mapper>

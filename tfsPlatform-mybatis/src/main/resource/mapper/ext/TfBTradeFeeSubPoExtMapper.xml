@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TfBTradeFeeSubPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBTradeFeeSubPo" >
+    <id column="TRADE_ID" property="tradeId" jdbcType="DECIMAL" />
+    <id column="ACCEPT_MONTH" property="acceptMonth" jdbcType="DECIMAL" />
+    <id column="FEE_MODE" property="feeMode" jdbcType="CHAR" />
+    <id column="FEE_TYPE_CODE" property="feeTypeCode" jdbcType="DECIMAL" />
+    <id column="CALCULATE_ID" property="calculateId" jdbcType="DECIMAL" />
+    <result column="OLDFEE" property="oldfee" jdbcType="DECIMAL" />
+    <result column="FEE" property="fee" jdbcType="DECIMAL" />
+    <result column="CHARGE_ID" property="chargeId" jdbcType="DECIMAL" />
+    <result column="DERATE_ID" property="derateId" jdbcType="DECIMAL" />
+    <result column="DERATE_REMARK" property="derateRemark" jdbcType="VARCHAR" />
+    <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="MONTHS" property="months" jdbcType="DECIMAL" />
+    <result column="CHARGE_SOURCE_CODE" property="chargeSourceCode" jdbcType="DECIMAL" />
+    <result column="DPST_RTN_DATE" property="dpstRtnDate" jdbcType="TIMESTAMP" />
+    <result column="LIMIT_FEE" property="limitFee" jdbcType="DECIMAL" />
+    <result column="DEPOSIT_PRIOR_RULE_ID" property="depositPriorRuleId" jdbcType="DECIMAL" />
+    <result column="RULE_ID" property="ruleId" jdbcType="DECIMAL" />
+    <result column="APPR_STAFF_ID" property="apprStaffId" jdbcType="CHAR" />
+    <result column="CALCULATE_DATE" property="calculateDate" jdbcType="TIMESTAMP" />
+    <result column="STAFF_ID" property="staffId" jdbcType="CHAR" />
+    <result column="CALCULATE_TAG" property="calculateTag" jdbcType="CHAR" />
+    <result column="PAY_TAG" property="payTag" jdbcType="CHAR" />
+    <result column="PAY_ID" property="payId" jdbcType="DECIMAL" />
+    <result column="PAY_DATE" property="payDate" jdbcType="TIMESTAMP" />
+    <result column="FEE_STAFF_ID" property="feeStaffId" jdbcType="CHAR" />
+    <result column="FEE_DEPART_ID" property="feeDepartId" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADE_ID, ACCEPT_MONTH, FEE_MODE, FEE_TYPE_CODE, CALCULATE_ID, OLDFEE, FEE, CHARGE_ID, 
+    DERATE_ID, DERATE_REMARK, START_DATE, MONTHS, CHARGE_SOURCE_CODE, DPST_RTN_DATE, 
+    LIMIT_FEE, DEPOSIT_PRIOR_RULE_ID, RULE_ID, APPR_STAFF_ID, CALCULATE_DATE, STAFF_ID, 
+    CALCULATE_TAG, PAY_TAG, PAY_ID, PAY_DATE, FEE_STAFF_ID, FEE_DEPART_ID
+  </sql>
+  <select id="queryTfBTradeFeeSubPoByTradeId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    FROM TF_B_TRADEFEE_SUB
+     <where>
+     	AND TRADE_ID = #{tradeId,jdbcType=DECIMAL} 
+     </where>
+  </select>
+</mapper>

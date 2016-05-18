@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfFCustomerPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfFCustomerPo" >
+    <id column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="CUST_NAME" property="custName" jdbcType="VARCHAR" />
+    <result column="CUST_TYPE" property="custType" jdbcType="CHAR" />
+    <result column="CUST_STATE" property="custState" jdbcType="CHAR" />
+    <result column="PSPT_TYPE_CODE" property="psptTypeCode" jdbcType="CHAR" />
+    <result column="PSPT_ID" property="psptId" jdbcType="VARCHAR" />
+    <result column="OPEN_LIMIT" property="openLimit" jdbcType="DECIMAL" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="CUST_PASSWD" property="custPasswd" jdbcType="VARCHAR" />
+    <result column="SCORE_VALUE" property="scoreValue" jdbcType="DECIMAL" />
+    <result column="CREDIT_CLASS" property="creditClass" jdbcType="DECIMAL" />
+    <result column="BASIC_CREDIT_VALUE" property="basicCreditValue" jdbcType="DECIMAL" />
+    <result column="CREDIT_VALUE" property="creditValue" jdbcType="DECIMAL" />
+    <result column="AUDIT_NUM" property="auditNum" jdbcType="DECIMAL" />
+    <result column="SIMPLE_SPELL" property="simpleSpell" jdbcType="VARCHAR" />
+    <result column="DEVELOP_DEPART_ID" property="developDepartId" jdbcType="VARCHAR" />
+    <result column="DEVELOP_STAFF_ID" property="developStaffId" jdbcType="VARCHAR" />
+    <result column="IN_DEPART_ID" property="inDepartId" jdbcType="VARCHAR" />
+    <result column="IN_STAFF_ID" property="inStaffId" jdbcType="VARCHAR" />
+    <result column="IN_DATE" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="REMOVE_TAG" property="removeTag" jdbcType="CHAR" />
+    <result column="REMOVE_DATE" property="removeDate" jdbcType="TIMESTAMP" />
+    <result column="REMOVE_STAFF_ID" property="removeStaffId" jdbcType="VARCHAR" />
+    <result column="REMOVE_CHANGE" property="removeChange" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="VARCHAR" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RSRV_NUM1" property="rsrvNum1" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM2" property="rsrvNum2" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM3" property="rsrvNum3" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM4" property="rsrvNum4" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM5" property="rsrvNum5" jdbcType="DECIMAL" />
+    <result column="RSRV_STR1" property="rsrvStr1" jdbcType="VARCHAR" />
+    <result column="RSRV_STR2" property="rsrvStr2" jdbcType="VARCHAR" />
+    <result column="RSRV_STR3" property="rsrvStr3" jdbcType="VARCHAR" />
+    <result column="RSRV_STR4" property="rsrvStr4" jdbcType="VARCHAR" />
+    <result column="RSRV_STR5" property="rsrvStr5" jdbcType="VARCHAR" />
+    <result column="RSRV_STR6" property="rsrvStr6" jdbcType="VARCHAR" />
+    <result column="RSRV_STR7" property="rsrvStr7" jdbcType="VARCHAR" />
+    <result column="RSRV_STR8" property="rsrvStr8" jdbcType="VARCHAR" />
+    <result column="RSRV_STR9" property="rsrvStr9" jdbcType="VARCHAR" />
+    <result column="RSRV_STR10" property="rsrvStr10" jdbcType="VARCHAR" />
+    <result column="RSRV_DATE1" property="rsrvDate1" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE2" property="rsrvDate2" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE3" property="rsrvDate3" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE4" property="rsrvDate4" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE5" property="rsrvDate5" jdbcType="TIMESTAMP" />
+    <result column="RSRV_TAG1" property="rsrvTag1" jdbcType="CHAR" />
+    <result column="RSRV_TAG2" property="rsrvTag2" jdbcType="CHAR" />
+    <result column="RSRV_TAG3" property="rsrvTag3" jdbcType="CHAR" />
+    <result column="RSRV_TAG4" property="rsrvTag4" jdbcType="CHAR" />
+    <result column="RSRV_TAG5" property="rsrvTag5" jdbcType="CHAR" />
+    <result column="CUST_CLASS_TYPE" property="custClassType" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CUST_ID, PARTITION_ID, CUST_NAME, CUST_TYPE, CUST_STATE, PSPT_TYPE_CODE, PSPT_ID, 
+    OPEN_LIMIT, EPARCHY_CODE, CITY_CODE, CUST_PASSWD, SCORE_VALUE, CREDIT_CLASS, BASIC_CREDIT_VALUE, 
+    CREDIT_VALUE, AUDIT_NUM, SIMPLE_SPELL, DEVELOP_DEPART_ID, DEVELOP_STAFF_ID, IN_DEPART_ID, 
+    IN_STAFF_ID, IN_DATE, REMOVE_TAG, REMOVE_DATE, REMOVE_STAFF_ID, REMOVE_CHANGE, UPDATE_TIME, 
+    UPDATE_STAFF_ID, UPDATE_DEPART_ID, REMARK, RSRV_NUM1, RSRV_NUM2, RSRV_NUM3, RSRV_NUM4, 
+    RSRV_NUM5, RSRV_STR1, RSRV_STR2, RSRV_STR3, RSRV_STR4, RSRV_STR5, RSRV_STR6, RSRV_STR7, 
+    RSRV_STR8, RSRV_STR9, RSRV_STR10, RSRV_DATE1, RSRV_DATE2, RSRV_DATE3, RSRV_DATE4, 
+    RSRV_DATE5, RSRV_TAG1, RSRV_TAG2, RSRV_TAG3, RSRV_TAG4, RSRV_TAG5, CUST_CLASS_TYPE
+  </sql>
+  
+  <!-- 根据客户名称模糊查询列表  @Author BAOMZ-->
+  <sql id="Select_Customer_Like_Names">
+  		<![CDATA[CUST_NAME custName, CUST_ID custId, PSPT_ID psptId]]>
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_F_CUSTOMER
+    where CUST_ID = #{custId,jdbcType=DECIMAL}
+  </select>
+  <!-- 根据客户名称模糊查询    @Author BAOMZ-->
+  <select id="selectCustomerLikeNames" resultType="hashmap"
+		parameterType="com.asiainfo.tfsPlatform.po.TfFCustomerPo">
+  	<![CDATA[select  ]]>
+  	<include refid="Select_Customer_Like_Names" />
+  	<![CDATA[ from  TF_F_CUSTOMER ]]>
+		<where>
+			<if test="custType != null">
+  			<![CDATA[CUST_TYPE=#{custType}]]>
+			</if>
+			<choose>
+				<when test="custState != null">
+					<![CDATA[and CUST_STATE=#{custState}]]>
+				</when>
+				<otherwise>
+					<![CDATA[and CUST_STATE=0]]>
+				</otherwise>
+			</choose>
+			<if test="custName != null">
+  			<![CDATA[and CUST_NAME like '%${custName}%']]>
+			</if>
+		</where>
+	</select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from TF_F_CUSTOMER
+    where CUST_ID = #{custId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfFCustomerPo" >
+    insert into TF_F_CUSTOMER (CUST_ID, PARTITION_ID, CUST_NAME, 
+      CUST_TYPE, CUST_STATE, PSPT_TYPE_CODE, 
+      PSPT_ID, OPEN_LIMIT, EPARCHY_CODE, 
+      CITY_CODE, CUST_PASSWD, SCORE_VALUE, 
+      CREDIT_CLASS, BASIC_CREDIT_VALUE, CREDIT_VALUE, 
+      AUDIT_NUM, SIMPLE_SPELL, DEVELOP_DEPART_ID, 
+      DEVELOP_STAFF_ID, IN_DEPART_ID, IN_STAFF_ID, 
+      IN_DATE, REMOVE_TAG, REMOVE_DATE, 
+      REMOVE_STAFF_ID, REMOVE_CHANGE, UPDATE_TIME, 
+      UPDATE_STAFF_ID, UPDATE_DEPART_ID, REMARK, 
+      RSRV_NUM1, RSRV_NUM2, RSRV_NUM3, 
+      RSRV_NUM4, RSRV_NUM5, RSRV_STR1, 
+      RSRV_STR2, RSRV_STR3, RSRV_STR4, 
+      RSRV_STR5, RSRV_STR6, RSRV_STR7, 
+      RSRV_STR8, RSRV_STR9, RSRV_STR10, 
+      RSRV_DATE1, RSRV_DATE2, RSRV_DATE3, 
+      RSRV_DATE4, RSRV_DATE5, RSRV_TAG1, 
+      RSRV_TAG2, RSRV_TAG3, RSRV_TAG4, 
+      RSRV_TAG5, CUST_CLASS_TYPE)
+    values (#{custId,jdbcType=DECIMAL}, #{partitionId,jdbcType=DECIMAL}, #{custName,jdbcType=VARCHAR}, 
+      #{custType,jdbcType=CHAR}, #{custState,jdbcType=CHAR}, #{psptTypeCode,jdbcType=CHAR}, 
+      #{psptId,jdbcType=VARCHAR}, #{openLimit,jdbcType=DECIMAL}, #{eparchyCode,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=VARCHAR}, #{custPasswd,jdbcType=VARCHAR}, #{scoreValue,jdbcType=DECIMAL}, 
+      #{creditClass,jdbcType=DECIMAL}, #{basicCreditValue,jdbcType=DECIMAL}, #{creditValue,jdbcType=DECIMAL}, 
+      #{auditNum,jdbcType=DECIMAL}, #{simpleSpell,jdbcType=VARCHAR}, #{developDepartId,jdbcType=VARCHAR}, 
+      #{developStaffId,jdbcType=VARCHAR}, #{inDepartId,jdbcType=VARCHAR}, #{inStaffId,jdbcType=VARCHAR}, 
+      #{inDate,jdbcType=TIMESTAMP}, #{removeTag,jdbcType=CHAR}, #{removeDate,jdbcType=TIMESTAMP}, 
+      #{removeStaffId,jdbcType=VARCHAR}, #{removeChange,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateStaffId,jdbcType=VARCHAR}, #{updateDepartId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{rsrvNum1,jdbcType=DECIMAL}, #{rsrvNum2,jdbcType=DECIMAL}, #{rsrvNum3,jdbcType=DECIMAL}, 
+      #{rsrvNum4,jdbcType=DECIMAL}, #{rsrvNum5,jdbcType=DECIMAL}, #{rsrvStr1,jdbcType=VARCHAR}, 
+      #{rsrvStr2,jdbcType=VARCHAR}, #{rsrvStr3,jdbcType=VARCHAR}, #{rsrvStr4,jdbcType=VARCHAR}, 
+      #{rsrvStr5,jdbcType=VARCHAR}, #{rsrvStr6,jdbcType=VARCHAR}, #{rsrvStr7,jdbcType=VARCHAR}, 
+      #{rsrvStr8,jdbcType=VARCHAR}, #{rsrvStr9,jdbcType=VARCHAR}, #{rsrvStr10,jdbcType=VARCHAR}, 
+      #{rsrvDate1,jdbcType=TIMESTAMP}, #{rsrvDate2,jdbcType=TIMESTAMP}, #{rsrvDate3,jdbcType=TIMESTAMP}, 
+      #{rsrvDate4,jdbcType=TIMESTAMP}, #{rsrvDate5,jdbcType=TIMESTAMP}, #{rsrvTag1,jdbcType=CHAR}, 
+      #{rsrvTag2,jdbcType=CHAR}, #{rsrvTag3,jdbcType=CHAR}, #{rsrvTag4,jdbcType=CHAR}, 
+      #{rsrvTag5,jdbcType=CHAR}, #{custClassType,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfFCustomerPo" >
+    insert into TF_F_CUSTOMER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="partitionId != null" >
+        PARTITION_ID,
+      </if>
+      <if test="custName != null" >
+        CUST_NAME,
+      </if>
+      <if test="custType != null" >
+        CUST_TYPE,
+      </if>
+      <if test="custState != null" >
+        CUST_STATE,
+      </if>
+      <if test="psptTypeCode != null" >
+        PSPT_TYPE_CODE,
+      </if>
+      <if test="psptId != null" >
+        PSPT_ID,
+      </if>
+      <if test="openLimit != null" >
+        OPEN_LIMIT,
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="custPasswd != null" >
+        CUST_PASSWD,
+      </if>
+      <if test="scoreValue != null" >
+        SCORE_VALUE,
+      </if>
+      <if test="creditClass != null" >
+        CREDIT_CLASS,
+      </if>
+      <if test="basicCreditValue != null" >
+        BASIC_CREDIT_VALUE,
+      </if>
+      <if test="creditValue != null" >
+        CREDIT_VALUE,
+      </if>
+      <if test="auditNum != null" >
+        AUDIT_NUM,
+      </if>
+      <if test="simpleSpell != null" >
+        SIMPLE_SPELL,
+      </if>
+      <if test="developDepartId != null" >
+        DEVELOP_DEPART_ID,
+      </if>
+      <if test="developStaffId != null" >
+        DEVELOP_STAFF_ID,
+      </if>
+      <if test="inDepartId != null" >
+        IN_DEPART_ID,
+      </if>
+      <if test="inStaffId != null" >
+        IN_STAFF_ID,
+      </if>
+      <if test="inDate != null" >
+        IN_DATE,
+      </if>
+      <if test="removeTag != null" >
+        REMOVE_TAG,
+      </if>
+      <if test="removeDate != null" >
+        REMOVE_DATE,
+      </if>
+      <if test="removeStaffId != null" >
+        REMOVE_STAFF_ID,
+      </if>
+      <if test="removeChange != null" >
+        REMOVE_CHANGE,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID,
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="rsrvNum1 != null" >
+        RSRV_NUM1,
+      </if>
+      <if test="rsrvNum2 != null" >
+        RSRV_NUM2,
+      </if>
+      <if test="rsrvNum3 != null" >
+        RSRV_NUM3,
+      </if>
+      <if test="rsrvNum4 != null" >
+        RSRV_NUM4,
+      </if>
+      <if test="rsrvNum5 != null" >
+        RSRV_NUM5,
+      </if>
+      <if test="rsrvStr1 != null" >
+        RSRV_STR1,
+      </if>
+      <if test="rsrvStr2 != null" >
+        RSRV_STR2,
+      </if>
+      <if test="rsrvStr3 != null" >
+        RSRV_STR3,
+      </if>
+      <if test="rsrvStr4 != null" >
+        RSRV_STR4,
+      </if>
+      <if test="rsrvStr5 != null" >
+        RSRV_STR5,
+      </if>
+      <if test="rsrvStr6 != null" >
+        RSRV_STR6,
+      </if>
+      <if test="rsrvStr7 != null" >
+        RSRV_STR7,
+      </if>
+      <if test="rsrvStr8 != null" >
+        RSRV_STR8,
+      </if>
+      <if test="rsrvStr9 != null" >
+        RSRV_STR9,
+      </if>
+      <if test="rsrvStr10 != null" >
+        RSRV_STR10,
+      </if>
+      <if test="rsrvDate1 != null" >
+        RSRV_DATE1,
+      </if>
+      <if test="rsrvDate2 != null" >
+        RSRV_DATE2,
+      </if>
+      <if test="rsrvDate3 != null" >
+        RSRV_DATE3,
+      </if>
+      <if test="rsrvDate4 != null" >
+        RSRV_DATE4,
+      </if>
+      <if test="rsrvDate5 != null" >
+        RSRV_DATE5,
+      </if>
+      <if test="rsrvTag1 != null" >
+        RSRV_TAG1,
+      </if>
+      <if test="rsrvTag2 != null" >
+        RSRV_TAG2,
+      </if>
+      <if test="rsrvTag3 != null" >
+        RSRV_TAG3,
+      </if>
+      <if test="rsrvTag4 != null" >
+        RSRV_TAG4,
+      </if>
+      <if test="rsrvTag5 != null" >
+        RSRV_TAG5,
+      </if>
+      <if test="custClassType != null" >
+        CUST_CLASS_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="custId != null" >
+        #{custId,jdbcType=DECIMAL},
+      </if>
+      <if test="partitionId != null" >
+        #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="custName != null" >
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custType != null" >
+        #{custType,jdbcType=CHAR},
+      </if>
+      <if test="custState != null" >
+        #{custState,jdbcType=CHAR},
+      </if>
+      <if test="psptTypeCode != null" >
+        #{psptTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="psptId != null" >
+        #{psptId,jdbcType=VARCHAR},
+      </if>
+      <if test="openLimit != null" >
+        #{openLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="eparchyCode != null" >
+        #{eparchyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custPasswd != null" >
+        #{custPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreValue != null" >
+        #{scoreValue,jdbcType=DECIMAL},
+      </if>
+      <if test="creditClass != null" >
+        #{creditClass,jdbcType=DECIMAL},
+      </if>
+      <if test="basicCreditValue != null" >
+        #{basicCreditValue,jdbcType=DECIMAL},
+      </if>
+      <if test="creditValue != null" >
+        #{creditValue,jdbcType=DECIMAL},
+      </if>
+      <if test="auditNum != null" >
+        #{auditNum,jdbcType=DECIMAL},
+      </if>
+      <if test="simpleSpell != null" >
+        #{simpleSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="developDepartId != null" >
+        #{developDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="developStaffId != null" >
+        #{developStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="inDepartId != null" >
+        #{inDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="inStaffId != null" >
+        #{inStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="removeTag != null" >
+        #{removeTag,jdbcType=CHAR},
+      </if>
+      <if test="removeDate != null" >
+        #{removeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="removeStaffId != null" >
+        #{removeStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="removeChange != null" >
+        #{removeChange,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStaffId != null" >
+        #{updateStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        #{updateDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvNum1 != null" >
+        #{rsrvNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum2 != null" >
+        #{rsrvNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum3 != null" >
+        #{rsrvNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum4 != null" >
+        #{rsrvNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum5 != null" >
+        #{rsrvNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvStr1 != null" >
+        #{rsrvStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr2 != null" >
+        #{rsrvStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr3 != null" >
+        #{rsrvStr3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr4 != null" >
+        #{rsrvStr4,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr5 != null" >
+        #{rsrvStr5,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr6 != null" >
+        #{rsrvStr6,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr7 != null" >
+        #{rsrvStr7,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr8 != null" >
+        #{rsrvStr8,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr9 != null" >
+        #{rsrvStr9,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr10 != null" >
+        #{rsrvStr10,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvDate1 != null" >
+        #{rsrvDate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate2 != null" >
+        #{rsrvDate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate3 != null" >
+        #{rsrvDate3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate4 != null" >
+        #{rsrvDate4,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate5 != null" >
+        #{rsrvDate5,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvTag1 != null" >
+        #{rsrvTag1,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag2 != null" >
+        #{rsrvTag2,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag3 != null" >
+        #{rsrvTag3,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag4 != null" >
+        #{rsrvTag4,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag5 != null" >
+        #{rsrvTag5,jdbcType=CHAR},
+      </if>
+      <if test="custClassType != null" >
+        #{custClassType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfFCustomerPo" >
+    update TF_F_CUSTOMER
+    <set >
+      <if test="partitionId != null" >
+        PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="custName != null" >
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custType != null" >
+        CUST_TYPE = #{custType,jdbcType=CHAR},
+      </if>
+      <if test="custState != null" >
+        CUST_STATE = #{custState,jdbcType=CHAR},
+      </if>
+      <if test="psptTypeCode != null" >
+        PSPT_TYPE_CODE = #{psptTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="psptId != null" >
+        PSPT_ID = #{psptId,jdbcType=VARCHAR},
+      </if>
+      <if test="openLimit != null" >
+        OPEN_LIMIT = #{openLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE = #{eparchyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custPasswd != null" >
+        CUST_PASSWD = #{custPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreValue != null" >
+        SCORE_VALUE = #{scoreValue,jdbcType=DECIMAL},
+      </if>
+      <if test="creditClass != null" >
+        CREDIT_CLASS = #{creditClass,jdbcType=DECIMAL},
+      </if>
+      <if test="basicCreditValue != null" >
+        BASIC_CREDIT_VALUE = #{basicCreditValue,jdbcType=DECIMAL},
+      </if>
+      <if test="creditValue != null" >
+        CREDIT_VALUE = #{creditValue,jdbcType=DECIMAL},
+      </if>
+      <if test="auditNum != null" >
+        AUDIT_NUM = #{auditNum,jdbcType=DECIMAL},
+      </if>
+      <if test="simpleSpell != null" >
+        SIMPLE_SPELL = #{simpleSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="developDepartId != null" >
+        DEVELOP_DEPART_ID = #{developDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="developStaffId != null" >
+        DEVELOP_STAFF_ID = #{developStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="inDepartId != null" >
+        IN_DEPART_ID = #{inDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="inStaffId != null" >
+        IN_STAFF_ID = #{inStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        IN_DATE = #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="removeTag != null" >
+        REMOVE_TAG = #{removeTag,jdbcType=CHAR},
+      </if>
+      <if test="removeDate != null" >
+        REMOVE_DATE = #{removeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="removeStaffId != null" >
+        REMOVE_STAFF_ID = #{removeStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="removeChange != null" >
+        REMOVE_CHANGE = #{removeChange,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID = #{updateStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID = #{updateDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvNum1 != null" >
+        RSRV_NUM1 = #{rsrvNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum2 != null" >
+        RSRV_NUM2 = #{rsrvNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum3 != null" >
+        RSRV_NUM3 = #{rsrvNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum4 != null" >
+        RSRV_NUM4 = #{rsrvNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum5 != null" >
+        RSRV_NUM5 = #{rsrvNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvStr1 != null" >
+        RSRV_STR1 = #{rsrvStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr2 != null" >
+        RSRV_STR2 = #{rsrvStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr3 != null" >
+        RSRV_STR3 = #{rsrvStr3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr4 != null" >
+        RSRV_STR4 = #{rsrvStr4,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr5 != null" >
+        RSRV_STR5 = #{rsrvStr5,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr6 != null" >
+        RSRV_STR6 = #{rsrvStr6,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr7 != null" >
+        RSRV_STR7 = #{rsrvStr7,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr8 != null" >
+        RSRV_STR8 = #{rsrvStr8,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr9 != null" >
+        RSRV_STR9 = #{rsrvStr9,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr10 != null" >
+        RSRV_STR10 = #{rsrvStr10,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvDate1 != null" >
+        RSRV_DATE1 = #{rsrvDate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate2 != null" >
+        RSRV_DATE2 = #{rsrvDate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate3 != null" >
+        RSRV_DATE3 = #{rsrvDate3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate4 != null" >
+        RSRV_DATE4 = #{rsrvDate4,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate5 != null" >
+        RSRV_DATE5 = #{rsrvDate5,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvTag1 != null" >
+        RSRV_TAG1 = #{rsrvTag1,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag2 != null" >
+        RSRV_TAG2 = #{rsrvTag2,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag3 != null" >
+        RSRV_TAG3 = #{rsrvTag3,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag4 != null" >
+        RSRV_TAG4 = #{rsrvTag4,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag5 != null" >
+        RSRV_TAG5 = #{rsrvTag5,jdbcType=CHAR},
+      </if>
+      <if test="custClassType != null" >
+        CUST_CLASS_TYPE = #{custClassType,jdbcType=CHAR},
+      </if>
+    </set>
+    where CUST_ID = #{custId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfFCustomerPo" >
+    update TF_F_CUSTOMER
+    set PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      CUST_TYPE = #{custType,jdbcType=CHAR},
+      CUST_STATE = #{custState,jdbcType=CHAR},
+      PSPT_TYPE_CODE = #{psptTypeCode,jdbcType=CHAR},
+      PSPT_ID = #{psptId,jdbcType=VARCHAR},
+      OPEN_LIMIT = #{openLimit,jdbcType=DECIMAL},
+      EPARCHY_CODE = #{eparchyCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      CUST_PASSWD = #{custPasswd,jdbcType=VARCHAR},
+      SCORE_VALUE = #{scoreValue,jdbcType=DECIMAL},
+      CREDIT_CLASS = #{creditClass,jdbcType=DECIMAL},
+      BASIC_CREDIT_VALUE = #{basicCreditValue,jdbcType=DECIMAL},
+      CREDIT_VALUE = #{creditValue,jdbcType=DECIMAL},
+      AUDIT_NUM = #{auditNum,jdbcType=DECIMAL},
+      SIMPLE_SPELL = #{simpleSpell,jdbcType=VARCHAR},
+      DEVELOP_DEPART_ID = #{developDepartId,jdbcType=VARCHAR},
+      DEVELOP_STAFF_ID = #{developStaffId,jdbcType=VARCHAR},
+      IN_DEPART_ID = #{inDepartId,jdbcType=VARCHAR},
+      IN_STAFF_ID = #{inStaffId,jdbcType=VARCHAR},
+      IN_DATE = #{inDate,jdbcType=TIMESTAMP},
+      REMOVE_TAG = #{removeTag,jdbcType=CHAR},
+      REMOVE_DATE = #{removeDate,jdbcType=TIMESTAMP},
+      REMOVE_STAFF_ID = #{removeStaffId,jdbcType=VARCHAR},
+      REMOVE_CHANGE = #{removeChange,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_STAFF_ID = #{updateStaffId,jdbcType=VARCHAR},
+      UPDATE_DEPART_ID = #{updateDepartId,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      RSRV_NUM1 = #{rsrvNum1,jdbcType=DECIMAL},
+      RSRV_NUM2 = #{rsrvNum2,jdbcType=DECIMAL},
+      RSRV_NUM3 = #{rsrvNum3,jdbcType=DECIMAL},
+      RSRV_NUM4 = #{rsrvNum4,jdbcType=DECIMAL},
+      RSRV_NUM5 = #{rsrvNum5,jdbcType=DECIMAL},
+      RSRV_STR1 = #{rsrvStr1,jdbcType=VARCHAR},
+      RSRV_STR2 = #{rsrvStr2,jdbcType=VARCHAR},
+      RSRV_STR3 = #{rsrvStr3,jdbcType=VARCHAR},
+      RSRV_STR4 = #{rsrvStr4,jdbcType=VARCHAR},
+      RSRV_STR5 = #{rsrvStr5,jdbcType=VARCHAR},
+      RSRV_STR6 = #{rsrvStr6,jdbcType=VARCHAR},
+      RSRV_STR7 = #{rsrvStr7,jdbcType=VARCHAR},
+      RSRV_STR8 = #{rsrvStr8,jdbcType=VARCHAR},
+      RSRV_STR9 = #{rsrvStr9,jdbcType=VARCHAR},
+      RSRV_STR10 = #{rsrvStr10,jdbcType=VARCHAR},
+      RSRV_DATE1 = #{rsrvDate1,jdbcType=TIMESTAMP},
+      RSRV_DATE2 = #{rsrvDate2,jdbcType=TIMESTAMP},
+      RSRV_DATE3 = #{rsrvDate3,jdbcType=TIMESTAMP},
+      RSRV_DATE4 = #{rsrvDate4,jdbcType=TIMESTAMP},
+      RSRV_DATE5 = #{rsrvDate5,jdbcType=TIMESTAMP},
+      RSRV_TAG1 = #{rsrvTag1,jdbcType=CHAR},
+      RSRV_TAG2 = #{rsrvTag2,jdbcType=CHAR},
+      RSRV_TAG3 = #{rsrvTag3,jdbcType=CHAR},
+      RSRV_TAG4 = #{rsrvTag4,jdbcType=CHAR},
+      RSRV_TAG5 = #{rsrvTag5,jdbcType=CHAR},
+      CUST_CLASS_TYPE = #{custClassType,jdbcType=CHAR}
+    where CUST_ID = #{custId,jdbcType=DECIMAL}
+  </update>
+  
+</mapper>

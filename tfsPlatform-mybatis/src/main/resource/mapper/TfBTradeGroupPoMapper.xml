@@ -1,0 +1,2085 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfBTradeGroupPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBTradeGroupPo" >
+    <id column="TRADE_ID" property="tradeId" jdbcType="DECIMAL" />
+    <id column="ACCEPT_MONTH" property="acceptMonth" jdbcType="DECIMAL" />
+    <id column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="GROUP_ID" property="groupId" jdbcType="VARCHAR" />
+    <result column="CUST_NAME" property="custName" jdbcType="VARCHAR" />
+    <result column="GROUP_TYPE" property="groupType" jdbcType="CHAR" />
+    <result column="CLASS_ID" property="classId" jdbcType="VARCHAR" />
+    <result column="CLASS_ID2" property="classId2" jdbcType="VARCHAR" />
+    <result column="LAST_CLASS_ID" property="lastClassId" jdbcType="VARCHAR" />
+    <result column="CLASS_CHANGE_DATE" property="classChangeDate" jdbcType="TIMESTAMP" />
+    <result column="CUST_CLASS_TYPE" property="custClassType" jdbcType="CHAR" />
+    <result column="GROUP_ATTR" property="groupAttr" jdbcType="CHAR" />
+    <result column="GROUP_STATUS" property="groupStatus" jdbcType="CHAR" />
+    <result column="GROUP_ADDR" property="groupAddr" jdbcType="VARCHAR" />
+    <result column="PROVINCE_CODE" property="provinceCode" jdbcType="VARCHAR" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="SUPER_GROUP_ID" property="superGroupId" jdbcType="VARCHAR" />
+    <result column="PNATIONAL_GROUP_ID" property="pnationalGroupId" jdbcType="VARCHAR" />
+    <result column="PNATIONAL_GROUP_NAME" property="pnationalGroupName" jdbcType="VARCHAR" />
+    <result column="MP_GROUP_CUST_CODE" property="mpGroupCustCode" jdbcType="VARCHAR" />
+    <result column="UNIFY_PAY_CODE" property="unifyPayCode" jdbcType="VARCHAR" />
+    <result column="ORG_STRUCT_CODE" property="orgStructCode" jdbcType="VARCHAR" />
+    <result column="CUST_MANAGER_ID" property="custManagerId" jdbcType="VARCHAR" />
+    <result column="CUST_MANAGER_APPR" property="custManagerAppr" jdbcType="VARCHAR" />
+    <result column="ASSIGN_DATE" property="assignDate" jdbcType="TIMESTAMP" />
+    <result column="ASSIGN_STAFF_ID" property="assignStaffId" jdbcType="VARCHAR" />
+    <result column="CALLING_TYPE_CODE" property="callingTypeCode" jdbcType="VARCHAR" />
+    <result column="SUB_CALLING_TYPE_CODE" property="subCallingTypeCode" jdbcType="VARCHAR" />
+    <result column="CALLING_AREA_CODE" property="callingAreaCode" jdbcType="CHAR" />
+    <result column="CALL_TYPE" property="callType" jdbcType="VARCHAR" />
+    <result column="ACCEPT_CHANNEL" property="acceptChannel" jdbcType="VARCHAR" />
+    <result column="AGREEMENT" property="agreement" jdbcType="VARCHAR" />
+    <result column="BUSI_TYPE" property="busiType" jdbcType="VARCHAR" />
+    <result column="GROUP_CONTACT_PHONE" property="groupContactPhone" jdbcType="VARCHAR" />
+    <result column="ENTERPRISE_TYPE_CODE" property="enterpriseTypeCode" jdbcType="CHAR" />
+    <result column="ENTERPRISE_SIZE_CODE" property="enterpriseSizeCode" jdbcType="VARCHAR" />
+    <result column="ENTERPRISE_SCOPE" property="enterpriseScope" jdbcType="CHAR" />
+    <result column="JURISTIC_TYPE_CODE" property="juristicTypeCode" jdbcType="CHAR" />
+    <result column="JURISTIC_CUST_ID" property="juristicCustId" jdbcType="DECIMAL" />
+    <result column="JURISTIC_NAME" property="juristicName" jdbcType="VARCHAR" />
+    <result column="BUSI_LICENCE_TYPE" property="busiLicenceType" jdbcType="CHAR" />
+    <result column="BUSI_LICENCE_NO" property="busiLicenceNo" jdbcType="VARCHAR" />
+    <result column="BUSI_LICENCE_VALID_DATE" property="busiLicenceValidDate" jdbcType="TIMESTAMP" />
+    <result column="GROUP_MEMO" property="groupMemo" jdbcType="VARCHAR" />
+    <result column="BANK_ACCT" property="bankAcct" jdbcType="VARCHAR" />
+    <result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" />
+    <result column="REG_MONEY" property="regMoney" jdbcType="DECIMAL" />
+    <result column="REG_DATE" property="regDate" jdbcType="TIMESTAMP" />
+    <result column="CUST_AIM" property="custAim" jdbcType="VARCHAR" />
+    <result column="SCOPE" property="scope" jdbcType="VARCHAR" />
+    <result column="MAIN_BUSI" property="mainBusi" jdbcType="VARCHAR" />
+    <result column="MAIN_TRADE" property="mainTrade" jdbcType="VARCHAR" />
+    <result column="EMP_LSAVE" property="empLsave" jdbcType="VARCHAR" />
+    <result column="LATENCY_FEE_SUM" property="latencyFeeSum" jdbcType="DECIMAL" />
+    <result column="YEAR_GAIN" property="yearGain" jdbcType="DECIMAL" />
+    <result column="TURNOVER" property="turnover" jdbcType="DECIMAL" />
+    <result column="CONSUME" property="consume" jdbcType="VARCHAR" />
+    <result column="COMM_BUDGET" property="commBudget" jdbcType="DECIMAL" />
+    <result column="GTEL_BUDGET" property="gtelBudget" jdbcType="DECIMAL" />
+    <result column="LTEL_BUDGET" property="ltelBudget" jdbcType="DECIMAL" />
+    <result column="GROUP_ADVERSARY" property="groupAdversary" jdbcType="VARCHAR" />
+    <result column="VPMN_GROUP_ID" property="vpmnGroupId" jdbcType="VARCHAR" />
+    <result column="VPMN_NUM" property="vpmnNum" jdbcType="DECIMAL" />
+    <result column="USER_NUM" property="userNum" jdbcType="DECIMAL" />
+    <result column="EMP_NUM_LOCAL" property="empNumLocal" jdbcType="DECIMAL" />
+    <result column="EMP_NUM_CHINA" property="empNumChina" jdbcType="DECIMAL" />
+    <result column="EMP_NUM_ALL" property="empNumAll" jdbcType="DECIMAL" />
+    <result column="TELECOM_NUM_GH" property="telecomNumGh" jdbcType="DECIMAL" />
+    <result column="TELECOM_NUM_XLT" property="telecomNumXlt" jdbcType="DECIMAL" />
+    <result column="MOBILE_NUM_CHINAGO" property="mobileNumChinago" jdbcType="DECIMAL" />
+    <result column="MOBILE_NUM_GLOBAL" property="mobileNumGlobal" jdbcType="DECIMAL" />
+    <result column="MOBILE_NUM_MZONE" property="mobileNumMzone" jdbcType="DECIMAL" />
+    <result column="MOBILE_NUM_LOCAL" property="mobileNumLocal" jdbcType="DECIMAL" />
+    <result column="UNICOM_NUM_G" property="unicomNumG" jdbcType="DECIMAL" />
+    <result column="UNICOM_NUM_C" property="unicomNumC" jdbcType="DECIMAL" />
+    <result column="UNICOM_NUM_GC" property="unicomNumGc" jdbcType="DECIMAL" />
+    <result column="PRODUCT_NUM_LOCAL" property="productNumLocal" jdbcType="DECIMAL" />
+    <result column="PRODUCT_NUM_OTHER" property="productNumOther" jdbcType="DECIMAL" />
+    <result column="PRODUCT_NUM_USE" property="productNumUse" jdbcType="DECIMAL" />
+    <result column="EMPLOYEE_ARPU" property="employeeArpu" jdbcType="DECIMAL" />
+    <result column="NETRENT_PAYOUT" property="netrentPayout" jdbcType="DECIMAL" />
+    <result column="MOBILE_PAYOUT" property="mobilePayout" jdbcType="DECIMAL" />
+    <result column="UNICOM_PAYOUT" property="unicomPayout" jdbcType="DECIMAL" />
+    <result column="TELECOM_PAYOUT_XLT" property="telecomPayoutXlt" jdbcType="DECIMAL" />
+    <result column="GROUP_PAY_MODE" property="groupPayMode" jdbcType="VARCHAR" />
+    <result column="PAYFOR_WAY_CODE" property="payforWayCode" jdbcType="CHAR" />
+    <result column="WRITEFEE_COUNT" property="writefeeCount" jdbcType="DECIMAL" />
+    <result column="WRITEFEE_SUM" property="writefeeSum" jdbcType="DECIMAL" />
+    <result column="USER_NUM_FULLFREE" property="userNumFullfree" jdbcType="DECIMAL" />
+    <result column="USER_NUM_WRITEOFF" property="userNumWriteoff" jdbcType="DECIMAL" />
+    <result column="BOSS_FEE_SUM" property="bossFeeSum" jdbcType="DECIMAL" />
+    <result column="DOYEN_STAFF_ID" property="doyenStaffId" jdbcType="VARCHAR" />
+    <result column="NEWTRADE_COMMENT" property="newtradeComment" jdbcType="VARCHAR" />
+    <result column="LIKE_MOBILE_TRADE" property="likeMobileTrade" jdbcType="VARCHAR" />
+    <result column="LIKE_DISCNT_MODE" property="likeDiscntMode" jdbcType="VARCHAR" />
+    <result column="FINANCE_EARNING" property="financeEarning" jdbcType="DECIMAL" />
+    <result column="EARNING_ORDER" property="earningOrder" jdbcType="VARCHAR" />
+    <result column="CALLING_POLICY_FORCE" property="callingPolicyForce" jdbcType="VARCHAR" />
+    <result column="SUBCLASS_ID" property="subclassId" jdbcType="CHAR" />
+    <result column="WEBSITE" property="website" jdbcType="VARCHAR" />
+    <result column="FAX_NBR" property="faxNbr" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="POST_CODE" property="postCode" jdbcType="CHAR" />
+    <result column="GROUP_VALID_SCORE" property="groupValidScore" jdbcType="DECIMAL" />
+    <result column="GROUP_SUM_SCORE" property="groupSumScore" jdbcType="DECIMAL" />
+    <result column="GROUP_MGR_SN" property="groupMgrSn" jdbcType="VARCHAR" />
+    <result column="GROUP_MGR_USER_ID" property="groupMgrUserId" jdbcType="DECIMAL" />
+    <result column="GROUP_MGR_CUST_NAME" property="groupMgrCustName" jdbcType="VARCHAR" />
+    <result column="BASE_ACCESS_NO" property="baseAccessNo" jdbcType="VARCHAR" />
+    <result column="BASE_ACCESS_NO_KIND" property="baseAccessNoKind" jdbcType="VARCHAR" />
+    <result column="CUST_SERV_NBR" property="custServNbr" jdbcType="VARCHAR" />
+    <result column="IF_SHORT_PIN" property="ifShortPin" jdbcType="VARCHAR" />
+    <result column="AUDIT_STATE" property="auditState" jdbcType="CHAR" />
+    <result column="AUDIT_DATE" property="auditDate" jdbcType="TIMESTAMP" />
+    <result column="AUDIT_STAFF_ID" property="auditStaffId" jdbcType="VARCHAR" />
+    <result column="AUDIT_NOTE" property="auditNote" jdbcType="VARCHAR" />
+    <result column="AREA_OFFICE" property="areaOffice" jdbcType="CHAR" />
+    <result column="BELONG_TEAM_ID" property="belongTeamId" jdbcType="VARCHAR" />
+    <result column="TURN_INNET_DATE" property="turnInnetDate" jdbcType="TIMESTAMP" />
+    <result column="BELONG_TEAM_ID_B" property="belongTeamIdB" jdbcType="VARCHAR" />
+    <result column="CALLING_TYPE_CODE_DETAIL" property="callingTypeCodeDetail" jdbcType="VARCHAR" />
+    <result column="SERVER_ASSIGN_DATE" property="serverAssignDate" jdbcType="TIMESTAMP" />
+    <result column="SERVER_ASSIGN_STAFF_ID" property="serverAssignStaffId" jdbcType="VARCHAR" />
+    <result column="TURN_INNET_STAFF_ID" property="turnInnetStaffId" jdbcType="VARCHAR" />
+    <result column="TAKE_PICTURE_TAG" property="takePictureTag" jdbcType="CHAR" />
+    <result column="CUST_MANAGER_ID_B" property="custManagerIdB" jdbcType="VARCHAR" />
+    <result column="CLASS_ID2_END_DATE" property="classId2EndDate" jdbcType="TIMESTAMP" />
+    <result column="CLASS_ID2_START_DATE" property="classId2StartDate" jdbcType="TIMESTAMP" />
+    <result column="IF_RELATION_CUST" property="ifRelationCust" jdbcType="CHAR" />
+    <result column="CLASS2_CHANGE_DATE" property="class2ChangeDate" jdbcType="TIMESTAMP" />
+    <result column="LAST_CLASS_ID2" property="lastClassId2" jdbcType="VARCHAR" />
+    <result column="MANAGE_CODE" property="manageCode" jdbcType="VARCHAR" />
+    <result column="FINANCE_INSTANCE" property="financeInstance" jdbcType="DECIMAL" />
+    <result column="GROW_POTENTIAL" property="growPotential" jdbcType="DECIMAL" />
+    <result column="CREDIT_DEGREE" property="creditDegree" jdbcType="DECIMAL" />
+    <result column="INTERNATIONAL" property="international" jdbcType="CHAR" />
+    <result column="FILE_CODE" property="fileCode" jdbcType="VARCHAR" />
+    <result column="REMOVE_FLAG" property="removeFlag" jdbcType="VARCHAR" />
+    <result column="REMOVE_METHOD" property="removeMethod" jdbcType="VARCHAR" />
+    <result column="REMOVE_REASON_CODE" property="removeReasonCode" jdbcType="VARCHAR" />
+    <result column="REMOVE_TAG" property="removeTag" jdbcType="CHAR" />
+    <result column="REMOVE_DATE" property="removeDate" jdbcType="TIMESTAMP" />
+    <result column="REMOVE_STAFF_ID" property="removeStaffId" jdbcType="VARCHAR" />
+    <result column="REMOVE_CHANGE" property="removeChange" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="VARCHAR" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RSRV_NUM1" property="rsrvNum1" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM2" property="rsrvNum2" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM3" property="rsrvNum3" jdbcType="DECIMAL" />
+    <result column="RSRV_STR1" property="rsrvStr1" jdbcType="VARCHAR" />
+    <result column="RSRV_STR2" property="rsrvStr2" jdbcType="VARCHAR" />
+    <result column="RSRV_STR3" property="rsrvStr3" jdbcType="VARCHAR" />
+    <result column="RSRV_STR4" property="rsrvStr4" jdbcType="VARCHAR" />
+    <result column="RSRV_STR5" property="rsrvStr5" jdbcType="VARCHAR" />
+    <result column="RSRV_STR6" property="rsrvStr6" jdbcType="VARCHAR" />
+    <result column="RSRV_STR7" property="rsrvStr7" jdbcType="VARCHAR" />
+    <result column="RSRV_STR8" property="rsrvStr8" jdbcType="VARCHAR" />
+    <result column="RSRV_DATE1" property="rsrvDate1" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE2" property="rsrvDate2" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE3" property="rsrvDate3" jdbcType="TIMESTAMP" />
+    <result column="RSRV_TAG1" property="rsrvTag1" jdbcType="CHAR" />
+    <result column="RSRV_TAG2" property="rsrvTag2" jdbcType="CHAR" />
+    <result column="RSRV_TAG3" property="rsrvTag3" jdbcType="CHAR" />
+    <result column="LICENCE_AUDIT_PERSON" property="licenceAuditPerson" jdbcType="VARCHAR" />
+    <result column="LICENCE_AUDIT_FILE_ID" property="licenceAuditFileId" jdbcType="VARCHAR" />
+    <result column="JURISTIC_PSPT_ID" property="juristicPsptId" jdbcType="VARCHAR" />
+    <result column="JURISTIC_PSPT_TYPE" property="juristicPsptType" jdbcType="CHAR" />
+    <result column="TEL_DECISION_TYPE" property="telDecisionType" jdbcType="CHAR" />
+    <result column="BUSI_TAX_ID" property="busiTaxId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADE_ID, ACCEPT_MONTH, CUST_ID, PARTITION_ID, GROUP_ID, CUST_NAME, GROUP_TYPE, CLASS_ID, 
+    CLASS_ID2, LAST_CLASS_ID, CLASS_CHANGE_DATE, CUST_CLASS_TYPE, GROUP_ATTR, GROUP_STATUS, 
+    GROUP_ADDR, PROVINCE_CODE, EPARCHY_CODE, CITY_CODE, SUPER_GROUP_ID, PNATIONAL_GROUP_ID, 
+    PNATIONAL_GROUP_NAME, MP_GROUP_CUST_CODE, UNIFY_PAY_CODE, ORG_STRUCT_CODE, CUST_MANAGER_ID, 
+    CUST_MANAGER_APPR, ASSIGN_DATE, ASSIGN_STAFF_ID, CALLING_TYPE_CODE, SUB_CALLING_TYPE_CODE, 
+    CALLING_AREA_CODE, CALL_TYPE, ACCEPT_CHANNEL, AGREEMENT, BUSI_TYPE, GROUP_CONTACT_PHONE, 
+    ENTERPRISE_TYPE_CODE, ENTERPRISE_SIZE_CODE, ENTERPRISE_SCOPE, JURISTIC_TYPE_CODE, 
+    JURISTIC_CUST_ID, JURISTIC_NAME, BUSI_LICENCE_TYPE, BUSI_LICENCE_NO, BUSI_LICENCE_VALID_DATE, 
+    GROUP_MEMO, BANK_ACCT, BANK_NAME, REG_MONEY, REG_DATE, CUST_AIM, SCOPE, MAIN_BUSI, 
+    MAIN_TRADE, EMP_LSAVE, LATENCY_FEE_SUM, YEAR_GAIN, TURNOVER, CONSUME, COMM_BUDGET, 
+    GTEL_BUDGET, LTEL_BUDGET, GROUP_ADVERSARY, VPMN_GROUP_ID, VPMN_NUM, USER_NUM, EMP_NUM_LOCAL, 
+    EMP_NUM_CHINA, EMP_NUM_ALL, TELECOM_NUM_GH, TELECOM_NUM_XLT, MOBILE_NUM_CHINAGO, 
+    MOBILE_NUM_GLOBAL, MOBILE_NUM_MZONE, MOBILE_NUM_LOCAL, UNICOM_NUM_G, UNICOM_NUM_C, 
+    UNICOM_NUM_GC, PRODUCT_NUM_LOCAL, PRODUCT_NUM_OTHER, PRODUCT_NUM_USE, EMPLOYEE_ARPU, 
+    NETRENT_PAYOUT, MOBILE_PAYOUT, UNICOM_PAYOUT, TELECOM_PAYOUT_XLT, GROUP_PAY_MODE, 
+    PAYFOR_WAY_CODE, WRITEFEE_COUNT, WRITEFEE_SUM, USER_NUM_FULLFREE, USER_NUM_WRITEOFF, 
+    BOSS_FEE_SUM, DOYEN_STAFF_ID, NEWTRADE_COMMENT, LIKE_MOBILE_TRADE, LIKE_DISCNT_MODE, 
+    FINANCE_EARNING, EARNING_ORDER, CALLING_POLICY_FORCE, SUBCLASS_ID, WEBSITE, FAX_NBR, 
+    EMAIL, POST_CODE, GROUP_VALID_SCORE, GROUP_SUM_SCORE, GROUP_MGR_SN, GROUP_MGR_USER_ID, 
+    GROUP_MGR_CUST_NAME, BASE_ACCESS_NO, BASE_ACCESS_NO_KIND, CUST_SERV_NBR, IF_SHORT_PIN, 
+    AUDIT_STATE, AUDIT_DATE, AUDIT_STAFF_ID, AUDIT_NOTE, AREA_OFFICE, BELONG_TEAM_ID, 
+    TURN_INNET_DATE, BELONG_TEAM_ID_B, CALLING_TYPE_CODE_DETAIL, SERVER_ASSIGN_DATE, 
+    SERVER_ASSIGN_STAFF_ID, TURN_INNET_STAFF_ID, TAKE_PICTURE_TAG, CUST_MANAGER_ID_B, 
+    CLASS_ID2_END_DATE, CLASS_ID2_START_DATE, IF_RELATION_CUST, CLASS2_CHANGE_DATE, LAST_CLASS_ID2, 
+    MANAGE_CODE, FINANCE_INSTANCE, GROW_POTENTIAL, CREDIT_DEGREE, INTERNATIONAL, FILE_CODE, 
+    REMOVE_FLAG, REMOVE_METHOD, REMOVE_REASON_CODE, REMOVE_TAG, REMOVE_DATE, REMOVE_STAFF_ID, 
+    REMOVE_CHANGE, UPDATE_TIME, UPDATE_STAFF_ID, UPDATE_DEPART_ID, REMARK, RSRV_NUM1, 
+    RSRV_NUM2, RSRV_NUM3, RSRV_STR1, RSRV_STR2, RSRV_STR3, RSRV_STR4, RSRV_STR5, RSRV_STR6, 
+    RSRV_STR7, RSRV_STR8, RSRV_DATE1, RSRV_DATE2, RSRV_DATE3, RSRV_TAG1, RSRV_TAG2, RSRV_TAG3, 
+    LICENCE_AUDIT_PERSON, LICENCE_AUDIT_FILE_ID, JURISTIC_PSPT_ID, JURISTIC_PSPT_TYPE, 
+    TEL_DECISION_TYPE, BUSI_TAX_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_B_TRADE_GROUP
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and CUST_ID = #{custId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TF_B_TRADE_GROUP
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and CUST_ID = #{custId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeGroupPo" >
+    insert into TF_B_TRADE_GROUP (TRADE_ID, ACCEPT_MONTH, CUST_ID, 
+      PARTITION_ID, GROUP_ID, CUST_NAME, 
+      GROUP_TYPE, CLASS_ID, CLASS_ID2, 
+      LAST_CLASS_ID, CLASS_CHANGE_DATE, CUST_CLASS_TYPE, 
+      GROUP_ATTR, GROUP_STATUS, GROUP_ADDR, 
+      PROVINCE_CODE, EPARCHY_CODE, CITY_CODE, 
+      SUPER_GROUP_ID, PNATIONAL_GROUP_ID, PNATIONAL_GROUP_NAME, 
+      MP_GROUP_CUST_CODE, UNIFY_PAY_CODE, ORG_STRUCT_CODE, 
+      CUST_MANAGER_ID, CUST_MANAGER_APPR, ASSIGN_DATE, 
+      ASSIGN_STAFF_ID, CALLING_TYPE_CODE, SUB_CALLING_TYPE_CODE, 
+      CALLING_AREA_CODE, CALL_TYPE, ACCEPT_CHANNEL, 
+      AGREEMENT, BUSI_TYPE, GROUP_CONTACT_PHONE, 
+      ENTERPRISE_TYPE_CODE, ENTERPRISE_SIZE_CODE, ENTERPRISE_SCOPE, 
+      JURISTIC_TYPE_CODE, JURISTIC_CUST_ID, JURISTIC_NAME, 
+      BUSI_LICENCE_TYPE, BUSI_LICENCE_NO, BUSI_LICENCE_VALID_DATE, 
+      GROUP_MEMO, BANK_ACCT, BANK_NAME, 
+      REG_MONEY, REG_DATE, CUST_AIM, 
+      SCOPE, MAIN_BUSI, MAIN_TRADE, 
+      EMP_LSAVE, LATENCY_FEE_SUM, YEAR_GAIN, 
+      TURNOVER, CONSUME, COMM_BUDGET, 
+      GTEL_BUDGET, LTEL_BUDGET, GROUP_ADVERSARY, 
+      VPMN_GROUP_ID, VPMN_NUM, USER_NUM, 
+      EMP_NUM_LOCAL, EMP_NUM_CHINA, EMP_NUM_ALL, 
+      TELECOM_NUM_GH, TELECOM_NUM_XLT, MOBILE_NUM_CHINAGO, 
+      MOBILE_NUM_GLOBAL, MOBILE_NUM_MZONE, MOBILE_NUM_LOCAL, 
+      UNICOM_NUM_G, UNICOM_NUM_C, UNICOM_NUM_GC, 
+      PRODUCT_NUM_LOCAL, PRODUCT_NUM_OTHER, PRODUCT_NUM_USE, 
+      EMPLOYEE_ARPU, NETRENT_PAYOUT, MOBILE_PAYOUT, 
+      UNICOM_PAYOUT, TELECOM_PAYOUT_XLT, GROUP_PAY_MODE, 
+      PAYFOR_WAY_CODE, WRITEFEE_COUNT, WRITEFEE_SUM, 
+      USER_NUM_FULLFREE, USER_NUM_WRITEOFF, BOSS_FEE_SUM, 
+      DOYEN_STAFF_ID, NEWTRADE_COMMENT, LIKE_MOBILE_TRADE, 
+      LIKE_DISCNT_MODE, FINANCE_EARNING, EARNING_ORDER, 
+      CALLING_POLICY_FORCE, SUBCLASS_ID, WEBSITE, 
+      FAX_NBR, EMAIL, POST_CODE, 
+      GROUP_VALID_SCORE, GROUP_SUM_SCORE, GROUP_MGR_SN, 
+      GROUP_MGR_USER_ID, GROUP_MGR_CUST_NAME, BASE_ACCESS_NO, 
+      BASE_ACCESS_NO_KIND, CUST_SERV_NBR, IF_SHORT_PIN, 
+      AUDIT_STATE, AUDIT_DATE, AUDIT_STAFF_ID, 
+      AUDIT_NOTE, AREA_OFFICE, BELONG_TEAM_ID, 
+      TURN_INNET_DATE, BELONG_TEAM_ID_B, CALLING_TYPE_CODE_DETAIL, 
+      SERVER_ASSIGN_DATE, SERVER_ASSIGN_STAFF_ID, 
+      TURN_INNET_STAFF_ID, TAKE_PICTURE_TAG, CUST_MANAGER_ID_B, 
+      CLASS_ID2_END_DATE, CLASS_ID2_START_DATE, 
+      IF_RELATION_CUST, CLASS2_CHANGE_DATE, LAST_CLASS_ID2, 
+      MANAGE_CODE, FINANCE_INSTANCE, GROW_POTENTIAL, 
+      CREDIT_DEGREE, INTERNATIONAL, FILE_CODE, 
+      REMOVE_FLAG, REMOVE_METHOD, REMOVE_REASON_CODE, 
+      REMOVE_TAG, REMOVE_DATE, REMOVE_STAFF_ID, 
+      REMOVE_CHANGE, UPDATE_TIME, UPDATE_STAFF_ID, 
+      UPDATE_DEPART_ID, REMARK, RSRV_NUM1, 
+      RSRV_NUM2, RSRV_NUM3, RSRV_STR1, 
+      RSRV_STR2, RSRV_STR3, RSRV_STR4, 
+      RSRV_STR5, RSRV_STR6, RSRV_STR7, 
+      RSRV_STR8, RSRV_DATE1, RSRV_DATE2, 
+      RSRV_DATE3, RSRV_TAG1, RSRV_TAG2, 
+      RSRV_TAG3, LICENCE_AUDIT_PERSON, LICENCE_AUDIT_FILE_ID, 
+      JURISTIC_PSPT_ID, JURISTIC_PSPT_TYPE, TEL_DECISION_TYPE, 
+      BUSI_TAX_ID)
+    values (#{tradeId,jdbcType=DECIMAL}, #{acceptMonth,jdbcType=DECIMAL}, #{custId,jdbcType=DECIMAL}, 
+      #{partitionId,jdbcType=DECIMAL}, #{groupId,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
+      #{groupType,jdbcType=CHAR}, #{classId,jdbcType=VARCHAR}, #{classId2,jdbcType=VARCHAR}, 
+      #{lastClassId,jdbcType=VARCHAR}, #{classChangeDate,jdbcType=TIMESTAMP}, #{custClassType,jdbcType=CHAR}, 
+      #{groupAttr,jdbcType=CHAR}, #{groupStatus,jdbcType=CHAR}, #{groupAddr,jdbcType=VARCHAR}, 
+      #{provinceCode,jdbcType=VARCHAR}, #{eparchyCode,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
+      #{superGroupId,jdbcType=VARCHAR}, #{pnationalGroupId,jdbcType=VARCHAR}, #{pnationalGroupName,jdbcType=VARCHAR}, 
+      #{mpGroupCustCode,jdbcType=VARCHAR}, #{unifyPayCode,jdbcType=VARCHAR}, #{orgStructCode,jdbcType=VARCHAR}, 
+      #{custManagerId,jdbcType=VARCHAR}, #{custManagerAppr,jdbcType=VARCHAR}, #{assignDate,jdbcType=TIMESTAMP}, 
+      #{assignStaffId,jdbcType=VARCHAR}, #{callingTypeCode,jdbcType=VARCHAR}, #{subCallingTypeCode,jdbcType=VARCHAR}, 
+      #{callingAreaCode,jdbcType=CHAR}, #{callType,jdbcType=VARCHAR}, #{acceptChannel,jdbcType=VARCHAR}, 
+      #{agreement,jdbcType=VARCHAR}, #{busiType,jdbcType=VARCHAR}, #{groupContactPhone,jdbcType=VARCHAR}, 
+      #{enterpriseTypeCode,jdbcType=CHAR}, #{enterpriseSizeCode,jdbcType=VARCHAR}, #{enterpriseScope,jdbcType=CHAR}, 
+      #{juristicTypeCode,jdbcType=CHAR}, #{juristicCustId,jdbcType=DECIMAL}, #{juristicName,jdbcType=VARCHAR}, 
+      #{busiLicenceType,jdbcType=CHAR}, #{busiLicenceNo,jdbcType=VARCHAR}, #{busiLicenceValidDate,jdbcType=TIMESTAMP}, 
+      #{groupMemo,jdbcType=VARCHAR}, #{bankAcct,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, 
+      #{regMoney,jdbcType=DECIMAL}, #{regDate,jdbcType=TIMESTAMP}, #{custAim,jdbcType=VARCHAR}, 
+      #{scope,jdbcType=VARCHAR}, #{mainBusi,jdbcType=VARCHAR}, #{mainTrade,jdbcType=VARCHAR}, 
+      #{empLsave,jdbcType=VARCHAR}, #{latencyFeeSum,jdbcType=DECIMAL}, #{yearGain,jdbcType=DECIMAL}, 
+      #{turnover,jdbcType=DECIMAL}, #{consume,jdbcType=VARCHAR}, #{commBudget,jdbcType=DECIMAL}, 
+      #{gtelBudget,jdbcType=DECIMAL}, #{ltelBudget,jdbcType=DECIMAL}, #{groupAdversary,jdbcType=VARCHAR}, 
+      #{vpmnGroupId,jdbcType=VARCHAR}, #{vpmnNum,jdbcType=DECIMAL}, #{userNum,jdbcType=DECIMAL}, 
+      #{empNumLocal,jdbcType=DECIMAL}, #{empNumChina,jdbcType=DECIMAL}, #{empNumAll,jdbcType=DECIMAL}, 
+      #{telecomNumGh,jdbcType=DECIMAL}, #{telecomNumXlt,jdbcType=DECIMAL}, #{mobileNumChinago,jdbcType=DECIMAL}, 
+      #{mobileNumGlobal,jdbcType=DECIMAL}, #{mobileNumMzone,jdbcType=DECIMAL}, #{mobileNumLocal,jdbcType=DECIMAL}, 
+      #{unicomNumG,jdbcType=DECIMAL}, #{unicomNumC,jdbcType=DECIMAL}, #{unicomNumGc,jdbcType=DECIMAL}, 
+      #{productNumLocal,jdbcType=DECIMAL}, #{productNumOther,jdbcType=DECIMAL}, #{productNumUse,jdbcType=DECIMAL}, 
+      #{employeeArpu,jdbcType=DECIMAL}, #{netrentPayout,jdbcType=DECIMAL}, #{mobilePayout,jdbcType=DECIMAL}, 
+      #{unicomPayout,jdbcType=DECIMAL}, #{telecomPayoutXlt,jdbcType=DECIMAL}, #{groupPayMode,jdbcType=VARCHAR}, 
+      #{payforWayCode,jdbcType=CHAR}, #{writefeeCount,jdbcType=DECIMAL}, #{writefeeSum,jdbcType=DECIMAL}, 
+      #{userNumFullfree,jdbcType=DECIMAL}, #{userNumWriteoff,jdbcType=DECIMAL}, #{bossFeeSum,jdbcType=DECIMAL}, 
+      #{doyenStaffId,jdbcType=VARCHAR}, #{newtradeComment,jdbcType=VARCHAR}, #{likeMobileTrade,jdbcType=VARCHAR}, 
+      #{likeDiscntMode,jdbcType=VARCHAR}, #{financeEarning,jdbcType=DECIMAL}, #{earningOrder,jdbcType=VARCHAR}, 
+      #{callingPolicyForce,jdbcType=VARCHAR}, #{subclassId,jdbcType=CHAR}, #{website,jdbcType=VARCHAR}, 
+      #{faxNbr,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{postCode,jdbcType=CHAR}, 
+      #{groupValidScore,jdbcType=DECIMAL}, #{groupSumScore,jdbcType=DECIMAL}, #{groupMgrSn,jdbcType=VARCHAR}, 
+      #{groupMgrUserId,jdbcType=DECIMAL}, #{groupMgrCustName,jdbcType=VARCHAR}, #{baseAccessNo,jdbcType=VARCHAR}, 
+      #{baseAccessNoKind,jdbcType=VARCHAR}, #{custServNbr,jdbcType=VARCHAR}, #{ifShortPin,jdbcType=VARCHAR}, 
+      #{auditState,jdbcType=CHAR}, #{auditDate,jdbcType=TIMESTAMP}, #{auditStaffId,jdbcType=VARCHAR}, 
+      #{auditNote,jdbcType=VARCHAR}, #{areaOffice,jdbcType=CHAR}, #{belongTeamId,jdbcType=VARCHAR}, 
+      #{turnInnetDate,jdbcType=TIMESTAMP}, #{belongTeamIdB,jdbcType=VARCHAR}, #{callingTypeCodeDetail,jdbcType=VARCHAR}, 
+      #{serverAssignDate,jdbcType=TIMESTAMP}, #{serverAssignStaffId,jdbcType=VARCHAR}, 
+      #{turnInnetStaffId,jdbcType=VARCHAR}, #{takePictureTag,jdbcType=CHAR}, #{custManagerIdB,jdbcType=VARCHAR}, 
+      #{classId2EndDate,jdbcType=TIMESTAMP}, #{classId2StartDate,jdbcType=TIMESTAMP}, 
+      #{ifRelationCust,jdbcType=CHAR}, #{class2ChangeDate,jdbcType=TIMESTAMP}, #{lastClassId2,jdbcType=VARCHAR}, 
+      #{manageCode,jdbcType=VARCHAR}, #{financeInstance,jdbcType=DECIMAL}, #{growPotential,jdbcType=DECIMAL}, 
+      #{creditDegree,jdbcType=DECIMAL}, #{international,jdbcType=CHAR}, #{fileCode,jdbcType=VARCHAR}, 
+      #{removeFlag,jdbcType=VARCHAR}, #{removeMethod,jdbcType=VARCHAR}, #{removeReasonCode,jdbcType=VARCHAR}, 
+      #{removeTag,jdbcType=CHAR}, #{removeDate,jdbcType=TIMESTAMP}, #{removeStaffId,jdbcType=VARCHAR}, 
+      #{removeChange,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateStaffId,jdbcType=VARCHAR}, 
+      #{updateDepartId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{rsrvNum1,jdbcType=DECIMAL}, 
+      #{rsrvNum2,jdbcType=DECIMAL}, #{rsrvNum3,jdbcType=DECIMAL}, #{rsrvStr1,jdbcType=VARCHAR}, 
+      #{rsrvStr2,jdbcType=VARCHAR}, #{rsrvStr3,jdbcType=VARCHAR}, #{rsrvStr4,jdbcType=VARCHAR}, 
+      #{rsrvStr5,jdbcType=VARCHAR}, #{rsrvStr6,jdbcType=VARCHAR}, #{rsrvStr7,jdbcType=VARCHAR}, 
+      #{rsrvStr8,jdbcType=VARCHAR}, #{rsrvDate1,jdbcType=TIMESTAMP}, #{rsrvDate2,jdbcType=TIMESTAMP}, 
+      #{rsrvDate3,jdbcType=TIMESTAMP}, #{rsrvTag1,jdbcType=CHAR}, #{rsrvTag2,jdbcType=CHAR}, 
+      #{rsrvTag3,jdbcType=CHAR}, #{licenceAuditPerson,jdbcType=VARCHAR}, #{licenceAuditFileId,jdbcType=VARCHAR}, 
+      #{juristicPsptId,jdbcType=VARCHAR}, #{juristicPsptType,jdbcType=CHAR}, #{telDecisionType,jdbcType=CHAR}, 
+      #{busiTaxId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeGroupPo" >
+    insert into TF_B_TRADE_GROUP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tradeId != null" >
+        TRADE_ID,
+      </if>
+      <if test="acceptMonth != null" >
+        ACCEPT_MONTH,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="partitionId != null" >
+        PARTITION_ID,
+      </if>
+      <if test="groupId != null" >
+        GROUP_ID,
+      </if>
+      <if test="custName != null" >
+        CUST_NAME,
+      </if>
+      <if test="groupType != null" >
+        GROUP_TYPE,
+      </if>
+      <if test="classId != null" >
+        CLASS_ID,
+      </if>
+      <if test="classId2 != null" >
+        CLASS_ID2,
+      </if>
+      <if test="lastClassId != null" >
+        LAST_CLASS_ID,
+      </if>
+      <if test="classChangeDate != null" >
+        CLASS_CHANGE_DATE,
+      </if>
+      <if test="custClassType != null" >
+        CUST_CLASS_TYPE,
+      </if>
+      <if test="groupAttr != null" >
+        GROUP_ATTR,
+      </if>
+      <if test="groupStatus != null" >
+        GROUP_STATUS,
+      </if>
+      <if test="groupAddr != null" >
+        GROUP_ADDR,
+      </if>
+      <if test="provinceCode != null" >
+        PROVINCE_CODE,
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="superGroupId != null" >
+        SUPER_GROUP_ID,
+      </if>
+      <if test="pnationalGroupId != null" >
+        PNATIONAL_GROUP_ID,
+      </if>
+      <if test="pnationalGroupName != null" >
+        PNATIONAL_GROUP_NAME,
+      </if>
+      <if test="mpGroupCustCode != null" >
+        MP_GROUP_CUST_CODE,
+      </if>
+      <if test="unifyPayCode != null" >
+        UNIFY_PAY_CODE,
+      </if>
+      <if test="orgStructCode != null" >
+        ORG_STRUCT_CODE,
+      </if>
+      <if test="custManagerId != null" >
+        CUST_MANAGER_ID,
+      </if>
+      <if test="custManagerAppr != null" >
+        CUST_MANAGER_APPR,
+      </if>
+      <if test="assignDate != null" >
+        ASSIGN_DATE,
+      </if>
+      <if test="assignStaffId != null" >
+        ASSIGN_STAFF_ID,
+      </if>
+      <if test="callingTypeCode != null" >
+        CALLING_TYPE_CODE,
+      </if>
+      <if test="subCallingTypeCode != null" >
+        SUB_CALLING_TYPE_CODE,
+      </if>
+      <if test="callingAreaCode != null" >
+        CALLING_AREA_CODE,
+      </if>
+      <if test="callType != null" >
+        CALL_TYPE,
+      </if>
+      <if test="acceptChannel != null" >
+        ACCEPT_CHANNEL,
+      </if>
+      <if test="agreement != null" >
+        AGREEMENT,
+      </if>
+      <if test="busiType != null" >
+        BUSI_TYPE,
+      </if>
+      <if test="groupContactPhone != null" >
+        GROUP_CONTACT_PHONE,
+      </if>
+      <if test="enterpriseTypeCode != null" >
+        ENTERPRISE_TYPE_CODE,
+      </if>
+      <if test="enterpriseSizeCode != null" >
+        ENTERPRISE_SIZE_CODE,
+      </if>
+      <if test="enterpriseScope != null" >
+        ENTERPRISE_SCOPE,
+      </if>
+      <if test="juristicTypeCode != null" >
+        JURISTIC_TYPE_CODE,
+      </if>
+      <if test="juristicCustId != null" >
+        JURISTIC_CUST_ID,
+      </if>
+      <if test="juristicName != null" >
+        JURISTIC_NAME,
+      </if>
+      <if test="busiLicenceType != null" >
+        BUSI_LICENCE_TYPE,
+      </if>
+      <if test="busiLicenceNo != null" >
+        BUSI_LICENCE_NO,
+      </if>
+      <if test="busiLicenceValidDate != null" >
+        BUSI_LICENCE_VALID_DATE,
+      </if>
+      <if test="groupMemo != null" >
+        GROUP_MEMO,
+      </if>
+      <if test="bankAcct != null" >
+        BANK_ACCT,
+      </if>
+      <if test="bankName != null" >
+        BANK_NAME,
+      </if>
+      <if test="regMoney != null" >
+        REG_MONEY,
+      </if>
+      <if test="regDate != null" >
+        REG_DATE,
+      </if>
+      <if test="custAim != null" >
+        CUST_AIM,
+      </if>
+      <if test="scope != null" >
+        SCOPE,
+      </if>
+      <if test="mainBusi != null" >
+        MAIN_BUSI,
+      </if>
+      <if test="mainTrade != null" >
+        MAIN_TRADE,
+      </if>
+      <if test="empLsave != null" >
+        EMP_LSAVE,
+      </if>
+      <if test="latencyFeeSum != null" >
+        LATENCY_FEE_SUM,
+      </if>
+      <if test="yearGain != null" >
+        YEAR_GAIN,
+      </if>
+      <if test="turnover != null" >
+        TURNOVER,
+      </if>
+      <if test="consume != null" >
+        CONSUME,
+      </if>
+      <if test="commBudget != null" >
+        COMM_BUDGET,
+      </if>
+      <if test="gtelBudget != null" >
+        GTEL_BUDGET,
+      </if>
+      <if test="ltelBudget != null" >
+        LTEL_BUDGET,
+      </if>
+      <if test="groupAdversary != null" >
+        GROUP_ADVERSARY,
+      </if>
+      <if test="vpmnGroupId != null" >
+        VPMN_GROUP_ID,
+      </if>
+      <if test="vpmnNum != null" >
+        VPMN_NUM,
+      </if>
+      <if test="userNum != null" >
+        USER_NUM,
+      </if>
+      <if test="empNumLocal != null" >
+        EMP_NUM_LOCAL,
+      </if>
+      <if test="empNumChina != null" >
+        EMP_NUM_CHINA,
+      </if>
+      <if test="empNumAll != null" >
+        EMP_NUM_ALL,
+      </if>
+      <if test="telecomNumGh != null" >
+        TELECOM_NUM_GH,
+      </if>
+      <if test="telecomNumXlt != null" >
+        TELECOM_NUM_XLT,
+      </if>
+      <if test="mobileNumChinago != null" >
+        MOBILE_NUM_CHINAGO,
+      </if>
+      <if test="mobileNumGlobal != null" >
+        MOBILE_NUM_GLOBAL,
+      </if>
+      <if test="mobileNumMzone != null" >
+        MOBILE_NUM_MZONE,
+      </if>
+      <if test="mobileNumLocal != null" >
+        MOBILE_NUM_LOCAL,
+      </if>
+      <if test="unicomNumG != null" >
+        UNICOM_NUM_G,
+      </if>
+      <if test="unicomNumC != null" >
+        UNICOM_NUM_C,
+      </if>
+      <if test="unicomNumGc != null" >
+        UNICOM_NUM_GC,
+      </if>
+      <if test="productNumLocal != null" >
+        PRODUCT_NUM_LOCAL,
+      </if>
+      <if test="productNumOther != null" >
+        PRODUCT_NUM_OTHER,
+      </if>
+      <if test="productNumUse != null" >
+        PRODUCT_NUM_USE,
+      </if>
+      <if test="employeeArpu != null" >
+        EMPLOYEE_ARPU,
+      </if>
+      <if test="netrentPayout != null" >
+        NETRENT_PAYOUT,
+      </if>
+      <if test="mobilePayout != null" >
+        MOBILE_PAYOUT,
+      </if>
+      <if test="unicomPayout != null" >
+        UNICOM_PAYOUT,
+      </if>
+      <if test="telecomPayoutXlt != null" >
+        TELECOM_PAYOUT_XLT,
+      </if>
+      <if test="groupPayMode != null" >
+        GROUP_PAY_MODE,
+      </if>
+      <if test="payforWayCode != null" >
+        PAYFOR_WAY_CODE,
+      </if>
+      <if test="writefeeCount != null" >
+        WRITEFEE_COUNT,
+      </if>
+      <if test="writefeeSum != null" >
+        WRITEFEE_SUM,
+      </if>
+      <if test="userNumFullfree != null" >
+        USER_NUM_FULLFREE,
+      </if>
+      <if test="userNumWriteoff != null" >
+        USER_NUM_WRITEOFF,
+      </if>
+      <if test="bossFeeSum != null" >
+        BOSS_FEE_SUM,
+      </if>
+      <if test="doyenStaffId != null" >
+        DOYEN_STAFF_ID,
+      </if>
+      <if test="newtradeComment != null" >
+        NEWTRADE_COMMENT,
+      </if>
+      <if test="likeMobileTrade != null" >
+        LIKE_MOBILE_TRADE,
+      </if>
+      <if test="likeDiscntMode != null" >
+        LIKE_DISCNT_MODE,
+      </if>
+      <if test="financeEarning != null" >
+        FINANCE_EARNING,
+      </if>
+      <if test="earningOrder != null" >
+        EARNING_ORDER,
+      </if>
+      <if test="callingPolicyForce != null" >
+        CALLING_POLICY_FORCE,
+      </if>
+      <if test="subclassId != null" >
+        SUBCLASS_ID,
+      </if>
+      <if test="website != null" >
+        WEBSITE,
+      </if>
+      <if test="faxNbr != null" >
+        FAX_NBR,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="postCode != null" >
+        POST_CODE,
+      </if>
+      <if test="groupValidScore != null" >
+        GROUP_VALID_SCORE,
+      </if>
+      <if test="groupSumScore != null" >
+        GROUP_SUM_SCORE,
+      </if>
+      <if test="groupMgrSn != null" >
+        GROUP_MGR_SN,
+      </if>
+      <if test="groupMgrUserId != null" >
+        GROUP_MGR_USER_ID,
+      </if>
+      <if test="groupMgrCustName != null" >
+        GROUP_MGR_CUST_NAME,
+      </if>
+      <if test="baseAccessNo != null" >
+        BASE_ACCESS_NO,
+      </if>
+      <if test="baseAccessNoKind != null" >
+        BASE_ACCESS_NO_KIND,
+      </if>
+      <if test="custServNbr != null" >
+        CUST_SERV_NBR,
+      </if>
+      <if test="ifShortPin != null" >
+        IF_SHORT_PIN,
+      </if>
+      <if test="auditState != null" >
+        AUDIT_STATE,
+      </if>
+      <if test="auditDate != null" >
+        AUDIT_DATE,
+      </if>
+      <if test="auditStaffId != null" >
+        AUDIT_STAFF_ID,
+      </if>
+      <if test="auditNote != null" >
+        AUDIT_NOTE,
+      </if>
+      <if test="areaOffice != null" >
+        AREA_OFFICE,
+      </if>
+      <if test="belongTeamId != null" >
+        BELONG_TEAM_ID,
+      </if>
+      <if test="turnInnetDate != null" >
+        TURN_INNET_DATE,
+      </if>
+      <if test="belongTeamIdB != null" >
+        BELONG_TEAM_ID_B,
+      </if>
+      <if test="callingTypeCodeDetail != null" >
+        CALLING_TYPE_CODE_DETAIL,
+      </if>
+      <if test="serverAssignDate != null" >
+        SERVER_ASSIGN_DATE,
+      </if>
+      <if test="serverAssignStaffId != null" >
+        SERVER_ASSIGN_STAFF_ID,
+      </if>
+      <if test="turnInnetStaffId != null" >
+        TURN_INNET_STAFF_ID,
+      </if>
+      <if test="takePictureTag != null" >
+        TAKE_PICTURE_TAG,
+      </if>
+      <if test="custManagerIdB != null" >
+        CUST_MANAGER_ID_B,
+      </if>
+      <if test="classId2EndDate != null" >
+        CLASS_ID2_END_DATE,
+      </if>
+      <if test="classId2StartDate != null" >
+        CLASS_ID2_START_DATE,
+      </if>
+      <if test="ifRelationCust != null" >
+        IF_RELATION_CUST,
+      </if>
+      <if test="class2ChangeDate != null" >
+        CLASS2_CHANGE_DATE,
+      </if>
+      <if test="lastClassId2 != null" >
+        LAST_CLASS_ID2,
+      </if>
+      <if test="manageCode != null" >
+        MANAGE_CODE,
+      </if>
+      <if test="financeInstance != null" >
+        FINANCE_INSTANCE,
+      </if>
+      <if test="growPotential != null" >
+        GROW_POTENTIAL,
+      </if>
+      <if test="creditDegree != null" >
+        CREDIT_DEGREE,
+      </if>
+      <if test="international != null" >
+        INTERNATIONAL,
+      </if>
+      <if test="fileCode != null" >
+        FILE_CODE,
+      </if>
+      <if test="removeFlag != null" >
+        REMOVE_FLAG,
+      </if>
+      <if test="removeMethod != null" >
+        REMOVE_METHOD,
+      </if>
+      <if test="removeReasonCode != null" >
+        REMOVE_REASON_CODE,
+      </if>
+      <if test="removeTag != null" >
+        REMOVE_TAG,
+      </if>
+      <if test="removeDate != null" >
+        REMOVE_DATE,
+      </if>
+      <if test="removeStaffId != null" >
+        REMOVE_STAFF_ID,
+      </if>
+      <if test="removeChange != null" >
+        REMOVE_CHANGE,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID,
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="rsrvNum1 != null" >
+        RSRV_NUM1,
+      </if>
+      <if test="rsrvNum2 != null" >
+        RSRV_NUM2,
+      </if>
+      <if test="rsrvNum3 != null" >
+        RSRV_NUM3,
+      </if>
+      <if test="rsrvStr1 != null" >
+        RSRV_STR1,
+      </if>
+      <if test="rsrvStr2 != null" >
+        RSRV_STR2,
+      </if>
+      <if test="rsrvStr3 != null" >
+        RSRV_STR3,
+      </if>
+      <if test="rsrvStr4 != null" >
+        RSRV_STR4,
+      </if>
+      <if test="rsrvStr5 != null" >
+        RSRV_STR5,
+      </if>
+      <if test="rsrvStr6 != null" >
+        RSRV_STR6,
+      </if>
+      <if test="rsrvStr7 != null" >
+        RSRV_STR7,
+      </if>
+      <if test="rsrvStr8 != null" >
+        RSRV_STR8,
+      </if>
+      <if test="rsrvDate1 != null" >
+        RSRV_DATE1,
+      </if>
+      <if test="rsrvDate2 != null" >
+        RSRV_DATE2,
+      </if>
+      <if test="rsrvDate3 != null" >
+        RSRV_DATE3,
+      </if>
+      <if test="rsrvTag1 != null" >
+        RSRV_TAG1,
+      </if>
+      <if test="rsrvTag2 != null" >
+        RSRV_TAG2,
+      </if>
+      <if test="rsrvTag3 != null" >
+        RSRV_TAG3,
+      </if>
+      <if test="licenceAuditPerson != null" >
+        LICENCE_AUDIT_PERSON,
+      </if>
+      <if test="licenceAuditFileId != null" >
+        LICENCE_AUDIT_FILE_ID,
+      </if>
+      <if test="juristicPsptId != null" >
+        JURISTIC_PSPT_ID,
+      </if>
+      <if test="juristicPsptType != null" >
+        JURISTIC_PSPT_TYPE,
+      </if>
+      <if test="telDecisionType != null" >
+        TEL_DECISION_TYPE,
+      </if>
+      <if test="busiTaxId != null" >
+        BUSI_TAX_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tradeId != null" >
+        #{tradeId,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptMonth != null" >
+        #{acceptMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="custId != null" >
+        #{custId,jdbcType=DECIMAL},
+      </if>
+      <if test="partitionId != null" >
+        #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null" >
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupType != null" >
+        #{groupType,jdbcType=CHAR},
+      </if>
+      <if test="classId != null" >
+        #{classId,jdbcType=VARCHAR},
+      </if>
+      <if test="classId2 != null" >
+        #{classId2,jdbcType=VARCHAR},
+      </if>
+      <if test="lastClassId != null" >
+        #{lastClassId,jdbcType=VARCHAR},
+      </if>
+      <if test="classChangeDate != null" >
+        #{classChangeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custClassType != null" >
+        #{custClassType,jdbcType=CHAR},
+      </if>
+      <if test="groupAttr != null" >
+        #{groupAttr,jdbcType=CHAR},
+      </if>
+      <if test="groupStatus != null" >
+        #{groupStatus,jdbcType=CHAR},
+      </if>
+      <if test="groupAddr != null" >
+        #{groupAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceCode != null" >
+        #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="eparchyCode != null" >
+        #{eparchyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="superGroupId != null" >
+        #{superGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="pnationalGroupId != null" >
+        #{pnationalGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="pnationalGroupName != null" >
+        #{pnationalGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="mpGroupCustCode != null" >
+        #{mpGroupCustCode,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyPayCode != null" >
+        #{unifyPayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgStructCode != null" >
+        #{orgStructCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custManagerId != null" >
+        #{custManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="custManagerAppr != null" >
+        #{custManagerAppr,jdbcType=VARCHAR},
+      </if>
+      <if test="assignDate != null" >
+        #{assignDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assignStaffId != null" >
+        #{assignStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="callingTypeCode != null" >
+        #{callingTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="subCallingTypeCode != null" >
+        #{subCallingTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="callingAreaCode != null" >
+        #{callingAreaCode,jdbcType=CHAR},
+      </if>
+      <if test="callType != null" >
+        #{callType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptChannel != null" >
+        #{acceptChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="agreement != null" >
+        #{agreement,jdbcType=VARCHAR},
+      </if>
+      <if test="busiType != null" >
+        #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="groupContactPhone != null" >
+        #{groupContactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseTypeCode != null" >
+        #{enterpriseTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="enterpriseSizeCode != null" >
+        #{enterpriseSizeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseScope != null" >
+        #{enterpriseScope,jdbcType=CHAR},
+      </if>
+      <if test="juristicTypeCode != null" >
+        #{juristicTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="juristicCustId != null" >
+        #{juristicCustId,jdbcType=DECIMAL},
+      </if>
+      <if test="juristicName != null" >
+        #{juristicName,jdbcType=VARCHAR},
+      </if>
+      <if test="busiLicenceType != null" >
+        #{busiLicenceType,jdbcType=CHAR},
+      </if>
+      <if test="busiLicenceNo != null" >
+        #{busiLicenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="busiLicenceValidDate != null" >
+        #{busiLicenceValidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupMemo != null" >
+        #{groupMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcct != null" >
+        #{bankAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="regMoney != null" >
+        #{regMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="regDate != null" >
+        #{regDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custAim != null" >
+        #{custAim,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBusi != null" >
+        #{mainBusi,jdbcType=VARCHAR},
+      </if>
+      <if test="mainTrade != null" >
+        #{mainTrade,jdbcType=VARCHAR},
+      </if>
+      <if test="empLsave != null" >
+        #{empLsave,jdbcType=VARCHAR},
+      </if>
+      <if test="latencyFeeSum != null" >
+        #{latencyFeeSum,jdbcType=DECIMAL},
+      </if>
+      <if test="yearGain != null" >
+        #{yearGain,jdbcType=DECIMAL},
+      </if>
+      <if test="turnover != null" >
+        #{turnover,jdbcType=DECIMAL},
+      </if>
+      <if test="consume != null" >
+        #{consume,jdbcType=VARCHAR},
+      </if>
+      <if test="commBudget != null" >
+        #{commBudget,jdbcType=DECIMAL},
+      </if>
+      <if test="gtelBudget != null" >
+        #{gtelBudget,jdbcType=DECIMAL},
+      </if>
+      <if test="ltelBudget != null" >
+        #{ltelBudget,jdbcType=DECIMAL},
+      </if>
+      <if test="groupAdversary != null" >
+        #{groupAdversary,jdbcType=VARCHAR},
+      </if>
+      <if test="vpmnGroupId != null" >
+        #{vpmnGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="vpmnNum != null" >
+        #{vpmnNum,jdbcType=DECIMAL},
+      </if>
+      <if test="userNum != null" >
+        #{userNum,jdbcType=DECIMAL},
+      </if>
+      <if test="empNumLocal != null" >
+        #{empNumLocal,jdbcType=DECIMAL},
+      </if>
+      <if test="empNumChina != null" >
+        #{empNumChina,jdbcType=DECIMAL},
+      </if>
+      <if test="empNumAll != null" >
+        #{empNumAll,jdbcType=DECIMAL},
+      </if>
+      <if test="telecomNumGh != null" >
+        #{telecomNumGh,jdbcType=DECIMAL},
+      </if>
+      <if test="telecomNumXlt != null" >
+        #{telecomNumXlt,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileNumChinago != null" >
+        #{mobileNumChinago,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileNumGlobal != null" >
+        #{mobileNumGlobal,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileNumMzone != null" >
+        #{mobileNumMzone,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileNumLocal != null" >
+        #{mobileNumLocal,jdbcType=DECIMAL},
+      </if>
+      <if test="unicomNumG != null" >
+        #{unicomNumG,jdbcType=DECIMAL},
+      </if>
+      <if test="unicomNumC != null" >
+        #{unicomNumC,jdbcType=DECIMAL},
+      </if>
+      <if test="unicomNumGc != null" >
+        #{unicomNumGc,jdbcType=DECIMAL},
+      </if>
+      <if test="productNumLocal != null" >
+        #{productNumLocal,jdbcType=DECIMAL},
+      </if>
+      <if test="productNumOther != null" >
+        #{productNumOther,jdbcType=DECIMAL},
+      </if>
+      <if test="productNumUse != null" >
+        #{productNumUse,jdbcType=DECIMAL},
+      </if>
+      <if test="employeeArpu != null" >
+        #{employeeArpu,jdbcType=DECIMAL},
+      </if>
+      <if test="netrentPayout != null" >
+        #{netrentPayout,jdbcType=DECIMAL},
+      </if>
+      <if test="mobilePayout != null" >
+        #{mobilePayout,jdbcType=DECIMAL},
+      </if>
+      <if test="unicomPayout != null" >
+        #{unicomPayout,jdbcType=DECIMAL},
+      </if>
+      <if test="telecomPayoutXlt != null" >
+        #{telecomPayoutXlt,jdbcType=DECIMAL},
+      </if>
+      <if test="groupPayMode != null" >
+        #{groupPayMode,jdbcType=VARCHAR},
+      </if>
+      <if test="payforWayCode != null" >
+        #{payforWayCode,jdbcType=CHAR},
+      </if>
+      <if test="writefeeCount != null" >
+        #{writefeeCount,jdbcType=DECIMAL},
+      </if>
+      <if test="writefeeSum != null" >
+        #{writefeeSum,jdbcType=DECIMAL},
+      </if>
+      <if test="userNumFullfree != null" >
+        #{userNumFullfree,jdbcType=DECIMAL},
+      </if>
+      <if test="userNumWriteoff != null" >
+        #{userNumWriteoff,jdbcType=DECIMAL},
+      </if>
+      <if test="bossFeeSum != null" >
+        #{bossFeeSum,jdbcType=DECIMAL},
+      </if>
+      <if test="doyenStaffId != null" >
+        #{doyenStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="newtradeComment != null" >
+        #{newtradeComment,jdbcType=VARCHAR},
+      </if>
+      <if test="likeMobileTrade != null" >
+        #{likeMobileTrade,jdbcType=VARCHAR},
+      </if>
+      <if test="likeDiscntMode != null" >
+        #{likeDiscntMode,jdbcType=VARCHAR},
+      </if>
+      <if test="financeEarning != null" >
+        #{financeEarning,jdbcType=DECIMAL},
+      </if>
+      <if test="earningOrder != null" >
+        #{earningOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="callingPolicyForce != null" >
+        #{callingPolicyForce,jdbcType=VARCHAR},
+      </if>
+      <if test="subclassId != null" >
+        #{subclassId,jdbcType=CHAR},
+      </if>
+      <if test="website != null" >
+        #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="faxNbr != null" >
+        #{faxNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        #{postCode,jdbcType=CHAR},
+      </if>
+      <if test="groupValidScore != null" >
+        #{groupValidScore,jdbcType=DECIMAL},
+      </if>
+      <if test="groupSumScore != null" >
+        #{groupSumScore,jdbcType=DECIMAL},
+      </if>
+      <if test="groupMgrSn != null" >
+        #{groupMgrSn,jdbcType=VARCHAR},
+      </if>
+      <if test="groupMgrUserId != null" >
+        #{groupMgrUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="groupMgrCustName != null" >
+        #{groupMgrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="baseAccessNo != null" >
+        #{baseAccessNo,jdbcType=VARCHAR},
+      </if>
+      <if test="baseAccessNoKind != null" >
+        #{baseAccessNoKind,jdbcType=VARCHAR},
+      </if>
+      <if test="custServNbr != null" >
+        #{custServNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="ifShortPin != null" >
+        #{ifShortPin,jdbcType=VARCHAR},
+      </if>
+      <if test="auditState != null" >
+        #{auditState,jdbcType=CHAR},
+      </if>
+      <if test="auditDate != null" >
+        #{auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditStaffId != null" >
+        #{auditStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="auditNote != null" >
+        #{auditNote,jdbcType=VARCHAR},
+      </if>
+      <if test="areaOffice != null" >
+        #{areaOffice,jdbcType=CHAR},
+      </if>
+      <if test="belongTeamId != null" >
+        #{belongTeamId,jdbcType=VARCHAR},
+      </if>
+      <if test="turnInnetDate != null" >
+        #{turnInnetDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="belongTeamIdB != null" >
+        #{belongTeamIdB,jdbcType=VARCHAR},
+      </if>
+      <if test="callingTypeCodeDetail != null" >
+        #{callingTypeCodeDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="serverAssignDate != null" >
+        #{serverAssignDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serverAssignStaffId != null" >
+        #{serverAssignStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="turnInnetStaffId != null" >
+        #{turnInnetStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="takePictureTag != null" >
+        #{takePictureTag,jdbcType=CHAR},
+      </if>
+      <if test="custManagerIdB != null" >
+        #{custManagerIdB,jdbcType=VARCHAR},
+      </if>
+      <if test="classId2EndDate != null" >
+        #{classId2EndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classId2StartDate != null" >
+        #{classId2StartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifRelationCust != null" >
+        #{ifRelationCust,jdbcType=CHAR},
+      </if>
+      <if test="class2ChangeDate != null" >
+        #{class2ChangeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastClassId2 != null" >
+        #{lastClassId2,jdbcType=VARCHAR},
+      </if>
+      <if test="manageCode != null" >
+        #{manageCode,jdbcType=VARCHAR},
+      </if>
+      <if test="financeInstance != null" >
+        #{financeInstance,jdbcType=DECIMAL},
+      </if>
+      <if test="growPotential != null" >
+        #{growPotential,jdbcType=DECIMAL},
+      </if>
+      <if test="creditDegree != null" >
+        #{creditDegree,jdbcType=DECIMAL},
+      </if>
+      <if test="international != null" >
+        #{international,jdbcType=CHAR},
+      </if>
+      <if test="fileCode != null" >
+        #{fileCode,jdbcType=VARCHAR},
+      </if>
+      <if test="removeFlag != null" >
+        #{removeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="removeMethod != null" >
+        #{removeMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="removeReasonCode != null" >
+        #{removeReasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="removeTag != null" >
+        #{removeTag,jdbcType=CHAR},
+      </if>
+      <if test="removeDate != null" >
+        #{removeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="removeStaffId != null" >
+        #{removeStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="removeChange != null" >
+        #{removeChange,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStaffId != null" >
+        #{updateStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        #{updateDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvNum1 != null" >
+        #{rsrvNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum2 != null" >
+        #{rsrvNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum3 != null" >
+        #{rsrvNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvStr1 != null" >
+        #{rsrvStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr2 != null" >
+        #{rsrvStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr3 != null" >
+        #{rsrvStr3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr4 != null" >
+        #{rsrvStr4,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr5 != null" >
+        #{rsrvStr5,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr6 != null" >
+        #{rsrvStr6,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr7 != null" >
+        #{rsrvStr7,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr8 != null" >
+        #{rsrvStr8,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvDate1 != null" >
+        #{rsrvDate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate2 != null" >
+        #{rsrvDate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate3 != null" >
+        #{rsrvDate3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvTag1 != null" >
+        #{rsrvTag1,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag2 != null" >
+        #{rsrvTag2,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag3 != null" >
+        #{rsrvTag3,jdbcType=CHAR},
+      </if>
+      <if test="licenceAuditPerson != null" >
+        #{licenceAuditPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="licenceAuditFileId != null" >
+        #{licenceAuditFileId,jdbcType=VARCHAR},
+      </if>
+      <if test="juristicPsptId != null" >
+        #{juristicPsptId,jdbcType=VARCHAR},
+      </if>
+      <if test="juristicPsptType != null" >
+        #{juristicPsptType,jdbcType=CHAR},
+      </if>
+      <if test="telDecisionType != null" >
+        #{telDecisionType,jdbcType=CHAR},
+      </if>
+      <if test="busiTaxId != null" >
+        #{busiTaxId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeGroupPo" >
+    update TF_B_TRADE_GROUP
+    <set >
+      <if test="partitionId != null" >
+        PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="groupId != null" >
+        GROUP_ID = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null" >
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupType != null" >
+        GROUP_TYPE = #{groupType,jdbcType=CHAR},
+      </if>
+      <if test="classId != null" >
+        CLASS_ID = #{classId,jdbcType=VARCHAR},
+      </if>
+      <if test="classId2 != null" >
+        CLASS_ID2 = #{classId2,jdbcType=VARCHAR},
+      </if>
+      <if test="lastClassId != null" >
+        LAST_CLASS_ID = #{lastClassId,jdbcType=VARCHAR},
+      </if>
+      <if test="classChangeDate != null" >
+        CLASS_CHANGE_DATE = #{classChangeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custClassType != null" >
+        CUST_CLASS_TYPE = #{custClassType,jdbcType=CHAR},
+      </if>
+      <if test="groupAttr != null" >
+        GROUP_ATTR = #{groupAttr,jdbcType=CHAR},
+      </if>
+      <if test="groupStatus != null" >
+        GROUP_STATUS = #{groupStatus,jdbcType=CHAR},
+      </if>
+      <if test="groupAddr != null" >
+        GROUP_ADDR = #{groupAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceCode != null" >
+        PROVINCE_CODE = #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE = #{eparchyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="superGroupId != null" >
+        SUPER_GROUP_ID = #{superGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="pnationalGroupId != null" >
+        PNATIONAL_GROUP_ID = #{pnationalGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="pnationalGroupName != null" >
+        PNATIONAL_GROUP_NAME = #{pnationalGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="mpGroupCustCode != null" >
+        MP_GROUP_CUST_CODE = #{mpGroupCustCode,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyPayCode != null" >
+        UNIFY_PAY_CODE = #{unifyPayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgStructCode != null" >
+        ORG_STRUCT_CODE = #{orgStructCode,jdbcType=VARCHAR},
+      </if>
+      <if test="custManagerId != null" >
+        CUST_MANAGER_ID = #{custManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="custManagerAppr != null" >
+        CUST_MANAGER_APPR = #{custManagerAppr,jdbcType=VARCHAR},
+      </if>
+      <if test="assignDate != null" >
+        ASSIGN_DATE = #{assignDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assignStaffId != null" >
+        ASSIGN_STAFF_ID = #{assignStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="callingTypeCode != null" >
+        CALLING_TYPE_CODE = #{callingTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="subCallingTypeCode != null" >
+        SUB_CALLING_TYPE_CODE = #{subCallingTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="callingAreaCode != null" >
+        CALLING_AREA_CODE = #{callingAreaCode,jdbcType=CHAR},
+      </if>
+      <if test="callType != null" >
+        CALL_TYPE = #{callType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptChannel != null" >
+        ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="agreement != null" >
+        AGREEMENT = #{agreement,jdbcType=VARCHAR},
+      </if>
+      <if test="busiType != null" >
+        BUSI_TYPE = #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="groupContactPhone != null" >
+        GROUP_CONTACT_PHONE = #{groupContactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseTypeCode != null" >
+        ENTERPRISE_TYPE_CODE = #{enterpriseTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="enterpriseSizeCode != null" >
+        ENTERPRISE_SIZE_CODE = #{enterpriseSizeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseScope != null" >
+        ENTERPRISE_SCOPE = #{enterpriseScope,jdbcType=CHAR},
+      </if>
+      <if test="juristicTypeCode != null" >
+        JURISTIC_TYPE_CODE = #{juristicTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="juristicCustId != null" >
+        JURISTIC_CUST_ID = #{juristicCustId,jdbcType=DECIMAL},
+      </if>
+      <if test="juristicName != null" >
+        JURISTIC_NAME = #{juristicName,jdbcType=VARCHAR},
+      </if>
+      <if test="busiLicenceType != null" >
+        BUSI_LICENCE_TYPE = #{busiLicenceType,jdbcType=CHAR},
+      </if>
+      <if test="busiLicenceNo != null" >
+        BUSI_LICENCE_NO = #{busiLicenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="busiLicenceValidDate != null" >
+        BUSI_LICENCE_VALID_DATE = #{busiLicenceValidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupMemo != null" >
+        GROUP_MEMO = #{groupMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcct != null" >
+        BANK_ACCT = #{bankAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="regMoney != null" >
+        REG_MONEY = #{regMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="regDate != null" >
+        REG_DATE = #{regDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custAim != null" >
+        CUST_AIM = #{custAim,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        SCOPE = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBusi != null" >
+        MAIN_BUSI = #{mainBusi,jdbcType=VARCHAR},
+      </if>
+      <if test="mainTrade != null" >
+        MAIN_TRADE = #{mainTrade,jdbcType=VARCHAR},
+      </if>
+      <if test="empLsave != null" >
+        EMP_LSAVE = #{empLsave,jdbcType=VARCHAR},
+      </if>
+      <if test="latencyFeeSum != null" >
+        LATENCY_FEE_SUM = #{latencyFeeSum,jdbcType=DECIMAL},
+      </if>
+      <if test="yearGain != null" >
+        YEAR_GAIN = #{yearGain,jdbcType=DECIMAL},
+      </if>
+      <if test="turnover != null" >
+        TURNOVER = #{turnover,jdbcType=DECIMAL},
+      </if>
+      <if test="consume != null" >
+        CONSUME = #{consume,jdbcType=VARCHAR},
+      </if>
+      <if test="commBudget != null" >
+        COMM_BUDGET = #{commBudget,jdbcType=DECIMAL},
+      </if>
+      <if test="gtelBudget != null" >
+        GTEL_BUDGET = #{gtelBudget,jdbcType=DECIMAL},
+      </if>
+      <if test="ltelBudget != null" >
+        LTEL_BUDGET = #{ltelBudget,jdbcType=DECIMAL},
+      </if>
+      <if test="groupAdversary != null" >
+        GROUP_ADVERSARY = #{groupAdversary,jdbcType=VARCHAR},
+      </if>
+      <if test="vpmnGroupId != null" >
+        VPMN_GROUP_ID = #{vpmnGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="vpmnNum != null" >
+        VPMN_NUM = #{vpmnNum,jdbcType=DECIMAL},
+      </if>
+      <if test="userNum != null" >
+        USER_NUM = #{userNum,jdbcType=DECIMAL},
+      </if>
+      <if test="empNumLocal != null" >
+        EMP_NUM_LOCAL = #{empNumLocal,jdbcType=DECIMAL},
+      </if>
+      <if test="empNumChina != null" >
+        EMP_NUM_CHINA = #{empNumChina,jdbcType=DECIMAL},
+      </if>
+      <if test="empNumAll != null" >
+        EMP_NUM_ALL = #{empNumAll,jdbcType=DECIMAL},
+      </if>
+      <if test="telecomNumGh != null" >
+        TELECOM_NUM_GH = #{telecomNumGh,jdbcType=DECIMAL},
+      </if>
+      <if test="telecomNumXlt != null" >
+        TELECOM_NUM_XLT = #{telecomNumXlt,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileNumChinago != null" >
+        MOBILE_NUM_CHINAGO = #{mobileNumChinago,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileNumGlobal != null" >
+        MOBILE_NUM_GLOBAL = #{mobileNumGlobal,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileNumMzone != null" >
+        MOBILE_NUM_MZONE = #{mobileNumMzone,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileNumLocal != null" >
+        MOBILE_NUM_LOCAL = #{mobileNumLocal,jdbcType=DECIMAL},
+      </if>
+      <if test="unicomNumG != null" >
+        UNICOM_NUM_G = #{unicomNumG,jdbcType=DECIMAL},
+      </if>
+      <if test="unicomNumC != null" >
+        UNICOM_NUM_C = #{unicomNumC,jdbcType=DECIMAL},
+      </if>
+      <if test="unicomNumGc != null" >
+        UNICOM_NUM_GC = #{unicomNumGc,jdbcType=DECIMAL},
+      </if>
+      <if test="productNumLocal != null" >
+        PRODUCT_NUM_LOCAL = #{productNumLocal,jdbcType=DECIMAL},
+      </if>
+      <if test="productNumOther != null" >
+        PRODUCT_NUM_OTHER = #{productNumOther,jdbcType=DECIMAL},
+      </if>
+      <if test="productNumUse != null" >
+        PRODUCT_NUM_USE = #{productNumUse,jdbcType=DECIMAL},
+      </if>
+      <if test="employeeArpu != null" >
+        EMPLOYEE_ARPU = #{employeeArpu,jdbcType=DECIMAL},
+      </if>
+      <if test="netrentPayout != null" >
+        NETRENT_PAYOUT = #{netrentPayout,jdbcType=DECIMAL},
+      </if>
+      <if test="mobilePayout != null" >
+        MOBILE_PAYOUT = #{mobilePayout,jdbcType=DECIMAL},
+      </if>
+      <if test="unicomPayout != null" >
+        UNICOM_PAYOUT = #{unicomPayout,jdbcType=DECIMAL},
+      </if>
+      <if test="telecomPayoutXlt != null" >
+        TELECOM_PAYOUT_XLT = #{telecomPayoutXlt,jdbcType=DECIMAL},
+      </if>
+      <if test="groupPayMode != null" >
+        GROUP_PAY_MODE = #{groupPayMode,jdbcType=VARCHAR},
+      </if>
+      <if test="payforWayCode != null" >
+        PAYFOR_WAY_CODE = #{payforWayCode,jdbcType=CHAR},
+      </if>
+      <if test="writefeeCount != null" >
+        WRITEFEE_COUNT = #{writefeeCount,jdbcType=DECIMAL},
+      </if>
+      <if test="writefeeSum != null" >
+        WRITEFEE_SUM = #{writefeeSum,jdbcType=DECIMAL},
+      </if>
+      <if test="userNumFullfree != null" >
+        USER_NUM_FULLFREE = #{userNumFullfree,jdbcType=DECIMAL},
+      </if>
+      <if test="userNumWriteoff != null" >
+        USER_NUM_WRITEOFF = #{userNumWriteoff,jdbcType=DECIMAL},
+      </if>
+      <if test="bossFeeSum != null" >
+        BOSS_FEE_SUM = #{bossFeeSum,jdbcType=DECIMAL},
+      </if>
+      <if test="doyenStaffId != null" >
+        DOYEN_STAFF_ID = #{doyenStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="newtradeComment != null" >
+        NEWTRADE_COMMENT = #{newtradeComment,jdbcType=VARCHAR},
+      </if>
+      <if test="likeMobileTrade != null" >
+        LIKE_MOBILE_TRADE = #{likeMobileTrade,jdbcType=VARCHAR},
+      </if>
+      <if test="likeDiscntMode != null" >
+        LIKE_DISCNT_MODE = #{likeDiscntMode,jdbcType=VARCHAR},
+      </if>
+      <if test="financeEarning != null" >
+        FINANCE_EARNING = #{financeEarning,jdbcType=DECIMAL},
+      </if>
+      <if test="earningOrder != null" >
+        EARNING_ORDER = #{earningOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="callingPolicyForce != null" >
+        CALLING_POLICY_FORCE = #{callingPolicyForce,jdbcType=VARCHAR},
+      </if>
+      <if test="subclassId != null" >
+        SUBCLASS_ID = #{subclassId,jdbcType=CHAR},
+      </if>
+      <if test="website != null" >
+        WEBSITE = #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="faxNbr != null" >
+        FAX_NBR = #{faxNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        POST_CODE = #{postCode,jdbcType=CHAR},
+      </if>
+      <if test="groupValidScore != null" >
+        GROUP_VALID_SCORE = #{groupValidScore,jdbcType=DECIMAL},
+      </if>
+      <if test="groupSumScore != null" >
+        GROUP_SUM_SCORE = #{groupSumScore,jdbcType=DECIMAL},
+      </if>
+      <if test="groupMgrSn != null" >
+        GROUP_MGR_SN = #{groupMgrSn,jdbcType=VARCHAR},
+      </if>
+      <if test="groupMgrUserId != null" >
+        GROUP_MGR_USER_ID = #{groupMgrUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="groupMgrCustName != null" >
+        GROUP_MGR_CUST_NAME = #{groupMgrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="baseAccessNo != null" >
+        BASE_ACCESS_NO = #{baseAccessNo,jdbcType=VARCHAR},
+      </if>
+      <if test="baseAccessNoKind != null" >
+        BASE_ACCESS_NO_KIND = #{baseAccessNoKind,jdbcType=VARCHAR},
+      </if>
+      <if test="custServNbr != null" >
+        CUST_SERV_NBR = #{custServNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="ifShortPin != null" >
+        IF_SHORT_PIN = #{ifShortPin,jdbcType=VARCHAR},
+      </if>
+      <if test="auditState != null" >
+        AUDIT_STATE = #{auditState,jdbcType=CHAR},
+      </if>
+      <if test="auditDate != null" >
+        AUDIT_DATE = #{auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditStaffId != null" >
+        AUDIT_STAFF_ID = #{auditStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="auditNote != null" >
+        AUDIT_NOTE = #{auditNote,jdbcType=VARCHAR},
+      </if>
+      <if test="areaOffice != null" >
+        AREA_OFFICE = #{areaOffice,jdbcType=CHAR},
+      </if>
+      <if test="belongTeamId != null" >
+        BELONG_TEAM_ID = #{belongTeamId,jdbcType=VARCHAR},
+      </if>
+      <if test="turnInnetDate != null" >
+        TURN_INNET_DATE = #{turnInnetDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="belongTeamIdB != null" >
+        BELONG_TEAM_ID_B = #{belongTeamIdB,jdbcType=VARCHAR},
+      </if>
+      <if test="callingTypeCodeDetail != null" >
+        CALLING_TYPE_CODE_DETAIL = #{callingTypeCodeDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="serverAssignDate != null" >
+        SERVER_ASSIGN_DATE = #{serverAssignDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serverAssignStaffId != null" >
+        SERVER_ASSIGN_STAFF_ID = #{serverAssignStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="turnInnetStaffId != null" >
+        TURN_INNET_STAFF_ID = #{turnInnetStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="takePictureTag != null" >
+        TAKE_PICTURE_TAG = #{takePictureTag,jdbcType=CHAR},
+      </if>
+      <if test="custManagerIdB != null" >
+        CUST_MANAGER_ID_B = #{custManagerIdB,jdbcType=VARCHAR},
+      </if>
+      <if test="classId2EndDate != null" >
+        CLASS_ID2_END_DATE = #{classId2EndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classId2StartDate != null" >
+        CLASS_ID2_START_DATE = #{classId2StartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifRelationCust != null" >
+        IF_RELATION_CUST = #{ifRelationCust,jdbcType=CHAR},
+      </if>
+      <if test="class2ChangeDate != null" >
+        CLASS2_CHANGE_DATE = #{class2ChangeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastClassId2 != null" >
+        LAST_CLASS_ID2 = #{lastClassId2,jdbcType=VARCHAR},
+      </if>
+      <if test="manageCode != null" >
+        MANAGE_CODE = #{manageCode,jdbcType=VARCHAR},
+      </if>
+      <if test="financeInstance != null" >
+        FINANCE_INSTANCE = #{financeInstance,jdbcType=DECIMAL},
+      </if>
+      <if test="growPotential != null" >
+        GROW_POTENTIAL = #{growPotential,jdbcType=DECIMAL},
+      </if>
+      <if test="creditDegree != null" >
+        CREDIT_DEGREE = #{creditDegree,jdbcType=DECIMAL},
+      </if>
+      <if test="international != null" >
+        INTERNATIONAL = #{international,jdbcType=CHAR},
+      </if>
+      <if test="fileCode != null" >
+        FILE_CODE = #{fileCode,jdbcType=VARCHAR},
+      </if>
+      <if test="removeFlag != null" >
+        REMOVE_FLAG = #{removeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="removeMethod != null" >
+        REMOVE_METHOD = #{removeMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="removeReasonCode != null" >
+        REMOVE_REASON_CODE = #{removeReasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="removeTag != null" >
+        REMOVE_TAG = #{removeTag,jdbcType=CHAR},
+      </if>
+      <if test="removeDate != null" >
+        REMOVE_DATE = #{removeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="removeStaffId != null" >
+        REMOVE_STAFF_ID = #{removeStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="removeChange != null" >
+        REMOVE_CHANGE = #{removeChange,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID = #{updateStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID = #{updateDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvNum1 != null" >
+        RSRV_NUM1 = #{rsrvNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum2 != null" >
+        RSRV_NUM2 = #{rsrvNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum3 != null" >
+        RSRV_NUM3 = #{rsrvNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvStr1 != null" >
+        RSRV_STR1 = #{rsrvStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr2 != null" >
+        RSRV_STR2 = #{rsrvStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr3 != null" >
+        RSRV_STR3 = #{rsrvStr3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr4 != null" >
+        RSRV_STR4 = #{rsrvStr4,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr5 != null" >
+        RSRV_STR5 = #{rsrvStr5,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr6 != null" >
+        RSRV_STR6 = #{rsrvStr6,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr7 != null" >
+        RSRV_STR7 = #{rsrvStr7,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr8 != null" >
+        RSRV_STR8 = #{rsrvStr8,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvDate1 != null" >
+        RSRV_DATE1 = #{rsrvDate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate2 != null" >
+        RSRV_DATE2 = #{rsrvDate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate3 != null" >
+        RSRV_DATE3 = #{rsrvDate3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvTag1 != null" >
+        RSRV_TAG1 = #{rsrvTag1,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag2 != null" >
+        RSRV_TAG2 = #{rsrvTag2,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag3 != null" >
+        RSRV_TAG3 = #{rsrvTag3,jdbcType=CHAR},
+      </if>
+      <if test="licenceAuditPerson != null" >
+        LICENCE_AUDIT_PERSON = #{licenceAuditPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="licenceAuditFileId != null" >
+        LICENCE_AUDIT_FILE_ID = #{licenceAuditFileId,jdbcType=VARCHAR},
+      </if>
+      <if test="juristicPsptId != null" >
+        JURISTIC_PSPT_ID = #{juristicPsptId,jdbcType=VARCHAR},
+      </if>
+      <if test="juristicPsptType != null" >
+        JURISTIC_PSPT_TYPE = #{juristicPsptType,jdbcType=CHAR},
+      </if>
+      <if test="telDecisionType != null" >
+        TEL_DECISION_TYPE = #{telDecisionType,jdbcType=CHAR},
+      </if>
+      <if test="busiTaxId != null" >
+        BUSI_TAX_ID = #{busiTaxId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and CUST_ID = #{custId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeGroupPo" >
+    update TF_B_TRADE_GROUP
+    set PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      GROUP_ID = #{groupId,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      GROUP_TYPE = #{groupType,jdbcType=CHAR},
+      CLASS_ID = #{classId,jdbcType=VARCHAR},
+      CLASS_ID2 = #{classId2,jdbcType=VARCHAR},
+      LAST_CLASS_ID = #{lastClassId,jdbcType=VARCHAR},
+      CLASS_CHANGE_DATE = #{classChangeDate,jdbcType=TIMESTAMP},
+      CUST_CLASS_TYPE = #{custClassType,jdbcType=CHAR},
+      GROUP_ATTR = #{groupAttr,jdbcType=CHAR},
+      GROUP_STATUS = #{groupStatus,jdbcType=CHAR},
+      GROUP_ADDR = #{groupAddr,jdbcType=VARCHAR},
+      PROVINCE_CODE = #{provinceCode,jdbcType=VARCHAR},
+      EPARCHY_CODE = #{eparchyCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      SUPER_GROUP_ID = #{superGroupId,jdbcType=VARCHAR},
+      PNATIONAL_GROUP_ID = #{pnationalGroupId,jdbcType=VARCHAR},
+      PNATIONAL_GROUP_NAME = #{pnationalGroupName,jdbcType=VARCHAR},
+      MP_GROUP_CUST_CODE = #{mpGroupCustCode,jdbcType=VARCHAR},
+      UNIFY_PAY_CODE = #{unifyPayCode,jdbcType=VARCHAR},
+      ORG_STRUCT_CODE = #{orgStructCode,jdbcType=VARCHAR},
+      CUST_MANAGER_ID = #{custManagerId,jdbcType=VARCHAR},
+      CUST_MANAGER_APPR = #{custManagerAppr,jdbcType=VARCHAR},
+      ASSIGN_DATE = #{assignDate,jdbcType=TIMESTAMP},
+      ASSIGN_STAFF_ID = #{assignStaffId,jdbcType=VARCHAR},
+      CALLING_TYPE_CODE = #{callingTypeCode,jdbcType=VARCHAR},
+      SUB_CALLING_TYPE_CODE = #{subCallingTypeCode,jdbcType=VARCHAR},
+      CALLING_AREA_CODE = #{callingAreaCode,jdbcType=CHAR},
+      CALL_TYPE = #{callType,jdbcType=VARCHAR},
+      ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR},
+      AGREEMENT = #{agreement,jdbcType=VARCHAR},
+      BUSI_TYPE = #{busiType,jdbcType=VARCHAR},
+      GROUP_CONTACT_PHONE = #{groupContactPhone,jdbcType=VARCHAR},
+      ENTERPRISE_TYPE_CODE = #{enterpriseTypeCode,jdbcType=CHAR},
+      ENTERPRISE_SIZE_CODE = #{enterpriseSizeCode,jdbcType=VARCHAR},
+      ENTERPRISE_SCOPE = #{enterpriseScope,jdbcType=CHAR},
+      JURISTIC_TYPE_CODE = #{juristicTypeCode,jdbcType=CHAR},
+      JURISTIC_CUST_ID = #{juristicCustId,jdbcType=DECIMAL},
+      JURISTIC_NAME = #{juristicName,jdbcType=VARCHAR},
+      BUSI_LICENCE_TYPE = #{busiLicenceType,jdbcType=CHAR},
+      BUSI_LICENCE_NO = #{busiLicenceNo,jdbcType=VARCHAR},
+      BUSI_LICENCE_VALID_DATE = #{busiLicenceValidDate,jdbcType=TIMESTAMP},
+      GROUP_MEMO = #{groupMemo,jdbcType=VARCHAR},
+      BANK_ACCT = #{bankAcct,jdbcType=VARCHAR},
+      BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      REG_MONEY = #{regMoney,jdbcType=DECIMAL},
+      REG_DATE = #{regDate,jdbcType=TIMESTAMP},
+      CUST_AIM = #{custAim,jdbcType=VARCHAR},
+      SCOPE = #{scope,jdbcType=VARCHAR},
+      MAIN_BUSI = #{mainBusi,jdbcType=VARCHAR},
+      MAIN_TRADE = #{mainTrade,jdbcType=VARCHAR},
+      EMP_LSAVE = #{empLsave,jdbcType=VARCHAR},
+      LATENCY_FEE_SUM = #{latencyFeeSum,jdbcType=DECIMAL},
+      YEAR_GAIN = #{yearGain,jdbcType=DECIMAL},
+      TURNOVER = #{turnover,jdbcType=DECIMAL},
+      CONSUME = #{consume,jdbcType=VARCHAR},
+      COMM_BUDGET = #{commBudget,jdbcType=DECIMAL},
+      GTEL_BUDGET = #{gtelBudget,jdbcType=DECIMAL},
+      LTEL_BUDGET = #{ltelBudget,jdbcType=DECIMAL},
+      GROUP_ADVERSARY = #{groupAdversary,jdbcType=VARCHAR},
+      VPMN_GROUP_ID = #{vpmnGroupId,jdbcType=VARCHAR},
+      VPMN_NUM = #{vpmnNum,jdbcType=DECIMAL},
+      USER_NUM = #{userNum,jdbcType=DECIMAL},
+      EMP_NUM_LOCAL = #{empNumLocal,jdbcType=DECIMAL},
+      EMP_NUM_CHINA = #{empNumChina,jdbcType=DECIMAL},
+      EMP_NUM_ALL = #{empNumAll,jdbcType=DECIMAL},
+      TELECOM_NUM_GH = #{telecomNumGh,jdbcType=DECIMAL},
+      TELECOM_NUM_XLT = #{telecomNumXlt,jdbcType=DECIMAL},
+      MOBILE_NUM_CHINAGO = #{mobileNumChinago,jdbcType=DECIMAL},
+      MOBILE_NUM_GLOBAL = #{mobileNumGlobal,jdbcType=DECIMAL},
+      MOBILE_NUM_MZONE = #{mobileNumMzone,jdbcType=DECIMAL},
+      MOBILE_NUM_LOCAL = #{mobileNumLocal,jdbcType=DECIMAL},
+      UNICOM_NUM_G = #{unicomNumG,jdbcType=DECIMAL},
+      UNICOM_NUM_C = #{unicomNumC,jdbcType=DECIMAL},
+      UNICOM_NUM_GC = #{unicomNumGc,jdbcType=DECIMAL},
+      PRODUCT_NUM_LOCAL = #{productNumLocal,jdbcType=DECIMAL},
+      PRODUCT_NUM_OTHER = #{productNumOther,jdbcType=DECIMAL},
+      PRODUCT_NUM_USE = #{productNumUse,jdbcType=DECIMAL},
+      EMPLOYEE_ARPU = #{employeeArpu,jdbcType=DECIMAL},
+      NETRENT_PAYOUT = #{netrentPayout,jdbcType=DECIMAL},
+      MOBILE_PAYOUT = #{mobilePayout,jdbcType=DECIMAL},
+      UNICOM_PAYOUT = #{unicomPayout,jdbcType=DECIMAL},
+      TELECOM_PAYOUT_XLT = #{telecomPayoutXlt,jdbcType=DECIMAL},
+      GROUP_PAY_MODE = #{groupPayMode,jdbcType=VARCHAR},
+      PAYFOR_WAY_CODE = #{payforWayCode,jdbcType=CHAR},
+      WRITEFEE_COUNT = #{writefeeCount,jdbcType=DECIMAL},
+      WRITEFEE_SUM = #{writefeeSum,jdbcType=DECIMAL},
+      USER_NUM_FULLFREE = #{userNumFullfree,jdbcType=DECIMAL},
+      USER_NUM_WRITEOFF = #{userNumWriteoff,jdbcType=DECIMAL},
+      BOSS_FEE_SUM = #{bossFeeSum,jdbcType=DECIMAL},
+      DOYEN_STAFF_ID = #{doyenStaffId,jdbcType=VARCHAR},
+      NEWTRADE_COMMENT = #{newtradeComment,jdbcType=VARCHAR},
+      LIKE_MOBILE_TRADE = #{likeMobileTrade,jdbcType=VARCHAR},
+      LIKE_DISCNT_MODE = #{likeDiscntMode,jdbcType=VARCHAR},
+      FINANCE_EARNING = #{financeEarning,jdbcType=DECIMAL},
+      EARNING_ORDER = #{earningOrder,jdbcType=VARCHAR},
+      CALLING_POLICY_FORCE = #{callingPolicyForce,jdbcType=VARCHAR},
+      SUBCLASS_ID = #{subclassId,jdbcType=CHAR},
+      WEBSITE = #{website,jdbcType=VARCHAR},
+      FAX_NBR = #{faxNbr,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      POST_CODE = #{postCode,jdbcType=CHAR},
+      GROUP_VALID_SCORE = #{groupValidScore,jdbcType=DECIMAL},
+      GROUP_SUM_SCORE = #{groupSumScore,jdbcType=DECIMAL},
+      GROUP_MGR_SN = #{groupMgrSn,jdbcType=VARCHAR},
+      GROUP_MGR_USER_ID = #{groupMgrUserId,jdbcType=DECIMAL},
+      GROUP_MGR_CUST_NAME = #{groupMgrCustName,jdbcType=VARCHAR},
+      BASE_ACCESS_NO = #{baseAccessNo,jdbcType=VARCHAR},
+      BASE_ACCESS_NO_KIND = #{baseAccessNoKind,jdbcType=VARCHAR},
+      CUST_SERV_NBR = #{custServNbr,jdbcType=VARCHAR},
+      IF_SHORT_PIN = #{ifShortPin,jdbcType=VARCHAR},
+      AUDIT_STATE = #{auditState,jdbcType=CHAR},
+      AUDIT_DATE = #{auditDate,jdbcType=TIMESTAMP},
+      AUDIT_STAFF_ID = #{auditStaffId,jdbcType=VARCHAR},
+      AUDIT_NOTE = #{auditNote,jdbcType=VARCHAR},
+      AREA_OFFICE = #{areaOffice,jdbcType=CHAR},
+      BELONG_TEAM_ID = #{belongTeamId,jdbcType=VARCHAR},
+      TURN_INNET_DATE = #{turnInnetDate,jdbcType=TIMESTAMP},
+      BELONG_TEAM_ID_B = #{belongTeamIdB,jdbcType=VARCHAR},
+      CALLING_TYPE_CODE_DETAIL = #{callingTypeCodeDetail,jdbcType=VARCHAR},
+      SERVER_ASSIGN_DATE = #{serverAssignDate,jdbcType=TIMESTAMP},
+      SERVER_ASSIGN_STAFF_ID = #{serverAssignStaffId,jdbcType=VARCHAR},
+      TURN_INNET_STAFF_ID = #{turnInnetStaffId,jdbcType=VARCHAR},
+      TAKE_PICTURE_TAG = #{takePictureTag,jdbcType=CHAR},
+      CUST_MANAGER_ID_B = #{custManagerIdB,jdbcType=VARCHAR},
+      CLASS_ID2_END_DATE = #{classId2EndDate,jdbcType=TIMESTAMP},
+      CLASS_ID2_START_DATE = #{classId2StartDate,jdbcType=TIMESTAMP},
+      IF_RELATION_CUST = #{ifRelationCust,jdbcType=CHAR},
+      CLASS2_CHANGE_DATE = #{class2ChangeDate,jdbcType=TIMESTAMP},
+      LAST_CLASS_ID2 = #{lastClassId2,jdbcType=VARCHAR},
+      MANAGE_CODE = #{manageCode,jdbcType=VARCHAR},
+      FINANCE_INSTANCE = #{financeInstance,jdbcType=DECIMAL},
+      GROW_POTENTIAL = #{growPotential,jdbcType=DECIMAL},
+      CREDIT_DEGREE = #{creditDegree,jdbcType=DECIMAL},
+      INTERNATIONAL = #{international,jdbcType=CHAR},
+      FILE_CODE = #{fileCode,jdbcType=VARCHAR},
+      REMOVE_FLAG = #{removeFlag,jdbcType=VARCHAR},
+      REMOVE_METHOD = #{removeMethod,jdbcType=VARCHAR},
+      REMOVE_REASON_CODE = #{removeReasonCode,jdbcType=VARCHAR},
+      REMOVE_TAG = #{removeTag,jdbcType=CHAR},
+      REMOVE_DATE = #{removeDate,jdbcType=TIMESTAMP},
+      REMOVE_STAFF_ID = #{removeStaffId,jdbcType=VARCHAR},
+      REMOVE_CHANGE = #{removeChange,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_STAFF_ID = #{updateStaffId,jdbcType=VARCHAR},
+      UPDATE_DEPART_ID = #{updateDepartId,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      RSRV_NUM1 = #{rsrvNum1,jdbcType=DECIMAL},
+      RSRV_NUM2 = #{rsrvNum2,jdbcType=DECIMAL},
+      RSRV_NUM3 = #{rsrvNum3,jdbcType=DECIMAL},
+      RSRV_STR1 = #{rsrvStr1,jdbcType=VARCHAR},
+      RSRV_STR2 = #{rsrvStr2,jdbcType=VARCHAR},
+      RSRV_STR3 = #{rsrvStr3,jdbcType=VARCHAR},
+      RSRV_STR4 = #{rsrvStr4,jdbcType=VARCHAR},
+      RSRV_STR5 = #{rsrvStr5,jdbcType=VARCHAR},
+      RSRV_STR6 = #{rsrvStr6,jdbcType=VARCHAR},
+      RSRV_STR7 = #{rsrvStr7,jdbcType=VARCHAR},
+      RSRV_STR8 = #{rsrvStr8,jdbcType=VARCHAR},
+      RSRV_DATE1 = #{rsrvDate1,jdbcType=TIMESTAMP},
+      RSRV_DATE2 = #{rsrvDate2,jdbcType=TIMESTAMP},
+      RSRV_DATE3 = #{rsrvDate3,jdbcType=TIMESTAMP},
+      RSRV_TAG1 = #{rsrvTag1,jdbcType=CHAR},
+      RSRV_TAG2 = #{rsrvTag2,jdbcType=CHAR},
+      RSRV_TAG3 = #{rsrvTag3,jdbcType=CHAR},
+      LICENCE_AUDIT_PERSON = #{licenceAuditPerson,jdbcType=VARCHAR},
+      LICENCE_AUDIT_FILE_ID = #{licenceAuditFileId,jdbcType=VARCHAR},
+      JURISTIC_PSPT_ID = #{juristicPsptId,jdbcType=VARCHAR},
+      JURISTIC_PSPT_TYPE = #{juristicPsptType,jdbcType=CHAR},
+      TEL_DECISION_TYPE = #{telDecisionType,jdbcType=CHAR},
+      BUSI_TAX_ID = #{busiTaxId,jdbcType=VARCHAR}
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and CUST_ID = #{custId,jdbcType=DECIMAL}
+  </update>
+</mapper>

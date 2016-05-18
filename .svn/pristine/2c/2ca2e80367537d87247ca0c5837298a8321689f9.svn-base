@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TfBTradeUserPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBTradeUserPo" >
+    <id column="TRADE_ID" property="tradeId" jdbcType="DECIMAL" />
+    <id column="ACCEPT_MONTH" property="acceptMonth" jdbcType="DECIMAL" />
+    <id column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="INTEGER" />
+    <result column="CUST_ID" property="custId" jdbcType="INTEGER" />
+    <result column="USECUST_ID" property="usecustId" jdbcType="INTEGER" />
+    <result column="ORG_ID" property="orgId" jdbcType="INTEGER" />
+    <result column="BRAND_CODE" property="brandCode" jdbcType="CHAR" />
+    <result column="PRODUCT_ID" property="productId" jdbcType="INTEGER" />
+    <result column="PRODUCT_TYPE_CODE" property="productTypeCode" jdbcType="VARCHAR" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="IN_NET_MODE" property="inNetMode" jdbcType="VARCHAR" />
+    <result column="USER_PASSWD" property="userPasswd" jdbcType="VARCHAR" />
+    <result column="USER_DIFF_CODE" property="userDiffCode" jdbcType="VARCHAR" />
+    <result column="USER_TYPE_CODE" property="userTypeCode" jdbcType="CHAR" />
+    <result column="CAR_NUMBER" property="carNumber" jdbcType="VARCHAR" />
+    <result column="SERIAL_NUMBER" property="serialNumber" jdbcType="VARCHAR" />
+    <result column="NET_TYPE_CODE" property="netTypeCode" jdbcType="VARCHAR" />
+    <result column="SCORE_VALUE" property="scoreValue" jdbcType="INTEGER" />
+    <result column="CREDIT_CLASS" property="creditClass" jdbcType="INTEGER" />
+    <result column="BASIC_CREDIT_VALUE" property="basicCreditValue" jdbcType="INTEGER" />
+    <result column="CREDIT_VALUE" property="creditValue" jdbcType="INTEGER" />
+    <result column="ACCT_TAG" property="acctTag" jdbcType="CHAR" />
+    <result column="PREPAY_TAG" property="prepayTag" jdbcType="CHAR" />
+    <result column="IN_DATE" property="inDate" jdbcType="DATE" />
+    <result column="OPEN_DATE" property="openDate" jdbcType="DATE" />
+    <result column="OPEN_MODE" property="openMode" jdbcType="CHAR" />
+    <result column="OPEN_DEPART_ID" property="openDepartId" jdbcType="VARCHAR" />
+    <result column="OPEN_STAFF_ID" property="openStaffId" jdbcType="VARCHAR" />
+    <result column="IN_DEPART_ID" property="inDepartId" jdbcType="VARCHAR" />
+    <result column="IN_STAFF_ID" property="inStaffId" jdbcType="VARCHAR" />
+    <result column="REMOVE_TAG" property="removeTag" jdbcType="CHAR" />
+    <result column="DESTROY_TIME" property="destroyTime" jdbcType="DATE" />
+    <result column="REMOVE_EPARCHY_CODE" property="removeEparchyCode" jdbcType="VARCHAR" />
+    <result column="REMOVE_CITY_CODE" property="removeCityCode" jdbcType="VARCHAR" />
+    <result column="REMOVE_DEPART_ID" property="removeDepartId" jdbcType="VARCHAR" />
+    <result column="REMOVE_REASON_CODE" property="removeReasonCode" jdbcType="VARCHAR" />
+    <result column="PRE_DESTROY_TIME" property="preDestroyTime" jdbcType="DATE" />
+    <result column="FIRST_CALL_TIME" property="firstCallTime" jdbcType="DATE" />
+    <result column="LAST_STOP_TIME" property="lastStopTime" jdbcType="DATE" />
+    <result column="USER_STATE_CODESET" property="userStateCodeset" jdbcType="VARCHAR" />
+    <result column="MPUTE_MONTH_FEE" property="mputeMonthFee" jdbcType="CHAR" />
+    <result column="MPUTE_DATE" property="mputeDate" jdbcType="DATE" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="DATE" />
+    <result column="ASSURE_CUST_ID" property="assureCustId" jdbcType="INTEGER" />
+    <result column="ASSURE_TYPE_CODE" property="assureTypeCode" jdbcType="CHAR" />
+    <result column="ASSURE_DATE" property="assureDate" jdbcType="DATE" />
+    <result column="DEVELOP_STAFF_ID" property="developStaffId" jdbcType="VARCHAR" />
+    <result column="DEVELOP_DATE" property="developDate" jdbcType="DATE" />
+    <result column="DEVELOP_EPARCHY_CODE" property="developEparchyCode" jdbcType="VARCHAR" />
+    <result column="DEVELOP_CITY_CODE" property="developCityCode" jdbcType="VARCHAR" />
+    <result column="DEVELOP_DEPART_ID" property="developDepartId" jdbcType="VARCHAR" />
+    <result column="DEVELOP_NO" property="developNo" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="CREDIT_RULE_ID" property="creditRuleId" jdbcType="INTEGER" />
+    <result column="CONTRACT_ID" property="contractId" jdbcType="VARCHAR" />
+    <result column="CHANGEUSER_DATE" property="changeuserDate" jdbcType="DATE" />
+    <result column="MAIN_DISCNT_CODE" property="mainDiscntCode" jdbcType="INTEGER" />
+    <result column="PRODUCT_SPEC" property="productSpec" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADE_ID, ACCEPT_MONTH, USER_ID, PARTITION_ID, CUST_ID, USECUST_ID, ORG_ID, BRAND_CODE, 
+    PRODUCT_ID, PRODUCT_TYPE_CODE, EPARCHY_CODE, CITY_CODE, IN_NET_MODE, USER_PASSWD, 
+    USER_DIFF_CODE, USER_TYPE_CODE, CAR_NUMBER, SERIAL_NUMBER, NET_TYPE_CODE, SCORE_VALUE, 
+    CREDIT_CLASS, BASIC_CREDIT_VALUE, CREDIT_VALUE, ACCT_TAG, PREPAY_TAG, IN_DATE, OPEN_DATE, 
+    OPEN_MODE, OPEN_DEPART_ID, OPEN_STAFF_ID, IN_DEPART_ID, IN_STAFF_ID, REMOVE_TAG, 
+    DESTROY_TIME, REMOVE_EPARCHY_CODE, REMOVE_CITY_CODE, REMOVE_DEPART_ID, REMOVE_REASON_CODE, 
+    PRE_DESTROY_TIME, FIRST_CALL_TIME, LAST_STOP_TIME, USER_STATE_CODESET, MPUTE_MONTH_FEE, 
+    MPUTE_DATE, UPDATE_TIME, ASSURE_CUST_ID, ASSURE_TYPE_CODE, ASSURE_DATE, DEVELOP_STAFF_ID, 
+    DEVELOP_DATE, DEVELOP_EPARCHY_CODE, DEVELOP_CITY_CODE, DEVELOP_DEPART_ID, DEVELOP_NO, 
+    REMARK, CREDIT_RULE_ID, CONTRACT_ID, CHANGEUSER_DATE, MAIN_DISCNT_CODE, PRODUCT_SPEC
+  </sql>
+  <select id="queryTfBTradeUserPoByTradeId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    FROM TF_B_TRADE_USER
+     <where>
+     	AND TRADE_ID = #{tradeId,jdbcType=DECIMAL} 
+     </where>
+  </select>
+</mapper>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdBPartyMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdBParty" >
+    <id column="PARTY_ID" property="partyId" jdbcType="VARCHAR" />
+    <result column="PARTY_NAME" property="partyName" jdbcType="VARCHAR" />
+    <result column="PARTY_TYPE" property="partyType" jdbcType="VARCHAR" />
+    <result column="PARTY_PASSWD" property="partyPasswd" jdbcType="VARCHAR" />
+    <result column="PARTY_CORP_CODE" property="partyCorpCode" jdbcType="VARCHAR" />
+    <result column="PARTY_LVL" property="partyLvl" jdbcType="VARCHAR" />
+    <result column="PARTY_STATUS" property="partyStatus" jdbcType="CHAR" />
+    <result column="PARTY_AREA_ID" property="partyAreaId" jdbcType="VARCHAR" />
+    <result column="PARTY_WEB_SITE" property="partyWebSite" jdbcType="VARCHAR" />
+    <result column="PARTY_CONT" property="partyCont" jdbcType="VARCHAR" />
+    <result column="PARTY_CONT_ADDR" property="partyContAddr" jdbcType="VARCHAR" />
+    <result column="PARTY_SRV_PHONE" property="partySrvPhone" jdbcType="VARCHAR" />
+    <result column="PARTY_CONT_PHONE" property="partyContPhone" jdbcType="VARCHAR" />
+    <result column="PARTY_CONT_MOBPHONE" property="partyContMobphone" jdbcType="VARCHAR" />
+    <result column="PARTY_FAXNUM" property="partyFaxnum" jdbcType="VARCHAR" />
+    <result column="PARTY_ADDINFO" property="partyAddinfo" jdbcType="VARCHAR" />
+    <result column="PARTY_BANK" property="partyBank" jdbcType="VARCHAR" />
+    <result column="PARTYBANK_ACCOUNT" property="partybankAccount" jdbcType="VARCHAR" />
+    <result column="IS_TRUST" property="isTrust" jdbcType="CHAR" />
+    <result column="IS_BWL" property="isBwl" jdbcType="CHAR" />
+    <result column="SHARED_KEY" property="sharedKey" jdbcType="VARCHAR" />
+    <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PARTY_ID, PARTY_NAME, PARTY_TYPE, PARTY_PASSWD, PARTY_CORP_CODE, PARTY_LVL, PARTY_STATUS, 
+    PARTY_AREA_ID, PARTY_WEB_SITE, PARTY_CONT, PARTY_CONT_ADDR, PARTY_SRV_PHONE, PARTY_CONT_PHONE, 
+    PARTY_CONT_MOBPHONE, PARTY_FAXNUM, PARTY_ADDINFO, PARTY_BANK, PARTYBANK_ACCOUNT, 
+    IS_TRUST, IS_BWL, SHARED_KEY, START_DATE, END_DATE, UPDATE_TIME
+  </sql>
+  <!-- 根据合作商标识或者合作商名称获得合作商信息 -->
+  <select id="getPartInfo" resultMap="BaseResultMap">
+  		select  <include refid="Base_Column_List"></include>
+  		from TD_B_PARTY WHERE 1=1
+  		<if test="partyId!=null and partyId!=''">
+  			AND	PARTY_ID=#{partyId}
+  		</if>
+  		<if test="partName !=null and partName!=''">
+  			AND PARTY_NAME =#{partName}
+  		</if>
+  		
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_PARTY
+    where PARTY_ID = #{partyId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from TD_B_PARTY
+    where PARTY_ID = #{partyId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdBParty" >
+    insert into TD_B_PARTY (PARTY_ID, PARTY_NAME, PARTY_TYPE, 
+      PARTY_PASSWD, PARTY_CORP_CODE, PARTY_LVL, 
+      PARTY_STATUS, PARTY_AREA_ID, PARTY_WEB_SITE, 
+      PARTY_CONT, PARTY_CONT_ADDR, PARTY_SRV_PHONE, 
+      PARTY_CONT_PHONE, PARTY_CONT_MOBPHONE, PARTY_FAXNUM, 
+      PARTY_ADDINFO, PARTY_BANK, PARTYBANK_ACCOUNT, 
+      IS_TRUST, IS_BWL, SHARED_KEY, 
+      START_DATE, END_DATE, UPDATE_TIME
+      )
+    values (#{partyId,jdbcType=VARCHAR}, #{partyName,jdbcType=VARCHAR}, #{partyType,jdbcType=VARCHAR}, 
+      #{partyPasswd,jdbcType=VARCHAR}, #{partyCorpCode,jdbcType=VARCHAR}, #{partyLvl,jdbcType=VARCHAR}, 
+      #{partyStatus,jdbcType=CHAR}, #{partyAreaId,jdbcType=VARCHAR}, #{partyWebSite,jdbcType=VARCHAR}, 
+      #{partyCont,jdbcType=VARCHAR}, #{partyContAddr,jdbcType=VARCHAR}, #{partySrvPhone,jdbcType=VARCHAR}, 
+      #{partyContPhone,jdbcType=VARCHAR}, #{partyContMobphone,jdbcType=VARCHAR}, #{partyFaxnum,jdbcType=VARCHAR}, 
+      #{partyAddinfo,jdbcType=VARCHAR}, #{partyBank,jdbcType=VARCHAR}, #{partybankAccount,jdbcType=VARCHAR}, 
+      #{isTrust,jdbcType=CHAR}, #{isBwl,jdbcType=CHAR}, #{sharedKey,jdbcType=VARCHAR}, 
+      #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdBParty" >
+    insert into TD_B_PARTY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="partyId != null" >
+        PARTY_ID,
+      </if>
+      <if test="partyName != null" >
+        PARTY_NAME,
+      </if>
+      <if test="partyType != null" >
+        PARTY_TYPE,
+      </if>
+      <if test="partyPasswd != null" >
+        PARTY_PASSWD,
+      </if>
+      <if test="partyCorpCode != null" >
+        PARTY_CORP_CODE,
+      </if>
+      <if test="partyLvl != null" >
+        PARTY_LVL,
+      </if>
+      <if test="partyStatus != null" >
+        PARTY_STATUS,
+      </if>
+      <if test="partyAreaId != null" >
+        PARTY_AREA_ID,
+      </if>
+      <if test="partyWebSite != null" >
+        PARTY_WEB_SITE,
+      </if>
+      <if test="partyCont != null" >
+        PARTY_CONT,
+      </if>
+      <if test="partyContAddr != null" >
+        PARTY_CONT_ADDR,
+      </if>
+      <if test="partySrvPhone != null" >
+        PARTY_SRV_PHONE,
+      </if>
+      <if test="partyContPhone != null" >
+        PARTY_CONT_PHONE,
+      </if>
+      <if test="partyContMobphone != null" >
+        PARTY_CONT_MOBPHONE,
+      </if>
+      <if test="partyFaxnum != null" >
+        PARTY_FAXNUM,
+      </if>
+      <if test="partyAddinfo != null" >
+        PARTY_ADDINFO,
+      </if>
+      <if test="partyBank != null" >
+        PARTY_BANK,
+      </if>
+      <if test="partybankAccount != null" >
+        PARTYBANK_ACCOUNT,
+      </if>
+      <if test="isTrust != null" >
+        IS_TRUST,
+      </if>
+      <if test="isBwl != null" >
+        IS_BWL,
+      </if>
+      <if test="sharedKey != null" >
+        SHARED_KEY,
+      </if>
+      <if test="startDate != null" >
+        START_DATE,
+      </if>
+      <if test="endDate != null" >
+        END_DATE,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="partyId != null" >
+        #{partyId,jdbcType=VARCHAR},
+      </if>
+      <if test="partyName != null" >
+        #{partyName,jdbcType=VARCHAR},
+      </if>
+      <if test="partyType != null" >
+        #{partyType,jdbcType=VARCHAR},
+      </if>
+      <if test="partyPasswd != null" >
+        #{partyPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="partyCorpCode != null" >
+        #{partyCorpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="partyLvl != null" >
+        #{partyLvl,jdbcType=VARCHAR},
+      </if>
+      <if test="partyStatus != null" >
+        #{partyStatus,jdbcType=CHAR},
+      </if>
+      <if test="partyAreaId != null" >
+        #{partyAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="partyWebSite != null" >
+        #{partyWebSite,jdbcType=VARCHAR},
+      </if>
+      <if test="partyCont != null" >
+        #{partyCont,jdbcType=VARCHAR},
+      </if>
+      <if test="partyContAddr != null" >
+        #{partyContAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="partySrvPhone != null" >
+        #{partySrvPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="partyContPhone != null" >
+        #{partyContPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="partyContMobphone != null" >
+        #{partyContMobphone,jdbcType=VARCHAR},
+      </if>
+      <if test="partyFaxnum != null" >
+        #{partyFaxnum,jdbcType=VARCHAR},
+      </if>
+      <if test="partyAddinfo != null" >
+        #{partyAddinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="partyBank != null" >
+        #{partyBank,jdbcType=VARCHAR},
+      </if>
+      <if test="partybankAccount != null" >
+        #{partybankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="isTrust != null" >
+        #{isTrust,jdbcType=CHAR},
+      </if>
+      <if test="isBwl != null" >
+        #{isBwl,jdbcType=CHAR},
+      </if>
+      <if test="sharedKey != null" >
+        #{sharedKey,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdBParty" >
+    update TD_B_PARTY
+    <set >
+      <if test="partyName != null" >
+        PARTY_NAME = #{partyName,jdbcType=VARCHAR},
+      </if>
+      <if test="partyType != null" >
+        PARTY_TYPE = #{partyType,jdbcType=VARCHAR},
+      </if>
+      <if test="partyPasswd != null" >
+        PARTY_PASSWD = #{partyPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="partyCorpCode != null" >
+        PARTY_CORP_CODE = #{partyCorpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="partyLvl != null" >
+        PARTY_LVL = #{partyLvl,jdbcType=VARCHAR},
+      </if>
+      <if test="partyStatus != null" >
+        PARTY_STATUS = #{partyStatus,jdbcType=CHAR},
+      </if>
+      <if test="partyAreaId != null" >
+        PARTY_AREA_ID = #{partyAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="partyWebSite != null" >
+        PARTY_WEB_SITE = #{partyWebSite,jdbcType=VARCHAR},
+      </if>
+      <if test="partyCont != null" >
+        PARTY_CONT = #{partyCont,jdbcType=VARCHAR},
+      </if>
+      <if test="partyContAddr != null" >
+        PARTY_CONT_ADDR = #{partyContAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="partySrvPhone != null" >
+        PARTY_SRV_PHONE = #{partySrvPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="partyContPhone != null" >
+        PARTY_CONT_PHONE = #{partyContPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="partyContMobphone != null" >
+        PARTY_CONT_MOBPHONE = #{partyContMobphone,jdbcType=VARCHAR},
+      </if>
+      <if test="partyFaxnum != null" >
+        PARTY_FAXNUM = #{partyFaxnum,jdbcType=VARCHAR},
+      </if>
+      <if test="partyAddinfo != null" >
+        PARTY_ADDINFO = #{partyAddinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="partyBank != null" >
+        PARTY_BANK = #{partyBank,jdbcType=VARCHAR},
+      </if>
+      <if test="partybankAccount != null" >
+        PARTYBANK_ACCOUNT = #{partybankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="isTrust != null" >
+        IS_TRUST = #{isTrust,jdbcType=CHAR},
+      </if>
+      <if test="isBwl != null" >
+        IS_BWL = #{isBwl,jdbcType=CHAR},
+      </if>
+      <if test="sharedKey != null" >
+        SHARED_KEY = #{sharedKey,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        START_DATE = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PARTY_ID = #{partyId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdBParty" >
+    update TD_B_PARTY
+    set PARTY_NAME = #{partyName,jdbcType=VARCHAR},
+      PARTY_TYPE = #{partyType,jdbcType=VARCHAR},
+      PARTY_PASSWD = #{partyPasswd,jdbcType=VARCHAR},
+      PARTY_CORP_CODE = #{partyCorpCode,jdbcType=VARCHAR},
+      PARTY_LVL = #{partyLvl,jdbcType=VARCHAR},
+      PARTY_STATUS = #{partyStatus,jdbcType=CHAR},
+      PARTY_AREA_ID = #{partyAreaId,jdbcType=VARCHAR},
+      PARTY_WEB_SITE = #{partyWebSite,jdbcType=VARCHAR},
+      PARTY_CONT = #{partyCont,jdbcType=VARCHAR},
+      PARTY_CONT_ADDR = #{partyContAddr,jdbcType=VARCHAR},
+      PARTY_SRV_PHONE = #{partySrvPhone,jdbcType=VARCHAR},
+      PARTY_CONT_PHONE = #{partyContPhone,jdbcType=VARCHAR},
+      PARTY_CONT_MOBPHONE = #{partyContMobphone,jdbcType=VARCHAR},
+      PARTY_FAXNUM = #{partyFaxnum,jdbcType=VARCHAR},
+      PARTY_ADDINFO = #{partyAddinfo,jdbcType=VARCHAR},
+      PARTY_BANK = #{partyBank,jdbcType=VARCHAR},
+      PARTYBANK_ACCOUNT = #{partybankAccount,jdbcType=VARCHAR},
+      IS_TRUST = #{isTrust,jdbcType=CHAR},
+      IS_BWL = #{isBwl,jdbcType=CHAR},
+      SHARED_KEY = #{sharedKey,jdbcType=VARCHAR},
+      START_DATE = #{startDate,jdbcType=TIMESTAMP},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where PARTY_ID = #{partyId,jdbcType=VARCHAR}
+  </update>
+</mapper>

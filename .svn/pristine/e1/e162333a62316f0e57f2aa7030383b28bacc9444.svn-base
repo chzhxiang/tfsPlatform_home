@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TfBTradeAccountPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBTradeAccountPo" >
+    <id column="TRADE_ID" property="tradeId" jdbcType="DECIMAL" />
+    <id column="ACCEPT_MONTH" property="acceptMonth" jdbcType="DECIMAL" />
+    <id column="ACCT_ID" property="acctId" jdbcType="DECIMAL" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="PAY_NAME" property="payName" jdbcType="VARCHAR" />
+    <result column="NET_TYPE_CODE" property="netTypeCode" jdbcType="CHAR" />
+    <result column="ACCT_PASSWD" property="acctPasswd" jdbcType="VARCHAR" />
+    <result column="PAY_MODE_CODE" property="payModeCode" jdbcType="CHAR" />
+    <result column="SCORE_VALUE" property="scoreValue" jdbcType="DECIMAL" />
+    <result column="CREDIT_CLASS_ID" property="creditClassId" jdbcType="DECIMAL" />
+    <result column="BASIC_CREDIT_VALUE" property="basicCreditValue" jdbcType="DECIMAL" />
+    <result column="CREDIT_VALUE" property="creditValue" jdbcType="DECIMAL" />
+    <result column="CREDIT_CONTROL_ID" property="creditControlId" jdbcType="DECIMAL" />
+    <result column="DEBUTY_USER_ID" property="debutyUserId" jdbcType="DECIMAL" />
+    <result column="DEBUTY_CODE" property="debutyCode" jdbcType="VARCHAR" />
+    <result column="CONTRACT_NO" property="contractNo" jdbcType="VARCHAR" />
+    <result column="REMOVE_TAG" property="removeTag" jdbcType="CHAR" />
+    <result column="OPEN_DATE" property="openDate" jdbcType="TIMESTAMP" />
+    <result column="REMOVE_DATE" property="removeDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="VARCHAR" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="VARCHAR" />
+    <result column="OLD_ACCT_ID" property="oldAcctId" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADE_ID, ACCEPT_MONTH, ACCT_ID, PARTITION_ID, EPARCHY_CODE, CITY_CODE, CUST_ID, 
+    PAY_NAME, NET_TYPE_CODE, ACCT_PASSWD, PAY_MODE_CODE, SCORE_VALUE, CREDIT_CLASS_ID, 
+    BASIC_CREDIT_VALUE, CREDIT_VALUE, CREDIT_CONTROL_ID, DEBUTY_USER_ID, DEBUTY_CODE, 
+    CONTRACT_NO, REMOVE_TAG, OPEN_DATE, REMOVE_DATE, UPDATE_TIME, UPDATE_DEPART_ID, UPDATE_STAFF_ID, 
+    OLD_ACCT_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_B_TRADE_ACCOUNT
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+  </select>
+   <select id="selectTradeAccountList" resultMap="BaseResultMap" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeAccountPo" >
+       select 
+       <include refid="Base_Column_List" />
+   	   from TF_B_TRADE_ACCOUNT
+       where 1=1
+       <if test="tradeId != null and tradeId != ''">
+          and TRADE_ID = #{tradeId,jdbcType=VARCHAR}
+      </if>
+       <if test="acceptMonth != null and acceptMonth != ''">
+          and ACCEPT_MONTH = #{acceptMonth,jdbcType=VARCHAR}
+      </if>
+      <if test="acctId != null and acctId != ''">
+          and ACCT_ID = #{acctId,jdbcType=VARCHAR}
+      </if>
+      </select>
+</mapper>

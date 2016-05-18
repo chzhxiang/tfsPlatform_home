@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdBPayFeeModePoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdBPayFeeModePo" >
+    <id column="PAY_FEE_MODE_CODE" property="payFeeModeCode" jdbcType="DECIMAL" />
+    <result column="PAY_FEE_MODE" property="payFeeMode" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_EPARCHY_CODE" property="updateEparchyCode" jdbcType="CHAR" />
+    <result column="UPDATE_CITY_CODE" property="updateCityCode" jdbcType="CHAR" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="CHAR" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PAY_FEE_MODE_CODE, PAY_FEE_MODE, REMARK, UPDATE_TIME, UPDATE_EPARCHY_CODE, UPDATE_CITY_CODE, 
+    UPDATE_DEPART_ID, UPDATE_STAFF_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Short" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_PAYFEEMODE
+    where PAY_FEE_MODE_CODE = #{payFeeModeCode,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
+    delete from TD_B_PAYFEEMODE
+    where PAY_FEE_MODE_CODE = #{payFeeModeCode,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdBPayFeeModePo" >
+    insert into TD_B_PAYFEEMODE (PAY_FEE_MODE_CODE, PAY_FEE_MODE, REMARK, 
+      UPDATE_TIME, UPDATE_EPARCHY_CODE, UPDATE_CITY_CODE, 
+      UPDATE_DEPART_ID, UPDATE_STAFF_ID)
+    values (#{payFeeModeCode,jdbcType=DECIMAL}, #{payFeeMode,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateEparchyCode,jdbcType=CHAR}, #{updateCityCode,jdbcType=CHAR}, 
+      #{updateDepartId,jdbcType=CHAR}, #{updateStaffId,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdBPayFeeModePo" >
+    insert into TD_B_PAYFEEMODE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="payFeeModeCode != null" >
+        PAY_FEE_MODE_CODE,
+      </if>
+      <if test="payFeeMode != null" >
+        PAY_FEE_MODE,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateEparchyCode != null" >
+        UPDATE_EPARCHY_CODE,
+      </if>
+      <if test="updateCityCode != null" >
+        UPDATE_CITY_CODE,
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID,
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="payFeeModeCode != null" >
+        #{payFeeModeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="payFeeMode != null" >
+        #{payFeeMode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateEparchyCode != null" >
+        #{updateEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="updateCityCode != null" >
+        #{updateCityCode,jdbcType=CHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        #{updateDepartId,jdbcType=CHAR},
+      </if>
+      <if test="updateStaffId != null" >
+        #{updateStaffId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdBPayFeeModePo" >
+    update TD_B_PAYFEEMODE
+    <set >
+      <if test="payFeeMode != null" >
+        PAY_FEE_MODE = #{payFeeMode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateEparchyCode != null" >
+        UPDATE_EPARCHY_CODE = #{updateEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="updateCityCode != null" >
+        UPDATE_CITY_CODE = #{updateCityCode,jdbcType=CHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID = #{updateDepartId,jdbcType=CHAR},
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID = #{updateStaffId,jdbcType=CHAR},
+      </if>
+    </set>
+    where PAY_FEE_MODE_CODE = #{payFeeModeCode,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdBPayFeeModePo" >
+    update TD_B_PAYFEEMODE
+    set PAY_FEE_MODE = #{payFeeMode,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_EPARCHY_CODE = #{updateEparchyCode,jdbcType=CHAR},
+      UPDATE_CITY_CODE = #{updateCityCode,jdbcType=CHAR},
+      UPDATE_DEPART_ID = #{updateDepartId,jdbcType=CHAR},
+      UPDATE_STAFF_ID = #{updateStaffId,jdbcType=CHAR}
+    where PAY_FEE_MODE_CODE = #{payFeeModeCode,jdbcType=DECIMAL}
+  </update>
+</mapper>

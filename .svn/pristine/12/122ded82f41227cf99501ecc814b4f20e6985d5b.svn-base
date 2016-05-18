@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfBWriteSnapLogPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBWriteSnapLogPo" >
+    <id column="CHARGE_ID" property="chargeId" jdbcType="DECIMAL" />
+    <id column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="ACCT_ID" property="acctId" jdbcType="DECIMAL" />
+    <result column="WRITEOFF_MODE" property="writeoffMode" jdbcType="CHAR" />
+    <result column="SPAY_FEE" property="spayFee" jdbcType="DECIMAL" />
+    <result column="ALL_MONEY" property="allMoney" jdbcType="DECIMAL" />
+    <result column="ALL_NEW_MONEY" property="allNewMoney" jdbcType="DECIMAL" />
+    <result column="ALL_BALANCE" property="allBalance" jdbcType="DECIMAL" />
+    <result column="ALL_NEW_BALANCE" property="allNewBalance" jdbcType="DECIMAL" />
+    <result column="ALLBOWE_FEE" property="allboweFee" jdbcType="DECIMAL" />
+    <result column="AIMP_FEE" property="aimpFee" jdbcType="DECIMAL" />
+    <result column="ALLNEWBOWE_FEE" property="allnewboweFee" jdbcType="DECIMAL" />
+    <result column="PREREAL_FEE" property="prerealFee" jdbcType="DECIMAL" />
+    <result column="CURREAL_FEE" property="currealFee" jdbcType="DECIMAL" />
+    <result column="PROTOCOL_BALANCE" property="protocolBalance" jdbcType="DECIMAL" />
+    <result column="OLD_ROUND_FEE" property="oldRoundFee" jdbcType="DECIMAL" />
+    <result column="NEW_ROUND_FEE" property="newRoundFee" jdbcType="DECIMAL" />
+    <result column="RECOVER_TAG" property="recoverTag" jdbcType="CHAR" />
+    <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="CHAR" />
+    <result column="CYCLE_ID" property="cycleId" jdbcType="DECIMAL" />
+    <result column="CANCEL_TAG" property="cancelTag" jdbcType="CHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RSRV_FEE1" property="rsrvFee1" jdbcType="DECIMAL" />
+    <result column="RSRV_FEE2" property="rsrvFee2" jdbcType="DECIMAL" />
+    <result column="RSRV_INFO1" property="rsrvInfo1" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CHARGE_ID, PARTITION_ID, ACCT_ID, WRITEOFF_MODE, SPAY_FEE, ALL_MONEY, ALL_NEW_MONEY, 
+    ALL_BALANCE, ALL_NEW_BALANCE, ALLBOWE_FEE, AIMP_FEE, ALLNEWBOWE_FEE, PREREAL_FEE, 
+    CURREAL_FEE, PROTOCOL_BALANCE, OLD_ROUND_FEE, NEW_ROUND_FEE, RECOVER_TAG, OPERATE_TIME, 
+    EPARCHY_CODE, CYCLE_ID, CANCEL_TAG, REMARK, RSRV_FEE1, RSRV_FEE2, RSRV_INFO1
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_B_WRITESNAP_LOG
+    where CHARGE_ID = #{chargeId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TF_B_WRITESNAP_LOG
+    where CHARGE_ID = #{chargeId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfBWriteSnapLogPo" >
+    insert into TF_B_WRITESNAP_LOG (CHARGE_ID, PARTITION_ID, ACCT_ID, 
+      WRITEOFF_MODE, SPAY_FEE, ALL_MONEY, 
+      ALL_NEW_MONEY, ALL_BALANCE, ALL_NEW_BALANCE, 
+      ALLBOWE_FEE, AIMP_FEE, ALLNEWBOWE_FEE, 
+      PREREAL_FEE, CURREAL_FEE, PROTOCOL_BALANCE, 
+      OLD_ROUND_FEE, NEW_ROUND_FEE, RECOVER_TAG, 
+      OPERATE_TIME, EPARCHY_CODE, CYCLE_ID, 
+      CANCEL_TAG, REMARK, RSRV_FEE1, 
+      RSRV_FEE2, RSRV_INFO1)
+    values (#{chargeId,jdbcType=DECIMAL}, #{partitionId,jdbcType=DECIMAL}, #{acctId,jdbcType=DECIMAL}, 
+      #{writeoffMode,jdbcType=CHAR}, #{spayFee,jdbcType=DECIMAL}, #{allMoney,jdbcType=DECIMAL}, 
+      #{allNewMoney,jdbcType=DECIMAL}, #{allBalance,jdbcType=DECIMAL}, #{allNewBalance,jdbcType=DECIMAL}, 
+      #{allboweFee,jdbcType=DECIMAL}, #{aimpFee,jdbcType=DECIMAL}, #{allnewboweFee,jdbcType=DECIMAL}, 
+      #{prerealFee,jdbcType=DECIMAL}, #{currealFee,jdbcType=DECIMAL}, #{protocolBalance,jdbcType=DECIMAL}, 
+      #{oldRoundFee,jdbcType=DECIMAL}, #{newRoundFee,jdbcType=DECIMAL}, #{recoverTag,jdbcType=CHAR}, 
+      #{operateTime,jdbcType=TIMESTAMP}, #{eparchyCode,jdbcType=CHAR}, #{cycleId,jdbcType=DECIMAL}, 
+      #{cancelTag,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{rsrvFee1,jdbcType=DECIMAL}, 
+      #{rsrvFee2,jdbcType=DECIMAL}, #{rsrvInfo1,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfBWriteSnapLogPo" >
+    insert into TF_B_WRITESNAP_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="chargeId != null" >
+        CHARGE_ID,
+      </if>
+      <if test="partitionId != null" >
+        PARTITION_ID,
+      </if>
+      <if test="acctId != null" >
+        ACCT_ID,
+      </if>
+      <if test="writeoffMode != null" >
+        WRITEOFF_MODE,
+      </if>
+      <if test="spayFee != null" >
+        SPAY_FEE,
+      </if>
+      <if test="allMoney != null" >
+        ALL_MONEY,
+      </if>
+      <if test="allNewMoney != null" >
+        ALL_NEW_MONEY,
+      </if>
+      <if test="allBalance != null" >
+        ALL_BALANCE,
+      </if>
+      <if test="allNewBalance != null" >
+        ALL_NEW_BALANCE,
+      </if>
+      <if test="allboweFee != null" >
+        ALLBOWE_FEE,
+      </if>
+      <if test="aimpFee != null" >
+        AIMP_FEE,
+      </if>
+      <if test="allnewboweFee != null" >
+        ALLNEWBOWE_FEE,
+      </if>
+      <if test="prerealFee != null" >
+        PREREAL_FEE,
+      </if>
+      <if test="currealFee != null" >
+        CURREAL_FEE,
+      </if>
+      <if test="protocolBalance != null" >
+        PROTOCOL_BALANCE,
+      </if>
+      <if test="oldRoundFee != null" >
+        OLD_ROUND_FEE,
+      </if>
+      <if test="newRoundFee != null" >
+        NEW_ROUND_FEE,
+      </if>
+      <if test="recoverTag != null" >
+        RECOVER_TAG,
+      </if>
+      <if test="operateTime != null" >
+        OPERATE_TIME,
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE,
+      </if>
+      <if test="cycleId != null" >
+        CYCLE_ID,
+      </if>
+      <if test="cancelTag != null" >
+        CANCEL_TAG,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="rsrvFee1 != null" >
+        RSRV_FEE1,
+      </if>
+      <if test="rsrvFee2 != null" >
+        RSRV_FEE2,
+      </if>
+      <if test="rsrvInfo1 != null" >
+        RSRV_INFO1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="chargeId != null" >
+        #{chargeId,jdbcType=DECIMAL},
+      </if>
+      <if test="partitionId != null" >
+        #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="acctId != null" >
+        #{acctId,jdbcType=DECIMAL},
+      </if>
+      <if test="writeoffMode != null" >
+        #{writeoffMode,jdbcType=CHAR},
+      </if>
+      <if test="spayFee != null" >
+        #{spayFee,jdbcType=DECIMAL},
+      </if>
+      <if test="allMoney != null" >
+        #{allMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="allNewMoney != null" >
+        #{allNewMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="allBalance != null" >
+        #{allBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="allNewBalance != null" >
+        #{allNewBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="allboweFee != null" >
+        #{allboweFee,jdbcType=DECIMAL},
+      </if>
+      <if test="aimpFee != null" >
+        #{aimpFee,jdbcType=DECIMAL},
+      </if>
+      <if test="allnewboweFee != null" >
+        #{allnewboweFee,jdbcType=DECIMAL},
+      </if>
+      <if test="prerealFee != null" >
+        #{prerealFee,jdbcType=DECIMAL},
+      </if>
+      <if test="currealFee != null" >
+        #{currealFee,jdbcType=DECIMAL},
+      </if>
+      <if test="protocolBalance != null" >
+        #{protocolBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="oldRoundFee != null" >
+        #{oldRoundFee,jdbcType=DECIMAL},
+      </if>
+      <if test="newRoundFee != null" >
+        #{newRoundFee,jdbcType=DECIMAL},
+      </if>
+      <if test="recoverTag != null" >
+        #{recoverTag,jdbcType=CHAR},
+      </if>
+      <if test="operateTime != null" >
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eparchyCode != null" >
+        #{eparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="cycleId != null" >
+        #{cycleId,jdbcType=DECIMAL},
+      </if>
+      <if test="cancelTag != null" >
+        #{cancelTag,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvFee1 != null" >
+        #{rsrvFee1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvFee2 != null" >
+        #{rsrvFee2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvInfo1 != null" >
+        #{rsrvInfo1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfBWriteSnapLogPo" >
+    update TF_B_WRITESNAP_LOG
+    <set >
+      <if test="acctId != null" >
+        ACCT_ID = #{acctId,jdbcType=DECIMAL},
+      </if>
+      <if test="writeoffMode != null" >
+        WRITEOFF_MODE = #{writeoffMode,jdbcType=CHAR},
+      </if>
+      <if test="spayFee != null" >
+        SPAY_FEE = #{spayFee,jdbcType=DECIMAL},
+      </if>
+      <if test="allMoney != null" >
+        ALL_MONEY = #{allMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="allNewMoney != null" >
+        ALL_NEW_MONEY = #{allNewMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="allBalance != null" >
+        ALL_BALANCE = #{allBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="allNewBalance != null" >
+        ALL_NEW_BALANCE = #{allNewBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="allboweFee != null" >
+        ALLBOWE_FEE = #{allboweFee,jdbcType=DECIMAL},
+      </if>
+      <if test="aimpFee != null" >
+        AIMP_FEE = #{aimpFee,jdbcType=DECIMAL},
+      </if>
+      <if test="allnewboweFee != null" >
+        ALLNEWBOWE_FEE = #{allnewboweFee,jdbcType=DECIMAL},
+      </if>
+      <if test="prerealFee != null" >
+        PREREAL_FEE = #{prerealFee,jdbcType=DECIMAL},
+      </if>
+      <if test="currealFee != null" >
+        CURREAL_FEE = #{currealFee,jdbcType=DECIMAL},
+      </if>
+      <if test="protocolBalance != null" >
+        PROTOCOL_BALANCE = #{protocolBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="oldRoundFee != null" >
+        OLD_ROUND_FEE = #{oldRoundFee,jdbcType=DECIMAL},
+      </if>
+      <if test="newRoundFee != null" >
+        NEW_ROUND_FEE = #{newRoundFee,jdbcType=DECIMAL},
+      </if>
+      <if test="recoverTag != null" >
+        RECOVER_TAG = #{recoverTag,jdbcType=CHAR},
+      </if>
+      <if test="operateTime != null" >
+        OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE = #{eparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="cycleId != null" >
+        CYCLE_ID = #{cycleId,jdbcType=DECIMAL},
+      </if>
+      <if test="cancelTag != null" >
+        CANCEL_TAG = #{cancelTag,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvFee1 != null" >
+        RSRV_FEE1 = #{rsrvFee1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvFee2 != null" >
+        RSRV_FEE2 = #{rsrvFee2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvInfo1 != null" >
+        RSRV_INFO1 = #{rsrvInfo1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CHARGE_ID = #{chargeId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfBWriteSnapLogPo" >
+    update TF_B_WRITESNAP_LOG
+    set ACCT_ID = #{acctId,jdbcType=DECIMAL},
+      WRITEOFF_MODE = #{writeoffMode,jdbcType=CHAR},
+      SPAY_FEE = #{spayFee,jdbcType=DECIMAL},
+      ALL_MONEY = #{allMoney,jdbcType=DECIMAL},
+      ALL_NEW_MONEY = #{allNewMoney,jdbcType=DECIMAL},
+      ALL_BALANCE = #{allBalance,jdbcType=DECIMAL},
+      ALL_NEW_BALANCE = #{allNewBalance,jdbcType=DECIMAL},
+      ALLBOWE_FEE = #{allboweFee,jdbcType=DECIMAL},
+      AIMP_FEE = #{aimpFee,jdbcType=DECIMAL},
+      ALLNEWBOWE_FEE = #{allnewboweFee,jdbcType=DECIMAL},
+      PREREAL_FEE = #{prerealFee,jdbcType=DECIMAL},
+      CURREAL_FEE = #{currealFee,jdbcType=DECIMAL},
+      PROTOCOL_BALANCE = #{protocolBalance,jdbcType=DECIMAL},
+      OLD_ROUND_FEE = #{oldRoundFee,jdbcType=DECIMAL},
+      NEW_ROUND_FEE = #{newRoundFee,jdbcType=DECIMAL},
+      RECOVER_TAG = #{recoverTag,jdbcType=CHAR},
+      OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      EPARCHY_CODE = #{eparchyCode,jdbcType=CHAR},
+      CYCLE_ID = #{cycleId,jdbcType=DECIMAL},
+      CANCEL_TAG = #{cancelTag,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      RSRV_FEE1 = #{rsrvFee1,jdbcType=DECIMAL},
+      RSRV_FEE2 = #{rsrvFee2,jdbcType=DECIMAL},
+      RSRV_INFO1 = #{rsrvInfo1,jdbcType=VARCHAR}
+    where CHARGE_ID = #{chargeId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </update>
+</mapper>

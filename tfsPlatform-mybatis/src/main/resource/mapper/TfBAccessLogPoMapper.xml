@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfBAccessLogPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBAccessLogPo" >
+    <id column="ACCESS_ID" property="accessId" jdbcType="DECIMAL" />
+    <id column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="CHARGE_ID" property="chargeId" jdbcType="DECIMAL" />
+    <result column="ACCT_ID" property="acctId" jdbcType="DECIMAL" />
+    <result column="ACCT_BALANCE_ID" property="acctBalanceId" jdbcType="DECIMAL" />
+    <result column="DEPOSIT_CODE" property="depositCode" jdbcType="DECIMAL" />
+    <result column="OLD_BALANCE" property="oldBalance" jdbcType="DECIMAL" />
+    <result column="MONEY" property="money" jdbcType="DECIMAL" />
+    <result column="NEW_BALANCE" property="newBalance" jdbcType="DECIMAL" />
+    <result column="INVOICE_FEE" property="invoiceFee" jdbcType="DECIMAL" />
+    <result column="ACCESS_TAG" property="accessTag" jdbcType="CHAR" />
+    <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="CHAR" />
+    <result column="CANCEL_TAG" property="cancelTag" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ACCESS_ID, PARTITION_ID, CHARGE_ID, ACCT_ID, ACCT_BALANCE_ID, DEPOSIT_CODE, OLD_BALANCE, 
+    MONEY, NEW_BALANCE, INVOICE_FEE, ACCESS_TAG, OPERATE_TIME, EPARCHY_CODE, CANCEL_TAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_B_ACCESSLOG
+    where ACCESS_ID = #{accessId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TF_B_ACCESSLOG
+    where ACCESS_ID = #{accessId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfBAccessLogPo" >
+    insert into TF_B_ACCESSLOG (ACCESS_ID, PARTITION_ID, CHARGE_ID, 
+      ACCT_ID, ACCT_BALANCE_ID, DEPOSIT_CODE, 
+      OLD_BALANCE, MONEY, NEW_BALANCE, 
+      INVOICE_FEE, ACCESS_TAG, OPERATE_TIME, 
+      EPARCHY_CODE, CANCEL_TAG)
+    values (#{accessId,jdbcType=DECIMAL}, #{partitionId,jdbcType=DECIMAL}, #{chargeId,jdbcType=DECIMAL}, 
+      #{acctId,jdbcType=DECIMAL}, #{acctBalanceId,jdbcType=DECIMAL}, #{depositCode,jdbcType=DECIMAL}, 
+      #{oldBalance,jdbcType=DECIMAL}, #{money,jdbcType=DECIMAL}, #{newBalance,jdbcType=DECIMAL}, 
+      #{invoiceFee,jdbcType=DECIMAL}, #{accessTag,jdbcType=CHAR}, #{operateTime,jdbcType=TIMESTAMP}, 
+      #{eparchyCode,jdbcType=CHAR}, #{cancelTag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfBAccessLogPo" >
+    insert into TF_B_ACCESSLOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accessId != null" >
+        ACCESS_ID,
+      </if>
+      <if test="partitionId != null" >
+        PARTITION_ID,
+      </if>
+      <if test="chargeId != null" >
+        CHARGE_ID,
+      </if>
+      <if test="acctId != null" >
+        ACCT_ID,
+      </if>
+      <if test="acctBalanceId != null" >
+        ACCT_BALANCE_ID,
+      </if>
+      <if test="depositCode != null" >
+        DEPOSIT_CODE,
+      </if>
+      <if test="oldBalance != null" >
+        OLD_BALANCE,
+      </if>
+      <if test="money != null" >
+        MONEY,
+      </if>
+      <if test="newBalance != null" >
+        NEW_BALANCE,
+      </if>
+      <if test="invoiceFee != null" >
+        INVOICE_FEE,
+      </if>
+      <if test="accessTag != null" >
+        ACCESS_TAG,
+      </if>
+      <if test="operateTime != null" >
+        OPERATE_TIME,
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE,
+      </if>
+      <if test="cancelTag != null" >
+        CANCEL_TAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accessId != null" >
+        #{accessId,jdbcType=DECIMAL},
+      </if>
+      <if test="partitionId != null" >
+        #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeId != null" >
+        #{chargeId,jdbcType=DECIMAL},
+      </if>
+      <if test="acctId != null" >
+        #{acctId,jdbcType=DECIMAL},
+      </if>
+      <if test="acctBalanceId != null" >
+        #{acctBalanceId,jdbcType=DECIMAL},
+      </if>
+      <if test="depositCode != null" >
+        #{depositCode,jdbcType=DECIMAL},
+      </if>
+      <if test="oldBalance != null" >
+        #{oldBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="newBalance != null" >
+        #{newBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="invoiceFee != null" >
+        #{invoiceFee,jdbcType=DECIMAL},
+      </if>
+      <if test="accessTag != null" >
+        #{accessTag,jdbcType=CHAR},
+      </if>
+      <if test="operateTime != null" >
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eparchyCode != null" >
+        #{eparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="cancelTag != null" >
+        #{cancelTag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfBAccessLogPo" >
+    update TF_B_ACCESSLOG
+    <set >
+      <if test="chargeId != null" >
+        CHARGE_ID = #{chargeId,jdbcType=DECIMAL},
+      </if>
+      <if test="acctId != null" >
+        ACCT_ID = #{acctId,jdbcType=DECIMAL},
+      </if>
+      <if test="acctBalanceId != null" >
+        ACCT_BALANCE_ID = #{acctBalanceId,jdbcType=DECIMAL},
+      </if>
+      <if test="depositCode != null" >
+        DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL},
+      </if>
+      <if test="oldBalance != null" >
+        OLD_BALANCE = #{oldBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="money != null" >
+        MONEY = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="newBalance != null" >
+        NEW_BALANCE = #{newBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="invoiceFee != null" >
+        INVOICE_FEE = #{invoiceFee,jdbcType=DECIMAL},
+      </if>
+      <if test="accessTag != null" >
+        ACCESS_TAG = #{accessTag,jdbcType=CHAR},
+      </if>
+      <if test="operateTime != null" >
+        OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE = #{eparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="cancelTag != null" >
+        CANCEL_TAG = #{cancelTag,jdbcType=CHAR},
+      </if>
+    </set>
+    where ACCESS_ID = #{accessId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfBAccessLogPo" >
+    update TF_B_ACCESSLOG
+    set CHARGE_ID = #{chargeId,jdbcType=DECIMAL},
+      ACCT_ID = #{acctId,jdbcType=DECIMAL},
+      ACCT_BALANCE_ID = #{acctBalanceId,jdbcType=DECIMAL},
+      DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL},
+      OLD_BALANCE = #{oldBalance,jdbcType=DECIMAL},
+      MONEY = #{money,jdbcType=DECIMAL},
+      NEW_BALANCE = #{newBalance,jdbcType=DECIMAL},
+      INVOICE_FEE = #{invoiceFee,jdbcType=DECIMAL},
+      ACCESS_TAG = #{accessTag,jdbcType=CHAR},
+      OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      EPARCHY_CODE = #{eparchyCode,jdbcType=CHAR},
+      CANCEL_TAG = #{cancelTag,jdbcType=CHAR}
+    where ACCESS_ID = #{accessId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </update>
+</mapper>

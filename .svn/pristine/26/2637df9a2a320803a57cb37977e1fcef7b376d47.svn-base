@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TfBTradeSpPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBTradeSpPo" >
+    <id column="TRADE_ID" property="tradeId" jdbcType="DECIMAL" />
+    <id column="ACCEPT_MONTH" property="acceptMonth" jdbcType="DECIMAL" />
+    <id column="PRODUCT_ID" property="productId" jdbcType="DECIMAL" />
+    <id column="PACKAGE_ID" property="packageId" jdbcType="DECIMAL" />
+    <id column="MODIFY_TAG" property="modifyTag" jdbcType="CHAR" />
+    <id column="SP_SERVICE_ID" property="spServiceId" jdbcType="DECIMAL" />
+    <result column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <result column="SERIAL_NUMBER" property="serialNumber" jdbcType="VARCHAR" />
+    <result column="PARTY_ID" property="partyId" jdbcType="VARCHAR" />
+    <result column="SP_ID" property="spId" jdbcType="VARCHAR" />
+    <result column="SP_PRODUCT_ID" property="spProductId" jdbcType="VARCHAR" />
+    <result column="FIRST_BUY_TIME" property="firstBuyTime" jdbcType="TIMESTAMP" />
+    <result column="PAY_SERIAL_NUMBER" property="paySerialNumber" jdbcType="VARCHAR" />
+    <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="PAY_USER_ID" property="payUserId" jdbcType="DECIMAL" />
+    <result column="ITEM_ID" property="itemId" jdbcType="DECIMAL" />
+    <result column="DISCNT_INSTANCE" property="discntInstance" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADE_ID, ACCEPT_MONTH, PRODUCT_ID, PACKAGE_ID, MODIFY_TAG, SP_SERVICE_ID, USER_ID, 
+    SERIAL_NUMBER, PARTY_ID, SP_ID, SP_PRODUCT_ID, FIRST_BUY_TIME, PAY_SERIAL_NUMBER, 
+    START_DATE, END_DATE, UPDATE_TIME, REMARK, PAY_USER_ID, ITEM_ID, DISCNT_INSTANCE
+  </sql>
+  <select id="queryTfBTradeSpPoByTradeId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    FROM TF_B_TRADE_SP
+     <where>
+     	AND TRADE_ID = #{tradeId,jdbcType=DECIMAL} 
+     </where>
+  </select>
+</mapper>

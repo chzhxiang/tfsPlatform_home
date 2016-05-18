@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdBDepositPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdBDepositPo" >
+    <id column="DEPOSIT_CODE" property="depositCode" jdbcType="DECIMAL" />
+    <result column="DEPOSIT_NAME" property="depositName" jdbcType="VARCHAR" />
+    <result column="RETURN_TAG" property="returnTag" jdbcType="CHAR" />
+    <result column="DEPOSIT_TYPE_CODE" property="depositTypeCode" jdbcType="CHAR" />
+    <result column="INVOICE_TAG" property="invoiceTag" jdbcType="CHAR" />
+    <result column="CAN_DIS_TAG" property="canDisTag" jdbcType="CHAR" />
+    <result column="CAN_TRAN_TAG" property="canTranTag" jdbcType="CHAR" />
+    <result column="CAN_CONSIGN_TAG" property="canConsignTag" jdbcType="CHAR" />
+    <result column="CASH_TAG" property="cashTag" jdbcType="CHAR" />
+    <result column="DEAL_TYPE" property="dealType" jdbcType="VARCHAR" />
+    <result column="IF_BALANCE" property="ifBalance" jdbcType="CHAR" />
+    <result column="CREDIT_MODE" property="creditMode" jdbcType="CHAR" />
+    <result column="IF_CALC_OWE" property="ifCalcOwe" jdbcType="CHAR" />
+    <result column="IF_UNITE" property="ifUnite" jdbcType="CHAR" />
+    <result column="IF_ADJUST" property="ifAdjust" jdbcType="CHAR" />
+    <result column="ITEM_PRIOR_RULE_ID" property="itemPriorRuleId" jdbcType="DECIMAL" />
+    <result column="PRIORITY" property="priority" jdbcType="DECIMAL" />
+    <result column="CASH_TYPE" property="cashType" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DEPOSIT_CODE, DEPOSIT_NAME, RETURN_TAG, DEPOSIT_TYPE_CODE, INVOICE_TAG, CAN_DIS_TAG, 
+    CAN_TRAN_TAG, CAN_CONSIGN_TAG, CASH_TAG, DEAL_TYPE, IF_BALANCE, CREDIT_MODE, IF_CALC_OWE, 
+    IF_UNITE, IF_ADJUST, ITEM_PRIOR_RULE_ID, PRIORITY, CASH_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Short" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_DEPOSIT
+    where DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
+    delete from TD_B_DEPOSIT
+    where DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositPo" >
+    insert into TD_B_DEPOSIT (DEPOSIT_CODE, DEPOSIT_NAME, RETURN_TAG, 
+      DEPOSIT_TYPE_CODE, INVOICE_TAG, CAN_DIS_TAG, 
+      CAN_TRAN_TAG, CAN_CONSIGN_TAG, CASH_TAG, 
+      DEAL_TYPE, IF_BALANCE, CREDIT_MODE, 
+      IF_CALC_OWE, IF_UNITE, IF_ADJUST, 
+      ITEM_PRIOR_RULE_ID, PRIORITY, CASH_TYPE
+      )
+    values (#{depositCode,jdbcType=DECIMAL}, #{depositName,jdbcType=VARCHAR}, #{returnTag,jdbcType=CHAR}, 
+      #{depositTypeCode,jdbcType=CHAR}, #{invoiceTag,jdbcType=CHAR}, #{canDisTag,jdbcType=CHAR}, 
+      #{canTranTag,jdbcType=CHAR}, #{canConsignTag,jdbcType=CHAR}, #{cashTag,jdbcType=CHAR}, 
+      #{dealType,jdbcType=VARCHAR}, #{ifBalance,jdbcType=CHAR}, #{creditMode,jdbcType=CHAR}, 
+      #{ifCalcOwe,jdbcType=CHAR}, #{ifUnite,jdbcType=CHAR}, #{ifAdjust,jdbcType=CHAR}, 
+      #{itemPriorRuleId,jdbcType=DECIMAL}, #{priority,jdbcType=DECIMAL}, #{cashType,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositPo" >
+    insert into TD_B_DEPOSIT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="depositCode != null" >
+        DEPOSIT_CODE,
+      </if>
+      <if test="depositName != null" >
+        DEPOSIT_NAME,
+      </if>
+      <if test="returnTag != null" >
+        RETURN_TAG,
+      </if>
+      <if test="depositTypeCode != null" >
+        DEPOSIT_TYPE_CODE,
+      </if>
+      <if test="invoiceTag != null" >
+        INVOICE_TAG,
+      </if>
+      <if test="canDisTag != null" >
+        CAN_DIS_TAG,
+      </if>
+      <if test="canTranTag != null" >
+        CAN_TRAN_TAG,
+      </if>
+      <if test="canConsignTag != null" >
+        CAN_CONSIGN_TAG,
+      </if>
+      <if test="cashTag != null" >
+        CASH_TAG,
+      </if>
+      <if test="dealType != null" >
+        DEAL_TYPE,
+      </if>
+      <if test="ifBalance != null" >
+        IF_BALANCE,
+      </if>
+      <if test="creditMode != null" >
+        CREDIT_MODE,
+      </if>
+      <if test="ifCalcOwe != null" >
+        IF_CALC_OWE,
+      </if>
+      <if test="ifUnite != null" >
+        IF_UNITE,
+      </if>
+      <if test="ifAdjust != null" >
+        IF_ADJUST,
+      </if>
+      <if test="itemPriorRuleId != null" >
+        ITEM_PRIOR_RULE_ID,
+      </if>
+      <if test="priority != null" >
+        PRIORITY,
+      </if>
+      <if test="cashType != null" >
+        CASH_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="depositCode != null" >
+        #{depositCode,jdbcType=DECIMAL},
+      </if>
+      <if test="depositName != null" >
+        #{depositName,jdbcType=VARCHAR},
+      </if>
+      <if test="returnTag != null" >
+        #{returnTag,jdbcType=CHAR},
+      </if>
+      <if test="depositTypeCode != null" >
+        #{depositTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="invoiceTag != null" >
+        #{invoiceTag,jdbcType=CHAR},
+      </if>
+      <if test="canDisTag != null" >
+        #{canDisTag,jdbcType=CHAR},
+      </if>
+      <if test="canTranTag != null" >
+        #{canTranTag,jdbcType=CHAR},
+      </if>
+      <if test="canConsignTag != null" >
+        #{canConsignTag,jdbcType=CHAR},
+      </if>
+      <if test="cashTag != null" >
+        #{cashTag,jdbcType=CHAR},
+      </if>
+      <if test="dealType != null" >
+        #{dealType,jdbcType=VARCHAR},
+      </if>
+      <if test="ifBalance != null" >
+        #{ifBalance,jdbcType=CHAR},
+      </if>
+      <if test="creditMode != null" >
+        #{creditMode,jdbcType=CHAR},
+      </if>
+      <if test="ifCalcOwe != null" >
+        #{ifCalcOwe,jdbcType=CHAR},
+      </if>
+      <if test="ifUnite != null" >
+        #{ifUnite,jdbcType=CHAR},
+      </if>
+      <if test="ifAdjust != null" >
+        #{ifAdjust,jdbcType=CHAR},
+      </if>
+      <if test="itemPriorRuleId != null" >
+        #{itemPriorRuleId,jdbcType=DECIMAL},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="cashType != null" >
+        #{cashType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositPo" >
+    update TD_B_DEPOSIT
+    <set >
+      <if test="depositName != null" >
+        DEPOSIT_NAME = #{depositName,jdbcType=VARCHAR},
+      </if>
+      <if test="returnTag != null" >
+        RETURN_TAG = #{returnTag,jdbcType=CHAR},
+      </if>
+      <if test="depositTypeCode != null" >
+        DEPOSIT_TYPE_CODE = #{depositTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="invoiceTag != null" >
+        INVOICE_TAG = #{invoiceTag,jdbcType=CHAR},
+      </if>
+      <if test="canDisTag != null" >
+        CAN_DIS_TAG = #{canDisTag,jdbcType=CHAR},
+      </if>
+      <if test="canTranTag != null" >
+        CAN_TRAN_TAG = #{canTranTag,jdbcType=CHAR},
+      </if>
+      <if test="canConsignTag != null" >
+        CAN_CONSIGN_TAG = #{canConsignTag,jdbcType=CHAR},
+      </if>
+      <if test="cashTag != null" >
+        CASH_TAG = #{cashTag,jdbcType=CHAR},
+      </if>
+      <if test="dealType != null" >
+        DEAL_TYPE = #{dealType,jdbcType=VARCHAR},
+      </if>
+      <if test="ifBalance != null" >
+        IF_BALANCE = #{ifBalance,jdbcType=CHAR},
+      </if>
+      <if test="creditMode != null" >
+        CREDIT_MODE = #{creditMode,jdbcType=CHAR},
+      </if>
+      <if test="ifCalcOwe != null" >
+        IF_CALC_OWE = #{ifCalcOwe,jdbcType=CHAR},
+      </if>
+      <if test="ifUnite != null" >
+        IF_UNITE = #{ifUnite,jdbcType=CHAR},
+      </if>
+      <if test="ifAdjust != null" >
+        IF_ADJUST = #{ifAdjust,jdbcType=CHAR},
+      </if>
+      <if test="itemPriorRuleId != null" >
+        ITEM_PRIOR_RULE_ID = #{itemPriorRuleId,jdbcType=DECIMAL},
+      </if>
+      <if test="priority != null" >
+        PRIORITY = #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="cashType != null" >
+        CASH_TYPE = #{cashType,jdbcType=CHAR},
+      </if>
+    </set>
+    where DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositPo" >
+    update TD_B_DEPOSIT
+    set DEPOSIT_NAME = #{depositName,jdbcType=VARCHAR},
+      RETURN_TAG = #{returnTag,jdbcType=CHAR},
+      DEPOSIT_TYPE_CODE = #{depositTypeCode,jdbcType=CHAR},
+      INVOICE_TAG = #{invoiceTag,jdbcType=CHAR},
+      CAN_DIS_TAG = #{canDisTag,jdbcType=CHAR},
+      CAN_TRAN_TAG = #{canTranTag,jdbcType=CHAR},
+      CAN_CONSIGN_TAG = #{canConsignTag,jdbcType=CHAR},
+      CASH_TAG = #{cashTag,jdbcType=CHAR},
+      DEAL_TYPE = #{dealType,jdbcType=VARCHAR},
+      IF_BALANCE = #{ifBalance,jdbcType=CHAR},
+      CREDIT_MODE = #{creditMode,jdbcType=CHAR},
+      IF_CALC_OWE = #{ifCalcOwe,jdbcType=CHAR},
+      IF_UNITE = #{ifUnite,jdbcType=CHAR},
+      IF_ADJUST = #{ifAdjust,jdbcType=CHAR},
+      ITEM_PRIOR_RULE_ID = #{itemPriorRuleId,jdbcType=DECIMAL},
+      PRIORITY = #{priority,jdbcType=DECIMAL},
+      CASH_TYPE = #{cashType,jdbcType=CHAR}
+    where DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+  </update>
+</mapper>

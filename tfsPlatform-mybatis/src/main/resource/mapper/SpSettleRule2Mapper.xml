@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.SpSettleRule2Mapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.SpSettleRule2" >
+    <id column="PARTY_ID" property="partyId" jdbcType="VARCHAR" />
+    <id column="SP_SERVICE_ID" property="spServiceId" jdbcType="BIGINT" />
+    <result column="SVC_CODE" property="svcCode" jdbcType="VARCHAR" />
+    <result column="RATE_INFO" property="rateInfo" jdbcType="DECIMAL" />
+    <result column="RATE_OTHER" property="rateOther" jdbcType="DECIMAL" />
+    <result column="EFFDATE" property="effdate" jdbcType="VARCHAR" />
+    <result column="EXPDATE" property="expdate" jdbcType="VARCHAR" />
+    <result column="MEMO" property="memo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PARTY_ID, SP_SERVICE_ID, SVC_CODE, RATE_INFO, RATE_OTHER, EFFDATE, EXPDATE, MEMO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from SP_SETTLE_RULE2
+    where PARTY_ID = #{partyId,jdbcType=VARCHAR}
+      and SP_SERVICE_ID = #{spServiceId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from SP_SETTLE_RULE2
+    where PARTY_ID = #{partyId,jdbcType=VARCHAR}
+      and SP_SERVICE_ID = #{spServiceId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.SpSettleRule2" >
+    insert into SP_SETTLE_RULE2 (PARTY_ID, SP_SERVICE_ID, SVC_CODE, 
+      RATE_INFO, RATE_OTHER, EFFDATE, 
+      EXPDATE, MEMO)
+    values (#{partyId,jdbcType=VARCHAR}, #{spServiceId,jdbcType=BIGINT}, #{svcCode,jdbcType=VARCHAR}, 
+      #{rateInfo,jdbcType=DECIMAL}, #{rateOther,jdbcType=DECIMAL}, #{effdate,jdbcType=VARCHAR}, 
+      #{expdate,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.SpSettleRule2" >
+    insert into SP_SETTLE_RULE2
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="partyId != null" >
+        PARTY_ID,
+      </if>
+      <if test="spServiceId != null" >
+        SP_SERVICE_ID,
+      </if>
+      <if test="svcCode != null" >
+        SVC_CODE,
+      </if>
+      <if test="rateInfo != null" >
+        RATE_INFO,
+      </if>
+      <if test="rateOther != null" >
+        RATE_OTHER,
+      </if>
+      <if test="effdate != null" >
+        EFFDATE,
+      </if>
+      <if test="expdate != null" >
+        EXPDATE,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="partyId != null" >
+        #{partyId,jdbcType=VARCHAR},
+      </if>
+      <if test="spServiceId != null" >
+        #{spServiceId,jdbcType=BIGINT},
+      </if>
+      <if test="svcCode != null" >
+        #{svcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rateInfo != null" >
+        #{rateInfo,jdbcType=DECIMAL},
+      </if>
+      <if test="rateOther != null" >
+        #{rateOther,jdbcType=DECIMAL},
+      </if>
+      <if test="effdate != null" >
+        #{effdate,jdbcType=VARCHAR},
+      </if>
+      <if test="expdate != null" >
+        #{expdate,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.SpSettleRule2" >
+    update SP_SETTLE_RULE2
+    <set >
+      <if test="svcCode != null" >
+        SVC_CODE = #{svcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rateInfo != null" >
+        RATE_INFO = #{rateInfo,jdbcType=DECIMAL},
+      </if>
+      <if test="rateOther != null" >
+        RATE_OTHER = #{rateOther,jdbcType=DECIMAL},
+      </if>
+      <if test="effdate != null" >
+        EFFDATE = #{effdate,jdbcType=VARCHAR},
+      </if>
+      <if test="expdate != null" >
+        EXPDATE = #{expdate,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PARTY_ID = #{partyId,jdbcType=VARCHAR}
+      and SP_SERVICE_ID = #{spServiceId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.SpSettleRule2" >
+    update SP_SETTLE_RULE2
+    set SVC_CODE = #{svcCode,jdbcType=VARCHAR},
+      RATE_INFO = #{rateInfo,jdbcType=DECIMAL},
+      RATE_OTHER = #{rateOther,jdbcType=DECIMAL},
+      EFFDATE = #{effdate,jdbcType=VARCHAR},
+      EXPDATE = #{expdate,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR}
+    where PARTY_ID = #{partyId,jdbcType=VARCHAR}
+      and SP_SERVICE_ID = #{spServiceId,jdbcType=BIGINT}
+  </update>
+</mapper>

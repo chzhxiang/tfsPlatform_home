@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TfFUserDiscntPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfFUserDiscntPo" >
+    <id column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <id column="USER_ID_A" property="userIdA" jdbcType="DECIMAL" />
+    <id column="DISCNT_CODE" property="discntCode" jdbcType="DECIMAL" />
+    <id column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="PRODUCT_ID" property="productId" jdbcType="DECIMAL" />
+    <result column="PACKAGE_ID" property="packageId" jdbcType="DECIMAL" />
+    <result column="SPEC_TAG" property="specTag" jdbcType="CHAR" />
+    <result column="RELATION_TYPE_CODE" property="relationTypeCode" jdbcType="VARCHAR" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="DISCNT_INSTANCE" property="discntInstance" jdbcType="DECIMAL" />
+    <result column="ITEM_ID" property="itemId" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, USER_ID_A, DISCNT_CODE, START_DATE, PARTITION_ID, PRODUCT_ID, PACKAGE_ID, 
+    SPEC_TAG, RELATION_TYPE_CODE, END_DATE, DISCNT_INSTANCE, ITEM_ID
+  </sql>
+  <sql id="Base_Where_Clause" >
+    <where>
+	  <if test="userId != null" >
+        AND USER_ID = #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="userIdA != null" >
+        AND USER_ID_A = #{userIdA,jdbcType=DECIMAL},
+      </if>
+      <if test="discntCode != null" >
+        AND DISCNT_CODE = #{discntCode,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null" >
+        AND START_DATE = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="partitionId != null" >
+        AND PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        AND PRODUCT_ID = #{productId,jdbcType=DECIMAL},
+      </if>
+      <if test="packageId != null" >
+        AND PACKAGE_ID = #{packageId,jdbcType=DECIMAL},
+      </if>
+      <if test="specTag != null" >
+        AND SPEC_TAG = #{specTag,jdbcType=CHAR},
+      </if>
+      <if test="relationTypeCode != null" >
+        AND RELATION_TYPE_CODE = #{relationTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null" >
+        AND END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="discntInstance != null" >
+        AND DISCNT_INSTANCE = #{discntInstance,jdbcType=DECIMAL},
+      </if>
+      <if test="itemId != null" >
+        AND ITEM_ID = #{itemId,jdbcType=DECIMAL},
+      </if>
+	</where>
+  </sql>
+  <select id="queryTfFUserDiscntPoList" resultMap="BaseResultMap" parameterType="com.asiainfo.tfsPlatform.po.TfFUserDiscntPo" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TF_F_USER_DISCNT
+   	<include refid="Base_Where_Clause" />
+  </select>
+</mapper>

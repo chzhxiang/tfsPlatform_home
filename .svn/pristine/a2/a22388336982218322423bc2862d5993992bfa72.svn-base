@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TfFCustGroupPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfFCustGroupPo" >
+    <id column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="GROUP_ID" property="groupId" jdbcType="VARCHAR" />
+    <result column="CUST_NAME" property="custName" jdbcType="VARCHAR" />
+    <result column="GROUP_TYPE" property="groupType" jdbcType="CHAR" />
+    <result column="CLASS_ID" property="classId" jdbcType="VARCHAR" />
+    <result column="CLASS_ID2" property="classId2" jdbcType="VARCHAR" />
+    <result column="LAST_CLASS_ID" property="lastClassId" jdbcType="VARCHAR" />
+    <result column="CLASS_CHANGE_DATE" property="classChangeDate" jdbcType="TIMESTAMP" />
+    <result column="CUST_CLASS_TYPE" property="custClassType" jdbcType="CHAR" />
+    <result column="GROUP_ATTR" property="groupAttr" jdbcType="CHAR" />
+    <result column="GROUP_STATUS" property="groupStatus" jdbcType="CHAR" />
+    <result column="GROUP_ADDR" property="groupAddr" jdbcType="VARCHAR" />
+    <result column="PROVINCE_CODE" property="provinceCode" jdbcType="VARCHAR" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="SUPER_GROUP_ID" property="superGroupId" jdbcType="VARCHAR" />
+    <result column="PNATIONAL_GROUP_ID" property="pnationalGroupId" jdbcType="VARCHAR" />
+    <result column="PNATIONAL_GROUP_NAME" property="pnationalGroupName" jdbcType="VARCHAR" />
+    <result column="MP_GROUP_CUST_CODE" property="mpGroupCustCode" jdbcType="VARCHAR" />
+    <result column="UNIFY_PAY_CODE" property="unifyPayCode" jdbcType="VARCHAR" />
+    <result column="ORG_STRUCT_CODE" property="orgStructCode" jdbcType="VARCHAR" />
+    <result column="CUST_MANAGER_ID" property="custManagerId" jdbcType="VARCHAR" />
+    <result column="CUST_MANAGER_APPR" property="custManagerAppr" jdbcType="VARCHAR" />
+    <result column="ASSIGN_DATE" property="assignDate" jdbcType="TIMESTAMP" />
+    <result column="ASSIGN_STAFF_ID" property="assignStaffId" jdbcType="VARCHAR" />
+    <result column="CALLING_TYPE_CODE" property="callingTypeCode" jdbcType="VARCHAR" />
+    <result column="SUB_CALLING_TYPE_CODE" property="subCallingTypeCode" jdbcType="VARCHAR" />
+    <result column="CALLING_AREA_CODE" property="callingAreaCode" jdbcType="CHAR" />
+    <result column="CALL_TYPE" property="callType" jdbcType="VARCHAR" />
+    <result column="ACCEPT_CHANNEL" property="acceptChannel" jdbcType="VARCHAR" />
+    <result column="AGREEMENT" property="agreement" jdbcType="VARCHAR" />
+    <result column="BUSI_TYPE" property="busiType" jdbcType="VARCHAR" />
+    <result column="GROUP_CONTACT_PHONE" property="groupContactPhone" jdbcType="VARCHAR" />
+    <result column="ENTERPRISE_TYPE_CODE" property="enterpriseTypeCode" jdbcType="CHAR" />
+    <result column="ENTERPRISE_SIZE_CODE" property="enterpriseSizeCode" jdbcType="VARCHAR" />
+    <result column="ENTERPRISE_SCOPE" property="enterpriseScope" jdbcType="CHAR" />
+    <result column="JURISTIC_TYPE_CODE" property="juristicTypeCode" jdbcType="CHAR" />
+    <result column="JURISTIC_CUST_ID" property="juristicCustId" jdbcType="DECIMAL" />
+    <result column="JURISTIC_NAME" property="juristicName" jdbcType="VARCHAR" />
+    <result column="BUSI_LICENCE_TYPE" property="busiLicenceType" jdbcType="CHAR" />
+    <result column="BUSI_LICENCE_NO" property="busiLicenceNo" jdbcType="VARCHAR" />
+    <result column="BUSI_LICENCE_VALID_DATE" property="busiLicenceValidDate" jdbcType="TIMESTAMP" />
+    <result column="GROUP_MEMO" property="groupMemo" jdbcType="VARCHAR" />
+    <result column="BANK_ACCT" property="bankAcct" jdbcType="VARCHAR" />
+    <result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" />
+    <result column="REG_MONEY" property="regMoney" jdbcType="DECIMAL" />
+    <result column="REG_DATE" property="regDate" jdbcType="TIMESTAMP" />
+    <result column="CUST_AIM" property="custAim" jdbcType="VARCHAR" />
+    <result column="SCOPE" property="scope" jdbcType="VARCHAR" />
+    <result column="MAIN_BUSI" property="mainBusi" jdbcType="VARCHAR" />
+    <result column="MAIN_TRADE" property="mainTrade" jdbcType="VARCHAR" />
+    <result column="EMP_LSAVE" property="empLsave" jdbcType="VARCHAR" />
+    <result column="LATENCY_FEE_SUM" property="latencyFeeSum" jdbcType="DECIMAL" />
+    <result column="YEAR_GAIN" property="yearGain" jdbcType="DECIMAL" />
+    <result column="TURNOVER" property="turnover" jdbcType="DECIMAL" />
+    <result column="CONSUME" property="consume" jdbcType="VARCHAR" />
+    <result column="COMM_BUDGET" property="commBudget" jdbcType="DECIMAL" />
+    <result column="GTEL_BUDGET" property="gtelBudget" jdbcType="DECIMAL" />
+    <result column="LTEL_BUDGET" property="ltelBudget" jdbcType="DECIMAL" />
+    <result column="GROUP_ADVERSARY" property="groupAdversary" jdbcType="VARCHAR" />
+    <result column="VPMN_GROUP_ID" property="vpmnGroupId" jdbcType="VARCHAR" />
+    <result column="VPMN_NUM" property="vpmnNum" jdbcType="DECIMAL" />
+    <result column="USER_NUM" property="userNum" jdbcType="DECIMAL" />
+    <result column="EMP_NUM_LOCAL" property="empNumLocal" jdbcType="DECIMAL" />
+    <result column="EMP_NUM_CHINA" property="empNumChina" jdbcType="DECIMAL" />
+    <result column="EMP_NUM_ALL" property="empNumAll" jdbcType="DECIMAL" />
+    <result column="TELECOM_NUM_GH" property="telecomNumGh" jdbcType="DECIMAL" />
+    <result column="TELECOM_NUM_XLT" property="telecomNumXlt" jdbcType="DECIMAL" />
+    <result column="MOBILE_NUM_CHINAGO" property="mobileNumChinago" jdbcType="DECIMAL" />
+    <result column="MOBILE_NUM_GLOBAL" property="mobileNumGlobal" jdbcType="DECIMAL" />
+    <result column="MOBILE_NUM_MZONE" property="mobileNumMzone" jdbcType="DECIMAL" />
+    <result column="MOBILE_NUM_LOCAL" property="mobileNumLocal" jdbcType="DECIMAL" />
+    <result column="UNICOM_NUM_G" property="unicomNumG" jdbcType="DECIMAL" />
+    <result column="UNICOM_NUM_C" property="unicomNumC" jdbcType="DECIMAL" />
+    <result column="UNICOM_NUM_GC" property="unicomNumGc" jdbcType="DECIMAL" />
+    <result column="PRODUCT_NUM_LOCAL" property="productNumLocal" jdbcType="DECIMAL" />
+    <result column="PRODUCT_NUM_OTHER" property="productNumOther" jdbcType="DECIMAL" />
+    <result column="PRODUCT_NUM_USE" property="productNumUse" jdbcType="DECIMAL" />
+    <result column="EMPLOYEE_ARPU" property="employeeArpu" jdbcType="DECIMAL" />
+    <result column="NETRENT_PAYOUT" property="netrentPayout" jdbcType="DECIMAL" />
+    <result column="MOBILE_PAYOUT" property="mobilePayout" jdbcType="DECIMAL" />
+    <result column="UNICOM_PAYOUT" property="unicomPayout" jdbcType="DECIMAL" />
+    <result column="TELECOM_PAYOUT_XLT" property="telecomPayoutXlt" jdbcType="DECIMAL" />
+    <result column="GROUP_PAY_MODE" property="groupPayMode" jdbcType="VARCHAR" />
+    <result column="PAYFOR_WAY_CODE" property="payforWayCode" jdbcType="CHAR" />
+    <result column="WRITEFEE_COUNT" property="writefeeCount" jdbcType="DECIMAL" />
+    <result column="WRITEFEE_SUM" property="writefeeSum" jdbcType="DECIMAL" />
+    <result column="USER_NUM_FULLFREE" property="userNumFullfree" jdbcType="DECIMAL" />
+    <result column="USER_NUM_WRITEOFF" property="userNumWriteoff" jdbcType="DECIMAL" />
+    <result column="BOSS_FEE_SUM" property="bossFeeSum" jdbcType="DECIMAL" />
+    <result column="DOYEN_STAFF_ID" property="doyenStaffId" jdbcType="VARCHAR" />
+    <result column="NEWTRADE_COMMENT" property="newtradeComment" jdbcType="VARCHAR" />
+    <result column="LIKE_MOBILE_TRADE" property="likeMobileTrade" jdbcType="VARCHAR" />
+    <result column="LIKE_DISCNT_MODE" property="likeDiscntMode" jdbcType="VARCHAR" />
+    <result column="FINANCE_EARNING" property="financeEarning" jdbcType="DECIMAL" />
+    <result column="EARNING_ORDER" property="earningOrder" jdbcType="VARCHAR" />
+    <result column="CALLING_POLICY_FORCE" property="callingPolicyForce" jdbcType="VARCHAR" />
+    <result column="SUBCLASS_ID" property="subclassId" jdbcType="CHAR" />
+    <result column="WEBSITE" property="website" jdbcType="VARCHAR" />
+    <result column="FAX_NBR" property="faxNbr" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="POST_CODE" property="postCode" jdbcType="CHAR" />
+    <result column="GROUP_VALID_SCORE" property="groupValidScore" jdbcType="DECIMAL" />
+    <result column="GROUP_SUM_SCORE" property="groupSumScore" jdbcType="DECIMAL" />
+    <result column="GROUP_MGR_SN" property="groupMgrSn" jdbcType="VARCHAR" />
+    <result column="GROUP_MGR_USER_ID" property="groupMgrUserId" jdbcType="DECIMAL" />
+    <result column="GROUP_MGR_CUST_NAME" property="groupMgrCustName" jdbcType="VARCHAR" />
+    <result column="BASE_ACCESS_NO" property="baseAccessNo" jdbcType="VARCHAR" />
+    <result column="BASE_ACCESS_NO_KIND" property="baseAccessNoKind" jdbcType="VARCHAR" />
+    <result column="CUST_SERV_NBR" property="custServNbr" jdbcType="VARCHAR" />
+    <result column="IF_SHORT_PIN" property="ifShortPin" jdbcType="VARCHAR" />
+    <result column="AUDIT_STATE" property="auditState" jdbcType="CHAR" />
+    <result column="AUDIT_DATE" property="auditDate" jdbcType="TIMESTAMP" />
+    <result column="AUDIT_STAFF_ID" property="auditStaffId" jdbcType="VARCHAR" />
+    <result column="AUDIT_NOTE" property="auditNote" jdbcType="VARCHAR" />
+    <result column="AREA_OFFICE" property="areaOffice" jdbcType="CHAR" />
+    <result column="BELONG_TEAM_ID" property="belongTeamId" jdbcType="VARCHAR" />
+    <result column="TURN_INNET_DATE" property="turnInnetDate" jdbcType="TIMESTAMP" />
+    <result column="BELONG_TEAM_ID_B" property="belongTeamIdB" jdbcType="VARCHAR" />
+    <result column="CALLING_TYPE_CODE_DETAIL" property="callingTypeCodeDetail" jdbcType="VARCHAR" />
+    <result column="SERVER_ASSIGN_DATE" property="serverAssignDate" jdbcType="TIMESTAMP" />
+    <result column="SERVER_ASSIGN_STAFF_ID" property="serverAssignStaffId" jdbcType="VARCHAR" />
+    <result column="TURN_INNET_STAFF_ID" property="turnInnetStaffId" jdbcType="VARCHAR" />
+    <result column="TAKE_PICTURE_TAG" property="takePictureTag" jdbcType="CHAR" />
+    <result column="CUST_MANAGER_ID_B" property="custManagerIdB" jdbcType="VARCHAR" />
+    <result column="CLASS_ID2_END_DATE" property="classId2EndDate" jdbcType="TIMESTAMP" />
+    <result column="CLASS_ID2_START_DATE" property="classId2StartDate" jdbcType="TIMESTAMP" />
+    <result column="IF_RELATION_CUST" property="ifRelationCust" jdbcType="CHAR" />
+    <result column="CLASS2_CHANGE_DATE" property="class2ChangeDate" jdbcType="TIMESTAMP" />
+    <result column="LAST_CLASS_ID2" property="lastClassId2" jdbcType="VARCHAR" />
+    <result column="MANAGE_CODE" property="manageCode" jdbcType="VARCHAR" />
+    <result column="FINANCE_INSTANCE" property="financeInstance" jdbcType="DECIMAL" />
+    <result column="GROW_POTENTIAL" property="growPotential" jdbcType="DECIMAL" />
+    <result column="CREDIT_DEGREE" property="creditDegree" jdbcType="DECIMAL" />
+    <result column="INTERNATIONAL" property="international" jdbcType="CHAR" />
+    <result column="FILE_CODE" property="fileCode" jdbcType="VARCHAR" />
+    <result column="REMOVE_FLAG" property="removeFlag" jdbcType="VARCHAR" />
+    <result column="REMOVE_METHOD" property="removeMethod" jdbcType="VARCHAR" />
+    <result column="REMOVE_REASON_CODE" property="removeReasonCode" jdbcType="VARCHAR" />
+    <result column="REMOVE_TAG" property="removeTag" jdbcType="CHAR" />
+    <result column="REMOVE_DATE" property="removeDate" jdbcType="TIMESTAMP" />
+    <result column="REMOVE_STAFF_ID" property="removeStaffId" jdbcType="VARCHAR" />
+    <result column="REMOVE_CHANGE" property="removeChange" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="VARCHAR" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RSRV_NUM1" property="rsrvNum1" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM2" property="rsrvNum2" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM3" property="rsrvNum3" jdbcType="DECIMAL" />
+    <result column="RSRV_STR1" property="rsrvStr1" jdbcType="VARCHAR" />
+    <result column="RSRV_STR2" property="rsrvStr2" jdbcType="VARCHAR" />
+    <result column="RSRV_STR3" property="rsrvStr3" jdbcType="VARCHAR" />
+    <result column="RSRV_STR4" property="rsrvStr4" jdbcType="VARCHAR" />
+    <result column="RSRV_STR5" property="rsrvStr5" jdbcType="VARCHAR" />
+    <result column="RSRV_STR6" property="rsrvStr6" jdbcType="VARCHAR" />
+    <result column="RSRV_STR7" property="rsrvStr7" jdbcType="VARCHAR" />
+    <result column="RSRV_STR8" property="rsrvStr8" jdbcType="VARCHAR" />
+    <result column="RSRV_DATE1" property="rsrvDate1" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE2" property="rsrvDate2" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE3" property="rsrvDate3" jdbcType="TIMESTAMP" />
+    <result column="RSRV_TAG1" property="rsrvTag1" jdbcType="CHAR" />
+    <result column="RSRV_TAG2" property="rsrvTag2" jdbcType="CHAR" />
+    <result column="RSRV_TAG3" property="rsrvTag3" jdbcType="CHAR" />
+    <result column="LICENCE_AUDIT_PERSON" property="licenceAuditPerson" jdbcType="VARCHAR" />
+    <result column="LICENCE_AUDIT_FILE_ID" property="licenceAuditFileId" jdbcType="VARCHAR" />
+    <result column="JURISTIC_PSPT_ID" property="juristicPsptId" jdbcType="VARCHAR" />
+    <result column="JURISTIC_PSPT_TYPE" property="juristicPsptType" jdbcType="CHAR" />
+    <result column="TEL_DECISION_TYPE" property="telDecisionType" jdbcType="CHAR" />
+    <result column="BUSI_TAX_ID" property="busiTaxId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CUST_ID, PARTITION_ID, GROUP_ID, CUST_NAME, GROUP_TYPE, CLASS_ID, CLASS_ID2, LAST_CLASS_ID, 
+    CLASS_CHANGE_DATE, CUST_CLASS_TYPE, GROUP_ATTR, GROUP_STATUS, GROUP_ADDR, PROVINCE_CODE, 
+    EPARCHY_CODE, CITY_CODE, SUPER_GROUP_ID, PNATIONAL_GROUP_ID, PNATIONAL_GROUP_NAME, 
+    MP_GROUP_CUST_CODE, UNIFY_PAY_CODE, ORG_STRUCT_CODE, CUST_MANAGER_ID, CUST_MANAGER_APPR, 
+    ASSIGN_DATE, ASSIGN_STAFF_ID, CALLING_TYPE_CODE, SUB_CALLING_TYPE_CODE, CALLING_AREA_CODE, 
+    CALL_TYPE, ACCEPT_CHANNEL, AGREEMENT, BUSI_TYPE, GROUP_CONTACT_PHONE, ENTERPRISE_TYPE_CODE, 
+    ENTERPRISE_SIZE_CODE, ENTERPRISE_SCOPE, JURISTIC_TYPE_CODE, JURISTIC_CUST_ID, JURISTIC_NAME, 
+    BUSI_LICENCE_TYPE, BUSI_LICENCE_NO, BUSI_LICENCE_VALID_DATE, GROUP_MEMO, BANK_ACCT, 
+    BANK_NAME, REG_MONEY, REG_DATE, CUST_AIM, SCOPE, MAIN_BUSI, MAIN_TRADE, EMP_LSAVE, 
+    LATENCY_FEE_SUM, YEAR_GAIN, TURNOVER, CONSUME, COMM_BUDGET, GTEL_BUDGET, LTEL_BUDGET, 
+    GROUP_ADVERSARY, VPMN_GROUP_ID, VPMN_NUM, USER_NUM, EMP_NUM_LOCAL, EMP_NUM_CHINA, 
+    EMP_NUM_ALL, TELECOM_NUM_GH, TELECOM_NUM_XLT, MOBILE_NUM_CHINAGO, MOBILE_NUM_GLOBAL, 
+    MOBILE_NUM_MZONE, MOBILE_NUM_LOCAL, UNICOM_NUM_G, UNICOM_NUM_C, UNICOM_NUM_GC, PRODUCT_NUM_LOCAL, 
+    PRODUCT_NUM_OTHER, PRODUCT_NUM_USE, EMPLOYEE_ARPU, NETRENT_PAYOUT, MOBILE_PAYOUT, 
+    UNICOM_PAYOUT, TELECOM_PAYOUT_XLT, GROUP_PAY_MODE, PAYFOR_WAY_CODE, WRITEFEE_COUNT, 
+    WRITEFEE_SUM, USER_NUM_FULLFREE, USER_NUM_WRITEOFF, BOSS_FEE_SUM, DOYEN_STAFF_ID, 
+    NEWTRADE_COMMENT, LIKE_MOBILE_TRADE, LIKE_DISCNT_MODE, FINANCE_EARNING, EARNING_ORDER, 
+    CALLING_POLICY_FORCE, SUBCLASS_ID, WEBSITE, FAX_NBR, EMAIL, POST_CODE, GROUP_VALID_SCORE, 
+    GROUP_SUM_SCORE, GROUP_MGR_SN, GROUP_MGR_USER_ID, GROUP_MGR_CUST_NAME, BASE_ACCESS_NO, 
+    BASE_ACCESS_NO_KIND, CUST_SERV_NBR, IF_SHORT_PIN, AUDIT_STATE, AUDIT_DATE, AUDIT_STAFF_ID, 
+    AUDIT_NOTE, AREA_OFFICE, BELONG_TEAM_ID, TURN_INNET_DATE, BELONG_TEAM_ID_B, CALLING_TYPE_CODE_DETAIL, 
+    SERVER_ASSIGN_DATE, SERVER_ASSIGN_STAFF_ID, TURN_INNET_STAFF_ID, TAKE_PICTURE_TAG, 
+    CUST_MANAGER_ID_B, CLASS_ID2_END_DATE, CLASS_ID2_START_DATE, IF_RELATION_CUST, CLASS2_CHANGE_DATE, 
+    LAST_CLASS_ID2, MANAGE_CODE, FINANCE_INSTANCE, GROW_POTENTIAL, CREDIT_DEGREE, INTERNATIONAL, 
+    FILE_CODE, REMOVE_FLAG, REMOVE_METHOD, REMOVE_REASON_CODE, REMOVE_TAG, REMOVE_DATE, 
+    REMOVE_STAFF_ID, REMOVE_CHANGE, UPDATE_TIME, UPDATE_STAFF_ID, UPDATE_DEPART_ID, REMARK, 
+    RSRV_NUM1, RSRV_NUM2, RSRV_NUM3, RSRV_STR1, RSRV_STR2, RSRV_STR3, RSRV_STR4, RSRV_STR5, 
+    RSRV_STR6, RSRV_STR7, RSRV_STR8, RSRV_DATE1, RSRV_DATE2, RSRV_DATE3, RSRV_TAG1, RSRV_TAG2, 
+    RSRV_TAG3, LICENCE_AUDIT_PERSON, LICENCE_AUDIT_FILE_ID, JURISTIC_PSPT_ID, JURISTIC_PSPT_TYPE, 
+    TEL_DECISION_TYPE, BUSI_TAX_ID
+  </sql>
+  
+   <select id="selectCustGroupList" resultMap="BaseResultMap" parameterType="com.asiainfo.tfsPlatform.po.TfFCustGroupPo" >
+        select 
+        <include refid="Base_Column_List" />
+        from TF_F_CUST_GROUP
+        where 1=1
+        <if test="custId != null and custId != ''">
+            and CUST_ID = #{custId,jdbcType=VARCHAR}
+        </if>
+        <if test="custName != null and custName != ''">
+            and CUST_NAME = #{custName,jdbcType=VARCHAR}
+        </if>
+        <if test="groupId != null and groupId != ''">
+            and GROUP_ID = #{groupId,jdbcType=VARCHAR}
+        </if>
+        <if test="juristicName != null and juristicName != ''">
+            and JURISTIC_NAME = #{juristicName,jdbcType=VARCHAR}
+        </if>
+        <if test="removeStaffId != null and removeStaffId != ''">
+            and REMOVE_STAFF_ID = #{removeStaffId,jdbcType=VARCHAR}
+        </if>
+     
+    </select>
+</mapper>

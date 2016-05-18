@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TsBBillPoMapper">
+	<resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TsBBillPo">
+		<result column="EPARCHY_CODE" property="eparchyCode" jdbcType="CHAR" />
+		<result column="CITY_CODE" property="cityCode" jdbcType="CHAR" />
+		<result column="NET_TYPE_CODE" property="netTypeCode" jdbcType="VARCHAR" />
+		<result column="SERIAL_NUMBER" property="serialNumber"
+			jdbcType="VARCHAR" />
+		<result column="BILL_ID" property="billId" jdbcType="DECIMAL" />
+		<result column="ACCT_ID" property="acctId" jdbcType="DECIMAL" />
+		<result column="USER_ID" property="userId" jdbcType="DECIMAL" />
+		<result column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+		<result column="CYCLE_ID" property="cycleId" jdbcType="DECIMAL" />
+		<result column="INTEGRATE_ITEM_CODE" property="integrateItemCode"
+			jdbcType="DECIMAL" />
+		<result column="FEE" property="fee" jdbcType="DECIMAL" />
+		<result column="BALANCE" property="balance" jdbcType="DECIMAL" />
+		<result column="PRINT_FEE" property="printFee" jdbcType="DECIMAL" />
+		<result column="B_DISCNT" property="bDiscnt" jdbcType="DECIMAL" />
+		<result column="A_DISCNT" property="aDiscnt" jdbcType="DECIMAL" />
+		<result column="ADJUST_BEFORE" property="adjustBefore"
+			jdbcType="DECIMAL" />
+		<result column="ADJUST_AFTER" property="adjustAfter" jdbcType="DECIMAL" />
+		<result column="LATE_FEE" property="lateFee" jdbcType="DECIMAL" />
+		<result column="LATE_BALANCE" property="lateBalance" jdbcType="DECIMAL" />
+		<result column="LATECAL_DATE" property="latecalDate" jdbcType="TIMESTAMP" />
+		<result column="CANPAY_TAG" property="canpayTag" jdbcType="CHAR" />
+		<result column="PAY_TAG" property="payTag" jdbcType="CHAR" />
+		<result column="BILL_PAY_TAG" property="billPayTag" jdbcType="CHAR" />
+		<result column="DESC_OWE_TAG" property="descOweTag" jdbcType="CHAR" />
+		<result column="VERSION_NO" property="versionNo" jdbcType="DECIMAL" />
+		<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="UPDATE_DEPART_ID" property="updateDepartId"
+			jdbcType="CHAR" />
+		<result column="UPDATE_STAFF_ID" property="updateStaffId"
+			jdbcType="CHAR" />
+		<result column="CHARGE_ID" property="chargeId" jdbcType="DECIMAL" />
+		<result column="WRITEOFF_FEE1" property="writeoffFee1"
+			jdbcType="DECIMAL" />
+		<result column="WRITEOFF_FEE2" property="writeoffFee2"
+			jdbcType="DECIMAL" />
+		<result column="WRITEOFF_FEE3" property="writeoffFee3"
+			jdbcType="DECIMAL" />
+		<result column="BACKUP_INFO" property="backupInfo" jdbcType="VARCHAR" />
+		<result column="ROLL_BACK_INFO" property="rollBackInfo"
+			jdbcType="VARCHAR" />
+		<result column="RSRV_FEE1" property="rsrvFee1" jdbcType="DECIMAL" />
+		<result column="RSRV_FEE2" property="rsrvFee2" jdbcType="DECIMAL" />
+		<result column="RSRV_FEE3" property="rsrvFee3" jdbcType="DECIMAL" />
+		<result column="RSRV_INFO1" property="rsrvInfo1" jdbcType="VARCHAR" />
+		<result column="RSRV_INFO2" property="rsrvInfo2" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<!-- 欠费列表 @Author BAOMZ -->
+	<sql id="Select_Arrears">
+  	<![CDATA[
+  		a.PAY_NAME payName, sum(b.BALANCE) balance, a.ACCT_ID acctId
+  	]]>
+	</sql>
+	
+	<!-- 账单查询列表 @Author BAOMZ -->
+	<sql id="Select_Bill_List">
+		<![CDATA[
+		b.ACCT_ID acctId, d.ITEM_NAME itemName, b.USER_ID userId, b.BILL_ID billId
+		b.BALANCE balance, b.INTEGRATE_ITEM_CODE integrateItemCode
+		]]>
+	</sql>
+
+	<!-- 根据客户标识查询 账户欠费 @Author BAOMZ -->
+	<select id="selectArrearsListByCustId" resultType="hashmap"
+		parameterType="java.lang.Long">
+		<![CDATA[select  ]]>
+		<include refid="Select_Arrears" />
+		<![CDATA[	
+		from TS_B_BILL b 
+			inner join (select PAY_NAME, ACCT_ID from TF_F_ACCOUNT where CUST_ID=#{custId}) a 
+			on b.ACCT_ID=a.ACCT_ID 
+		group by a.ACCT_ID
+		]]>
+	</select>
+
+	<!-- 根据账户标识查询 账户欠费 @Author BAOMZ -->
+	<select id="selectArrearsByAcctId" resultType="hashmap"
+		parameterType="java.lang.Long">
+		<![CDATA[select ]]>
+		<include refid="Select_Arrears" />
+		<![CDATA[	
+		from TS_B_BILL b 
+			inner join (select PAY_NAME, ACCT_ID from TF_F_ACCOUNT where ACCT_ID=#{acctId}) a 
+			on b.ACCT_ID=a.ACCT_ID 
+		group by a.ACCT_ID
+		]]>
+	</select>
+
+	<!-- 根据账户标识查询 账单列表 @Author BAOMZ -->
+	<select id="selectBillListByAcctId" resultType="hashmap"
+		parameterType="java.lang.Long">
+		<![CDATA[ select ]]>
+		<include refid="Select_Bill_List" />
+  		<![CDATA[ 
+  			from TS_B_BILL b
+  				left join (select ITEM_ID,ITEM_NAME from TD_B_DETAILITEM) d
+  				on b.INTEGRATE_ITEM_CODE=d.ITEM_ID
+  		 	and b.ACCT_ID=#{acctId} 
+  		]]>
+	</select>
+
+	<!-- 根据用户标识查询 账单列表 @Author BAOMZ -->
+	<select id="selectBillListByUserId" resultType="hashmap"
+		parameterType="java.lang.Long">
+  		<![CDATA[ select ]]>
+		<include refid="Select_Bill_List" />
+  		<![CDATA[ 
+  			from TS_B_BILL b
+  				left join (select ITEM_ID,ITEM_NAME from TD_B_DETAILITEM) d
+  				on b.INTEGRATE_ITEM_CODE=d.ITEM_ID
+  		 	and b.USER_ID=#{userId}  ]]>
+	</select>
+
+	<!-- 根据客户标识查询 账单列表  @Author BAOMZ -->
+	<select id="selectBillListByCustId" resultType="hashmap"
+		parameterType="java.lang.Long">
+		<![CDATA[ select ]]>
+		<include refid="Select_Bill_List" />
+		<![CDATA[
+			from TS_B_BILL b 
+				 where b.ACCT_ID in (select ACCT_ID from TF_F_ACCOUNT where CUST_ID=#{custId}) a 
+			left join (select ITEM_ID, ITEM_NAME from TD_B_DETAILITEM) d
+  			on b.INTEGRATE_ITEM_CODE=d.ITEM_ID
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TsBBillPo">
+		insert into TS_B_BILL
+		(EPARCHY_CODE, CITY_CODE, NET_TYPE_CODE,
+		SERIAL_NUMBER, BILL_ID,
+		ACCT_ID,
+		USER_ID, PARTITION_ID, CYCLE_ID,
+		INTEGRATE_ITEM_CODE, FEE,
+		BALANCE,
+		PRINT_FEE, B_DISCNT, A_DISCNT,
+		ADJUST_BEFORE, ADJUST_AFTER,
+		LATE_FEE,
+		LATE_BALANCE, LATECAL_DATE, CANPAY_TAG,
+		PAY_TAG, BILL_PAY_TAG,
+		DESC_OWE_TAG,
+		VERSION_NO, UPDATE_TIME, UPDATE_DEPART_ID,
+		UPDATE_STAFF_ID, CHARGE_ID, WRITEOFF_FEE1,
+		WRITEOFF_FEE2,
+		WRITEOFF_FEE3, BACKUP_INFO,
+		ROLL_BACK_INFO, RSRV_FEE1, RSRV_FEE2,
+		RSRV_FEE3, RSRV_INFO1, RSRV_INFO2
+		)
+		values
+		(#{eparchyCode,jdbcType=CHAR}, #{cityCode,jdbcType=CHAR},
+		#{netTypeCode,jdbcType=VARCHAR},
+		#{serialNumber,jdbcType=VARCHAR},
+		#{billId,jdbcType=DECIMAL}, #{acctId,jdbcType=DECIMAL},
+		#{userId,jdbcType=DECIMAL}, #{partitionId,jdbcType=DECIMAL},
+		#{cycleId,jdbcType=DECIMAL},
+		#{integrateItemCode,jdbcType=DECIMAL},
+		#{fee,jdbcType=DECIMAL}, #{balance,jdbcType=DECIMAL},
+		#{printFee,jdbcType=DECIMAL}, #{bDiscnt,jdbcType=DECIMAL},
+		#{aDiscnt,jdbcType=DECIMAL},
+		#{adjustBefore,jdbcType=DECIMAL},
+		#{adjustAfter,jdbcType=DECIMAL}, #{lateFee,jdbcType=DECIMAL},
+		#{lateBalance,jdbcType=DECIMAL}, #{latecalDate,jdbcType=TIMESTAMP},
+		#{canpayTag,jdbcType=CHAR},
+		#{payTag,jdbcType=CHAR},
+		#{billPayTag,jdbcType=CHAR}, #{descOweTag,jdbcType=CHAR},
+		#{versionNo,jdbcType=DECIMAL}, #{updateTime,jdbcType=TIMESTAMP},
+		#{updateDepartId,jdbcType=CHAR},
+		#{updateStaffId,jdbcType=CHAR},
+		#{chargeId,jdbcType=DECIMAL}, #{writeoffFee1,jdbcType=DECIMAL},
+		#{writeoffFee2,jdbcType=DECIMAL}, #{writeoffFee3,jdbcType=DECIMAL},
+		#{backupInfo,jdbcType=VARCHAR},
+		#{rollBackInfo,jdbcType=VARCHAR},
+		#{rsrvFee1,jdbcType=DECIMAL}, #{rsrvFee2,jdbcType=DECIMAL},
+		#{rsrvFee3,jdbcType=DECIMAL}, #{rsrvInfo1,jdbcType=VARCHAR},
+		#{rsrvInfo2,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TsBBillPo">
+		insert into TS_B_BILL
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="eparchyCode != null">
+				EPARCHY_CODE,
+			</if>
+			<if test="cityCode != null">
+				CITY_CODE,
+			</if>
+			<if test="netTypeCode != null">
+				NET_TYPE_CODE,
+			</if>
+			<if test="serialNumber != null">
+				SERIAL_NUMBER,
+			</if>
+			<if test="billId != null">
+				BILL_ID,
+			</if>
+			<if test="acctId != null">
+				ACCT_ID,
+			</if>
+			<if test="userId != null">
+				USER_ID,
+			</if>
+			<if test="partitionId != null">
+				PARTITION_ID,
+			</if>
+			<if test="cycleId != null">
+				CYCLE_ID,
+			</if>
+			<if test="integrateItemCode != null">
+				INTEGRATE_ITEM_CODE,
+			</if>
+			<if test="fee != null">
+				FEE,
+			</if>
+			<if test="balance != null">
+				BALANCE,
+			</if>
+			<if test="printFee != null">
+				PRINT_FEE,
+			</if>
+			<if test="bDiscnt != null">
+				B_DISCNT,
+			</if>
+			<if test="aDiscnt != null">
+				A_DISCNT,
+			</if>
+			<if test="adjustBefore != null">
+				ADJUST_BEFORE,
+			</if>
+			<if test="adjustAfter != null">
+				ADJUST_AFTER,
+			</if>
+			<if test="lateFee != null">
+				LATE_FEE,
+			</if>
+			<if test="lateBalance != null">
+				LATE_BALANCE,
+			</if>
+			<if test="latecalDate != null">
+				LATECAL_DATE,
+			</if>
+			<if test="canpayTag != null">
+				CANPAY_TAG,
+			</if>
+			<if test="payTag != null">
+				PAY_TAG,
+			</if>
+			<if test="billPayTag != null">
+				BILL_PAY_TAG,
+			</if>
+			<if test="descOweTag != null">
+				DESC_OWE_TAG,
+			</if>
+			<if test="versionNo != null">
+				VERSION_NO,
+			</if>
+			<if test="updateTime != null">
+				UPDATE_TIME,
+			</if>
+			<if test="updateDepartId != null">
+				UPDATE_DEPART_ID,
+			</if>
+			<if test="updateStaffId != null">
+				UPDATE_STAFF_ID,
+			</if>
+			<if test="chargeId != null">
+				CHARGE_ID,
+			</if>
+			<if test="writeoffFee1 != null">
+				WRITEOFF_FEE1,
+			</if>
+			<if test="writeoffFee2 != null">
+				WRITEOFF_FEE2,
+			</if>
+			<if test="writeoffFee3 != null">
+				WRITEOFF_FEE3,
+			</if>
+			<if test="backupInfo != null">
+				BACKUP_INFO,
+			</if>
+			<if test="rollBackInfo != null">
+				ROLL_BACK_INFO,
+			</if>
+			<if test="rsrvFee1 != null">
+				RSRV_FEE1,
+			</if>
+			<if test="rsrvFee2 != null">
+				RSRV_FEE2,
+			</if>
+			<if test="rsrvFee3 != null">
+				RSRV_FEE3,
+			</if>
+			<if test="rsrvInfo1 != null">
+				RSRV_INFO1,
+			</if>
+			<if test="rsrvInfo2 != null">
+				RSRV_INFO2,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="eparchyCode != null">
+				#{eparchyCode,jdbcType=CHAR},
+			</if>
+			<if test="cityCode != null">
+				#{cityCode,jdbcType=CHAR},
+			</if>
+			<if test="netTypeCode != null">
+				#{netTypeCode,jdbcType=VARCHAR},
+			</if>
+			<if test="serialNumber != null">
+				#{serialNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="billId != null">
+				#{billId,jdbcType=DECIMAL},
+			</if>
+			<if test="acctId != null">
+				#{acctId,jdbcType=DECIMAL},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=DECIMAL},
+			</if>
+			<if test="partitionId != null">
+				#{partitionId,jdbcType=DECIMAL},
+			</if>
+			<if test="cycleId != null">
+				#{cycleId,jdbcType=DECIMAL},
+			</if>
+			<if test="integrateItemCode != null">
+				#{integrateItemCode,jdbcType=DECIMAL},
+			</if>
+			<if test="fee != null">
+				#{fee,jdbcType=DECIMAL},
+			</if>
+			<if test="balance != null">
+				#{balance,jdbcType=DECIMAL},
+			</if>
+			<if test="printFee != null">
+				#{printFee,jdbcType=DECIMAL},
+			</if>
+			<if test="bDiscnt != null">
+				#{bDiscnt,jdbcType=DECIMAL},
+			</if>
+			<if test="aDiscnt != null">
+				#{aDiscnt,jdbcType=DECIMAL},
+			</if>
+			<if test="adjustBefore != null">
+				#{adjustBefore,jdbcType=DECIMAL},
+			</if>
+			<if test="adjustAfter != null">
+				#{adjustAfter,jdbcType=DECIMAL},
+			</if>
+			<if test="lateFee != null">
+				#{lateFee,jdbcType=DECIMAL},
+			</if>
+			<if test="lateBalance != null">
+				#{lateBalance,jdbcType=DECIMAL},
+			</if>
+			<if test="latecalDate != null">
+				#{latecalDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="canpayTag != null">
+				#{canpayTag,jdbcType=CHAR},
+			</if>
+			<if test="payTag != null">
+				#{payTag,jdbcType=CHAR},
+			</if>
+			<if test="billPayTag != null">
+				#{billPayTag,jdbcType=CHAR},
+			</if>
+			<if test="descOweTag != null">
+				#{descOweTag,jdbcType=CHAR},
+			</if>
+			<if test="versionNo != null">
+				#{versionNo,jdbcType=DECIMAL},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateDepartId != null">
+				#{updateDepartId,jdbcType=CHAR},
+			</if>
+			<if test="updateStaffId != null">
+				#{updateStaffId,jdbcType=CHAR},
+			</if>
+			<if test="chargeId != null">
+				#{chargeId,jdbcType=DECIMAL},
+			</if>
+			<if test="writeoffFee1 != null">
+				#{writeoffFee1,jdbcType=DECIMAL},
+			</if>
+			<if test="writeoffFee2 != null">
+				#{writeoffFee2,jdbcType=DECIMAL},
+			</if>
+			<if test="writeoffFee3 != null">
+				#{writeoffFee3,jdbcType=DECIMAL},
+			</if>
+			<if test="backupInfo != null">
+				#{backupInfo,jdbcType=VARCHAR},
+			</if>
+			<if test="rollBackInfo != null">
+				#{rollBackInfo,jdbcType=VARCHAR},
+			</if>
+			<if test="rsrvFee1 != null">
+				#{rsrvFee1,jdbcType=DECIMAL},
+			</if>
+			<if test="rsrvFee2 != null">
+				#{rsrvFee2,jdbcType=DECIMAL},
+			</if>
+			<if test="rsrvFee3 != null">
+				#{rsrvFee3,jdbcType=DECIMAL},
+			</if>
+			<if test="rsrvInfo1 != null">
+				#{rsrvInfo1,jdbcType=VARCHAR},
+			</if>
+			<if test="rsrvInfo2 != null">
+				#{rsrvInfo2,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+</mapper>

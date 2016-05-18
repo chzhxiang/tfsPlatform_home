@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfFAccountDepositPoMapper">
+	<resultMap id="BaseResultMap"
+		type="com.asiainfo.tfsPlatform.po.TfFAccountDepositPo">
+		<id column="ACCT_BALANCE_ID" property="acctBalanceId" jdbcType="BIGINT" />
+		<id column="PARTITION_ID" property="partitionId" jdbcType="INTEGER" />
+		<result column="ACCT_ID" property="acctId" jdbcType="BIGINT" />
+		<result column="USER_ID" property="userId" jdbcType="BIGINT" />
+		<result column="DEPOSIT_CODE" property="depositCode" jdbcType="INTEGER" />
+		<result column="DEPOSIT_MONEY" property="depositMoney"
+			jdbcType="INTEGER" />
+		<result column="INIT_MONEY" property="initMoney" jdbcType="INTEGER" />
+		<result column="ODD_MONEY" property="oddMoney" jdbcType="INTEGER" />
+		<result column="EVEN_MONEY" property="evenMoney" jdbcType="INTEGER" />
+		<result column="LIMIT_MONEY" property="limitMoney" jdbcType="INTEGER" />
+		<result column="LIMIT_MODE" property="limitMode" jdbcType="CHAR" />
+		<result column="LIMIT_LEFT" property="limitLeft" jdbcType="INTEGER" />
+		<result column="INVOICE_FEE" property="invoiceFee" jdbcType="INTEGER" />
+		<result column="PRINT_FEE" property="printFee" jdbcType="INTEGER" />
+		<result column="START_CYCLE_ID" property="startCycleId"
+			jdbcType="INTEGER" />
+		<result column="END_CYCLE_ID" property="endCycleId" jdbcType="INTEGER" />
+		<result column="START_DATE" property="startDate" jdbcType="DATE" />
+		<result column="END_DATE" property="endDate" jdbcType="DATE" />
+		<result column="OWE_FEE" property="oweFee" jdbcType="INTEGER" />
+		<result column="VALID_TAG" property="validTag" jdbcType="CHAR" />
+		<result column="FREEZE_FEE" property="freezeFee" jdbcType="INTEGER" />
+		<result column="PRIVATE_TAG" property="privateTag" jdbcType="CHAR" />
+		<result column="EPARCHY_CODE" property="eparchyCode" jdbcType="CHAR" />
+		<result column="BACKUP_INFO" property="backupInfo" jdbcType="VARCHAR" />
+		<result column="ROLL_BACK_INFO" property="rollBackInfo"
+			jdbcType="VARCHAR" />
+		<result column="VERSION_NO" property="versionNo" jdbcType="INTEGER" />
+		<result column="ACTION_CODE" property="actionCode" jdbcType="INTEGER" />
+		<result column="OPEN_CYCLE_ID" property="openCycleId" jdbcType="INTEGER" />
+		<result column="UPDATE_TIME" property="updateTime" jdbcType="DATE" />
+		<result column="RSRV_INFO1" property="rsrvInfo1" jdbcType="VARCHAR" />
+		<result column="RSRV_INFO2" property="rsrvInfo2" jdbcType="VARCHAR" />
+		<result column="RSRV_FEE1" property="rsrvFee1" jdbcType="INTEGER" />
+		<result column="RSRV_FEE2" property="rsrvFee2" jdbcType="INTEGER" />
+		<result column="ACTIVE_TIME" property="activeTime" jdbcType="DATE" />
+	</resultMap>
+	<sql id="Base_Column_List">
+    <![CDATA[ ACCT_BALANCE_ID, PARTITION_ID, ACCT_ID, USER_ID, DEPOSIT_CODE, DEPOSIT_MONEY, INIT_MONEY, 
+    ODD_MONEY, EVEN_MONEY, LIMIT_MONEY, LIMIT_MODE, LIMIT_LEFT, INVOICE_FEE, PRINT_FEE, 
+    START_CYCLE_ID, END_CYCLE_ID, START_DATE, END_DATE, OWE_FEE, VALID_TAG, FREEZE_FEE, 
+    PRIVATE_TAG, EPARCHY_CODE, BACKUP_INFO, ROLL_BACK_INFO, VERSION_NO, ACTION_CODE, 
+    OPEN_CYCLE_ID, UPDATE_TIME, RSRV_INFO1, RSRV_INFO2, RSRV_FEE1, RSRV_FEE2, ACTIVE_TIME ]]>
+	</sql>
+	<!-- 账本余额列表 @Author BAOMZ -->
+	<sql id="Select_LedgeerBalance">
+  		<![CDATA[a.PAY_NAME payName, sum(ad.ODD_MONEY + ad.EVEN_MONEY) allMony, a.ACCT_ID acctId ]]>
+	</sql>
+	<!-- 账本列表 @Author BAOMZ -->
+	<sql id="Select_AccountDeposit">
+	 <![CDATA[
+	 	ACCT_BALANCE_ID, ACCT_ID ,USER_ID, DEPOSIT_CODE, DEPOSIT_MONEY, INIT_MONEY, ODD_MONEY,
+	 	EVEN_MONEY
+	 ]]>
+	</sql>
+	<sql id="Select_AccountDeposit_By_CustId" >
+	<![CDATA[
+  		a.ACCT_ID acctId,
+		a.PAY_NAME payName,
+   	 	ad.ACCT_BALANCE_ID  acctBalanceId,
+		ad.DEPOSIT_CODE  depositCode,
+		ad.DEPOSIT_MONEY  depositMoney,
+		(ad.ODD_MONEY+ad.EVEN_MONEY)  allMony,
+		ad.START_DATE  startDate,
+		ad.END_DATE  endDate
+	]]>
+  </sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="map">
+    <![CDATA[select ]]>
+		<include refid="Base_Column_List" />
+   <![CDATA[ from TF_F_ACCOUNTDEPOSIT
+    	where ACCT_BALANCE_ID = #{acctBalanceId,jdbcType=BIGINT}
+      and PARTITION_ID = #{partitionId,jdbcType=INTEGER}]]>
+	</select>
+	<!-- 根据账户标识进行账户余额的查询 @Author BAOMZ -->
+	<select id="selectLedgerBalanceByAcctId" resultType="hashmap"
+		parameterType="java.lang.Long">
+		<![CDATA[select ]]>
+		<include refid="Select_LedgeerBalance" />
+		<![CDATA[	
+			from TF_F_ACCOUNTDEPOSIT ad
+				inner join (select PAY_NAME, ACCT_ID from TF_F_ACCOUNT where ACCT_ID=#{acctId}) a 
+				on ad.ACCT_ID=a.ACCT_ID
+			group by a.ACCT_ID 
+		]]>
+	</select>
+	<!-- 根据客户标识进行账本余额的查询 @Author BAOMZ -->
+	<select id="selectLedgerBalanceListByCustId" resultType="hashmap"
+		parameterType="java.lang.Long">
+		<![CDATA[select ]]>
+		<include refid="Select_LedgeerBalance" />
+		<![CDATA[	
+		from TF_F_ACCOUNTDEPOSIT ad
+			right join (select PAY_NAME, ACCT_ID from TF_F_ACCOUNT where CUST_ID=#{custId}) a
+			on ad.ACCT_ID=a.ACCT_ID
+		 group by a.ACCT_ID]]>
+	</select>
+	<!-- 根据账户标识查询账本列表 @Author BAOMZ -->
+	<select id="selectAccountDepositByAcctId" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+  	<![CDATA[select ]]>
+		<include refid="Select_AccountDeposit" />
+  	<![CDATA[ where ACCT_ID=#{acctId}]]>
+	</select>
+	<select id="selectAccountDepositListByCustId" resultType="hashmap" parameterType="map" >
+    <![CDATA[select ]]>
+    <include refid="Select_AccountDeposit_By_CustId" />
+    <![CDATA[
+    	from TF_F_ACCOUNTDEPOSIT ad	
+    	innr join (select ACCT_ID,PAY_NAME from TF_F_ACCOUNT where CUST_ID=#{custId}) a
+    	on a.ACCT_ID=ad.ACCT_ID
+     	order by a.ACCT_ID
+     ]]>
+  </select>
+	<delete id="deleteByPrimaryKey" parameterType="map">
+   <![CDATA[ delete from TF_F_ACCOUNTDEPOSIT
+    where ACCT_BALANCE_ID = #{acctBalanceId,jdbcType=BIGINT}
+      and PARTITION_ID = #{partitionId,jdbcType=INTEGER}]]>
+	</delete>
+	<insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfFAccountDepositPo">
+    <![CDATA[insert into TF_F_ACCOUNTDEPOSIT (ACCT_BALANCE_ID, PARTITION_ID, ACCT_ID, 
+      USER_ID, DEPOSIT_CODE, DEPOSIT_MONEY, 
+      INIT_MONEY, ODD_MONEY, EVEN_MONEY, 
+      LIMIT_MONEY, LIMIT_MODE, LIMIT_LEFT, 
+      INVOICE_FEE, PRINT_FEE, START_CYCLE_ID, 
+      END_CYCLE_ID, START_DATE, END_DATE, 
+      OWE_FEE, VALID_TAG, FREEZE_FEE, 
+      PRIVATE_TAG, EPARCHY_CODE, BACKUP_INFO, 
+      ROLL_BACK_INFO, VERSION_NO, ACTION_CODE, 
+      OPEN_CYCLE_ID, UPDATE_TIME, RSRV_INFO1, 
+      RSRV_INFO2, RSRV_FEE1, RSRV_FEE2, 
+      ACTIVE_TIME)
+    values (#{acctBalanceId,jdbcType=BIGINT}, #{partitionId,jdbcType=INTEGER}, #{acctId,jdbcType=BIGINT}, 
+      #{userId,jdbcType=BIGINT}, #{depositCode,jdbcType=INTEGER}, #{depositMoney,jdbcType=INTEGER}, 
+      #{initMoney,jdbcType=INTEGER}, #{oddMoney,jdbcType=INTEGER}, #{evenMoney,jdbcType=INTEGER}, 
+      #{limitMoney,jdbcType=INTEGER}, #{limitMode,jdbcType=CHAR}, #{limitLeft,jdbcType=INTEGER}, 
+      #{invoiceFee,jdbcType=INTEGER}, #{printFee,jdbcType=INTEGER}, #{startCycleId,jdbcType=INTEGER}, 
+      #{endCycleId,jdbcType=INTEGER}, #{startDate,jdbcType=DATE}, #{endDate,jdbcType=DATE}, 
+      #{oweFee,jdbcType=INTEGER}, #{validTag,jdbcType=CHAR}, #{freezeFee,jdbcType=INTEGER}, 
+      #{privateTag,jdbcType=CHAR}, #{eparchyCode,jdbcType=CHAR}, #{backupInfo,jdbcType=VARCHAR}, 
+      #{rollBackInfo,jdbcType=VARCHAR}, #{versionNo,jdbcType=INTEGER}, #{actionCode,jdbcType=INTEGER}, 
+      #{openCycleId,jdbcType=INTEGER}, #{updateTime,jdbcType=DATE}, #{rsrvInfo1,jdbcType=VARCHAR}, 
+      #{rsrvInfo2,jdbcType=VARCHAR}, #{rsrvFee1,jdbcType=INTEGER}, #{rsrvFee2,jdbcType=INTEGER}, 
+      #{activeTime,jdbcType=DATE})]]>
+	</insert>
+	<insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfFAccountDepositPo">
+		insert into TF_F_ACCOUNTDEPOSIT
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="acctBalanceId != null">
+				ACCT_BALANCE_ID,
+			</if>
+			<if test="partitionId != null">
+				PARTITION_ID,
+			</if>
+			<if test="acctId != null">
+				ACCT_ID,
+			</if>
+			<if test="userId != null">
+				USER_ID,
+			</if>
+			<if test="depositCode != null">
+				DEPOSIT_CODE,
+			</if>
+			<if test="depositMoney != null">
+				DEPOSIT_MONEY,
+			</if>
+			<if test="initMoney != null">
+				INIT_MONEY,
+			</if>
+			<if test="oddMoney != null">
+				ODD_MONEY,
+			</if>
+			<if test="evenMoney != null">
+				EVEN_MONEY,
+			</if>
+			<if test="limitMoney != null">
+				LIMIT_MONEY,
+			</if>
+			<if test="limitMode != null">
+				LIMIT_MODE,
+			</if>
+			<if test="limitLeft != null">
+				LIMIT_LEFT,
+			</if>
+			<if test="invoiceFee != null">
+				INVOICE_FEE,
+			</if>
+			<if test="printFee != null">
+				PRINT_FEE,
+			</if>
+			<if test="startCycleId != null">
+				START_CYCLE_ID,
+			</if>
+			<if test="endCycleId != null">
+				END_CYCLE_ID,
+			</if>
+			<if test="startDate != null">
+				START_DATE,
+			</if>
+			<if test="endDate != null">
+				END_DATE,
+			</if>
+			<if test="oweFee != null">
+				OWE_FEE,
+			</if>
+			<if test="validTag != null">
+				VALID_TAG,
+			</if>
+			<if test="freezeFee != null">
+				FREEZE_FEE,
+			</if>
+			<if test="privateTag != null">
+				PRIVATE_TAG,
+			</if>
+			<if test="eparchyCode != null">
+				EPARCHY_CODE,
+			</if>
+			<if test="backupInfo != null">
+				BACKUP_INFO,
+			</if>
+			<if test="rollBackInfo != null">
+				ROLL_BACK_INFO,
+			</if>
+			<if test="versionNo != null">
+				VERSION_NO,
+			</if>
+			<if test="actionCode != null">
+				ACTION_CODE,
+			</if>
+			<if test="openCycleId != null">
+				OPEN_CYCLE_ID,
+			</if>
+			<if test="updateTime != null">
+				UPDATE_TIME,
+			</if>
+			<if test="rsrvInfo1 != null">
+				RSRV_INFO1,
+			</if>
+			<if test="rsrvInfo2 != null">
+				RSRV_INFO2,
+			</if>
+			<if test="rsrvFee1 != null">
+				RSRV_FEE1,
+			</if>
+			<if test="rsrvFee2 != null">
+				RSRV_FEE2,
+			</if>
+			<if test="activeTime != null">
+				ACTIVE_TIME,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="acctBalanceId != null">
+				#{acctBalanceId,jdbcType=BIGINT},
+			</if>
+			<if test="partitionId != null">
+				#{partitionId,jdbcType=INTEGER},
+			</if>
+			<if test="acctId != null">
+				#{acctId,jdbcType=BIGINT},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=BIGINT},
+			</if>
+			<if test="depositCode != null">
+				#{depositCode,jdbcType=INTEGER},
+			</if>
+			<if test="depositMoney != null">
+				#{depositMoney,jdbcType=INTEGER},
+			</if>
+			<if test="initMoney != null">
+				#{initMoney,jdbcType=INTEGER},
+			</if>
+			<if test="oddMoney != null">
+				#{oddMoney,jdbcType=INTEGER},
+			</if>
+			<if test="evenMoney != null">
+				#{evenMoney,jdbcType=INTEGER},
+			</if>
+			<if test="limitMoney != null">
+				#{limitMoney,jdbcType=INTEGER},
+			</if>
+			<if test="limitMode != null">
+				#{limitMode,jdbcType=CHAR},
+			</if>
+			<if test="limitLeft != null">
+				#{limitLeft,jdbcType=INTEGER},
+			</if>
+			<if test="invoiceFee != null">
+				#{invoiceFee,jdbcType=INTEGER},
+			</if>
+			<if test="printFee != null">
+				#{printFee,jdbcType=INTEGER},
+			</if>
+			<if test="startCycleId != null">
+				#{startCycleId,jdbcType=INTEGER},
+			</if>
+			<if test="endCycleId != null">
+				#{endCycleId,jdbcType=INTEGER},
+			</if>
+			<if test="startDate != null">
+				#{startDate,jdbcType=DATE},
+			</if>
+			<if test="endDate != null">
+				#{endDate,jdbcType=DATE},
+			</if>
+			<if test="oweFee != null">
+				#{oweFee,jdbcType=INTEGER},
+			</if>
+			<if test="validTag != null">
+				#{validTag,jdbcType=CHAR},
+			</if>
+			<if test="freezeFee != null">
+				#{freezeFee,jdbcType=INTEGER},
+			</if>
+			<if test="privateTag != null">
+				#{privateTag,jdbcType=CHAR},
+			</if>
+			<if test="eparchyCode != null">
+				#{eparchyCode,jdbcType=CHAR},
+			</if>
+			<if test="backupInfo != null">
+				#{backupInfo,jdbcType=VARCHAR},
+			</if>
+			<if test="rollBackInfo != null">
+				#{rollBackInfo,jdbcType=VARCHAR},
+			</if>
+			<if test="versionNo != null">
+				#{versionNo,jdbcType=INTEGER},
+			</if>
+			<if test="actionCode != null">
+				#{actionCode,jdbcType=INTEGER},
+			</if>
+			<if test="openCycleId != null">
+				#{openCycleId,jdbcType=INTEGER},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=DATE},
+			</if>
+			<if test="rsrvInfo1 != null">
+				#{rsrvInfo1,jdbcType=VARCHAR},
+			</if>
+			<if test="rsrvInfo2 != null">
+				#{rsrvInfo2,jdbcType=VARCHAR},
+			</if>
+			<if test="rsrvFee1 != null">
+				#{rsrvFee1,jdbcType=INTEGER},
+			</if>
+			<if test="rsrvFee2 != null">
+				#{rsrvFee2,jdbcType=INTEGER},
+			</if>
+			<if test="activeTime != null">
+				#{activeTime,jdbcType=DATE},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfFAccountDepositPo">
+		update TF_F_ACCOUNTDEPOSIT
+		<set>
+			<if test="acctId != null">
+				ACCT_ID = #{acctId,jdbcType=BIGINT},
+			</if>
+			<if test="userId != null">
+				USER_ID = #{userId,jdbcType=BIGINT},
+			</if>
+			<if test="depositCode != null">
+				DEPOSIT_CODE = #{depositCode,jdbcType=INTEGER},
+			</if>
+			<if test="depositMoney != null">
+				DEPOSIT_MONEY = #{depositMoney,jdbcType=INTEGER},
+			</if>
+			<if test="initMoney != null">
+				INIT_MONEY = #{initMoney,jdbcType=INTEGER},
+			</if>
+			<if test="oddMoney != null">
+				ODD_MONEY = #{oddMoney,jdbcType=INTEGER},
+			</if>
+			<if test="evenMoney != null">
+				EVEN_MONEY = #{evenMoney,jdbcType=INTEGER},
+			</if>
+			<if test="limitMoney != null">
+				LIMIT_MONEY = #{limitMoney,jdbcType=INTEGER},
+			</if>
+			<if test="limitMode != null">
+				LIMIT_MODE = #{limitMode,jdbcType=CHAR},
+			</if>
+			<if test="limitLeft != null">
+				LIMIT_LEFT = #{limitLeft,jdbcType=INTEGER},
+			</if>
+			<if test="invoiceFee != null">
+				INVOICE_FEE = #{invoiceFee,jdbcType=INTEGER},
+			</if>
+			<if test="printFee != null">
+				PRINT_FEE = #{printFee,jdbcType=INTEGER},
+			</if>
+			<if test="startCycleId != null">
+				START_CYCLE_ID = #{startCycleId,jdbcType=INTEGER},
+			</if>
+			<if test="endCycleId != null">
+				END_CYCLE_ID = #{endCycleId,jdbcType=INTEGER},
+			</if>
+			<if test="startDate != null">
+				START_DATE = #{startDate,jdbcType=DATE},
+			</if>
+			<if test="endDate != null">
+				END_DATE = #{endDate,jdbcType=DATE},
+			</if>
+			<if test="oweFee != null">
+				OWE_FEE = #{oweFee,jdbcType=INTEGER},
+			</if>
+			<if test="validTag != null">
+				VALID_TAG = #{validTag,jdbcType=CHAR},
+			</if>
+			<if test="freezeFee != null">
+				FREEZE_FEE = #{freezeFee,jdbcType=INTEGER},
+			</if>
+			<if test="privateTag != null">
+				PRIVATE_TAG = #{privateTag,jdbcType=CHAR},
+			</if>
+			<if test="eparchyCode != null">
+				EPARCHY_CODE = #{eparchyCode,jdbcType=CHAR},
+			</if>
+			<if test="backupInfo != null">
+				BACKUP_INFO = #{backupInfo,jdbcType=VARCHAR},
+			</if>
+			<if test="rollBackInfo != null">
+				ROLL_BACK_INFO = #{rollBackInfo,jdbcType=VARCHAR},
+			</if>
+			<if test="versionNo != null">
+				VERSION_NO = #{versionNo,jdbcType=INTEGER},
+			</if>
+			<if test="actionCode != null">
+				ACTION_CODE = #{actionCode,jdbcType=INTEGER},
+			</if>
+			<if test="openCycleId != null">
+				OPEN_CYCLE_ID = #{openCycleId,jdbcType=INTEGER},
+			</if>
+			<if test="updateTime != null">
+				UPDATE_TIME = #{updateTime,jdbcType=DATE},
+			</if>
+			<if test="rsrvInfo1 != null">
+				RSRV_INFO1 = #{rsrvInfo1,jdbcType=VARCHAR},
+			</if>
+			<if test="rsrvInfo2 != null">
+				RSRV_INFO2 = #{rsrvInfo2,jdbcType=VARCHAR},
+			</if>
+			<if test="rsrvFee1 != null">
+				RSRV_FEE1 = #{rsrvFee1,jdbcType=INTEGER},
+			</if>
+			<if test="rsrvFee2 != null">
+				RSRV_FEE2 = #{rsrvFee2,jdbcType=INTEGER},
+			</if>
+			<if test="activeTime != null">
+				ACTIVE_TIME = #{activeTime,jdbcType=DATE},
+			</if>
+		</set>
+		where ACCT_BALANCE_ID = #{acctBalanceId,jdbcType=BIGINT}
+		and
+		PARTITION_ID = #{partitionId,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfFAccountDepositPo">
+		update
+		TF_F_ACCOUNTDEPOSIT
+		set ACCT_ID = #{acctId,jdbcType=BIGINT},
+		USER_ID =
+		#{userId,jdbcType=BIGINT},
+		DEPOSIT_CODE =
+		#{depositCode,jdbcType=INTEGER},
+		DEPOSIT_MONEY =
+		#{depositMoney,jdbcType=INTEGER},
+		INIT_MONEY =
+		#{initMoney,jdbcType=INTEGER},
+		ODD_MONEY =
+		#{oddMoney,jdbcType=INTEGER},
+		EVEN_MONEY =
+		#{evenMoney,jdbcType=INTEGER},
+		LIMIT_MONEY =
+		#{limitMoney,jdbcType=INTEGER},
+		LIMIT_MODE =
+		#{limitMode,jdbcType=CHAR},
+		LIMIT_LEFT = #{limitLeft,jdbcType=INTEGER},
+		INVOICE_FEE = #{invoiceFee,jdbcType=INTEGER},
+		PRINT_FEE =
+		#{printFee,jdbcType=INTEGER},
+		START_CYCLE_ID =
+		#{startCycleId,jdbcType=INTEGER},
+		END_CYCLE_ID =
+		#{endCycleId,jdbcType=INTEGER},
+		START_DATE =
+		#{startDate,jdbcType=DATE},
+		END_DATE = #{endDate,jdbcType=DATE},
+		OWE_FEE = #{oweFee,jdbcType=INTEGER},
+		VALID_TAG =
+		#{validTag,jdbcType=CHAR},
+		FREEZE_FEE = #{freezeFee,jdbcType=INTEGER},
+		PRIVATE_TAG = #{privateTag,jdbcType=CHAR},
+		EPARCHY_CODE =
+		#{eparchyCode,jdbcType=CHAR},
+		BACKUP_INFO =
+		#{backupInfo,jdbcType=VARCHAR},
+		ROLL_BACK_INFO =
+		#{rollBackInfo,jdbcType=VARCHAR},
+		VERSION_NO =
+		#{versionNo,jdbcType=INTEGER},
+		ACTION_CODE =
+		#{actionCode,jdbcType=INTEGER},
+		OPEN_CYCLE_ID =
+		#{openCycleId,jdbcType=INTEGER},
+		UPDATE_TIME =
+		#{updateTime,jdbcType=DATE},
+		RSRV_INFO1 =
+		#{rsrvInfo1,jdbcType=VARCHAR},
+		RSRV_INFO2 =
+		#{rsrvInfo2,jdbcType=VARCHAR},
+		RSRV_FEE1 =
+		#{rsrvFee1,jdbcType=INTEGER},
+		RSRV_FEE2 = #{rsrvFee2,jdbcType=INTEGER},
+		ACTIVE_TIME = #{activeTime,jdbcType=DATE}
+		where ACCT_BALANCE_ID =
+		#{acctBalanceId,jdbcType=BIGINT}
+		and PARTITION_ID =
+		#{partitionId,jdbcType=INTEGER}
+	</update>
+</mapper>

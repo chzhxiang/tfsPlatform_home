@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TfBTradePoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBTradePo" >
+    <id column="TRADE_ID" property="tradeId" jdbcType="DECIMAL" />
+    <id column="ACCEPT_MONTH" property="acceptMonth" jdbcType="DECIMAL" />
+    <result column="SUBSCRIBE_ID" property="subscribeId" jdbcType="DECIMAL" />
+    <result column="BPM_ID" property="bpmId" jdbcType="DECIMAL" />
+    <result column="TRADE_TYPE_CODE" property="tradeTypeCode" jdbcType="DECIMAL" />
+    <result column="IN_MODE_CODE" property="inModeCode" jdbcType="CHAR" />
+    <result column="PRIORITY" property="priority" jdbcType="DECIMAL" />
+    <result column="SUBSCRIBE_STATE" property="subscribeState" jdbcType="CHAR" />
+    <result column="NEXT_DEAL_TAG" property="nextDealTag" jdbcType="CHAR" />
+    <result column="PRODUCT_ID" property="productId" jdbcType="DECIMAL" />
+    <result column="BRAND_CODE" property="brandCode" jdbcType="CHAR" />
+    <result column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <result column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="USECUST_ID" property="usecustId" jdbcType="DECIMAL" />
+    <result column="ACCT_ID" property="acctId" jdbcType="DECIMAL" />
+    <result column="USER_DIFF_CODE" property="userDiffCode" jdbcType="VARCHAR" />
+    <result column="NET_TYPE_CODE" property="netTypeCode" jdbcType="VARCHAR" />
+    <result column="SERIAL_NUMBER" property="serialNumber" jdbcType="VARCHAR" />
+    <result column="CUST_NAME" property="custName" jdbcType="VARCHAR" />
+    <result column="ACCEPT_DATE" property="acceptDate" jdbcType="TIMESTAMP" />
+    <result column="TRADE_STAFF_ID" property="tradeStaffId" jdbcType="CHAR" />
+    <result column="TRADE_DEPART_ID" property="tradeDepartId" jdbcType="CHAR" />
+    <result column="TRADE_CITY_CODE" property="tradeCityCode" jdbcType="CHAR" />
+    <result column="TRADE_EPARCHY_CODE" property="tradeEparchyCode" jdbcType="CHAR" />
+    <result column="TERM_IP" property="termIp" jdbcType="VARCHAR" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="CHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="CHAR" />
+    <result column="OLCOM_TAG" property="olcomTag" jdbcType="CHAR" />
+    <result column="EXEC_TIME" property="execTime" jdbcType="TIMESTAMP" />
+    <result column="FINISH_DATE" property="finishDate" jdbcType="TIMESTAMP" />
+    <result column="OPER_FEE" property="operFee" jdbcType="DECIMAL" />
+    <result column="FOREGIFT" property="foregift" jdbcType="DECIMAL" />
+    <result column="ADVANCE_PAY" property="advancePay" jdbcType="DECIMAL" />
+    <result column="INVOICE_NO" property="invoiceNo" jdbcType="VARCHAR" />
+    <result column="FEE_STATE" property="feeState" jdbcType="CHAR" />
+    <result column="FEE_TIME" property="feeTime" jdbcType="TIMESTAMP" />
+    <result column="FEE_STAFF_ID" property="feeStaffId" jdbcType="CHAR" />
+    <result column="CANCEL_TAG" property="cancelTag" jdbcType="CHAR" />
+    <result column="CANCEL_DATE" property="cancelDate" jdbcType="TIMESTAMP" />
+    <result column="CANCEL_STAFF_ID" property="cancelStaffId" jdbcType="CHAR" />
+    <result column="CANCEL_DEPART_ID" property="cancelDepartId" jdbcType="CHAR" />
+    <result column="CANCEL_CITY_CODE" property="cancelCityCode" jdbcType="CHAR" />
+    <result column="CANCEL_EPARCHY_CODE" property="cancelEparchyCode" jdbcType="CHAR" />
+    <result column="CHECK_TYPE_CODE" property="checkTypeCode" jdbcType="CHAR" />
+    <result column="CHK_TAG" property="chkTag" jdbcType="CHAR" />
+    <result column="AUDIT_TAG" property="auditTag" jdbcType="CHAR" />
+    <result column="AUDIT_BATCH_NO" property="auditBatchNo" jdbcType="VARCHAR" />
+    <result column="ACTOR_NAME" property="actorName" jdbcType="VARCHAR" />
+    <result column="ACTOR_CERTTYPEID" property="actorCerttypeid" jdbcType="CHAR" />
+    <result column="ACTOR_PHONE" property="actorPhone" jdbcType="VARCHAR" />
+    <result column="ACTOR_CERTNUM" property="actorCertnum" jdbcType="VARCHAR" />
+    <result column="CONTACT" property="contact" jdbcType="VARCHAR" />
+    <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR" />
+    <result column="CONTACT_ADDRESS" property="contactAddress" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="IF_MAINTENANCE" property="ifMaintenance" jdbcType="CHAR" />
+    <result column="PROVINCE_ORDER_ID" property="provinceOrderId" jdbcType="DECIMAL" />
+    <result column="SUB_PROVINCE_ORDER_ID" property="subProvinceOrderId" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADE_ID, ACCEPT_MONTH, SUBSCRIBE_ID, BPM_ID, TRADE_TYPE_CODE, IN_MODE_CODE, PRIORITY, 
+    SUBSCRIBE_STATE, NEXT_DEAL_TAG, PRODUCT_ID, BRAND_CODE, USER_ID, CUST_ID, USECUST_ID, 
+    ACCT_ID, USER_DIFF_CODE, NET_TYPE_CODE, SERIAL_NUMBER, CUST_NAME, ACCEPT_DATE, TRADE_STAFF_ID, 
+    TRADE_DEPART_ID, TRADE_CITY_CODE, TRADE_EPARCHY_CODE, TERM_IP, EPARCHY_CODE, CITY_CODE, 
+    OLCOM_TAG, EXEC_TIME, FINISH_DATE, OPER_FEE, FOREGIFT, ADVANCE_PAY, INVOICE_NO, FEE_STATE, 
+    FEE_TIME, FEE_STAFF_ID, CANCEL_TAG, CANCEL_DATE, CANCEL_STAFF_ID, CANCEL_DEPART_ID, 
+    CANCEL_CITY_CODE, CANCEL_EPARCHY_CODE, CHECK_TYPE_CODE, CHK_TAG, AUDIT_TAG, AUDIT_BATCH_NO, 
+    ACTOR_NAME, ACTOR_CERTTYPEID, ACTOR_PHONE, ACTOR_CERTNUM, CONTACT, CONTACT_PHONE, 
+    CONTACT_ADDRESS, REMARK, IF_MAINTENANCE, PROVINCE_ORDER_ID, SUB_PROVINCE_ORDER_ID
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_B_TRADE
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+  </select>
+</mapper>

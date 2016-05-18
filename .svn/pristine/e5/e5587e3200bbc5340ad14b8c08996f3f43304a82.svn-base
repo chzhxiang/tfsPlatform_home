@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfBTradePoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBTradePo" >
+    <id column="TRADE_ID" property="tradeId" jdbcType="DECIMAL" />
+    <id column="ACCEPT_MONTH" property="acceptMonth" jdbcType="DECIMAL" />
+    <result column="SUBSCRIBE_ID" property="subscribeId" jdbcType="DECIMAL" />
+    <result column="BPM_ID" property="bpmId" jdbcType="DECIMAL" />
+    <result column="TRADE_TYPE_CODE" property="tradeTypeCode" jdbcType="DECIMAL" />
+    <result column="IN_MODE_CODE" property="inModeCode" jdbcType="CHAR" />
+    <result column="PRIORITY" property="priority" jdbcType="DECIMAL" />
+    <result column="SUBSCRIBE_STATE" property="subscribeState" jdbcType="CHAR" />
+    <result column="NEXT_DEAL_TAG" property="nextDealTag" jdbcType="CHAR" />
+    <result column="PRODUCT_ID" property="productId" jdbcType="DECIMAL" />
+    <result column="BRAND_CODE" property="brandCode" jdbcType="CHAR" />
+    <result column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <result column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="USECUST_ID" property="usecustId" jdbcType="DECIMAL" />
+    <result column="ACCT_ID" property="acctId" jdbcType="DECIMAL" />
+    <result column="USER_DIFF_CODE" property="userDiffCode" jdbcType="VARCHAR" />
+    <result column="NET_TYPE_CODE" property="netTypeCode" jdbcType="VARCHAR" />
+    <result column="SERIAL_NUMBER" property="serialNumber" jdbcType="VARCHAR" />
+    <result column="CUST_NAME" property="custName" jdbcType="VARCHAR" />
+    <result column="ACCEPT_DATE" property="acceptDate" jdbcType="TIMESTAMP" />
+    <result column="TRADE_STAFF_ID" property="tradeStaffId" jdbcType="CHAR" />
+    <result column="TRADE_DEPART_ID" property="tradeDepartId" jdbcType="CHAR" />
+    <result column="TRADE_CITY_CODE" property="tradeCityCode" jdbcType="CHAR" />
+    <result column="TRADE_EPARCHY_CODE" property="tradeEparchyCode" jdbcType="CHAR" />
+    <result column="TERM_IP" property="termIp" jdbcType="VARCHAR" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="CHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="CHAR" />
+    <result column="OLCOM_TAG" property="olcomTag" jdbcType="CHAR" />
+    <result column="EXEC_TIME" property="execTime" jdbcType="TIMESTAMP" />
+    <result column="FINISH_DATE" property="finishDate" jdbcType="TIMESTAMP" />
+    <result column="OPER_FEE" property="operFee" jdbcType="DECIMAL" />
+    <result column="FOREGIFT" property="foregift" jdbcType="DECIMAL" />
+    <result column="ADVANCE_PAY" property="advancePay" jdbcType="DECIMAL" />
+    <result column="INVOICE_NO" property="invoiceNo" jdbcType="VARCHAR" />
+    <result column="FEE_STATE" property="feeState" jdbcType="CHAR" />
+    <result column="FEE_TIME" property="feeTime" jdbcType="TIMESTAMP" />
+    <result column="FEE_STAFF_ID" property="feeStaffId" jdbcType="CHAR" />
+    <result column="CANCEL_TAG" property="cancelTag" jdbcType="CHAR" />
+    <result column="CANCEL_DATE" property="cancelDate" jdbcType="TIMESTAMP" />
+    <result column="CANCEL_STAFF_ID" property="cancelStaffId" jdbcType="CHAR" />
+    <result column="CANCEL_DEPART_ID" property="cancelDepartId" jdbcType="CHAR" />
+    <result column="CANCEL_CITY_CODE" property="cancelCityCode" jdbcType="CHAR" />
+    <result column="CANCEL_EPARCHY_CODE" property="cancelEparchyCode" jdbcType="CHAR" />
+    <result column="CHECK_TYPE_CODE" property="checkTypeCode" jdbcType="CHAR" />
+    <result column="CHK_TAG" property="chkTag" jdbcType="CHAR" />
+    <result column="AUDIT_TAG" property="auditTag" jdbcType="CHAR" />
+    <result column="AUDIT_BATCH_NO" property="auditBatchNo" jdbcType="VARCHAR" />
+    <result column="ACTOR_NAME" property="actorName" jdbcType="VARCHAR" />
+    <result column="ACTOR_CERTTYPEID" property="actorCerttypeid" jdbcType="CHAR" />
+    <result column="ACTOR_PHONE" property="actorPhone" jdbcType="VARCHAR" />
+    <result column="ACTOR_CERTNUM" property="actorCertnum" jdbcType="VARCHAR" />
+    <result column="CONTACT" property="contact" jdbcType="VARCHAR" />
+    <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR" />
+    <result column="CONTACT_ADDRESS" property="contactAddress" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="IF_MAINTENANCE" property="ifMaintenance" jdbcType="CHAR" />
+    <result column="PROVINCE_ORDER_ID" property="provinceOrderId" jdbcType="DECIMAL" />
+    <result column="SUB_PROVINCE_ORDER_ID" property="subProvinceOrderId" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADE_ID, ACCEPT_MONTH, SUBSCRIBE_ID, BPM_ID, TRADE_TYPE_CODE, IN_MODE_CODE, PRIORITY, 
+    SUBSCRIBE_STATE, NEXT_DEAL_TAG, PRODUCT_ID, BRAND_CODE, USER_ID, CUST_ID, USECUST_ID, 
+    ACCT_ID, USER_DIFF_CODE, NET_TYPE_CODE, SERIAL_NUMBER, CUST_NAME, ACCEPT_DATE, TRADE_STAFF_ID, 
+    TRADE_DEPART_ID, TRADE_CITY_CODE, TRADE_EPARCHY_CODE, TERM_IP, EPARCHY_CODE, CITY_CODE, 
+    OLCOM_TAG, EXEC_TIME, FINISH_DATE, OPER_FEE, FOREGIFT, ADVANCE_PAY, INVOICE_NO, FEE_STATE, 
+    FEE_TIME, FEE_STAFF_ID, CANCEL_TAG, CANCEL_DATE, CANCEL_STAFF_ID, CANCEL_DEPART_ID, 
+    CANCEL_CITY_CODE, CANCEL_EPARCHY_CODE, CHECK_TYPE_CODE, CHK_TAG, AUDIT_TAG, AUDIT_BATCH_NO, 
+    ACTOR_NAME, ACTOR_CERTTYPEID, ACTOR_PHONE, ACTOR_CERTNUM, CONTACT, CONTACT_PHONE, 
+    CONTACT_ADDRESS, REMARK, IF_MAINTENANCE, PROVINCE_ORDER_ID, SUB_PROVINCE_ORDER_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_B_TRADE
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TF_B_TRADE
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfBTradePo" >
+    insert into TF_B_TRADE (TRADE_ID, ACCEPT_MONTH, SUBSCRIBE_ID, 
+      BPM_ID, TRADE_TYPE_CODE, IN_MODE_CODE, 
+      PRIORITY, SUBSCRIBE_STATE, NEXT_DEAL_TAG, 
+      PRODUCT_ID, BRAND_CODE, USER_ID, 
+      CUST_ID, USECUST_ID, ACCT_ID, 
+      USER_DIFF_CODE, NET_TYPE_CODE, SERIAL_NUMBER, 
+      CUST_NAME, ACCEPT_DATE, TRADE_STAFF_ID, 
+      TRADE_DEPART_ID, TRADE_CITY_CODE, TRADE_EPARCHY_CODE, 
+      TERM_IP, EPARCHY_CODE, CITY_CODE, 
+      OLCOM_TAG, EXEC_TIME, FINISH_DATE, 
+      OPER_FEE, FOREGIFT, ADVANCE_PAY, 
+      INVOICE_NO, FEE_STATE, FEE_TIME, 
+      FEE_STAFF_ID, CANCEL_TAG, CANCEL_DATE, 
+      CANCEL_STAFF_ID, CANCEL_DEPART_ID, CANCEL_CITY_CODE, 
+      CANCEL_EPARCHY_CODE, CHECK_TYPE_CODE, CHK_TAG, 
+      AUDIT_TAG, AUDIT_BATCH_NO, ACTOR_NAME, 
+      ACTOR_CERTTYPEID, ACTOR_PHONE, ACTOR_CERTNUM, 
+      CONTACT, CONTACT_PHONE, CONTACT_ADDRESS, 
+      REMARK, IF_MAINTENANCE, PROVINCE_ORDER_ID, 
+      SUB_PROVINCE_ORDER_ID)
+    values (#{tradeId,jdbcType=DECIMAL}, #{acceptMonth,jdbcType=DECIMAL}, #{subscribeId,jdbcType=DECIMAL}, 
+      #{bpmId,jdbcType=DECIMAL}, #{tradeTypeCode,jdbcType=DECIMAL}, #{inModeCode,jdbcType=CHAR}, 
+      #{priority,jdbcType=DECIMAL}, #{subscribeState,jdbcType=CHAR}, #{nextDealTag,jdbcType=CHAR}, 
+      #{productId,jdbcType=DECIMAL}, #{brandCode,jdbcType=CHAR}, #{userId,jdbcType=DECIMAL}, 
+      #{custId,jdbcType=DECIMAL}, #{usecustId,jdbcType=DECIMAL}, #{acctId,jdbcType=DECIMAL}, 
+      #{userDiffCode,jdbcType=VARCHAR}, #{netTypeCode,jdbcType=VARCHAR}, #{serialNumber,jdbcType=VARCHAR}, 
+      #{custName,jdbcType=VARCHAR}, #{acceptDate,jdbcType=TIMESTAMP}, #{tradeStaffId,jdbcType=CHAR}, 
+      #{tradeDepartId,jdbcType=CHAR}, #{tradeCityCode,jdbcType=CHAR}, #{tradeEparchyCode,jdbcType=CHAR}, 
+      #{termIp,jdbcType=VARCHAR}, #{eparchyCode,jdbcType=CHAR}, #{cityCode,jdbcType=CHAR}, 
+      #{olcomTag,jdbcType=CHAR}, #{execTime,jdbcType=TIMESTAMP}, #{finishDate,jdbcType=TIMESTAMP}, 
+      #{operFee,jdbcType=DECIMAL}, #{foregift,jdbcType=DECIMAL}, #{advancePay,jdbcType=DECIMAL}, 
+      #{invoiceNo,jdbcType=VARCHAR}, #{feeState,jdbcType=CHAR}, #{feeTime,jdbcType=TIMESTAMP}, 
+      #{feeStaffId,jdbcType=CHAR}, #{cancelTag,jdbcType=CHAR}, #{cancelDate,jdbcType=TIMESTAMP}, 
+      #{cancelStaffId,jdbcType=CHAR}, #{cancelDepartId,jdbcType=CHAR}, #{cancelCityCode,jdbcType=CHAR}, 
+      #{cancelEparchyCode,jdbcType=CHAR}, #{checkTypeCode,jdbcType=CHAR}, #{chkTag,jdbcType=CHAR}, 
+      #{auditTag,jdbcType=CHAR}, #{auditBatchNo,jdbcType=VARCHAR}, #{actorName,jdbcType=VARCHAR}, 
+      #{actorCerttypeid,jdbcType=CHAR}, #{actorPhone,jdbcType=VARCHAR}, #{actorCertnum,jdbcType=VARCHAR}, 
+      #{contact,jdbcType=VARCHAR}, #{contactPhone,jdbcType=VARCHAR}, #{contactAddress,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{ifMaintenance,jdbcType=CHAR}, #{provinceOrderId,jdbcType=DECIMAL}, 
+      #{subProvinceOrderId,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfBTradePo" >
+    insert into TF_B_TRADE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tradeId != null" >
+        TRADE_ID,
+      </if>
+      <if test="acceptMonth != null" >
+        ACCEPT_MONTH,
+      </if>
+      <if test="subscribeId != null" >
+        SUBSCRIBE_ID,
+      </if>
+      <if test="bpmId != null" >
+        BPM_ID,
+      </if>
+      <if test="tradeTypeCode != null" >
+        TRADE_TYPE_CODE,
+      </if>
+      <if test="inModeCode != null" >
+        IN_MODE_CODE,
+      </if>
+      <if test="priority != null" >
+        PRIORITY,
+      </if>
+      <if test="subscribeState != null" >
+        SUBSCRIBE_STATE,
+      </if>
+      <if test="nextDealTag != null" >
+        NEXT_DEAL_TAG,
+      </if>
+      <if test="productId != null" >
+        PRODUCT_ID,
+      </if>
+      <if test="brandCode != null" >
+        BRAND_CODE,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="usecustId != null" >
+        USECUST_ID,
+      </if>
+      <if test="acctId != null" >
+        ACCT_ID,
+      </if>
+      <if test="userDiffCode != null" >
+        USER_DIFF_CODE,
+      </if>
+      <if test="netTypeCode != null" >
+        NET_TYPE_CODE,
+      </if>
+      <if test="serialNumber != null" >
+        SERIAL_NUMBER,
+      </if>
+      <if test="custName != null" >
+        CUST_NAME,
+      </if>
+      <if test="acceptDate != null" >
+        ACCEPT_DATE,
+      </if>
+      <if test="tradeStaffId != null" >
+        TRADE_STAFF_ID,
+      </if>
+      <if test="tradeDepartId != null" >
+        TRADE_DEPART_ID,
+      </if>
+      <if test="tradeCityCode != null" >
+        TRADE_CITY_CODE,
+      </if>
+      <if test="tradeEparchyCode != null" >
+        TRADE_EPARCHY_CODE,
+      </if>
+      <if test="termIp != null" >
+        TERM_IP,
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="olcomTag != null" >
+        OLCOM_TAG,
+      </if>
+      <if test="execTime != null" >
+        EXEC_TIME,
+      </if>
+      <if test="finishDate != null" >
+        FINISH_DATE,
+      </if>
+      <if test="operFee != null" >
+        OPER_FEE,
+      </if>
+      <if test="foregift != null" >
+        FOREGIFT,
+      </if>
+      <if test="advancePay != null" >
+        ADVANCE_PAY,
+      </if>
+      <if test="invoiceNo != null" >
+        INVOICE_NO,
+      </if>
+      <if test="feeState != null" >
+        FEE_STATE,
+      </if>
+      <if test="feeTime != null" >
+        FEE_TIME,
+      </if>
+      <if test="feeStaffId != null" >
+        FEE_STAFF_ID,
+      </if>
+      <if test="cancelTag != null" >
+        CANCEL_TAG,
+      </if>
+      <if test="cancelDate != null" >
+        CANCEL_DATE,
+      </if>
+      <if test="cancelStaffId != null" >
+        CANCEL_STAFF_ID,
+      </if>
+      <if test="cancelDepartId != null" >
+        CANCEL_DEPART_ID,
+      </if>
+      <if test="cancelCityCode != null" >
+        CANCEL_CITY_CODE,
+      </if>
+      <if test="cancelEparchyCode != null" >
+        CANCEL_EPARCHY_CODE,
+      </if>
+      <if test="checkTypeCode != null" >
+        CHECK_TYPE_CODE,
+      </if>
+      <if test="chkTag != null" >
+        CHK_TAG,
+      </if>
+      <if test="auditTag != null" >
+        AUDIT_TAG,
+      </if>
+      <if test="auditBatchNo != null" >
+        AUDIT_BATCH_NO,
+      </if>
+      <if test="actorName != null" >
+        ACTOR_NAME,
+      </if>
+      <if test="actorCerttypeid != null" >
+        ACTOR_CERTTYPEID,
+      </if>
+      <if test="actorPhone != null" >
+        ACTOR_PHONE,
+      </if>
+      <if test="actorCertnum != null" >
+        ACTOR_CERTNUM,
+      </if>
+      <if test="contact != null" >
+        CONTACT,
+      </if>
+      <if test="contactPhone != null" >
+        CONTACT_PHONE,
+      </if>
+      <if test="contactAddress != null" >
+        CONTACT_ADDRESS,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="ifMaintenance != null" >
+        IF_MAINTENANCE,
+      </if>
+      <if test="provinceOrderId != null" >
+        PROVINCE_ORDER_ID,
+      </if>
+      <if test="subProvinceOrderId != null" >
+        SUB_PROVINCE_ORDER_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tradeId != null" >
+        #{tradeId,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptMonth != null" >
+        #{acceptMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="subscribeId != null" >
+        #{subscribeId,jdbcType=DECIMAL},
+      </if>
+      <if test="bpmId != null" >
+        #{bpmId,jdbcType=DECIMAL},
+      </if>
+      <if test="tradeTypeCode != null" >
+        #{tradeTypeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="inModeCode != null" >
+        #{inModeCode,jdbcType=CHAR},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="subscribeState != null" >
+        #{subscribeState,jdbcType=CHAR},
+      </if>
+      <if test="nextDealTag != null" >
+        #{nextDealTag,jdbcType=CHAR},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=DECIMAL},
+      </if>
+      <if test="brandCode != null" >
+        #{brandCode,jdbcType=CHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="custId != null" >
+        #{custId,jdbcType=DECIMAL},
+      </if>
+      <if test="usecustId != null" >
+        #{usecustId,jdbcType=DECIMAL},
+      </if>
+      <if test="acctId != null" >
+        #{acctId,jdbcType=DECIMAL},
+      </if>
+      <if test="userDiffCode != null" >
+        #{userDiffCode,jdbcType=VARCHAR},
+      </if>
+      <if test="netTypeCode != null" >
+        #{netTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null" >
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptDate != null" >
+        #{acceptDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradeStaffId != null" >
+        #{tradeStaffId,jdbcType=CHAR},
+      </if>
+      <if test="tradeDepartId != null" >
+        #{tradeDepartId,jdbcType=CHAR},
+      </if>
+      <if test="tradeCityCode != null" >
+        #{tradeCityCode,jdbcType=CHAR},
+      </if>
+      <if test="tradeEparchyCode != null" >
+        #{tradeEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="termIp != null" >
+        #{termIp,jdbcType=VARCHAR},
+      </if>
+      <if test="eparchyCode != null" >
+        #{eparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=CHAR},
+      </if>
+      <if test="olcomTag != null" >
+        #{olcomTag,jdbcType=CHAR},
+      </if>
+      <if test="execTime != null" >
+        #{execTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishDate != null" >
+        #{finishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operFee != null" >
+        #{operFee,jdbcType=DECIMAL},
+      </if>
+      <if test="foregift != null" >
+        #{foregift,jdbcType=DECIMAL},
+      </if>
+      <if test="advancePay != null" >
+        #{advancePay,jdbcType=DECIMAL},
+      </if>
+      <if test="invoiceNo != null" >
+        #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeState != null" >
+        #{feeState,jdbcType=CHAR},
+      </if>
+      <if test="feeTime != null" >
+        #{feeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feeStaffId != null" >
+        #{feeStaffId,jdbcType=CHAR},
+      </if>
+      <if test="cancelTag != null" >
+        #{cancelTag,jdbcType=CHAR},
+      </if>
+      <if test="cancelDate != null" >
+        #{cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelStaffId != null" >
+        #{cancelStaffId,jdbcType=CHAR},
+      </if>
+      <if test="cancelDepartId != null" >
+        #{cancelDepartId,jdbcType=CHAR},
+      </if>
+      <if test="cancelCityCode != null" >
+        #{cancelCityCode,jdbcType=CHAR},
+      </if>
+      <if test="cancelEparchyCode != null" >
+        #{cancelEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="checkTypeCode != null" >
+        #{checkTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="chkTag != null" >
+        #{chkTag,jdbcType=CHAR},
+      </if>
+      <if test="auditTag != null" >
+        #{auditTag,jdbcType=CHAR},
+      </if>
+      <if test="auditBatchNo != null" >
+        #{auditBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="actorName != null" >
+        #{actorName,jdbcType=VARCHAR},
+      </if>
+      <if test="actorCerttypeid != null" >
+        #{actorCerttypeid,jdbcType=CHAR},
+      </if>
+      <if test="actorPhone != null" >
+        #{actorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="actorCertnum != null" >
+        #{actorCertnum,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null" >
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null" >
+        #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress != null" >
+        #{contactAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="ifMaintenance != null" >
+        #{ifMaintenance,jdbcType=CHAR},
+      </if>
+      <if test="provinceOrderId != null" >
+        #{provinceOrderId,jdbcType=DECIMAL},
+      </if>
+      <if test="subProvinceOrderId != null" >
+        #{subProvinceOrderId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfBTradePo" >
+    update TF_B_TRADE
+    <set >
+      <if test="subscribeId != null" >
+        SUBSCRIBE_ID = #{subscribeId,jdbcType=DECIMAL},
+      </if>
+      <if test="bpmId != null" >
+        BPM_ID = #{bpmId,jdbcType=DECIMAL},
+      </if>
+      <if test="tradeTypeCode != null" >
+        TRADE_TYPE_CODE = #{tradeTypeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="inModeCode != null" >
+        IN_MODE_CODE = #{inModeCode,jdbcType=CHAR},
+      </if>
+      <if test="priority != null" >
+        PRIORITY = #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="subscribeState != null" >
+        SUBSCRIBE_STATE = #{subscribeState,jdbcType=CHAR},
+      </if>
+      <if test="nextDealTag != null" >
+        NEXT_DEAL_TAG = #{nextDealTag,jdbcType=CHAR},
+      </if>
+      <if test="productId != null" >
+        PRODUCT_ID = #{productId,jdbcType=DECIMAL},
+      </if>
+      <if test="brandCode != null" >
+        BRAND_CODE = #{brandCode,jdbcType=CHAR},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="custId != null" >
+        CUST_ID = #{custId,jdbcType=DECIMAL},
+      </if>
+      <if test="usecustId != null" >
+        USECUST_ID = #{usecustId,jdbcType=DECIMAL},
+      </if>
+      <if test="acctId != null" >
+        ACCT_ID = #{acctId,jdbcType=DECIMAL},
+      </if>
+      <if test="userDiffCode != null" >
+        USER_DIFF_CODE = #{userDiffCode,jdbcType=VARCHAR},
+      </if>
+      <if test="netTypeCode != null" >
+        NET_TYPE_CODE = #{netTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        SERIAL_NUMBER = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null" >
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptDate != null" >
+        ACCEPT_DATE = #{acceptDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradeStaffId != null" >
+        TRADE_STAFF_ID = #{tradeStaffId,jdbcType=CHAR},
+      </if>
+      <if test="tradeDepartId != null" >
+        TRADE_DEPART_ID = #{tradeDepartId,jdbcType=CHAR},
+      </if>
+      <if test="tradeCityCode != null" >
+        TRADE_CITY_CODE = #{tradeCityCode,jdbcType=CHAR},
+      </if>
+      <if test="tradeEparchyCode != null" >
+        TRADE_EPARCHY_CODE = #{tradeEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="termIp != null" >
+        TERM_IP = #{termIp,jdbcType=VARCHAR},
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE = #{eparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=CHAR},
+      </if>
+      <if test="olcomTag != null" >
+        OLCOM_TAG = #{olcomTag,jdbcType=CHAR},
+      </if>
+      <if test="execTime != null" >
+        EXEC_TIME = #{execTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishDate != null" >
+        FINISH_DATE = #{finishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operFee != null" >
+        OPER_FEE = #{operFee,jdbcType=DECIMAL},
+      </if>
+      <if test="foregift != null" >
+        FOREGIFT = #{foregift,jdbcType=DECIMAL},
+      </if>
+      <if test="advancePay != null" >
+        ADVANCE_PAY = #{advancePay,jdbcType=DECIMAL},
+      </if>
+      <if test="invoiceNo != null" >
+        INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeState != null" >
+        FEE_STATE = #{feeState,jdbcType=CHAR},
+      </if>
+      <if test="feeTime != null" >
+        FEE_TIME = #{feeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feeStaffId != null" >
+        FEE_STAFF_ID = #{feeStaffId,jdbcType=CHAR},
+      </if>
+      <if test="cancelTag != null" >
+        CANCEL_TAG = #{cancelTag,jdbcType=CHAR},
+      </if>
+      <if test="cancelDate != null" >
+        CANCEL_DATE = #{cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelStaffId != null" >
+        CANCEL_STAFF_ID = #{cancelStaffId,jdbcType=CHAR},
+      </if>
+      <if test="cancelDepartId != null" >
+        CANCEL_DEPART_ID = #{cancelDepartId,jdbcType=CHAR},
+      </if>
+      <if test="cancelCityCode != null" >
+        CANCEL_CITY_CODE = #{cancelCityCode,jdbcType=CHAR},
+      </if>
+      <if test="cancelEparchyCode != null" >
+        CANCEL_EPARCHY_CODE = #{cancelEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="checkTypeCode != null" >
+        CHECK_TYPE_CODE = #{checkTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="chkTag != null" >
+        CHK_TAG = #{chkTag,jdbcType=CHAR},
+      </if>
+      <if test="auditTag != null" >
+        AUDIT_TAG = #{auditTag,jdbcType=CHAR},
+      </if>
+      <if test="auditBatchNo != null" >
+        AUDIT_BATCH_NO = #{auditBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="actorName != null" >
+        ACTOR_NAME = #{actorName,jdbcType=VARCHAR},
+      </if>
+      <if test="actorCerttypeid != null" >
+        ACTOR_CERTTYPEID = #{actorCerttypeid,jdbcType=CHAR},
+      </if>
+      <if test="actorPhone != null" >
+        ACTOR_PHONE = #{actorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="actorCertnum != null" >
+        ACTOR_CERTNUM = #{actorCertnum,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null" >
+        CONTACT = #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null" >
+        CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress != null" >
+        CONTACT_ADDRESS = #{contactAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="ifMaintenance != null" >
+        IF_MAINTENANCE = #{ifMaintenance,jdbcType=CHAR},
+      </if>
+      <if test="provinceOrderId != null" >
+        PROVINCE_ORDER_ID = #{provinceOrderId,jdbcType=DECIMAL},
+      </if>
+      <if test="subProvinceOrderId != null" >
+        SUB_PROVINCE_ORDER_ID = #{subProvinceOrderId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfBTradePo" >
+    update TF_B_TRADE
+    set SUBSCRIBE_ID = #{subscribeId,jdbcType=DECIMAL},
+      BPM_ID = #{bpmId,jdbcType=DECIMAL},
+      TRADE_TYPE_CODE = #{tradeTypeCode,jdbcType=DECIMAL},
+      IN_MODE_CODE = #{inModeCode,jdbcType=CHAR},
+      PRIORITY = #{priority,jdbcType=DECIMAL},
+      SUBSCRIBE_STATE = #{subscribeState,jdbcType=CHAR},
+      NEXT_DEAL_TAG = #{nextDealTag,jdbcType=CHAR},
+      PRODUCT_ID = #{productId,jdbcType=DECIMAL},
+      BRAND_CODE = #{brandCode,jdbcType=CHAR},
+      USER_ID = #{userId,jdbcType=DECIMAL},
+      CUST_ID = #{custId,jdbcType=DECIMAL},
+      USECUST_ID = #{usecustId,jdbcType=DECIMAL},
+      ACCT_ID = #{acctId,jdbcType=DECIMAL},
+      USER_DIFF_CODE = #{userDiffCode,jdbcType=VARCHAR},
+      NET_TYPE_CODE = #{netTypeCode,jdbcType=VARCHAR},
+      SERIAL_NUMBER = #{serialNumber,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      ACCEPT_DATE = #{acceptDate,jdbcType=TIMESTAMP},
+      TRADE_STAFF_ID = #{tradeStaffId,jdbcType=CHAR},
+      TRADE_DEPART_ID = #{tradeDepartId,jdbcType=CHAR},
+      TRADE_CITY_CODE = #{tradeCityCode,jdbcType=CHAR},
+      TRADE_EPARCHY_CODE = #{tradeEparchyCode,jdbcType=CHAR},
+      TERM_IP = #{termIp,jdbcType=VARCHAR},
+      EPARCHY_CODE = #{eparchyCode,jdbcType=CHAR},
+      CITY_CODE = #{cityCode,jdbcType=CHAR},
+      OLCOM_TAG = #{olcomTag,jdbcType=CHAR},
+      EXEC_TIME = #{execTime,jdbcType=TIMESTAMP},
+      FINISH_DATE = #{finishDate,jdbcType=TIMESTAMP},
+      OPER_FEE = #{operFee,jdbcType=DECIMAL},
+      FOREGIFT = #{foregift,jdbcType=DECIMAL},
+      ADVANCE_PAY = #{advancePay,jdbcType=DECIMAL},
+      INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      FEE_STATE = #{feeState,jdbcType=CHAR},
+      FEE_TIME = #{feeTime,jdbcType=TIMESTAMP},
+      FEE_STAFF_ID = #{feeStaffId,jdbcType=CHAR},
+      CANCEL_TAG = #{cancelTag,jdbcType=CHAR},
+      CANCEL_DATE = #{cancelDate,jdbcType=TIMESTAMP},
+      CANCEL_STAFF_ID = #{cancelStaffId,jdbcType=CHAR},
+      CANCEL_DEPART_ID = #{cancelDepartId,jdbcType=CHAR},
+      CANCEL_CITY_CODE = #{cancelCityCode,jdbcType=CHAR},
+      CANCEL_EPARCHY_CODE = #{cancelEparchyCode,jdbcType=CHAR},
+      CHECK_TYPE_CODE = #{checkTypeCode,jdbcType=CHAR},
+      CHK_TAG = #{chkTag,jdbcType=CHAR},
+      AUDIT_TAG = #{auditTag,jdbcType=CHAR},
+      AUDIT_BATCH_NO = #{auditBatchNo,jdbcType=VARCHAR},
+      ACTOR_NAME = #{actorName,jdbcType=VARCHAR},
+      ACTOR_CERTTYPEID = #{actorCerttypeid,jdbcType=CHAR},
+      ACTOR_PHONE = #{actorPhone,jdbcType=VARCHAR},
+      ACTOR_CERTNUM = #{actorCertnum,jdbcType=VARCHAR},
+      CONTACT = #{contact,jdbcType=VARCHAR},
+      CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      CONTACT_ADDRESS = #{contactAddress,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      IF_MAINTENANCE = #{ifMaintenance,jdbcType=CHAR},
+      PROVINCE_ORDER_ID = #{provinceOrderId,jdbcType=DECIMAL},
+      SUB_PROVINCE_ORDER_ID = #{subProvinceOrderId,jdbcType=DECIMAL}
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+  </update>
+</mapper>

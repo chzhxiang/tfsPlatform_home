@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+            http://code.alibabatech.com/schema/dubbo  
+        	http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+		<bean id="propertyConfigurer"
+	        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	        <property name="locations">
+	            <list>
+	                <value>classpath:dubbo/dubbo.properties</value>
+	            </list>
+	        </property>
+	    </bean>
+         <!--消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+         <dubbo:application name="consumer-SpringMVC" />
+         <!--  
+		<dubbo:annotation package="dc.controller" />
+		 -->
+         <!--zookeeper注册中心 -->
+		<dubbo:registry protocol="${dubbo.monitor.protocol}" address="${dubbo.registry.address}" />         
+         <!--使用multicast广播注册中心暴露的服务地址 -->
+        <!--  <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
+         
+         <!-- 协议 -->
+        <!--  <dubbo:protocol name="dubbo" port="20880" />     -->     
+         
+          <!-- 生成远程服务代理，可以和本地bean一样使用demoService-->
+         <dubbo:reference id="accountService"  interface="com.asiainfo.tfsPlatform.interfaces.account.AccountService"  check="false"/>
+         <dubbo:reference id="taskService"  interface="com.asiainfo.tfsPlatform.interfaces.task.TaskService"  check="false"/>
+         <dubbo:reference id="orgService"  interface="com.asiainfo.tfsPlatform.interfaces.information.OrgService"  check="false"/>
+         <dubbo:reference id="custContactService"  interface="com.asiainfo.tfsPlatform.interfaces.information.CustContactService"  check="false"/>
+         <dubbo:reference id="carCustomerService" interface="com.asiainfo.tfsPlatform.interfaces.information.CarCustomerService"></dubbo:reference>
+         <dubbo:reference id="customerService" interface="com.asiainfo.tfsPlatform.interfaces.information.CustomerService"></dubbo:reference>
+</beans>

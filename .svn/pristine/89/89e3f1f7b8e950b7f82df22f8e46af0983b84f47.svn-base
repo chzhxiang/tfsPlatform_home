@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TJUserImportNewPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TJUserImportNewPo" >
+    <result column="ADD_DATE" property="addDate" jdbcType="TIMESTAMP" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+    <result column="DIVICE_ID" property="diviceId" jdbcType="DECIMAL" />
+    <result column="SUM_BANDWIDTH" property="sumBandwidth" jdbcType="DECIMAL" />
+    <result column="IS_ONLINE" property="isOnline" jdbcType="CHAR" />
+    <result column="MODEM_ID" property="modemId" jdbcType="DECIMAL" />
+    <result column="MSISDN" property="msisdn" jdbcType="VARCHAR" />
+    <result column="CUSTOMER" property="customer" jdbcType="VARCHAR" />
+    <result column="DISCNT_PLAN" property="discntPlan" jdbcType="VARCHAR" />
+    <result column="IS_OVER_LIMMIT" property="isOverLimmit" jdbcType="CHAR" />
+    <result column="IMSI" property="imsi" jdbcType="VARCHAR" />
+    <result column="SIM_STATE" property="simState" jdbcType="CHAR" />
+    <result column="IS_ACTIVE" property="isActive" jdbcType="CHAR" />
+    <result column="VIRTUAL_ID" property="virtualId" jdbcType="DECIMAL" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <delete id="deleteAll">
+  	delete from T_J_USER_IMPORT_NEW
+  </delete>
+  
+</mapper>

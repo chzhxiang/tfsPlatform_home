@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TfFCustomerPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfFCustomerPo" >
+    <id column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="CUST_NAME" property="custName" jdbcType="VARCHAR" />
+    <result column="CUST_TYPE" property="custType" jdbcType="CHAR" />
+    <result column="CUST_STATE" property="custState" jdbcType="CHAR" />
+    <result column="PSPT_TYPE_CODE" property="psptTypeCode" jdbcType="CHAR" />
+    <result column="PSPT_ID" property="psptId" jdbcType="VARCHAR" />
+    <result column="OPEN_LIMIT" property="openLimit" jdbcType="DECIMAL" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="CUST_PASSWD" property="custPasswd" jdbcType="VARCHAR" />
+    <result column="SCORE_VALUE" property="scoreValue" jdbcType="DECIMAL" />
+    <result column="CREDIT_CLASS" property="creditClass" jdbcType="DECIMAL" />
+    <result column="BASIC_CREDIT_VALUE" property="basicCreditValue" jdbcType="DECIMAL" />
+    <result column="CREDIT_VALUE" property="creditValue" jdbcType="DECIMAL" />
+    <result column="AUDIT_NUM" property="auditNum" jdbcType="DECIMAL" />
+    <result column="SIMPLE_SPELL" property="simpleSpell" jdbcType="VARCHAR" />
+    <result column="DEVELOP_DEPART_ID" property="developDepartId" jdbcType="VARCHAR" />
+    <result column="DEVELOP_STAFF_ID" property="developStaffId" jdbcType="VARCHAR" />
+    <result column="IN_DEPART_ID" property="inDepartId" jdbcType="VARCHAR" />
+    <result column="IN_STAFF_ID" property="inStaffId" jdbcType="VARCHAR" />
+    <result column="IN_DATE" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="REMOVE_TAG" property="removeTag" jdbcType="CHAR" />
+    <result column="REMOVE_DATE" property="removeDate" jdbcType="TIMESTAMP" />
+    <result column="REMOVE_STAFF_ID" property="removeStaffId" jdbcType="VARCHAR" />
+    <result column="REMOVE_CHANGE" property="removeChange" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="VARCHAR" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RSRV_NUM1" property="rsrvNum1" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM2" property="rsrvNum2" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM3" property="rsrvNum3" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM4" property="rsrvNum4" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM5" property="rsrvNum5" jdbcType="DECIMAL" />
+    <result column="RSRV_STR1" property="rsrvStr1" jdbcType="VARCHAR" />
+    <result column="RSRV_STR2" property="rsrvStr2" jdbcType="VARCHAR" />
+    <result column="RSRV_STR3" property="rsrvStr3" jdbcType="VARCHAR" />
+    <result column="RSRV_STR4" property="rsrvStr4" jdbcType="VARCHAR" />
+    <result column="RSRV_STR5" property="rsrvStr5" jdbcType="VARCHAR" />
+    <result column="RSRV_STR6" property="rsrvStr6" jdbcType="VARCHAR" />
+    <result column="RSRV_STR7" property="rsrvStr7" jdbcType="VARCHAR" />
+    <result column="RSRV_STR8" property="rsrvStr8" jdbcType="VARCHAR" />
+    <result column="RSRV_STR9" property="rsrvStr9" jdbcType="VARCHAR" />
+    <result column="RSRV_STR10" property="rsrvStr10" jdbcType="VARCHAR" />
+    <result column="RSRV_DATE1" property="rsrvDate1" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE2" property="rsrvDate2" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE3" property="rsrvDate3" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE4" property="rsrvDate4" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE5" property="rsrvDate5" jdbcType="TIMESTAMP" />
+    <result column="RSRV_TAG1" property="rsrvTag1" jdbcType="CHAR" />
+    <result column="RSRV_TAG2" property="rsrvTag2" jdbcType="CHAR" />
+    <result column="RSRV_TAG3" property="rsrvTag3" jdbcType="CHAR" />
+    <result column="RSRV_TAG4" property="rsrvTag4" jdbcType="CHAR" />
+    <result column="RSRV_TAG5" property="rsrvTag5" jdbcType="CHAR" />
+    <result column="CUST_CLASS_TYPE" property="custClassType" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CUST_ID, PARTITION_ID, CUST_NAME, CUST_TYPE, CUST_STATE, PSPT_TYPE_CODE, PSPT_ID, 
+    OPEN_LIMIT, EPARCHY_CODE, CITY_CODE, CUST_PASSWD, SCORE_VALUE, CREDIT_CLASS, BASIC_CREDIT_VALUE, 
+    CREDIT_VALUE, AUDIT_NUM, SIMPLE_SPELL, DEVELOP_DEPART_ID, DEVELOP_STAFF_ID, IN_DEPART_ID, 
+    IN_STAFF_ID, IN_DATE, REMOVE_TAG, REMOVE_DATE, REMOVE_STAFF_ID, REMOVE_CHANGE, UPDATE_TIME, 
+    UPDATE_STAFF_ID, UPDATE_DEPART_ID, REMARK, RSRV_NUM1, RSRV_NUM2, RSRV_NUM3, RSRV_NUM4, 
+    RSRV_NUM5, RSRV_STR1, RSRV_STR2, RSRV_STR3, RSRV_STR4, RSRV_STR5, RSRV_STR6, RSRV_STR7, 
+    RSRV_STR8, RSRV_STR9, RSRV_STR10, RSRV_DATE1, RSRV_DATE2, RSRV_DATE3, RSRV_DATE4, 
+    RSRV_DATE5, RSRV_TAG1, RSRV_TAG2, RSRV_TAG3, RSRV_TAG4, RSRV_TAG5, CUST_CLASS_TYPE
+  </sql>
+  
+  <select id="selectCustomerList" resultMap="BaseResultMap" parameterType="com.asiainfo.tfsPlatform.po.TfFCustomerPo" >
+      select 
+       <include refid="Base_Column_List" />
+      from TF_F_CUSTOMER
+      where 1=1
+      <if test="custId != null and custId != ''">
+          and CUST_ID = #{custId,jdbcType=VARCHAR}
+      </if>
+      <if test="custName != null and custName != ''">
+          and CUST_NAME = #{custName,jdbcType=VARCHAR}
+      </if>
+      <if test="psptId != null and psptId != ''">
+          and PSPT_ID = #{psptId,jdbcType=VARCHAR}
+      </if>
+      <if test="removeStaffId != null and removeStaffId != ''">
+          and REMOVE_STAFF_ID = #{removeStaffId,jdbcType=VARCHAR}
+      </if>
+      <if test="removeTag != null and removeTag != ''">
+          and REMOVE_TAG = #{removeTag,jdbcType=VARCHAR}
+      </if>
+  </select>
+</mapper>

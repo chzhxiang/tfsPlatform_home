@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdASpTariffpoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdASpTariffpo" >
+    <id column="DATA_TYPE_CODE" property="dataTypeCode" jdbcType="CHAR" />
+    <id column="SP_CODE" property="spCode" jdbcType="VARCHAR" />
+    <id column="SP_BIZ_CODE" property="spBizCode" jdbcType="VARCHAR" />
+    <id column="RECV_OBJECT_TYPE" property="recvObjectType" jdbcType="CHAR" />
+    <id column="START_DATE" property="startDate" jdbcType="DATE" />
+    <result column="BIZ_TYPE_CODE" property="bizTypeCode" jdbcType="CHAR" />
+    <result column="ITEM_CODE" property="itemCode" jdbcType="DECIMAL" />
+    <result column="BILLING_CYCLE" property="billingCycle" jdbcType="CHAR" />
+    <result column="RELATIVE_CYCLE" property="relativeCycle" jdbcType="DECIMAL" />
+    <result column="PRICE" property="price" jdbcType="DECIMAL" />
+    <result column="NEWUSER_RECV_TYPE" property="newuserRecvType" jdbcType="CHAR" />
+    <result column="JUDGE_HALF_TIME" property="judgeHalfTime" jdbcType="DECIMAL" />
+    <result column="HALF_PRICE" property="halfPrice" jdbcType="DECIMAL" />
+    <result column="DISPLAY_TYPE" property="displayType" jdbcType="CHAR" />
+    <result column="VALID_START_CYCLE" property="validStartCycle" jdbcType="DECIMAL" />
+    <result column="VALID_END_CYCLE" property="validEndCycle" jdbcType="DECIMAL" />
+    <result column="END_DATE" property="endDate" jdbcType="DATE" />
+    <result column="SILENCE_DEAL" property="silenceDeal" jdbcType="CHAR" />
+    <result column="AVERAGE_DEAL" property="averageDeal" jdbcType="CHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="DATE" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="CHAR" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="CHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="FEETYPE" property="feetype" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DATA_TYPE_CODE, SP_CODE, SP_BIZ_CODE, RECV_OBJECT_TYPE, START_DATE, BIZ_TYPE_CODE, 
+    ITEM_CODE, BILLING_CYCLE, RELATIVE_CYCLE, PRICE, NEWUSER_RECV_TYPE, JUDGE_HALF_TIME, 
+    HALF_PRICE, DISPLAY_TYPE, VALID_START_CYCLE, VALID_END_CYCLE, END_DATE, SILENCE_DEAL, 
+    AVERAGE_DEAL, UPDATE_TIME, UPDATE_DEPART_ID, UPDATE_STAFF_ID, REMARK, FEETYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_A_SP_TARIFF
+    where DATA_TYPE_CODE = #{dataTypeCode,jdbcType=CHAR}
+      and SP_CODE = #{spCode,jdbcType=VARCHAR}
+      and SP_BIZ_CODE = #{spBizCode,jdbcType=VARCHAR}
+      and RECV_OBJECT_TYPE = #{recvObjectType,jdbcType=CHAR}
+      and START_DATE = #{startDate,jdbcType=DATE}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TD_A_SP_TARIFF
+    where DATA_TYPE_CODE = #{dataTypeCode,jdbcType=CHAR}
+      and SP_CODE = #{spCode,jdbcType=VARCHAR}
+      and SP_BIZ_CODE = #{spBizCode,jdbcType=VARCHAR}
+      and RECV_OBJECT_TYPE = #{recvObjectType,jdbcType=CHAR}
+      and START_DATE = #{startDate,jdbcType=DATE}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdASpTariffpo" >
+    insert into TD_A_SP_TARIFF (DATA_TYPE_CODE, SP_CODE, SP_BIZ_CODE, 
+      RECV_OBJECT_TYPE, START_DATE, BIZ_TYPE_CODE, 
+      ITEM_CODE, BILLING_CYCLE, RELATIVE_CYCLE, 
+      PRICE, NEWUSER_RECV_TYPE, JUDGE_HALF_TIME, 
+      HALF_PRICE, DISPLAY_TYPE, VALID_START_CYCLE, 
+      VALID_END_CYCLE, END_DATE, SILENCE_DEAL, 
+      AVERAGE_DEAL, UPDATE_TIME, UPDATE_DEPART_ID, 
+      UPDATE_STAFF_ID, REMARK, FEETYPE
+      )
+    values (#{dataTypeCode,jdbcType=CHAR}, #{spCode,jdbcType=VARCHAR}, #{spBizCode,jdbcType=VARCHAR}, 
+      #{recvObjectType,jdbcType=CHAR}, #{startDate,jdbcType=DATE}, #{bizTypeCode,jdbcType=CHAR}, 
+      #{itemCode,jdbcType=DECIMAL}, #{billingCycle,jdbcType=CHAR}, #{relativeCycle,jdbcType=DECIMAL}, 
+      #{price,jdbcType=DECIMAL}, #{newuserRecvType,jdbcType=CHAR}, #{judgeHalfTime,jdbcType=DECIMAL}, 
+      #{halfPrice,jdbcType=DECIMAL}, #{displayType,jdbcType=CHAR}, #{validStartCycle,jdbcType=DECIMAL}, 
+      #{validEndCycle,jdbcType=DECIMAL}, #{endDate,jdbcType=DATE}, #{silenceDeal,jdbcType=CHAR}, 
+      #{averageDeal,jdbcType=CHAR}, #{updateTime,jdbcType=DATE}, #{updateDepartId,jdbcType=CHAR}, 
+      #{updateStaffId,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{feetype,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdASpTariffpo" >
+    insert into TD_A_SP_TARIFF
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dataTypeCode != null" >
+        DATA_TYPE_CODE,
+      </if>
+      <if test="spCode != null" >
+        SP_CODE,
+      </if>
+      <if test="spBizCode != null" >
+        SP_BIZ_CODE,
+      </if>
+      <if test="recvObjectType != null" >
+        RECV_OBJECT_TYPE,
+      </if>
+      <if test="startDate != null" >
+        START_DATE,
+      </if>
+      <if test="bizTypeCode != null" >
+        BIZ_TYPE_CODE,
+      </if>
+      <if test="itemCode != null" >
+        ITEM_CODE,
+      </if>
+      <if test="billingCycle != null" >
+        BILLING_CYCLE,
+      </if>
+      <if test="relativeCycle != null" >
+        RELATIVE_CYCLE,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="newuserRecvType != null" >
+        NEWUSER_RECV_TYPE,
+      </if>
+      <if test="judgeHalfTime != null" >
+        JUDGE_HALF_TIME,
+      </if>
+      <if test="halfPrice != null" >
+        HALF_PRICE,
+      </if>
+      <if test="displayType != null" >
+        DISPLAY_TYPE,
+      </if>
+      <if test="validStartCycle != null" >
+        VALID_START_CYCLE,
+      </if>
+      <if test="validEndCycle != null" >
+        VALID_END_CYCLE,
+      </if>
+      <if test="endDate != null" >
+        END_DATE,
+      </if>
+      <if test="silenceDeal != null" >
+        SILENCE_DEAL,
+      </if>
+      <if test="averageDeal != null" >
+        AVERAGE_DEAL,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID,
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="feetype != null" >
+        FEETYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dataTypeCode != null" >
+        #{dataTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="spCode != null" >
+        #{spCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spBizCode != null" >
+        #{spBizCode,jdbcType=VARCHAR},
+      </if>
+      <if test="recvObjectType != null" >
+        #{recvObjectType,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=DATE},
+      </if>
+      <if test="bizTypeCode != null" >
+        #{bizTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="itemCode != null" >
+        #{itemCode,jdbcType=DECIMAL},
+      </if>
+      <if test="billingCycle != null" >
+        #{billingCycle,jdbcType=CHAR},
+      </if>
+      <if test="relativeCycle != null" >
+        #{relativeCycle,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="newuserRecvType != null" >
+        #{newuserRecvType,jdbcType=CHAR},
+      </if>
+      <if test="judgeHalfTime != null" >
+        #{judgeHalfTime,jdbcType=DECIMAL},
+      </if>
+      <if test="halfPrice != null" >
+        #{halfPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="displayType != null" >
+        #{displayType,jdbcType=CHAR},
+      </if>
+      <if test="validStartCycle != null" >
+        #{validStartCycle,jdbcType=DECIMAL},
+      </if>
+      <if test="validEndCycle != null" >
+        #{validEndCycle,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=DATE},
+      </if>
+      <if test="silenceDeal != null" >
+        #{silenceDeal,jdbcType=CHAR},
+      </if>
+      <if test="averageDeal != null" >
+        #{averageDeal,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateDepartId != null" >
+        #{updateDepartId,jdbcType=CHAR},
+      </if>
+      <if test="updateStaffId != null" >
+        #{updateStaffId,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="feetype != null" >
+        #{feetype,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdASpTariffpo" >
+    update TD_A_SP_TARIFF
+    <set >
+      <if test="bizTypeCode != null" >
+        BIZ_TYPE_CODE = #{bizTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="itemCode != null" >
+        ITEM_CODE = #{itemCode,jdbcType=DECIMAL},
+      </if>
+      <if test="billingCycle != null" >
+        BILLING_CYCLE = #{billingCycle,jdbcType=CHAR},
+      </if>
+      <if test="relativeCycle != null" >
+        RELATIVE_CYCLE = #{relativeCycle,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="newuserRecvType != null" >
+        NEWUSER_RECV_TYPE = #{newuserRecvType,jdbcType=CHAR},
+      </if>
+      <if test="judgeHalfTime != null" >
+        JUDGE_HALF_TIME = #{judgeHalfTime,jdbcType=DECIMAL},
+      </if>
+      <if test="halfPrice != null" >
+        HALF_PRICE = #{halfPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="displayType != null" >
+        DISPLAY_TYPE = #{displayType,jdbcType=CHAR},
+      </if>
+      <if test="validStartCycle != null" >
+        VALID_START_CYCLE = #{validStartCycle,jdbcType=DECIMAL},
+      </if>
+      <if test="validEndCycle != null" >
+        VALID_END_CYCLE = #{validEndCycle,jdbcType=DECIMAL},
+      </if>
+      <if test="endDate != null" >
+        END_DATE = #{endDate,jdbcType=DATE},
+      </if>
+      <if test="silenceDeal != null" >
+        SILENCE_DEAL = #{silenceDeal,jdbcType=CHAR},
+      </if>
+      <if test="averageDeal != null" >
+        AVERAGE_DEAL = #{averageDeal,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID = #{updateDepartId,jdbcType=CHAR},
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID = #{updateStaffId,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="feetype != null" >
+        FEETYPE = #{feetype,jdbcType=CHAR},
+      </if>
+    </set>
+    where DATA_TYPE_CODE = #{dataTypeCode,jdbcType=CHAR}
+      and SP_CODE = #{spCode,jdbcType=VARCHAR}
+      and SP_BIZ_CODE = #{spBizCode,jdbcType=VARCHAR}
+      and RECV_OBJECT_TYPE = #{recvObjectType,jdbcType=CHAR}
+      and START_DATE = #{startDate,jdbcType=DATE}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdASpTariffpo" >
+    update TD_A_SP_TARIFF
+    set BIZ_TYPE_CODE = #{bizTypeCode,jdbcType=CHAR},
+      ITEM_CODE = #{itemCode,jdbcType=DECIMAL},
+      BILLING_CYCLE = #{billingCycle,jdbcType=CHAR},
+      RELATIVE_CYCLE = #{relativeCycle,jdbcType=DECIMAL},
+      PRICE = #{price,jdbcType=DECIMAL},
+      NEWUSER_RECV_TYPE = #{newuserRecvType,jdbcType=CHAR},
+      JUDGE_HALF_TIME = #{judgeHalfTime,jdbcType=DECIMAL},
+      HALF_PRICE = #{halfPrice,jdbcType=DECIMAL},
+      DISPLAY_TYPE = #{displayType,jdbcType=CHAR},
+      VALID_START_CYCLE = #{validStartCycle,jdbcType=DECIMAL},
+      VALID_END_CYCLE = #{validEndCycle,jdbcType=DECIMAL},
+      END_DATE = #{endDate,jdbcType=DATE},
+      SILENCE_DEAL = #{silenceDeal,jdbcType=CHAR},
+      AVERAGE_DEAL = #{averageDeal,jdbcType=CHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=DATE},
+      UPDATE_DEPART_ID = #{updateDepartId,jdbcType=CHAR},
+      UPDATE_STAFF_ID = #{updateStaffId,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      FEETYPE = #{feetype,jdbcType=CHAR}
+    where DATA_TYPE_CODE = #{dataTypeCode,jdbcType=CHAR}
+      and SP_CODE = #{spCode,jdbcType=VARCHAR}
+      and SP_BIZ_CODE = #{spBizCode,jdbcType=VARCHAR}
+      and RECV_OBJECT_TYPE = #{recvObjectType,jdbcType=CHAR}
+      and START_DATE = #{startDate,jdbcType=DATE}
+  </update>
+  <select id="selectPriceByProductId" parameterType="String" resultMap="BaseResultMap">
+  		select ITEM_CODE,PRICE from TD_A_SP_TARIFF where SP_CODE=#{SP_CODE};
+  	</select>
+</mapper>

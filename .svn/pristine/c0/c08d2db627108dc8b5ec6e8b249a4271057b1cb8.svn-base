@@ -1,0 +1,18 @@
+# dubbo config
+dubbo.application.name=tfsPlatform-SpringMVC
+dubbo.application.owner=zhouzy3
+dubbo.registry.address=zookeeper://10.1.248.125:14181?backup=10.1.248.125:14182,10.1.248.125:14183
+dubbo.monitor.protocol=registry
+dubbo.protocol.name=dubbo
+dubbo.protocol.serialization=dubbo
+#dubbo.protocol.port=20883
+dubbo.protocol.accesslog=true
+
+
+# logback
+dubbo.container=spring,logback
+dubbo.application.logger=slf4j
+dubbo.logback.file=logs/biz-qa-manage.logback.log
+dubbo.logback.level=INFO
+dubbo.logback.maxhistory=10
+

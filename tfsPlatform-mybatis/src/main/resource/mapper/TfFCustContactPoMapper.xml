@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfFCustContactPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfFCustContactPo" >
+    <id column="CONTACT_ID" property="contactId" jdbcType="DECIMAL" />
+    <result column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="MYSELF_FLAG" property="myselfFlag" jdbcType="CHAR" />
+    <result column="ORG_ID" property="orgId" jdbcType="DECIMAL" />
+    <result column="STAFF_ID" property="staffId" jdbcType="DECIMAL" />
+    <result column="CONTACT_NAME" property="contactName" jdbcType="VARCHAR" />
+    <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR" />
+    <result column="CONTACT_FAX" property="contactFax" jdbcType="VARCHAR" />
+    <result column="CONTACT_EMAIL" property="contactEmail" jdbcType="VARCHAR" />
+    <result column="CONTACT_POST_CODE" property="contactPostCode" jdbcType="CHAR" />
+    <result column="CONTACT_POST_ADDR" property="contactPostAddr" jdbcType="VARCHAR" />
+    <result column="CONTACT_HOME_ADDR" property="contactHomeAddr" jdbcType="VARCHAR" />
+    <result column="CONTACT_PSPT_TYPE_CODE" property="contactPsptTypeCode" jdbcType="CHAR" />
+    <result column="CONTACT_PSPT_ID" property="contactPsptId" jdbcType="VARCHAR" />
+    <result column="CONTACT_WORK_NAME" property="contactWorkName" jdbcType="VARCHAR" />
+    <result column="CONTACT_WORK_ADDR" property="contactWorkAddr" jdbcType="VARCHAR" />
+    <result column="CONTACT_DEPART" property="contactDepart" jdbcType="VARCHAR" />
+    <result column="CONTACT_DUTY" property="contactDuty" jdbcType="VARCHAR" />
+    <result column="BEST_CONTACT_TIME" property="bestContactTime" jdbcType="TIMESTAMP" />
+    <result column="FIRST_CONTACT_MODE" property="firstContactMode" jdbcType="CHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="VARCHAR" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RSRV_NUM1" property="rsrvNum1" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM2" property="rsrvNum2" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM3" property="rsrvNum3" jdbcType="DECIMAL" />
+    <result column="RSRV_STR1" property="rsrvStr1" jdbcType="VARCHAR" />
+    <result column="RSRV_STR2" property="rsrvStr2" jdbcType="VARCHAR" />
+    <result column="RSRV_STR3" property="rsrvStr3" jdbcType="VARCHAR" />
+    <result column="RSRV_STR4" property="rsrvStr4" jdbcType="VARCHAR" />
+    <result column="RSRV_STR5" property="rsrvStr5" jdbcType="VARCHAR" />
+    <result column="RSRV_STR6" property="rsrvStr6" jdbcType="VARCHAR" />
+    <result column="RSRV_DATE1" property="rsrvDate1" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE2" property="rsrvDate2" jdbcType="TIMESTAMP" />
+    <result column="RSRV_TAG1" property="rsrvTag1" jdbcType="CHAR" />
+    <result column="RSRV_TAG2" property="rsrvTag2" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CONTACT_ID, CUST_ID, MYSELF_FLAG, ORG_ID, STAFF_ID, CONTACT_NAME, CONTACT_PHONE, 
+    CONTACT_FAX, CONTACT_EMAIL, CONTACT_POST_CODE, CONTACT_POST_ADDR, CONTACT_HOME_ADDR, 
+    CONTACT_PSPT_TYPE_CODE, CONTACT_PSPT_ID, CONTACT_WORK_NAME, CONTACT_WORK_ADDR, CONTACT_DEPART, 
+    CONTACT_DUTY, BEST_CONTACT_TIME, FIRST_CONTACT_MODE, UPDATE_TIME, UPDATE_STAFF_ID, 
+    UPDATE_DEPART_ID, REMARK, RSRV_NUM1, RSRV_NUM2, RSRV_NUM3, RSRV_STR1, RSRV_STR2, 
+    RSRV_STR3, RSRV_STR4, RSRV_STR5, RSRV_STR6, RSRV_DATE1, RSRV_DATE2, RSRV_TAG1, RSRV_TAG2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_F_CUST_CONTACT
+    where CONTACT_ID = #{contactId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from TF_F_CUST_CONTACT
+    where CONTACT_ID = #{contactId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfFCustContactPo" >
+    insert into TF_F_CUST_CONTACT (CONTACT_ID, CUST_ID, 
+      MYSELF_FLAG, ORG_ID, STAFF_ID, 
+      CONTACT_NAME, CONTACT_PHONE, CONTACT_FAX, 
+      CONTACT_EMAIL, CONTACT_POST_CODE, CONTACT_POST_ADDR, 
+      CONTACT_HOME_ADDR, CONTACT_PSPT_TYPE_CODE, CONTACT_PSPT_ID, 
+      CONTACT_WORK_NAME, CONTACT_WORK_ADDR, CONTACT_DEPART, 
+      CONTACT_DUTY, BEST_CONTACT_TIME, FIRST_CONTACT_MODE, 
+      UPDATE_TIME, UPDATE_STAFF_ID, UPDATE_DEPART_ID, 
+      REMARK, RSRV_NUM1, RSRV_NUM2, 
+      RSRV_NUM3, RSRV_STR1, RSRV_STR2, 
+      RSRV_STR3, RSRV_STR4, RSRV_STR5, 
+      RSRV_STR6, RSRV_DATE1, RSRV_DATE2, 
+      RSRV_TAG1, RSRV_TAG2)
+    values (#{contactId,jdbcType=DECIMAL}, #{custId,jdbcType=DECIMAL}, 
+      #{myselfFlag,jdbcType=CHAR}, #{orgId,jdbcType=DECIMAL}, #{staffId,jdbcType=DECIMAL}, 
+      #{contactName,jdbcType=VARCHAR}, #{contactPhone,jdbcType=VARCHAR}, #{contactFax,jdbcType=VARCHAR}, 
+      #{contactEmail,jdbcType=VARCHAR}, #{contactPostCode,jdbcType=CHAR}, #{contactPostAddr,jdbcType=VARCHAR}, 
+      #{contactHomeAddr,jdbcType=VARCHAR}, #{contactPsptTypeCode,jdbcType=CHAR}, #{contactPsptId,jdbcType=VARCHAR}, 
+      #{contactWorkName,jdbcType=VARCHAR}, #{contactWorkAddr,jdbcType=VARCHAR}, #{contactDepart,jdbcType=VARCHAR}, 
+      #{contactDuty,jdbcType=VARCHAR}, #{bestContactTime,jdbcType=TIMESTAMP}, #{firstContactMode,jdbcType=CHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateStaffId,jdbcType=VARCHAR}, #{updateDepartId,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{rsrvNum1,jdbcType=DECIMAL}, #{rsrvNum2,jdbcType=DECIMAL}, 
+      #{rsrvNum3,jdbcType=DECIMAL}, #{rsrvStr1,jdbcType=VARCHAR}, #{rsrvStr2,jdbcType=VARCHAR}, 
+      #{rsrvStr3,jdbcType=VARCHAR}, #{rsrvStr4,jdbcType=VARCHAR}, #{rsrvStr5,jdbcType=VARCHAR}, 
+      #{rsrvStr6,jdbcType=VARCHAR}, #{rsrvDate1,jdbcType=TIMESTAMP}, #{rsrvDate2,jdbcType=TIMESTAMP}, 
+      #{rsrvTag1,jdbcType=CHAR}, #{rsrvTag2,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfFCustContactPo" >
+    insert into TF_F_CUST_CONTACT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="contactId != null" >
+        CONTACT_ID,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="partitionId != null" >
+        PARTITION_ID,
+      </if>
+      <if test="myselfFlag != null" >
+        MYSELF_FLAG,
+      </if>
+      <if test="orgId != null" >
+        ORG_ID,
+      </if>
+      <if test="staffId != null" >
+        STAFF_ID,
+      </if>
+      <if test="contactName != null" >
+        CONTACT_NAME,
+      </if>
+      <if test="contactPhone != null" >
+        CONTACT_PHONE,
+      </if>
+      <if test="contactFax != null" >
+        CONTACT_FAX,
+      </if>
+      <if test="contactEmail != null" >
+        CONTACT_EMAIL,
+      </if>
+      <if test="contactPostCode != null" >
+        CONTACT_POST_CODE,
+      </if>
+      <if test="contactPostAddr != null" >
+        CONTACT_POST_ADDR,
+      </if>
+      <if test="contactHomeAddr != null" >
+        CONTACT_HOME_ADDR,
+      </if>
+      <if test="contactPsptTypeCode != null" >
+        CONTACT_PSPT_TYPE_CODE,
+      </if>
+      <if test="contactPsptId != null" >
+        CONTACT_PSPT_ID,
+      </if>
+      <if test="contactWorkName != null" >
+        CONTACT_WORK_NAME,
+      </if>
+      <if test="contactWorkAddr != null" >
+        CONTACT_WORK_ADDR,
+      </if>
+      <if test="contactDepart != null" >
+        CONTACT_DEPART,
+      </if>
+      <if test="contactDuty != null" >
+        CONTACT_DUTY,
+      </if>
+      <if test="bestContactTime != null" >
+        BEST_CONTACT_TIME,
+      </if>
+      <if test="firstContactMode != null" >
+        FIRST_CONTACT_MODE,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID,
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="rsrvNum1 != null" >
+        RSRV_NUM1,
+      </if>
+      <if test="rsrvNum2 != null" >
+        RSRV_NUM2,
+      </if>
+      <if test="rsrvNum3 != null" >
+        RSRV_NUM3,
+      </if>
+      <if test="rsrvStr1 != null" >
+        RSRV_STR1,
+      </if>
+      <if test="rsrvStr2 != null" >
+        RSRV_STR2,
+      </if>
+      <if test="rsrvStr3 != null" >
+        RSRV_STR3,
+      </if>
+      <if test="rsrvStr4 != null" >
+        RSRV_STR4,
+      </if>
+      <if test="rsrvStr5 != null" >
+        RSRV_STR5,
+      </if>
+      <if test="rsrvStr6 != null" >
+        RSRV_STR6,
+      </if>
+      <if test="rsrvDate1 != null" >
+        RSRV_DATE1,
+      </if>
+      <if test="rsrvDate2 != null" >
+        RSRV_DATE2,
+      </if>
+      <if test="rsrvTag1 != null" >
+        RSRV_TAG1,
+      </if>
+      <if test="rsrvTag2 != null" >
+        RSRV_TAG2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="contactId != null" >
+        #{contactId,jdbcType=DECIMAL},
+      </if>
+      <if test="custId != null" >
+        #{custId,jdbcType=DECIMAL},
+      </if>
+      <if test="partitionId != null" >
+        #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="myselfFlag != null" >
+        #{myselfFlag,jdbcType=CHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=DECIMAL},
+      </if>
+      <if test="staffId != null" >
+        #{staffId,jdbcType=DECIMAL},
+      </if>
+      <if test="contactName != null" >
+        #{contactName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null" >
+        #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactFax != null" >
+        #{contactFax,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null" >
+        #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPostCode != null" >
+        #{contactPostCode,jdbcType=CHAR},
+      </if>
+      <if test="contactPostAddr != null" >
+        #{contactPostAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="contactHomeAddr != null" >
+        #{contactHomeAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPsptTypeCode != null" >
+        #{contactPsptTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="contactPsptId != null" >
+        #{contactPsptId,jdbcType=VARCHAR},
+      </if>
+      <if test="contactWorkName != null" >
+        #{contactWorkName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactWorkAddr != null" >
+        #{contactWorkAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="contactDepart != null" >
+        #{contactDepart,jdbcType=VARCHAR},
+      </if>
+      <if test="contactDuty != null" >
+        #{contactDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="bestContactTime != null" >
+        #{bestContactTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstContactMode != null" >
+        #{firstContactMode,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStaffId != null" >
+        #{updateStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        #{updateDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvNum1 != null" >
+        #{rsrvNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum2 != null" >
+        #{rsrvNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum3 != null" >
+        #{rsrvNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvStr1 != null" >
+        #{rsrvStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr2 != null" >
+        #{rsrvStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr3 != null" >
+        #{rsrvStr3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr4 != null" >
+        #{rsrvStr4,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr5 != null" >
+        #{rsrvStr5,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr6 != null" >
+        #{rsrvStr6,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvDate1 != null" >
+        #{rsrvDate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate2 != null" >
+        #{rsrvDate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvTag1 != null" >
+        #{rsrvTag1,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag2 != null" >
+        #{rsrvTag2,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfFCustContactPo" >
+    update TF_F_CUST_CONTACT
+    <set >
+      <if test="custId != null" >
+        CUST_ID = #{custId,jdbcType=DECIMAL},
+      </if>
+      <if test="myselfFlag != null" >
+        MYSELF_FLAG = #{myselfFlag,jdbcType=CHAR},
+      </if>
+      <if test="orgId != null" >
+        ORG_ID = #{orgId,jdbcType=DECIMAL},
+      </if>
+      <if test="staffId != null" >
+        STAFF_ID = #{staffId,jdbcType=DECIMAL},
+      </if>
+      <if test="contactName != null" >
+        CONTACT_NAME = #{contactName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null" >
+        CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactFax != null" >
+        CONTACT_FAX = #{contactFax,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null" >
+        CONTACT_EMAIL = #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPostCode != null" >
+        CONTACT_POST_CODE = #{contactPostCode,jdbcType=CHAR},
+      </if>
+      <if test="contactPostAddr != null" >
+        CONTACT_POST_ADDR = #{contactPostAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="contactHomeAddr != null" >
+        CONTACT_HOME_ADDR = #{contactHomeAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPsptTypeCode != null" >
+        CONTACT_PSPT_TYPE_CODE = #{contactPsptTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="contactPsptId != null" >
+        CONTACT_PSPT_ID = #{contactPsptId,jdbcType=VARCHAR},
+      </if>
+      <if test="contactWorkName != null" >
+        CONTACT_WORK_NAME = #{contactWorkName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactWorkAddr != null" >
+        CONTACT_WORK_ADDR = #{contactWorkAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="contactDepart != null" >
+        CONTACT_DEPART = #{contactDepart,jdbcType=VARCHAR},
+      </if>
+      <if test="contactDuty != null" >
+        CONTACT_DUTY = #{contactDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="bestContactTime != null" >
+        BEST_CONTACT_TIME = #{bestContactTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstContactMode != null" >
+        FIRST_CONTACT_MODE = #{firstContactMode,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID = #{updateStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID = #{updateDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvNum1 != null" >
+        RSRV_NUM1 = #{rsrvNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum2 != null" >
+        RSRV_NUM2 = #{rsrvNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum3 != null" >
+        RSRV_NUM3 = #{rsrvNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvStr1 != null" >
+        RSRV_STR1 = #{rsrvStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr2 != null" >
+        RSRV_STR2 = #{rsrvStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr3 != null" >
+        RSRV_STR3 = #{rsrvStr3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr4 != null" >
+        RSRV_STR4 = #{rsrvStr4,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr5 != null" >
+        RSRV_STR5 = #{rsrvStr5,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr6 != null" >
+        RSRV_STR6 = #{rsrvStr6,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvDate1 != null" >
+        RSRV_DATE1 = #{rsrvDate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate2 != null" >
+        RSRV_DATE2 = #{rsrvDate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvTag1 != null" >
+        RSRV_TAG1 = #{rsrvTag1,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag2 != null" >
+        RSRV_TAG2 = #{rsrvTag2,jdbcType=CHAR},
+      </if>
+    </set>
+    where CONTACT_ID = #{contactId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfFCustContactPo" >
+    update TF_F_CUST_CONTACT
+    set CUST_ID = #{custId,jdbcType=DECIMAL},
+      PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      MYSELF_FLAG = #{myselfFlag,jdbcType=CHAR},
+      ORG_ID = #{orgId,jdbcType=DECIMAL},
+      STAFF_ID = #{staffId,jdbcType=DECIMAL},
+      CONTACT_NAME = #{contactName,jdbcType=VARCHAR},
+      CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+      CONTACT_FAX = #{contactFax,jdbcType=VARCHAR},
+      CONTACT_EMAIL = #{contactEmail,jdbcType=VARCHAR},
+      CONTACT_POST_CODE = #{contactPostCode,jdbcType=CHAR},
+      CONTACT_POST_ADDR = #{contactPostAddr,jdbcType=VARCHAR},
+      CONTACT_HOME_ADDR = #{contactHomeAddr,jdbcType=VARCHAR},
+      CONTACT_PSPT_TYPE_CODE = #{contactPsptTypeCode,jdbcType=CHAR},
+      CONTACT_PSPT_ID = #{contactPsptId,jdbcType=VARCHAR},
+      CONTACT_WORK_NAME = #{contactWorkName,jdbcType=VARCHAR},
+      CONTACT_WORK_ADDR = #{contactWorkAddr,jdbcType=VARCHAR},
+      CONTACT_DEPART = #{contactDepart,jdbcType=VARCHAR},
+      CONTACT_DUTY = #{contactDuty,jdbcType=VARCHAR},
+      BEST_CONTACT_TIME = #{bestContactTime,jdbcType=TIMESTAMP},
+      FIRST_CONTACT_MODE = #{firstContactMode,jdbcType=CHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_STAFF_ID = #{updateStaffId,jdbcType=VARCHAR},
+      UPDATE_DEPART_ID = #{updateDepartId,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      RSRV_NUM1 = #{rsrvNum1,jdbcType=DECIMAL},
+      RSRV_NUM2 = #{rsrvNum2,jdbcType=DECIMAL},
+      RSRV_NUM3 = #{rsrvNum3,jdbcType=DECIMAL},
+      RSRV_STR1 = #{rsrvStr1,jdbcType=VARCHAR},
+      RSRV_STR2 = #{rsrvStr2,jdbcType=VARCHAR},
+      RSRV_STR3 = #{rsrvStr3,jdbcType=VARCHAR},
+      RSRV_STR4 = #{rsrvStr4,jdbcType=VARCHAR},
+      RSRV_STR5 = #{rsrvStr5,jdbcType=VARCHAR},
+      RSRV_STR6 = #{rsrvStr6,jdbcType=VARCHAR},
+      RSRV_DATE1 = #{rsrvDate1,jdbcType=TIMESTAMP},
+      RSRV_DATE2 = #{rsrvDate2,jdbcType=TIMESTAMP},
+      RSRV_TAG1 = #{rsrvTag1,jdbcType=CHAR},
+      RSRV_TAG2 = #{rsrvTag2,jdbcType=CHAR}
+    where CONTACT_ID = #{contactId,jdbcType=DECIMAL}
+  </update>
+</mapper>

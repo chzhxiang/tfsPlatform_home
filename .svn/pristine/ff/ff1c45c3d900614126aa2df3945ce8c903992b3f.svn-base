@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfFRelationUupoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfFRelationUupo" >
+    <id column="USER_ID_A" property="userIdA" jdbcType="DECIMAL" />
+    <id column="USER_ID_B" property="userIdB" jdbcType="DECIMAL" />
+    <id column="RELATION_TYPE_CODE" property="relationTypeCode" jdbcType="VARCHAR" />
+    <id column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="SERIAL_NUMBER_A" property="serialNumberA" jdbcType="VARCHAR" />
+    <result column="SERIAL_NUMBER_B" property="serialNumberB" jdbcType="VARCHAR" />
+    <result column="RELATION_ATTR" property="relationAttr" jdbcType="CHAR" />
+    <result column="ROLE_CODE_A" property="roleCodeA" jdbcType="CHAR" />
+    <result column="ROLE_CODE_B" property="roleCodeB" jdbcType="CHAR" />
+    <result column="ORDERNO" property="orderno" jdbcType="DECIMAL" />
+    <result column="SHORT_CODE" property="shortCode" jdbcType="VARCHAR" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="ITEM_ID" property="itemId" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID_A, USER_ID_B, RELATION_TYPE_CODE, START_DATE, PARTITION_ID, SERIAL_NUMBER_A, 
+    SERIAL_NUMBER_B, RELATION_ATTR, ROLE_CODE_A, ROLE_CODE_B, ORDERNO, SHORT_CODE, END_DATE, 
+    ITEM_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_F_RELATION_UU
+    where USER_ID_A = #{userIdA,jdbcType=DECIMAL}
+      and USER_ID_B = #{userIdB,jdbcType=DECIMAL}
+      and RELATION_TYPE_CODE = #{relationTypeCode,jdbcType=VARCHAR}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TF_F_RELATION_UU
+    where USER_ID_A = #{userIdA,jdbcType=DECIMAL}
+      and USER_ID_B = #{userIdB,jdbcType=DECIMAL}
+      and RELATION_TYPE_CODE = #{relationTypeCode,jdbcType=VARCHAR}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfFRelationUupo" >
+    insert into TF_F_RELATION_UU (USER_ID_A, USER_ID_B, RELATION_TYPE_CODE, 
+      START_DATE, PARTITION_ID, SERIAL_NUMBER_A, 
+      SERIAL_NUMBER_B, RELATION_ATTR, ROLE_CODE_A, 
+      ROLE_CODE_B, ORDERNO, SHORT_CODE, 
+      END_DATE, ITEM_ID)
+    values (#{userIdA,jdbcType=DECIMAL}, #{userIdB,jdbcType=DECIMAL}, #{relationTypeCode,jdbcType=VARCHAR}, 
+      #{startDate,jdbcType=TIMESTAMP}, #{partitionId,jdbcType=DECIMAL}, #{serialNumberA,jdbcType=VARCHAR}, 
+      #{serialNumberB,jdbcType=VARCHAR}, #{relationAttr,jdbcType=CHAR}, #{roleCodeA,jdbcType=CHAR}, 
+      #{roleCodeB,jdbcType=CHAR}, #{orderno,jdbcType=DECIMAL}, #{shortCode,jdbcType=VARCHAR}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{itemId,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfFRelationUupo" >
+    insert into TF_F_RELATION_UU
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userIdA != null" >
+        USER_ID_A,
+      </if>
+      <if test="userIdB != null" >
+        USER_ID_B,
+      </if>
+      <if test="relationTypeCode != null" >
+        RELATION_TYPE_CODE,
+      </if>
+      <if test="startDate != null" >
+        START_DATE,
+      </if>
+      <if test="partitionId != null" >
+        PARTITION_ID,
+      </if>
+      <if test="serialNumberA != null" >
+        SERIAL_NUMBER_A,
+      </if>
+      <if test="serialNumberB != null" >
+        SERIAL_NUMBER_B,
+      </if>
+      <if test="relationAttr != null" >
+        RELATION_ATTR,
+      </if>
+      <if test="roleCodeA != null" >
+        ROLE_CODE_A,
+      </if>
+      <if test="roleCodeB != null" >
+        ROLE_CODE_B,
+      </if>
+      <if test="orderno != null" >
+        ORDERNO,
+      </if>
+      <if test="shortCode != null" >
+        SHORT_CODE,
+      </if>
+      <if test="endDate != null" >
+        END_DATE,
+      </if>
+      <if test="itemId != null" >
+        ITEM_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userIdA != null" >
+        #{userIdA,jdbcType=DECIMAL},
+      </if>
+      <if test="userIdB != null" >
+        #{userIdB,jdbcType=DECIMAL},
+      </if>
+      <if test="relationTypeCode != null" >
+        #{relationTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="partitionId != null" >
+        #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="serialNumberA != null" >
+        #{serialNumberA,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumberB != null" >
+        #{serialNumberB,jdbcType=VARCHAR},
+      </if>
+      <if test="relationAttr != null" >
+        #{relationAttr,jdbcType=CHAR},
+      </if>
+      <if test="roleCodeA != null" >
+        #{roleCodeA,jdbcType=CHAR},
+      </if>
+      <if test="roleCodeB != null" >
+        #{roleCodeB,jdbcType=CHAR},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=DECIMAL},
+      </if>
+      <if test="shortCode != null" >
+        #{shortCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemId != null" >
+        #{itemId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfFRelationUupo" >
+    update TF_F_RELATION_UU
+    <set >
+      <if test="partitionId != null" >
+        PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="serialNumberA != null" >
+        SERIAL_NUMBER_A = #{serialNumberA,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumberB != null" >
+        SERIAL_NUMBER_B = #{serialNumberB,jdbcType=VARCHAR},
+      </if>
+      <if test="relationAttr != null" >
+        RELATION_ATTR = #{relationAttr,jdbcType=CHAR},
+      </if>
+      <if test="roleCodeA != null" >
+        ROLE_CODE_A = #{roleCodeA,jdbcType=CHAR},
+      </if>
+      <if test="roleCodeB != null" >
+        ROLE_CODE_B = #{roleCodeB,jdbcType=CHAR},
+      </if>
+      <if test="orderno != null" >
+        ORDERNO = #{orderno,jdbcType=DECIMAL},
+      </if>
+      <if test="shortCode != null" >
+        SHORT_CODE = #{shortCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null" >
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemId != null" >
+        ITEM_ID = #{itemId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where USER_ID_A = #{userIdA,jdbcType=DECIMAL}
+      and USER_ID_B = #{userIdB,jdbcType=DECIMAL}
+      and RELATION_TYPE_CODE = #{relationTypeCode,jdbcType=VARCHAR}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfFRelationUupo" >
+    update TF_F_RELATION_UU
+    set PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      SERIAL_NUMBER_A = #{serialNumberA,jdbcType=VARCHAR},
+      SERIAL_NUMBER_B = #{serialNumberB,jdbcType=VARCHAR},
+      RELATION_ATTR = #{relationAttr,jdbcType=CHAR},
+      ROLE_CODE_A = #{roleCodeA,jdbcType=CHAR},
+      ROLE_CODE_B = #{roleCodeB,jdbcType=CHAR},
+      ORDERNO = #{orderno,jdbcType=DECIMAL},
+      SHORT_CODE = #{shortCode,jdbcType=VARCHAR},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      ITEM_ID = #{itemId,jdbcType=DECIMAL}
+    where USER_ID_A = #{userIdA,jdbcType=DECIMAL}
+      and USER_ID_B = #{userIdB,jdbcType=DECIMAL}
+      and RELATION_TYPE_CODE = #{relationTypeCode,jdbcType=VARCHAR}
+      and START_DATE = #{startDate,jdbcType=TIMESTAMP}
+  </update>
+   <select id="selectGroupUsers" parameterType="Long" resultMap="BaseResultMap">
+  		select USER_ID_B,SERIAL_NUMBER_B from TF_F_RELATION_UU where USER_ID_A=#{user_id};
+  </select>
+</mapper>

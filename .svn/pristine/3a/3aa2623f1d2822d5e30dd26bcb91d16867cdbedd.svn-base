@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TJUserImportOldPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TJUserImportOldPo" >
+    <result column="ADD_DATE" property="addDate" jdbcType="TIMESTAMP" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+    <result column="DIVICE_ID" property="diviceId" jdbcType="DECIMAL" />
+    <result column="SUM_BANDWIDTH" property="sumBandwidth" jdbcType="DECIMAL" />
+    <result column="IS_ONLINE" property="isOnline" jdbcType="CHAR" />
+    <result column="MODEM_ID" property="modemId" jdbcType="DECIMAL" />
+    <result column="MSISDN" property="msisdn" jdbcType="VARCHAR" />
+    <result column="CUSTOMER" property="customer" jdbcType="VARCHAR" />
+    <result column="DISCNT_PLAN" property="discntPlan" jdbcType="VARCHAR" />
+    <result column="IS_OVER_LIMMIT" property="isOverLimmit" jdbcType="CHAR" />
+    <result column="IMSI" property="imsi" jdbcType="VARCHAR" />
+    <result column="SIM_STATE" property="simState" jdbcType="CHAR" />
+    <result column="IS_ACTIVE" property="isActive" jdbcType="CHAR" />
+    <result column="VIRTUAL_ID" property="virtualId" jdbcType="DECIMAL" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TJUserImportOldPo" >
+    insert into T_J_USER_IMPORT_OLD (ADD_DATE, ICCID, DIVICE_ID, 
+      SUM_BANDWIDTH, IS_ONLINE, MODEM_ID, 
+      MSISDN, CUSTOMER, DISCNT_PLAN, 
+      IS_OVER_LIMMIT, IMSI, SIM_STATE, 
+      IS_ACTIVE, VIRTUAL_ID, CREATE_DATE
+      )
+    values (#{addDate,jdbcType=TIMESTAMP}, #{iccid,jdbcType=VARCHAR}, #{diviceId,jdbcType=DECIMAL}, 
+      #{sumBandwidth,jdbcType=DECIMAL}, #{isOnline,jdbcType=CHAR}, #{modemId,jdbcType=DECIMAL}, 
+      #{msisdn,jdbcType=VARCHAR}, #{customer,jdbcType=VARCHAR}, #{discntPlan,jdbcType=VARCHAR}, 
+      #{isOverLimmit,jdbcType=CHAR}, #{imsi,jdbcType=VARCHAR}, #{simState,jdbcType=CHAR}, 
+      #{isActive,jdbcType=CHAR}, #{virtualId,jdbcType=DECIMAL}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TJUserImportOldPo" >
+    insert into T_J_USER_IMPORT_OLD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="addDate != null" >
+        ADD_DATE,
+      </if>
+      <if test="iccid != null" >
+        ICCID,
+      </if>
+      <if test="diviceId != null" >
+        DIVICE_ID,
+      </if>
+      <if test="sumBandwidth != null" >
+        SUM_BANDWIDTH,
+      </if>
+      <if test="isOnline != null" >
+        IS_ONLINE,
+      </if>
+      <if test="modemId != null" >
+        MODEM_ID,
+      </if>
+      <if test="msisdn != null" >
+        MSISDN,
+      </if>
+      <if test="customer != null" >
+        CUSTOMER,
+      </if>
+      <if test="discntPlan != null" >
+        DISCNT_PLAN,
+      </if>
+      <if test="isOverLimmit != null" >
+        IS_OVER_LIMMIT,
+      </if>
+      <if test="imsi != null" >
+        IMSI,
+      </if>
+      <if test="simState != null" >
+        SIM_STATE,
+      </if>
+      <if test="isActive != null" >
+        IS_ACTIVE,
+      </if>
+      <if test="virtualId != null" >
+        VIRTUAL_ID,
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="addDate != null" >
+        #{addDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iccid != null" >
+        #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="diviceId != null" >
+        #{diviceId,jdbcType=DECIMAL},
+      </if>
+      <if test="sumBandwidth != null" >
+        #{sumBandwidth,jdbcType=DECIMAL},
+      </if>
+      <if test="isOnline != null" >
+        #{isOnline,jdbcType=CHAR},
+      </if>
+      <if test="modemId != null" >
+        #{modemId,jdbcType=DECIMAL},
+      </if>
+      <if test="msisdn != null" >
+        #{msisdn,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="discntPlan != null" >
+        #{discntPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="isOverLimmit != null" >
+        #{isOverLimmit,jdbcType=CHAR},
+      </if>
+      <if test="imsi != null" >
+        #{imsi,jdbcType=VARCHAR},
+      </if>
+      <if test="simState != null" >
+        #{simState,jdbcType=CHAR},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=CHAR},
+      </if>
+      <if test="virtualId != null" >
+        #{virtualId,jdbcType=DECIMAL},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TdBDepositLimitRulePoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TdBDepositLimitRulePo" >
+    <id column="DEPOSIT_LIMIT_RULE_ID" property="depositLimitRuleId" jdbcType="DECIMAL" />
+    <id column="DEPOSIT_CODE" property="depositCode" jdbcType="DECIMAL" />
+    <id column="ITEM_CODE" property="itemCode" jdbcType="DECIMAL" />
+    <result column="LIMIT_MODE" property="limitMode" jdbcType="CHAR" />
+    <result column="LIMIT_TYPE" property="limitType" jdbcType="CHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DEPOSIT_LIMIT_RULE_ID, DEPOSIT_CODE, ITEM_CODE, LIMIT_MODE, LIMIT_TYPE, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_DEPOSITLIMITRULE
+    where DEPOSIT_LIMIT_RULE_ID = #{depositLimitRuleId,jdbcType=DECIMAL}
+      and DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+      and ITEM_CODE = #{itemCode,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TD_B_DEPOSITLIMITRULE
+    where DEPOSIT_LIMIT_RULE_ID = #{depositLimitRuleId,jdbcType=DECIMAL}
+      and DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+      and ITEM_CODE = #{itemCode,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositLimitRulePo" >
+    insert into TD_B_DEPOSITLIMITRULE (DEPOSIT_LIMIT_RULE_ID, DEPOSIT_CODE, 
+      ITEM_CODE, LIMIT_MODE, LIMIT_TYPE, 
+      REMARK)
+    values (#{depositLimitRuleId,jdbcType=DECIMAL}, #{depositCode,jdbcType=DECIMAL}, 
+      #{itemCode,jdbcType=DECIMAL}, #{limitMode,jdbcType=CHAR}, #{limitType,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositLimitRulePo" >
+    insert into TD_B_DEPOSITLIMITRULE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="depositLimitRuleId != null" >
+        DEPOSIT_LIMIT_RULE_ID,
+      </if>
+      <if test="depositCode != null" >
+        DEPOSIT_CODE,
+      </if>
+      <if test="itemCode != null" >
+        ITEM_CODE,
+      </if>
+      <if test="limitMode != null" >
+        LIMIT_MODE,
+      </if>
+      <if test="limitType != null" >
+        LIMIT_TYPE,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="depositLimitRuleId != null" >
+        #{depositLimitRuleId,jdbcType=DECIMAL},
+      </if>
+      <if test="depositCode != null" >
+        #{depositCode,jdbcType=DECIMAL},
+      </if>
+      <if test="itemCode != null" >
+        #{itemCode,jdbcType=DECIMAL},
+      </if>
+      <if test="limitMode != null" >
+        #{limitMode,jdbcType=CHAR},
+      </if>
+      <if test="limitType != null" >
+        #{limitType,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositLimitRulePo" >
+    update TD_B_DEPOSITLIMITRULE
+    <set >
+      <if test="limitMode != null" >
+        LIMIT_MODE = #{limitMode,jdbcType=CHAR},
+      </if>
+      <if test="limitType != null" >
+        LIMIT_TYPE = #{limitType,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DEPOSIT_LIMIT_RULE_ID = #{depositLimitRuleId,jdbcType=DECIMAL}
+      and DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+      and ITEM_CODE = #{itemCode,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TdBDepositLimitRulePo" >
+    update TD_B_DEPOSITLIMITRULE
+    set LIMIT_MODE = #{limitMode,jdbcType=CHAR},
+      LIMIT_TYPE = #{limitType,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where DEPOSIT_LIMIT_RULE_ID = #{depositLimitRuleId,jdbcType=DECIMAL}
+      and DEPOSIT_CODE = #{depositCode,jdbcType=DECIMAL}
+      and ITEM_CODE = #{itemCode,jdbcType=DECIMAL}
+  </update>
+</mapper>

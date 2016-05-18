@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.TfBTradeUserPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfBTradeUserPo" >
+    <id column="TRADE_ID" property="tradeId" jdbcType="DECIMAL" />
+    <id column="ACCEPT_MONTH" property="acceptMonth" jdbcType="DECIMAL" />
+    <id column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="INTEGER" />
+    <result column="CUST_ID" property="custId" jdbcType="INTEGER" />
+    <result column="USECUST_ID" property="usecustId" jdbcType="INTEGER" />
+    <result column="ORG_ID" property="orgId" jdbcType="INTEGER" />
+    <result column="BRAND_CODE" property="brandCode" jdbcType="CHAR" />
+    <result column="PRODUCT_ID" property="productId" jdbcType="INTEGER" />
+    <result column="PRODUCT_TYPE_CODE" property="productTypeCode" jdbcType="VARCHAR" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="IN_NET_MODE" property="inNetMode" jdbcType="VARCHAR" />
+    <result column="USER_PASSWD" property="userPasswd" jdbcType="VARCHAR" />
+    <result column="USER_DIFF_CODE" property="userDiffCode" jdbcType="VARCHAR" />
+    <result column="USER_TYPE_CODE" property="userTypeCode" jdbcType="CHAR" />
+    <result column="CAR_NUMBER" property="carNumber" jdbcType="VARCHAR" />
+    <result column="SERIAL_NUMBER" property="serialNumber" jdbcType="VARCHAR" />
+    <result column="NET_TYPE_CODE" property="netTypeCode" jdbcType="VARCHAR" />
+    <result column="SCORE_VALUE" property="scoreValue" jdbcType="INTEGER" />
+    <result column="CREDIT_CLASS" property="creditClass" jdbcType="INTEGER" />
+    <result column="BASIC_CREDIT_VALUE" property="basicCreditValue" jdbcType="INTEGER" />
+    <result column="CREDIT_VALUE" property="creditValue" jdbcType="INTEGER" />
+    <result column="ACCT_TAG" property="acctTag" jdbcType="CHAR" />
+    <result column="PREPAY_TAG" property="prepayTag" jdbcType="CHAR" />
+    <result column="IN_DATE" property="inDate" jdbcType="DATE" />
+    <result column="OPEN_DATE" property="openDate" jdbcType="DATE" />
+    <result column="OPEN_MODE" property="openMode" jdbcType="CHAR" />
+    <result column="OPEN_DEPART_ID" property="openDepartId" jdbcType="VARCHAR" />
+    <result column="OPEN_STAFF_ID" property="openStaffId" jdbcType="VARCHAR" />
+    <result column="IN_DEPART_ID" property="inDepartId" jdbcType="VARCHAR" />
+    <result column="IN_STAFF_ID" property="inStaffId" jdbcType="VARCHAR" />
+    <result column="REMOVE_TAG" property="removeTag" jdbcType="CHAR" />
+    <result column="DESTROY_TIME" property="destroyTime" jdbcType="DATE" />
+    <result column="REMOVE_EPARCHY_CODE" property="removeEparchyCode" jdbcType="VARCHAR" />
+    <result column="REMOVE_CITY_CODE" property="removeCityCode" jdbcType="VARCHAR" />
+    <result column="REMOVE_DEPART_ID" property="removeDepartId" jdbcType="VARCHAR" />
+    <result column="REMOVE_REASON_CODE" property="removeReasonCode" jdbcType="VARCHAR" />
+    <result column="PRE_DESTROY_TIME" property="preDestroyTime" jdbcType="DATE" />
+    <result column="FIRST_CALL_TIME" property="firstCallTime" jdbcType="DATE" />
+    <result column="LAST_STOP_TIME" property="lastStopTime" jdbcType="DATE" />
+    <result column="USER_STATE_CODESET" property="userStateCodeset" jdbcType="VARCHAR" />
+    <result column="MPUTE_MONTH_FEE" property="mputeMonthFee" jdbcType="CHAR" />
+    <result column="MPUTE_DATE" property="mputeDate" jdbcType="DATE" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="DATE" />
+    <result column="ASSURE_CUST_ID" property="assureCustId" jdbcType="INTEGER" />
+    <result column="ASSURE_TYPE_CODE" property="assureTypeCode" jdbcType="CHAR" />
+    <result column="ASSURE_DATE" property="assureDate" jdbcType="DATE" />
+    <result column="DEVELOP_STAFF_ID" property="developStaffId" jdbcType="VARCHAR" />
+    <result column="DEVELOP_DATE" property="developDate" jdbcType="DATE" />
+    <result column="DEVELOP_EPARCHY_CODE" property="developEparchyCode" jdbcType="VARCHAR" />
+    <result column="DEVELOP_CITY_CODE" property="developCityCode" jdbcType="VARCHAR" />
+    <result column="DEVELOP_DEPART_ID" property="developDepartId" jdbcType="VARCHAR" />
+    <result column="DEVELOP_NO" property="developNo" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="CREDIT_RULE_ID" property="creditRuleId" jdbcType="INTEGER" />
+    <result column="CONTRACT_ID" property="contractId" jdbcType="VARCHAR" />
+    <result column="CHANGEUSER_DATE" property="changeuserDate" jdbcType="DATE" />
+    <result column="MAIN_DISCNT_CODE" property="mainDiscntCode" jdbcType="INTEGER" />
+    <result column="PRODUCT_SPEC" property="productSpec" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADE_ID, ACCEPT_MONTH, USER_ID, PARTITION_ID, CUST_ID, USECUST_ID, ORG_ID, BRAND_CODE, 
+    PRODUCT_ID, PRODUCT_TYPE_CODE, EPARCHY_CODE, CITY_CODE, IN_NET_MODE, USER_PASSWD, 
+    USER_DIFF_CODE, USER_TYPE_CODE, CAR_NUMBER, SERIAL_NUMBER, NET_TYPE_CODE, SCORE_VALUE, 
+    CREDIT_CLASS, BASIC_CREDIT_VALUE, CREDIT_VALUE, ACCT_TAG, PREPAY_TAG, IN_DATE, OPEN_DATE, 
+    OPEN_MODE, OPEN_DEPART_ID, OPEN_STAFF_ID, IN_DEPART_ID, IN_STAFF_ID, REMOVE_TAG, 
+    DESTROY_TIME, REMOVE_EPARCHY_CODE, REMOVE_CITY_CODE, REMOVE_DEPART_ID, REMOVE_REASON_CODE, 
+    PRE_DESTROY_TIME, FIRST_CALL_TIME, LAST_STOP_TIME, USER_STATE_CODESET, MPUTE_MONTH_FEE, 
+    MPUTE_DATE, UPDATE_TIME, ASSURE_CUST_ID, ASSURE_TYPE_CODE, ASSURE_DATE, DEVELOP_STAFF_ID, 
+    DEVELOP_DATE, DEVELOP_EPARCHY_CODE, DEVELOP_CITY_CODE, DEVELOP_DEPART_ID, DEVELOP_NO, 
+    REMARK, CREDIT_RULE_ID, CONTRACT_ID, CHANGEUSER_DATE, MAIN_DISCNT_CODE, PRODUCT_SPEC
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_B_TRADE_USER
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and USER_ID = #{userId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from TF_B_TRADE_USER
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and USER_ID = #{userId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeUserPo" >
+    insert into TF_B_TRADE_USER (TRADE_ID, ACCEPT_MONTH, USER_ID, 
+      PARTITION_ID, CUST_ID, USECUST_ID, 
+      ORG_ID, BRAND_CODE, PRODUCT_ID, 
+      PRODUCT_TYPE_CODE, EPARCHY_CODE, CITY_CODE, 
+      IN_NET_MODE, USER_PASSWD, USER_DIFF_CODE, 
+      USER_TYPE_CODE, CAR_NUMBER, SERIAL_NUMBER, 
+      NET_TYPE_CODE, SCORE_VALUE, CREDIT_CLASS, 
+      BASIC_CREDIT_VALUE, CREDIT_VALUE, ACCT_TAG, 
+      PREPAY_TAG, IN_DATE, OPEN_DATE, 
+      OPEN_MODE, OPEN_DEPART_ID, OPEN_STAFF_ID, 
+      IN_DEPART_ID, IN_STAFF_ID, REMOVE_TAG, 
+      DESTROY_TIME, REMOVE_EPARCHY_CODE, REMOVE_CITY_CODE, 
+      REMOVE_DEPART_ID, REMOVE_REASON_CODE, PRE_DESTROY_TIME, 
+      FIRST_CALL_TIME, LAST_STOP_TIME, USER_STATE_CODESET, 
+      MPUTE_MONTH_FEE, MPUTE_DATE, UPDATE_TIME, 
+      ASSURE_CUST_ID, ASSURE_TYPE_CODE, ASSURE_DATE, 
+      DEVELOP_STAFF_ID, DEVELOP_DATE, DEVELOP_EPARCHY_CODE, 
+      DEVELOP_CITY_CODE, DEVELOP_DEPART_ID, DEVELOP_NO, 
+      REMARK, CREDIT_RULE_ID, CONTRACT_ID, 
+      CHANGEUSER_DATE, MAIN_DISCNT_CODE, PRODUCT_SPEC
+      )
+    values (#{tradeId,jdbcType=DECIMAL}, #{acceptMonth,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, 
+      #{partitionId,jdbcType=INTEGER}, #{custId,jdbcType=INTEGER}, #{usecustId,jdbcType=INTEGER}, 
+      #{orgId,jdbcType=INTEGER}, #{brandCode,jdbcType=CHAR}, #{productId,jdbcType=INTEGER}, 
+      #{productTypeCode,jdbcType=VARCHAR}, #{eparchyCode,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
+      #{inNetMode,jdbcType=VARCHAR}, #{userPasswd,jdbcType=VARCHAR}, #{userDiffCode,jdbcType=VARCHAR}, 
+      #{userTypeCode,jdbcType=CHAR}, #{carNumber,jdbcType=VARCHAR}, #{serialNumber,jdbcType=VARCHAR}, 
+      #{netTypeCode,jdbcType=VARCHAR}, #{scoreValue,jdbcType=INTEGER}, #{creditClass,jdbcType=INTEGER}, 
+      #{basicCreditValue,jdbcType=INTEGER}, #{creditValue,jdbcType=INTEGER}, #{acctTag,jdbcType=CHAR}, 
+      #{prepayTag,jdbcType=CHAR}, #{inDate,jdbcType=DATE}, #{openDate,jdbcType=DATE}, 
+      #{openMode,jdbcType=CHAR}, #{openDepartId,jdbcType=VARCHAR}, #{openStaffId,jdbcType=VARCHAR}, 
+      #{inDepartId,jdbcType=VARCHAR}, #{inStaffId,jdbcType=VARCHAR}, #{removeTag,jdbcType=CHAR}, 
+      #{destroyTime,jdbcType=DATE}, #{removeEparchyCode,jdbcType=VARCHAR}, #{removeCityCode,jdbcType=VARCHAR}, 
+      #{removeDepartId,jdbcType=VARCHAR}, #{removeReasonCode,jdbcType=VARCHAR}, #{preDestroyTime,jdbcType=DATE}, 
+      #{firstCallTime,jdbcType=DATE}, #{lastStopTime,jdbcType=DATE}, #{userStateCodeset,jdbcType=VARCHAR}, 
+      #{mputeMonthFee,jdbcType=CHAR}, #{mputeDate,jdbcType=DATE}, #{updateTime,jdbcType=DATE}, 
+      #{assureCustId,jdbcType=INTEGER}, #{assureTypeCode,jdbcType=CHAR}, #{assureDate,jdbcType=DATE}, 
+      #{developStaffId,jdbcType=VARCHAR}, #{developDate,jdbcType=DATE}, #{developEparchyCode,jdbcType=VARCHAR}, 
+      #{developCityCode,jdbcType=VARCHAR}, #{developDepartId,jdbcType=VARCHAR}, #{developNo,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{creditRuleId,jdbcType=INTEGER}, #{contractId,jdbcType=VARCHAR}, 
+      #{changeuserDate,jdbcType=DATE}, #{mainDiscntCode,jdbcType=INTEGER}, #{productSpec,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeUserPo" >
+    insert into TF_B_TRADE_USER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tradeId != null" >
+        TRADE_ID,
+      </if>
+      <if test="acceptMonth != null" >
+        ACCEPT_MONTH,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="partitionId != null" >
+        PARTITION_ID,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="usecustId != null" >
+        USECUST_ID,
+      </if>
+      <if test="orgId != null" >
+        ORG_ID,
+      </if>
+      <if test="brandCode != null" >
+        BRAND_CODE,
+      </if>
+      <if test="productId != null" >
+        PRODUCT_ID,
+      </if>
+      <if test="productTypeCode != null" >
+        PRODUCT_TYPE_CODE,
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="inNetMode != null" >
+        IN_NET_MODE,
+      </if>
+      <if test="userPasswd != null" >
+        USER_PASSWD,
+      </if>
+      <if test="userDiffCode != null" >
+        USER_DIFF_CODE,
+      </if>
+      <if test="userTypeCode != null" >
+        USER_TYPE_CODE,
+      </if>
+      <if test="carNumber != null" >
+        CAR_NUMBER,
+      </if>
+      <if test="serialNumber != null" >
+        SERIAL_NUMBER,
+      </if>
+      <if test="netTypeCode != null" >
+        NET_TYPE_CODE,
+      </if>
+      <if test="scoreValue != null" >
+        SCORE_VALUE,
+      </if>
+      <if test="creditClass != null" >
+        CREDIT_CLASS,
+      </if>
+      <if test="basicCreditValue != null" >
+        BASIC_CREDIT_VALUE,
+      </if>
+      <if test="creditValue != null" >
+        CREDIT_VALUE,
+      </if>
+      <if test="acctTag != null" >
+        ACCT_TAG,
+      </if>
+      <if test="prepayTag != null" >
+        PREPAY_TAG,
+      </if>
+      <if test="inDate != null" >
+        IN_DATE,
+      </if>
+      <if test="openDate != null" >
+        OPEN_DATE,
+      </if>
+      <if test="openMode != null" >
+        OPEN_MODE,
+      </if>
+      <if test="openDepartId != null" >
+        OPEN_DEPART_ID,
+      </if>
+      <if test="openStaffId != null" >
+        OPEN_STAFF_ID,
+      </if>
+      <if test="inDepartId != null" >
+        IN_DEPART_ID,
+      </if>
+      <if test="inStaffId != null" >
+        IN_STAFF_ID,
+      </if>
+      <if test="removeTag != null" >
+        REMOVE_TAG,
+      </if>
+      <if test="destroyTime != null" >
+        DESTROY_TIME,
+      </if>
+      <if test="removeEparchyCode != null" >
+        REMOVE_EPARCHY_CODE,
+      </if>
+      <if test="removeCityCode != null" >
+        REMOVE_CITY_CODE,
+      </if>
+      <if test="removeDepartId != null" >
+        REMOVE_DEPART_ID,
+      </if>
+      <if test="removeReasonCode != null" >
+        REMOVE_REASON_CODE,
+      </if>
+      <if test="preDestroyTime != null" >
+        PRE_DESTROY_TIME,
+      </if>
+      <if test="firstCallTime != null" >
+        FIRST_CALL_TIME,
+      </if>
+      <if test="lastStopTime != null" >
+        LAST_STOP_TIME,
+      </if>
+      <if test="userStateCodeset != null" >
+        USER_STATE_CODESET,
+      </if>
+      <if test="mputeMonthFee != null" >
+        MPUTE_MONTH_FEE,
+      </if>
+      <if test="mputeDate != null" >
+        MPUTE_DATE,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="assureCustId != null" >
+        ASSURE_CUST_ID,
+      </if>
+      <if test="assureTypeCode != null" >
+        ASSURE_TYPE_CODE,
+      </if>
+      <if test="assureDate != null" >
+        ASSURE_DATE,
+      </if>
+      <if test="developStaffId != null" >
+        DEVELOP_STAFF_ID,
+      </if>
+      <if test="developDate != null" >
+        DEVELOP_DATE,
+      </if>
+      <if test="developEparchyCode != null" >
+        DEVELOP_EPARCHY_CODE,
+      </if>
+      <if test="developCityCode != null" >
+        DEVELOP_CITY_CODE,
+      </if>
+      <if test="developDepartId != null" >
+        DEVELOP_DEPART_ID,
+      </if>
+      <if test="developNo != null" >
+        DEVELOP_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="creditRuleId != null" >
+        CREDIT_RULE_ID,
+      </if>
+      <if test="contractId != null" >
+        CONTRACT_ID,
+      </if>
+      <if test="changeuserDate != null" >
+        CHANGEUSER_DATE,
+      </if>
+      <if test="mainDiscntCode != null" >
+        MAIN_DISCNT_CODE,
+      </if>
+      <if test="productSpec != null" >
+        PRODUCT_SPEC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tradeId != null" >
+        #{tradeId,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptMonth != null" >
+        #{acceptMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="partitionId != null" >
+        #{partitionId,jdbcType=INTEGER},
+      </if>
+      <if test="custId != null" >
+        #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="usecustId != null" >
+        #{usecustId,jdbcType=INTEGER},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=INTEGER},
+      </if>
+      <if test="brandCode != null" >
+        #{brandCode,jdbcType=CHAR},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productTypeCode != null" >
+        #{productTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="eparchyCode != null" >
+        #{eparchyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="inNetMode != null" >
+        #{inNetMode,jdbcType=VARCHAR},
+      </if>
+      <if test="userPasswd != null" >
+        #{userPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="userDiffCode != null" >
+        #{userDiffCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userTypeCode != null" >
+        #{userTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="carNumber != null" >
+        #{carNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="netTypeCode != null" >
+        #{netTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreValue != null" >
+        #{scoreValue,jdbcType=INTEGER},
+      </if>
+      <if test="creditClass != null" >
+        #{creditClass,jdbcType=INTEGER},
+      </if>
+      <if test="basicCreditValue != null" >
+        #{basicCreditValue,jdbcType=INTEGER},
+      </if>
+      <if test="creditValue != null" >
+        #{creditValue,jdbcType=INTEGER},
+      </if>
+      <if test="acctTag != null" >
+        #{acctTag,jdbcType=CHAR},
+      </if>
+      <if test="prepayTag != null" >
+        #{prepayTag,jdbcType=CHAR},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=DATE},
+      </if>
+      <if test="openDate != null" >
+        #{openDate,jdbcType=DATE},
+      </if>
+      <if test="openMode != null" >
+        #{openMode,jdbcType=CHAR},
+      </if>
+      <if test="openDepartId != null" >
+        #{openDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="openStaffId != null" >
+        #{openStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="inDepartId != null" >
+        #{inDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="inStaffId != null" >
+        #{inStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="removeTag != null" >
+        #{removeTag,jdbcType=CHAR},
+      </if>
+      <if test="destroyTime != null" >
+        #{destroyTime,jdbcType=DATE},
+      </if>
+      <if test="removeEparchyCode != null" >
+        #{removeEparchyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="removeCityCode != null" >
+        #{removeCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="removeDepartId != null" >
+        #{removeDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="removeReasonCode != null" >
+        #{removeReasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="preDestroyTime != null" >
+        #{preDestroyTime,jdbcType=DATE},
+      </if>
+      <if test="firstCallTime != null" >
+        #{firstCallTime,jdbcType=DATE},
+      </if>
+      <if test="lastStopTime != null" >
+        #{lastStopTime,jdbcType=DATE},
+      </if>
+      <if test="userStateCodeset != null" >
+        #{userStateCodeset,jdbcType=VARCHAR},
+      </if>
+      <if test="mputeMonthFee != null" >
+        #{mputeMonthFee,jdbcType=CHAR},
+      </if>
+      <if test="mputeDate != null" >
+        #{mputeDate,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="assureCustId != null" >
+        #{assureCustId,jdbcType=INTEGER},
+      </if>
+      <if test="assureTypeCode != null" >
+        #{assureTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="assureDate != null" >
+        #{assureDate,jdbcType=DATE},
+      </if>
+      <if test="developStaffId != null" >
+        #{developStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="developDate != null" >
+        #{developDate,jdbcType=DATE},
+      </if>
+      <if test="developEparchyCode != null" >
+        #{developEparchyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="developCityCode != null" >
+        #{developCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="developDepartId != null" >
+        #{developDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="developNo != null" >
+        #{developNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creditRuleId != null" >
+        #{creditRuleId,jdbcType=INTEGER},
+      </if>
+      <if test="contractId != null" >
+        #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="changeuserDate != null" >
+        #{changeuserDate,jdbcType=DATE},
+      </if>
+      <if test="mainDiscntCode != null" >
+        #{mainDiscntCode,jdbcType=INTEGER},
+      </if>
+      <if test="productSpec != null" >
+        #{productSpec,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeUserPo" >
+    update TF_B_TRADE_USER
+    <set >
+      <if test="partitionId != null" >
+        PARTITION_ID = #{partitionId,jdbcType=INTEGER},
+      </if>
+      <if test="custId != null" >
+        CUST_ID = #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="usecustId != null" >
+        USECUST_ID = #{usecustId,jdbcType=INTEGER},
+      </if>
+      <if test="orgId != null" >
+        ORG_ID = #{orgId,jdbcType=INTEGER},
+      </if>
+      <if test="brandCode != null" >
+        BRAND_CODE = #{brandCode,jdbcType=CHAR},
+      </if>
+      <if test="productId != null" >
+        PRODUCT_ID = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productTypeCode != null" >
+        PRODUCT_TYPE_CODE = #{productTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE = #{eparchyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="inNetMode != null" >
+        IN_NET_MODE = #{inNetMode,jdbcType=VARCHAR},
+      </if>
+      <if test="userPasswd != null" >
+        USER_PASSWD = #{userPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="userDiffCode != null" >
+        USER_DIFF_CODE = #{userDiffCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userTypeCode != null" >
+        USER_TYPE_CODE = #{userTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="carNumber != null" >
+        CAR_NUMBER = #{carNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        SERIAL_NUMBER = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="netTypeCode != null" >
+        NET_TYPE_CODE = #{netTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreValue != null" >
+        SCORE_VALUE = #{scoreValue,jdbcType=INTEGER},
+      </if>
+      <if test="creditClass != null" >
+        CREDIT_CLASS = #{creditClass,jdbcType=INTEGER},
+      </if>
+      <if test="basicCreditValue != null" >
+        BASIC_CREDIT_VALUE = #{basicCreditValue,jdbcType=INTEGER},
+      </if>
+      <if test="creditValue != null" >
+        CREDIT_VALUE = #{creditValue,jdbcType=INTEGER},
+      </if>
+      <if test="acctTag != null" >
+        ACCT_TAG = #{acctTag,jdbcType=CHAR},
+      </if>
+      <if test="prepayTag != null" >
+        PREPAY_TAG = #{prepayTag,jdbcType=CHAR},
+      </if>
+      <if test="inDate != null" >
+        IN_DATE = #{inDate,jdbcType=DATE},
+      </if>
+      <if test="openDate != null" >
+        OPEN_DATE = #{openDate,jdbcType=DATE},
+      </if>
+      <if test="openMode != null" >
+        OPEN_MODE = #{openMode,jdbcType=CHAR},
+      </if>
+      <if test="openDepartId != null" >
+        OPEN_DEPART_ID = #{openDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="openStaffId != null" >
+        OPEN_STAFF_ID = #{openStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="inDepartId != null" >
+        IN_DEPART_ID = #{inDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="inStaffId != null" >
+        IN_STAFF_ID = #{inStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="removeTag != null" >
+        REMOVE_TAG = #{removeTag,jdbcType=CHAR},
+      </if>
+      <if test="destroyTime != null" >
+        DESTROY_TIME = #{destroyTime,jdbcType=DATE},
+      </if>
+      <if test="removeEparchyCode != null" >
+        REMOVE_EPARCHY_CODE = #{removeEparchyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="removeCityCode != null" >
+        REMOVE_CITY_CODE = #{removeCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="removeDepartId != null" >
+        REMOVE_DEPART_ID = #{removeDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="removeReasonCode != null" >
+        REMOVE_REASON_CODE = #{removeReasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="preDestroyTime != null" >
+        PRE_DESTROY_TIME = #{preDestroyTime,jdbcType=DATE},
+      </if>
+      <if test="firstCallTime != null" >
+        FIRST_CALL_TIME = #{firstCallTime,jdbcType=DATE},
+      </if>
+      <if test="lastStopTime != null" >
+        LAST_STOP_TIME = #{lastStopTime,jdbcType=DATE},
+      </if>
+      <if test="userStateCodeset != null" >
+        USER_STATE_CODESET = #{userStateCodeset,jdbcType=VARCHAR},
+      </if>
+      <if test="mputeMonthFee != null" >
+        MPUTE_MONTH_FEE = #{mputeMonthFee,jdbcType=CHAR},
+      </if>
+      <if test="mputeDate != null" >
+        MPUTE_DATE = #{mputeDate,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="assureCustId != null" >
+        ASSURE_CUST_ID = #{assureCustId,jdbcType=INTEGER},
+      </if>
+      <if test="assureTypeCode != null" >
+        ASSURE_TYPE_CODE = #{assureTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="assureDate != null" >
+        ASSURE_DATE = #{assureDate,jdbcType=DATE},
+      </if>
+      <if test="developStaffId != null" >
+        DEVELOP_STAFF_ID = #{developStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="developDate != null" >
+        DEVELOP_DATE = #{developDate,jdbcType=DATE},
+      </if>
+      <if test="developEparchyCode != null" >
+        DEVELOP_EPARCHY_CODE = #{developEparchyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="developCityCode != null" >
+        DEVELOP_CITY_CODE = #{developCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="developDepartId != null" >
+        DEVELOP_DEPART_ID = #{developDepartId,jdbcType=VARCHAR},
+      </if>
+      <if test="developNo != null" >
+        DEVELOP_NO = #{developNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creditRuleId != null" >
+        CREDIT_RULE_ID = #{creditRuleId,jdbcType=INTEGER},
+      </if>
+      <if test="contractId != null" >
+        CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="changeuserDate != null" >
+        CHANGEUSER_DATE = #{changeuserDate,jdbcType=DATE},
+      </if>
+      <if test="mainDiscntCode != null" >
+        MAIN_DISCNT_CODE = #{mainDiscntCode,jdbcType=INTEGER},
+      </if>
+      <if test="productSpec != null" >
+        PRODUCT_SPEC = #{productSpec,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and USER_ID = #{userId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.tfsPlatform.po.TfBTradeUserPo" >
+    update TF_B_TRADE_USER
+    set PARTITION_ID = #{partitionId,jdbcType=INTEGER},
+      CUST_ID = #{custId,jdbcType=INTEGER},
+      USECUST_ID = #{usecustId,jdbcType=INTEGER},
+      ORG_ID = #{orgId,jdbcType=INTEGER},
+      BRAND_CODE = #{brandCode,jdbcType=CHAR},
+      PRODUCT_ID = #{productId,jdbcType=INTEGER},
+      PRODUCT_TYPE_CODE = #{productTypeCode,jdbcType=VARCHAR},
+      EPARCHY_CODE = #{eparchyCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      IN_NET_MODE = #{inNetMode,jdbcType=VARCHAR},
+      USER_PASSWD = #{userPasswd,jdbcType=VARCHAR},
+      USER_DIFF_CODE = #{userDiffCode,jdbcType=VARCHAR},
+      USER_TYPE_CODE = #{userTypeCode,jdbcType=CHAR},
+      CAR_NUMBER = #{carNumber,jdbcType=VARCHAR},
+      SERIAL_NUMBER = #{serialNumber,jdbcType=VARCHAR},
+      NET_TYPE_CODE = #{netTypeCode,jdbcType=VARCHAR},
+      SCORE_VALUE = #{scoreValue,jdbcType=INTEGER},
+      CREDIT_CLASS = #{creditClass,jdbcType=INTEGER},
+      BASIC_CREDIT_VALUE = #{basicCreditValue,jdbcType=INTEGER},
+      CREDIT_VALUE = #{creditValue,jdbcType=INTEGER},
+      ACCT_TAG = #{acctTag,jdbcType=CHAR},
+      PREPAY_TAG = #{prepayTag,jdbcType=CHAR},
+      IN_DATE = #{inDate,jdbcType=DATE},
+      OPEN_DATE = #{openDate,jdbcType=DATE},
+      OPEN_MODE = #{openMode,jdbcType=CHAR},
+      OPEN_DEPART_ID = #{openDepartId,jdbcType=VARCHAR},
+      OPEN_STAFF_ID = #{openStaffId,jdbcType=VARCHAR},
+      IN_DEPART_ID = #{inDepartId,jdbcType=VARCHAR},
+      IN_STAFF_ID = #{inStaffId,jdbcType=VARCHAR},
+      REMOVE_TAG = #{removeTag,jdbcType=CHAR},
+      DESTROY_TIME = #{destroyTime,jdbcType=DATE},
+      REMOVE_EPARCHY_CODE = #{removeEparchyCode,jdbcType=VARCHAR},
+      REMOVE_CITY_CODE = #{removeCityCode,jdbcType=VARCHAR},
+      REMOVE_DEPART_ID = #{removeDepartId,jdbcType=VARCHAR},
+      REMOVE_REASON_CODE = #{removeReasonCode,jdbcType=VARCHAR},
+      PRE_DESTROY_TIME = #{preDestroyTime,jdbcType=DATE},
+      FIRST_CALL_TIME = #{firstCallTime,jdbcType=DATE},
+      LAST_STOP_TIME = #{lastStopTime,jdbcType=DATE},
+      USER_STATE_CODESET = #{userStateCodeset,jdbcType=VARCHAR},
+      MPUTE_MONTH_FEE = #{mputeMonthFee,jdbcType=CHAR},
+      MPUTE_DATE = #{mputeDate,jdbcType=DATE},
+      UPDATE_TIME = #{updateTime,jdbcType=DATE},
+      ASSURE_CUST_ID = #{assureCustId,jdbcType=INTEGER},
+      ASSURE_TYPE_CODE = #{assureTypeCode,jdbcType=CHAR},
+      ASSURE_DATE = #{assureDate,jdbcType=DATE},
+      DEVELOP_STAFF_ID = #{developStaffId,jdbcType=VARCHAR},
+      DEVELOP_DATE = #{developDate,jdbcType=DATE},
+      DEVELOP_EPARCHY_CODE = #{developEparchyCode,jdbcType=VARCHAR},
+      DEVELOP_CITY_CODE = #{developCityCode,jdbcType=VARCHAR},
+      DEVELOP_DEPART_ID = #{developDepartId,jdbcType=VARCHAR},
+      DEVELOP_NO = #{developNo,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      CREDIT_RULE_ID = #{creditRuleId,jdbcType=INTEGER},
+      CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
+      CHANGEUSER_DATE = #{changeuserDate,jdbcType=DATE},
+      MAIN_DISCNT_CODE = #{mainDiscntCode,jdbcType=INTEGER},
+      PRODUCT_SPEC = #{productSpec,jdbcType=VARCHAR}
+    where TRADE_ID = #{tradeId,jdbcType=DECIMAL}
+      and ACCEPT_MONTH = #{acceptMonth,jdbcType=DECIMAL}
+      and USER_ID = #{userId,jdbcType=DECIMAL}
+  </update>
+</mapper>

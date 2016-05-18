@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.tfsPlatform.mapper.ext.TfFUserProductPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.tfsPlatform.po.TfFUserProductPo" >
+    <id column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <id column="PRODUCT_ID" property="productId" jdbcType="DECIMAL" />
+    <id column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <id column="USER_ID_A" property="userIdA" jdbcType="DECIMAL" />
+    <result column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="PRODUCT_MODE" property="productMode" jdbcType="CHAR" />
+    <result column="BRAND_CODE" property="brandCode" jdbcType="CHAR" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="ITEM_ID" property="itemId" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, PRODUCT_ID, START_DATE, USER_ID_A, PARTITION_ID, PRODUCT_MODE, BRAND_CODE, 
+    END_DATE, ITEM_ID
+  </sql>
+  <sql id="Base_Where_Clause" >
+    <where>
+	  <if test="userId != null" >
+        AND USER_ID = #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        AND PRODUCT_ID = #{productId,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null" >
+        AND START_DATE = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userIdA != null" >
+        AND USER_ID_A = #{userIdA,jdbcType=DECIMAL},
+      </if>
+      <if test="partitionId != null" >
+        AND PARTITION_ID = #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="productMode != null" >
+        AND PRODUCT_MODE = #{productMode,jdbcType=CHAR},
+      </if>
+      <if test="brandCode != null" >
+        AND BRAND_CODE = #{brandCode,jdbcType=CHAR},
+      </if>
+      <if test="endDate != null" >
+        AND END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemId != null" >
+        AND ITEM_ID = #{itemId,jdbcType=DECIMAL},
+      </if>
+	</where>
+  </sql>
+  <select id="queryTfFUserProductPoList" resultMap="BaseResultMap" parameterType="com.asiainfo.tfsPlatform.po.TfFUserProductPo" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TF_F_USER_PRODUCT
+   	<include refid="Base_Where_Clause" />
+  </select>
+</mapper>
